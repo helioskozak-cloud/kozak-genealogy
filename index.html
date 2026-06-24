@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Kozak / Relihan Genealogy Research</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -64,20 +63,6 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a}
 .cg-lbl{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#94a3b8;margin-bottom:9px}
 .indent{margin-left:20px;border-left:2px solid #e2e8f0;padding-left:14px;margin-top:2px;margin-bottom:14px}
 .indent-lbl{font-size:.67rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}
-/* TREE */
-#tree-wrap{border:1.5px solid #e2e8f0;border-radius:12px;background:#fff;overflow:hidden;position:relative}
-#tree-svg{display:block;cursor:grab}
-#tree-svg:active{cursor:grabbing}
-#detail-panel{position:absolute;top:12px;right:12px;width:220px;background:#fff;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;font-size:.78rem;box-shadow:0 4px 16px rgba(0,0,0,.1);display:none}
-#detail-panel .dp-name{font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem;margin-bottom:6px}
-#detail-panel .dp-row{display:flex;gap:5px;margin-bottom:3px;line-height:1.4}
-#detail-panel .dp-lbl{font-weight:600;color:#334155;min-width:44px;flex-shrink:0}
-#detail-panel .dp-close{position:absolute;top:8px;right:10px;cursor:pointer;color:#94a3b8;font-size:1.1rem;line-height:1}
-.tree-instructions{font-size:.75rem;color:#64748b;padding:8px 12px;background:#f8fafc;border-bottom:1px solid #e2e8f0;display:flex;gap:16px}
-.tree-instructions span{display:flex;align-items:center;gap:5px}
-.tree-legend{display:flex;flex-wrap:wrap;gap:8px;padding:8px 12px;border-top:1px solid #f1f5f9}
-.tl-item{display:flex;align-items:center;gap:5px;font-size:.7rem;color:#475569;font-weight:500}
-.tl-dot{width:10px;height:10px;border-radius:50%}
 /* McGIVNEY */
 .mcg-box{background:var(--mcg-bg);border:1.5px solid var(--mcg);border-radius:12px;padding:20px 24px;font-size:.83rem;line-height:2.0}
 .mcg-box .root{font-family:'Playfair Display',serif;font-weight:700;font-size:1rem}
@@ -124,7 +109,7 @@ footer{text-align:center;font-size:.72rem;color:#94a3b8;padding-top:28px;border-
 <nav class="nav">
   <span class="brand">Kozak Genealogy</span>
   <a href="#overview">Overview</a>
-  <a href="#tree">Family Tree</a>
+  <a href="tree.html">Family Tree</a>
   <a href="#dooley">Dooley Branch</a>
   <a href="#oconnell">O'Connell Branch</a>
   <a href="#mcnamara">McNamara Branch</a>
@@ -176,36 +161,26 @@ footer{text-align:center;font-size:.72rem;color:#94a3b8;padding-top:28px;border-
   </div>
 </section>
 
-<!-- INTERACTIVE TREE -->
+<!-- INTERACTIVE TREE LINK -->
 <section class="section" id="tree">
   <div class="section-title">Interactive Family Tree</div>
-  <p class="section-sub">Click any name to focus — it and its direct connections swell. Scroll to zoom, drag to pan.</p>
-  <div id="tree-wrap">
-    <div class="tree-instructions">
-      <span>🖱 Scroll to zoom</span>
-      <span>✋ Drag to pan</span>
-      <span>👆 Click name to focus connections</span>
-      <span>⎋ Click empty space to reset</span>
-    </div>
-    <div style="position:relative">
-      <svg id="tree-svg" width="100%" height="620"></svg>
-      <div id="detail-panel">
-        <div class="dp-close" id="dp-close">✕</div>
-        <div class="dp-name" id="dp-name"></div>
-        <div id="dp-body"></div>
+  <p class="section-sub">54 family members across three Relihan branches. Click any name to highlight direct connections.</p>
+  <a href="tree.html" style="display:block;background:#fff;border:1.5px solid #e2e8f0;border-radius:12px;overflow:hidden;text-decoration:none;transition:.15s" onmouseover="this.style.borderColor='#1d4ed8'" onmouseout="this.style.borderColor='#e2e8f0'">
+    <div style="background:linear-gradient(135deg,#0f172a,#1e293b);padding:40px 32px;text-align:center">
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:#f1f5f9;font-weight:700;margin-bottom:8px">Open Full-Screen Tree &rarr;</div>
+      <div style="font-size:.8rem;color:#64748b">Zoom &middot; Pan &middot; Click to explore connections</div>
+      <div style="display:flex;justify-content:center;gap:14px;margin-top:18px;flex-wrap:wrap">
+        <span style="background:#1e3a8a;color:#93c5fd;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:20px">Dooley Branch</span>
+        <span style="background:#14532d;color:#86efac;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:20px">Kozak</span>
+        <span style="background:#3b0764;color:#d8b4fe;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:20px">Shomsky</span>
+        <span style="background:#1e1b4b;color:#a5b4fc;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:20px">O'Connell Branch</span>
+        <span style="background:#431407;color:#fdba74;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:20px">McNamara Branch</span>
       </div>
     </div>
-    <div class="tree-legend">
-      <div class="tl-item"><div class="tl-dot" style="background:#1d4ed8"></div>Dooley</div>
-      <div class="tl-item"><div class="tl-dot" style="background:#15803d"></div>Kozak</div>
-      <div class="tl-item"><div class="tl-dot" style="background:#7e22ce"></div>Shomsky</div>
-      <div class="tl-item"><div class="tl-dot" style="background:#3730a3"></div>O'Connell</div>
-      <div class="tl-item"><div class="tl-dot" style="background:#c2410c"></div>McNamara</div>
-      <div class="tl-item"><div class="tl-dot" style="background:#64748b"></div>Unknown/Unresolved</div>
-      <div class="tl-item" style="margin-left:12px"><svg width="28" height="14"><line x1="0" y1="7" x2="28" y2="7" stroke="#334155" stroke-width="2"/></svg>Parent→Child</div>
-      <div class="tl-item"><svg width="28" height="14"><line x1="0" y1="7" x2="28" y2="7" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,3"/></svg>Spouse</div>
+    <div style="padding:10px 16px;border-top:1px solid #f1f5f9;font-size:.75rem;color:#64748b;display:flex;gap:16px">
+      <span>54 family members</span><span>48 relationships</span><span>4 generations</span><span>3 branches</span>
     </div>
-  </div>
+  </a>
 </section>
 
 <!-- DOOLEY BRANCH -->
@@ -213,7 +188,7 @@ footer{text-align:center;font-size:.72rem;color:#94a3b8;padding-top:28px;border-
   <div class="section-title" style="color:#1e3a8a">Dooley / Duley Branch <span class="badge" style="background:#dbeafe;color:#1d4ed8">Grant's Direct Line</span></div>
   <p class="section-sub">Grant's maternal family. The Relihan name enters through Thomas Peter Relihan, who married Dorothy Shomsky.</p>
 
-  <div class="gen-hdr">Generation 5 — Great-Great-Grandparents</div>
+  <div class="gen-hdr">Generation 5 — Great-Grandparents</div>
   <div class="cg"><div class="cg-lbl">Relihan side</div><div class="cards">
     <div class="card dooley"><div class="card-name">John J./R. Relihan Sr.</div><div class="card-row"><span class="lbl">Born</span><span>~1895, Bridgeport CT (est.)</span></div><div class="card-note">DOOLEY BRANCH — distinct from McNamara branch Sr.</div></div>
     <div class="card dooley"><div class="card-name">Ann Duley / Dooley<span class="sub">wife</span></div><div class="card-row"><span class="lbl">Location</span><span>Bridgeport CT</span></div></div>
@@ -222,15 +197,15 @@ footer{text-align:center;font-size:.72rem;color:#94a3b8;padding-top:28px;border-
     <div class="card shomsky"><div class="card-name">Michael Shomsky</div><div class="card-row"><span class="lbl">Church</span><span>St. John Baptist Orthodox, Bridgeport CT</span></div></div>
     <div class="card shomsky"><div class="card-name">Mary Demchak<span class="sub">wife</span></div></div>
   </div></div>
-  <div class="cg"><div class="cg-lbl">Kozak side</div><div class="cards">
-    <div class="card kozak"><div class="card-name">John J. Kozak</div><div class="card-row"><span class="lbl">Born</span><span>Jan 7, 1924 — Norwich CT</span></div><div class="card-row"><span class="lbl">Died</span><span>Sep 6, 2020</span></div></div>
-    <div class="card kozak"><div class="card-name">Helen Ustaseski Kozak<span class="sub">wife</span></div></div>
-  </div></div>
 
-  <div class="gen-hdr">Generation 4 — Children of John J. Relihan Sr.</div>
-  <div class="cg"><div class="cg-lbl">Thomas Peter's family</div><div class="cards">
+  <div class="gen-hdr">Generation 4 — Grandparents</div>
+  <div class="cg"><div class="cg-lbl">Thomas Peter's family (Relihan side)</div><div class="cards">
     <div class="card dooley"><div class="card-name">Thomas Peter Relihan<span class="sub">Grant's grandfather</span></div><div class="card-row"><span class="lbl">Location</span><span>Bridgeport CT</span></div></div>
     <div class="card shomsky"><div class="card-name">Dorothy Shomsky Relihan<span class="sub">wife</span></div><div class="card-row"><span class="lbl">Born</span><span>~1925, Bridgeport CT</span></div></div>
+  </div></div>
+  <div class="cg"><div class="cg-lbl">Kozak side (Grant's paternal grandparents)</div><div class="cards">
+    <div class="card kozak"><div class="card-name">John J. Kozak</div><div class="card-row"><span class="lbl">Born</span><span>Jan 7, 1924 — Norwich CT</span></div><div class="card-row"><span class="lbl">Died</span><span>Sep 6, 2020</span></div></div>
+    <div class="card kozak"><div class="card-name">Helen Ustaseski Kozak<span class="sub">wife</span></div></div>
   </div></div>
   <div class="cg"><div class="cg-lbl">Senator John J. Relihan Jr. — Priority 2</div><div class="cards">
     <div class="card unknown"><div class="card-name">Sen. John J. Relihan Jr.</div><div class="card-row"><span class="lbl">Role</span><span>CT State Senator ~1959–66</span></div><div class="card-row"><span class="lbl">Notes</span><span>Died in office. Spouse &amp; children unknown.</span></div><div class="tags"><span class="tag p">Priority 2</span></div><div class="card-note">Next: CT State Library, Bridgeport Post archive ~1964–66, CT State Register Manual PDFs.</div></div>
@@ -461,220 +436,6 @@ const observer = new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting) setActive(e.target.id); });
 },{threshold:0.15,rootMargin:'-56px 0px -70% 0px'});
 document.querySelectorAll('.section').forEach(s=>observer.observe(s));
-
-// ── D3 FAMILY TREE ────────────────────────────────────────────────────────
-const BRANCH_COLOR = {
-  dooley:'#1d4ed8', kozak:'#15803d', shomsky:'#7e22ce',
-  oconnell:'#3730a3', mcnamara:'#c2410c', unknown:'#64748b'
-};
-const BRANCH_FILL = {
-  dooley:'#dbeafe', kozak:'#dcfce7', shomsky:'#f3e8ff',
-  oconnell:'#e0e7ff', mcnamara:'#fff7ed', unknown:'#f1f5f9'
-};
-
-// Chart rows → Y pixels
-const ROW_Y = {5:80, 4:210, 3:360, 1:520};
-
-const nodes = [
-  // DOOLEY BRANCH
-  {id:'jjr-d',  name:'John J. Relihan Sr.',   note:'Dooley Branch · Bridgeport CT',   branch:'dooley',  row:5, bx:1},
-  {id:'ann-d',  name:'Ann Duley / Dooley',     note:'wife · Bridgeport CT',            branch:'dooley',  row:5, bx:2},
-  {id:'m-sh',   name:'Michael Shomsky',        note:'Bridgeport CT',                   branch:'shomsky', row:5, bx:3},
-  {id:'mary-d', name:'Mary Demchak',           note:'wife of Michael Shomsky',         branch:'shomsky', row:5, bx:4},
-  {id:'jj-koz', name:'John J. Kozak',         note:'b.1924 d.2020 Norwich CT',        branch:'kozak',   row:5, bx:5},
-  {id:'helen',  name:'Helen Ustaseski Kozak',  note:'Norwich CT',                      branch:'kozak',   row:5, bx:6},
-  {id:'tp',     name:'Thomas Peter Relihan',   note:"Grant's grandfather",             branch:'dooley',  row:4, bx:1},
-  {id:'dor',    name:'Dorothy Shomsky',        note:'b.~1925',                         branch:'shomsky', row:4, bx:2},
-  {id:'sen',    name:'Sen. John J. Relihan Jr.',note:'CT Senator ~1959-66 ⚠',         branch:'unknown', row:4, bx:3},
-  {id:'edw',    name:'Edward A. Relihan',      note:'b.1929 d.~1989 Newington ⚠⚠',  branch:'unknown', row:4, bx:4},
-  {id:'ann',    name:'Ann Relihan Lang',       note:'d.Dec 2008 Woodbridge CT',        branch:'dooley',  row:4, bx:5},
-  {id:'fl',     name:'Frank O. Lang',          note:'Woodbridge CT · obit unknown',   branch:'unknown', row:4, bx:6},
-  {id:'mar',    name:'Margaret Relihan Mellott',note:'d.after 2008',                  branch:'dooley',  row:4, bx:7},
-  {id:'jm2',   name:'James J. Mellott',       note:'husband',                         branch:'unknown', row:4, bx:8},
-  {id:'nancy',  name:'Nancy Relihan Kozak',    note:"Grant's mother",                  branch:'dooley',  row:3, bx:1},
-  {id:'tommy',  name:'Tommy Relihan Jr.',      note:'+ Carla Guarino · no children',  branch:'dooley',  row:3, bx:2},
-  {id:'rob',    name:'Robert Relihan',         note:'+ Cynthia Bixler',               branch:'dooley',  row:3, bx:3},
-  {id:'betsy',  name:'Betsy Relihan Gross',    note:'+ Jay · California',             branch:'dooley',  row:3, bx:4},
-  {id:'fl3',    name:'Frank O. Lang III',      note:'+ Julie · Woodbridge',           branch:'dooley',  row:3, bx:5},
-  {id:'matt',   name:'Matthew G. Lang',        note:'+ Brenda · CT',                  branch:'dooley',  row:3, bx:6},
-  {id:'carol',  name:'Carol Lang Barnes',      note:'+ Doug Barnes',                  branch:'dooley',  row:3, bx:7},
-  {id:'ter',    name:'Terese Travis-Horvath',  note:'+ Robert Horvath',               branch:'dooley',  row:3, bx:8},
-  {id:'den',    name:'Denise Mellott Barnes',  note:'d.Mar 11 2025',                  branch:'dooley',  row:3, bx:9},
-  {id:'mark',   name:'Mark Kozak',             note:"Grant's father · Norwich→Woodbridge",branch:'kozak',row:3, bx:10},
-  {id:'grant',  name:'Grant Kozak',            note:'+ Jessica',                      branch:'dooley',  row:1, bx:1},
-  {id:'hilary', name:'Hilary Kozak Willis',    note:'+ Malcolm Willis',               branch:'dooley',  row:1, bx:2},
-  // O'CONNELL BRANCH
-  {id:'jt-r',   name:'James T. Relihan',       note:'Bridgeport CT',                  branch:'oconnell',row:5, bx:12},
-  {id:'mary-oc',name:"Mary O'Connell Relihan", note:"★ O'Connell watchlist",          branch:'oconnell',row:5, bx:13},
-  {id:'jm-r',   name:'James M. Relihan',       note:'b.1927 KofC Orange CT d.2021',  branch:'oconnell',row:4, bx:12},
-  {id:'jr-r',   name:'Joseph R. Relihan',      note:"Fairfield Prep '47 d.2018",     branch:'oconnell',row:4, bx:13},
-  {id:'jjr-oc', name:'James Relihan Jr.',      note:'+ Geraldine · Naugatuck',       branch:'oconnell',row:3, bx:12},
-  {id:'don-r',  name:'Donald Relihan',         note:'+ Susan · Orange CT',            branch:'oconnell',row:3, bx:13},
-  {id:'jos-oc', name:'Joseph Relihan',         note:'+ Camille · Ansonia',            branch:'oconnell',row:3, bx:14},
-  {id:'kathy',  name:'Kathy Relihan Magowan',  note:'+ J. Carew · Ansonia',          branch:'oconnell',row:3, bx:15},
-  {id:'eileen', name:'Eileen Santanelli',      note:'+ Dr. James · Hamden',           branch:'oconnell',row:3, bx:16},
-  {id:'steven', name:'Steven Relihan',         note:'+ Kathy · Wakefield MA',         branch:'oconnell',row:3, bx:17},
-  {id:'rob-oc', name:'Robert Relihan',         note:'Lynnfield MA',                   branch:'oconnell',row:3, bx:18},
-  {id:'jane',   name:'Jane Relihan Kerhulas',  note:'N. Reading MA',                  branch:'oconnell',row:3, bx:19},
-  {id:'scott',  name:'Scott Relihan',          note:'N. Andover MA',                  branch:'oconnell',row:3, bx:20},
-  // McNAMARA BRANCH
-  {id:'jjr-mn', name:'John J. Relihan Sr.',    note:'McNamara Branch · Fairfield CT', branch:'mcnamara',row:5, bx:22},
-  {id:'mabel',  name:'Mabel McNamara Relihan', note:"Stratford CT · St. Michael's",  branch:'mcnamara',row:5, bx:23},
-  {id:'joan',   name:'Joan Byrne Relihan',     note:"b.1931 d.May 2024 · Prep '49",  branch:'mcnamara',row:4, bx:21},
-  {id:'sally',  name:'Sally Relihan Kelly',    note:'d.May 18 2001 (corrected)',      branch:'mcnamara',row:4, bx:22},
-  {id:'jd-k',   name:'John D. Kelly',          note:'husband of Sally ⚠',            branch:'unknown', row:4, bx:23},
-  {id:'nancy-mn',name:'Nancy Relihan Martini', note:"b.1934 d.Aug 2024 · Winnetka",  branch:'mcnamara',row:4, bx:24},
-  {id:'curt',   name:'W. Curt Martini Sr.',    note:'husband of Nancy',               branch:'unknown', row:4, bx:25},
-  {id:'john-az',name:'John J. Relihan Jr.',    note:"Prep '58 · Georgetown · Phoenix",branch:'mcnamara',row:4, bx:26},
-  {id:'peter-k',name:'Peter T. Kelly',         note:'',                               branch:'mcnamara',row:3, bx:21},
-  {id:'sean-k', name:'Sean G. Kelly',          note:'',                               branch:'mcnamara',row:3, bx:22},
-  {id:'sarah-k',name:'Sarah A. Kelly',         note:'',                               branch:'mcnamara',row:3, bx:23},
-  {id:'mark-k', name:'Mark J. Kelly',          note:'',                               branch:'mcnamara',row:3, bx:24},
-  {id:'mara-km',name:'Mara Kelly Marsh',       note:'',                               branch:'mcnamara',row:3, bx:25},
-  {id:'john-p', name:'John P. Relihan, Esq.',  note:'Thousand Oaks CA',               branch:'mcnamara',row:3, bx:26},
-  {id:'pat-r',  name:'Patrick Relihan',        note:'Phoenix AZ · active 2026',       branch:'mcnamara',row:3, bx:27},
-  {id:'alisha', name:'Alisha Fahrendorf',      note:'+ C. Fahrendorf Jr. · Phoenix',  branch:'mcnamara',row:3, bx:28},
-];
-
-const links = [
-  // Dooley G5 marriages
-  {s:'jjr-d',t:'ann-d',type:'spouse'},{s:'m-sh',t:'mary-d',type:'spouse'},{s:'jj-koz',t:'helen',type:'spouse'},
-  // Dooley G5→G4
-  {s:'jjr-d',t:'tp',type:'parent'},{s:'jjr-d',t:'sen',type:'parent'},{s:'jjr-d',t:'edw',type:'parent'},
-  {s:'jjr-d',t:'ann',type:'parent'},{s:'jjr-d',t:'mar',type:'parent'},
-  {s:'m-sh',t:'dor',type:'parent'},{s:'jj-koz',t:'mark',type:'parent'},
-  // G4 marriages
-  {s:'tp',t:'dor',type:'spouse'},{s:'ann',t:'fl',type:'spouse'},{s:'mar',t:'jm2',type:'spouse'},
-  // G4→G3
-  {s:'tp',t:'nancy',type:'parent'},{s:'tp',t:'tommy',type:'parent'},{s:'tp',t:'rob',type:'parent'},{s:'tp',t:'betsy',type:'parent'},
-  {s:'ann',t:'fl3',type:'parent'},{s:'ann',t:'matt',type:'parent'},{s:'ann',t:'carol',type:'parent'},
-  {s:'mar',t:'ter',type:'parent'},{s:'mar',t:'den',type:'parent'},
-  // G3 marriage + children
-  {s:'nancy',t:'mark',type:'spouse'},
-  {s:'nancy',t:'grant',type:'parent'},{s:'nancy',t:'hilary',type:'parent'},
-  // O'Connell
-  {s:'jt-r',t:'mary-oc',type:'spouse'},
-  {s:'jt-r',t:'jm-r',type:'parent'},{s:'jt-r',t:'jr-r',type:'parent'},
-  {s:'jm-r',t:'jjr-oc',type:'parent'},{s:'jm-r',t:'don-r',type:'parent'},{s:'jm-r',t:'jos-oc',type:'parent'},
-  {s:'jm-r',t:'kathy',type:'parent'},{s:'jm-r',t:'eileen',type:'parent'},
-  {s:'jr-r',t:'steven',type:'parent'},{s:'jr-r',t:'rob-oc',type:'parent'},{s:'jr-r',t:'jane',type:'parent'},{s:'jr-r',t:'scott',type:'parent'},
-  // McNamara
-  {s:'jjr-mn',t:'mabel',type:'spouse'},
-  {s:'jjr-mn',t:'joan',type:'parent'},{s:'jjr-mn',t:'sally',type:'parent'},
-  {s:'jjr-mn',t:'nancy-mn',type:'parent'},{s:'jjr-mn',t:'john-az',type:'parent'},
-  {s:'sally',t:'jd-k',type:'spouse'},{s:'nancy-mn',t:'curt',type:'spouse'},
-  {s:'sally',t:'peter-k',type:'parent'},{s:'sally',t:'sean-k',type:'parent'},{s:'sally',t:'sarah-k',type:'parent'},
-  {s:'sally',t:'mark-k',type:'parent'},{s:'sally',t:'mara-km',type:'parent'},
-  {s:'john-az',t:'john-p',type:'parent'},{s:'john-az',t:'pat-r',type:'parent'},{s:'john-az',t:'alisha',type:'parent'},
-];
-
-(function buildTree(){
-  const W = document.getElementById('tree-svg').clientWidth || 1300;
-  const H = 620;
-  const SLOT = 44; // px per bx unit
-  const XOFF = 20;
-
-  const svg = d3.select('#tree-svg')
-    .attr('width', W).attr('height', H);
-
-  const g = svg.append('g');
-
-  // zoom
-  svg.call(d3.zoom().scaleExtent([0.3,3]).on('zoom', e => g.attr('transform', e.transform)));
-  svg.on('click', function(e){
-    if(e.target === this || e.target === svg.node()) resetHighlight();
-  });
-
-  // prep node positions
-  nodes.forEach(n => {
-    n.x = XOFF + n.bx * SLOT;
-    n.fy = ROW_Y[n.row];
-  });
-
-  const nodeById = {};
-  nodes.forEach(n => nodeById[n.id] = n);
-
-  const linkData = links.map(l => ({
-    source: nodeById[l.s], target: nodeById[l.t], type: l.type
-  }));
-
-  // simulation — only x-force, y is pinned
-  const sim = d3.forceSimulation(nodes)
-    .force('link', d3.forceLink(linkData).id(d=>d.id).distance(d=>d.type==='spouse'?30:50).strength(0.15))
-    .force('collide', d3.forceCollide(22))
-    .force('x', d3.forceX(n => XOFF + n.bx * SLOT).strength(0.4))
-    .stop();
-
-  for(let i=0; i<300; i++) sim.tick();
-
-  // draw links
-  const linkSel = g.append('g').selectAll('line').data(linkData).join('line')
-    .attr('stroke', d => d.type==='parent' ? '#334155' : '#94a3b8')
-    .attr('stroke-width', d => d.type==='parent' ? 1.5 : 1.2)
-    .attr('stroke-dasharray', d => d.type==='spouse' ? '5,3' : null)
-    .attr('opacity', 0.6)
-    .attr('x1',d=>d.source.x).attr('y1',d=>d.source.fy)
-    .attr('x2',d=>d.target.x).attr('y2',d=>d.target.fy);
-
-  // draw nodes
-  const R_NORMAL = 10, R_FOCUS = 20, R_ADJ = 14, R_DIM = 7;
-  const nodeSel = g.append('g').selectAll('g').data(nodes).join('g')
-    .attr('transform', d=>`translate(${d.x},${d.fy})`)
-    .style('cursor','pointer')
-    .on('click', (e,d) => { e.stopPropagation(); focusNode(d); });
-
-  nodeSel.append('circle')
-    .attr('r', R_NORMAL)
-    .attr('fill', d => BRANCH_FILL[d.branch])
-    .attr('stroke', d => BRANCH_COLOR[d.branch])
-    .attr('stroke-width', 2)
-    .style('transition','r 0.25s, opacity 0.25s');
-
-  nodeSel.append('text')
-    .attr('y', 18)
-    .attr('text-anchor','middle')
-    .attr('font-size','8px')
-    .attr('font-family','Inter,sans-serif')
-    .attr('fill','#0f172a')
-    .attr('paint-order','stroke')
-    .attr('stroke','#fff')
-    .attr('stroke-width','3px')
-    .text(d => d.name.length > 20 ? d.name.slice(0,19)+'…' : d.name);
-
-  function focusNode(d){
-    const adj = new Set();
-    linkData.forEach(l=>{
-      if(l.source.id===d.id) adj.add(l.target.id);
-      if(l.target.id===d.id) adj.add(l.source.id);
-    });
-    nodeSel.select('circle')
-      .attr('r', n => n.id===d.id ? R_FOCUS : adj.has(n.id) ? R_ADJ : R_DIM)
-      .attr('opacity', n => n.id===d.id || adj.has(n.id) ? 1 : 0.3);
-    nodeSel.select('text')
-      .attr('font-size', n => n.id===d.id ? '10px' : adj.has(n.id) ? '9px' : '7px')
-      .attr('opacity', n => n.id===d.id || adj.has(n.id) ? 1 : 0.3);
-    linkSel
-      .attr('opacity', l => l.source.id===d.id||l.target.id===d.id ? 1 : 0.08)
-      .attr('stroke-width', l => l.source.id===d.id||l.target.id===d.id ? 2.5 : 1);
-    // detail panel
-    const panel = document.getElementById('detail-panel');
-    document.getElementById('dp-name').textContent = d.name;
-    document.getElementById('dp-body').innerHTML =
-      `<div class="dp-row"><span class="dp-lbl">Branch</span>${d.branch}</div>` +
-      (d.note ? `<div class="dp-row"><span class="dp-lbl">Notes</span>${d.note}</div>` : '') +
-      `<div class="dp-row" style="margin-top:6px;color:#94a3b8;font-size:.7rem">${adj.size} direct connection${adj.size!==1?'s':''}</div>`;
-    panel.style.display = 'block';
-  }
-
-  function resetHighlight(){
-    nodeSel.select('circle').attr('r', R_NORMAL).attr('opacity', 1);
-    nodeSel.select('text').attr('font-size','8px').attr('opacity',1);
-    linkSel.attr('opacity',0.6).attr('stroke-width', d=>d.type==='parent'?1.5:1.2);
-    document.getElementById('detail-panel').style.display='none';
-  }
-
-  document.getElementById('dp-close').onclick = resetHighlight;
-})();
 </script>
 </body>
 </html>
