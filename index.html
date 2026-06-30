@@ -200,7 +200,26 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
 
 <!-- ════════════════════════════ OVERVIEW ════════════════════════════ -->
 <div id="tab-overview" class="tab-panel active">
-<div class="sec">
+
+<!-- RESEARCH INBOX -->
+<div id="inbox-wrap" style="background:#fff;border:2px solid #3b82f6;border-radius:10px;padding:14px 16px;margin:18px auto 0;max-width:1280px;width:calc(100% - 36px)">
+  <div style="font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:#1d4ed8;margin-bottom:6px">Research Inbox</div>
+  <div style="font-size:.75rem;color:#64748b;margin-bottom:8px">Type anything you know or discover — a date, a name, a correction. Saved locally in this browser. I can pull these into the site on your next update.</div>
+  <div style="display:flex;gap:8px;align-items:flex-start">
+    <textarea id="inbox-input" rows="2" placeholder="e.g. 'Thomas P. Relihan was born March 15 1929 per death certificate' or 'Helen's maiden name was definitely Ustaseski per baptism record'" style="flex:1;font-family:Inter,sans-serif;font-size:.8rem;padding:8px 10px;border:1.5px solid #cbd5e1;border-radius:7px;resize:vertical;min-height:52px;line-height:1.5;color:#0f172a;background:#f8fafc"></textarea>
+    <button onclick="inboxSubmit()" style="font-size:.78rem;font-weight:700;padding:9px 16px;background:#3b82f6;color:#fff;border:none;border-radius:7px;cursor:pointer;flex-shrink:0;height:52px">Submit</button>
+  </div>
+  <div id="inbox-list" style="margin-top:10px;display:none">
+    <div style="font-size:.69rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;display:flex;align-items:center;gap:8px">
+      Pending observations
+      <button onclick="inboxCopyAll()" style="font-size:.67rem;font-weight:600;padding:2px 8px;border:1px solid #cbd5e1;border-radius:5px;background:#f8fafc;color:#475569;cursor:pointer;text-transform:none;letter-spacing:0">Copy all</button>
+      <button onclick="inboxClearAll()" style="font-size:.67rem;font-weight:600;padding:2px 8px;border:1px solid #fca5a5;border-radius:5px;background:#fef2f2;color:#991b1b;cursor:pointer;text-transform:none;letter-spacing:0">Clear all</button>
+    </div>
+    <div id="inbox-items"></div>
+  </div>
+</div>
+
+<div class="sec" style="margin-top:28px">
   <div class="sec-title">Kozak / Relihan Genealogy Research</div>
   <div class="sec-sub">Investigating whether Grant Kozak's maternal Relihan line connects, directly or indirectly, to the family of Blessed Michael J. McGivney — founder of the Knights of Columbus, Waterbury CT, 1882.</div>
 
@@ -600,18 +619,24 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
 <!-- ════════════════════════════ RESEARCH WEB ════════════════════════════ -->
 <div id="tab-web" class="tab-panel">
 <div class="sec">
-  <div class="sec-title">Research Web <span id="rsvg-hint" style="font-size:.73rem;font-weight:400;color:#94a3b8;font-family:Inter,sans-serif">· click a node to highlight its connections</span></div>
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
+    <div class="sec-title" style="margin-bottom:0">Research Web <span id="rsvg-hint" style="font-size:.73rem;font-weight:400;color:#94a3b8;font-family:Inter,sans-serif">· click a node to highlight its connections</span></div>
+    <button id="web-collapse-btn" onclick="toggleWebCollapse()" style="margin-left:auto;font-size:.72rem;font-weight:600;padding:5px 13px;border-radius:7px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#475569;cursor:pointer;flex-shrink:0">Collapse ▲</button>
+    <button onclick="switchTab('overview', document.querySelector('.tab-btn'))" style="font-size:.72rem;font-weight:600;padding:5px 13px;border-radius:7px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#475569;cursor:pointer;flex-shrink:0">← Back to Overview</button>
+  </div>
   <div class="sec-sub">Broader hypothesis network. McGivney cluster (right of red barrier) has <strong>no proven genealogical bridge</strong> to any Relihan branch.</div>
-  <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:10px;font-size:.71rem;color:#475569;align-items:center">
-    <span style="display:flex;align-items:center;gap:4px"><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#334155" stroke-width="2.5"/></svg>Confirmed</span>
-    <span style="display:flex;align-items:center;gap:4px"><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#d97706" stroke-width="2" stroke-dasharray="6,3"/></svg>Probable</span>
-    <span style="display:flex;align-items:center;gap:4px"><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="2,4"/></svg>Research-only</span>
-    <span style="display:flex;align-items:center;gap:4px"><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#be185d" stroke-width="2"/></svg>McGivney cluster</span>
+  <div id="web-body">
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:10px;font-size:.71rem;color:#475569;align-items:center">
+      <span style="display:flex;align-items:center;gap:4px"><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#334155" stroke-width="2.5"/></svg>Confirmed</span>
+      <span style="display:flex;align-items:center;gap:4px"><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#d97706" stroke-width="2" stroke-dasharray="6,3"/></svg>Probable</span>
+      <span style="display:flex;align-items:center;gap:4px"><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="2,4"/></svg>Research-only</span>
+      <span style="display:flex;align-items:center;gap:4px"><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#be185d" stroke-width="2"/></svg>McGivney cluster</span>
+    </div>
+    <div style="border-radius:10px;border:1px solid #e2e8f0;overflow:hidden">
+      <svg id="rsvg" style="display:block;width:100%;height:600px;background:#f8f9fb;border-radius:10px;cursor:grab;user-select:none"></svg>
+    </div>
+    <div style="margin-top:8px;font-size:.72rem;color:#94a3b8">Scroll/pinch to zoom &nbsp;·&nbsp; Drag to pan &nbsp;·&nbsp; Click a node to highlight connections</div>
   </div>
-  <div style="border-radius:10px;border:1px solid #e2e8f0;overflow:hidden">
-    <svg id="rsvg" style="display:block;width:100%;height:600px;background:#f8f9fb;border-radius:10px;cursor:grab;user-select:none"></svg>
-  </div>
-  <div style="margin-top:8px;font-size:.72rem;color:#94a3b8">Scroll/pinch to zoom &nbsp;·&nbsp; Drag to pan &nbsp;·&nbsp; Click a node to highlight connections</div>
 </div>
 </div>
 
@@ -1046,6 +1071,73 @@ function switchTab(id, btn) {
   btn.classList.add('active');
   if (id === 'web') initGraph();
 }
+
+// ── RESEARCH WEB COLLAPSE ────────────────────────────────────────────────
+var _webCollapsed = false;
+function toggleWebCollapse() {
+  _webCollapsed = !_webCollapsed;
+  var body = document.getElementById('web-body');
+  var btn  = document.getElementById('web-collapse-btn');
+  if (_webCollapsed) {
+    body.style.display = 'none';
+    btn.textContent = 'Expand ▼';
+  } else {
+    body.style.display = '';
+    btn.textContent = 'Collapse ▲';
+  }
+}
+
+// ── RESEARCH INBOX (localStorage) ───────────────────────────────────────
+var INBOX_KEY = 'kozak-inbox';
+function inboxGet(){ return JSON.parse(localStorage.getItem(INBOX_KEY)||'[]'); }
+function inboxSubmit(){
+  var val = (document.getElementById('inbox-input').value||'').trim();
+  if(!val) return;
+  var items = inboxGet();
+  items.unshift({text:val, saved:new Date().toISOString().slice(0,10)});
+  localStorage.setItem(INBOX_KEY, JSON.stringify(items));
+  document.getElementById('inbox-input').value = '';
+  inboxRender();
+}
+function inboxDelete(i){
+  var items = inboxGet();
+  items.splice(i,1);
+  localStorage.setItem(INBOX_KEY, JSON.stringify(items));
+  inboxRender();
+}
+function inboxCopyAll(){
+  var items = inboxGet();
+  if(!items.length) return;
+  var txt = items.map(function(it){ return '['+it.saved+'] '+it.text; }).join('\n');
+  navigator.clipboard.writeText(txt).then(function(){ alert('Copied '+items.length+' observation'+(items.length===1?'':'s')+' to clipboard.'); });
+}
+function inboxClearAll(){
+  if(!confirm('Clear all pending observations? This cannot be undone.')) return;
+  localStorage.removeItem(INBOX_KEY);
+  inboxRender();
+}
+function inboxRender(){
+  var items = inboxGet();
+  var wrap  = document.getElementById('inbox-list');
+  var cont  = document.getElementById('inbox-items');
+  if(!items.length){ wrap.style.display='none'; return; }
+  wrap.style.display='';
+  cont.innerHTML = items.map(function(it,i){
+    return '<div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-top:1px solid #f1f5f9">'
+      +'<span style="font-size:.65rem;color:#94a3b8;flex-shrink:0;padding-top:2px">'+it.saved+'</span>'
+      +'<span style="font-size:.76rem;color:#334155;flex:1;line-height:1.45">'+it.text+'</span>'
+      +'<button onclick="inboxDelete('+i+')" style="font-size:.62rem;color:#94a3b8;background:none;border:none;cursor:pointer;flex-shrink:0;padding:2px 4px" title="Remove">✕</button>'
+      +'</div>';
+  }).join('');
+}
+document.addEventListener('DOMContentLoaded', inboxRender);
+// Allow Ctrl+Enter or Enter in textarea to submit
+document.addEventListener('DOMContentLoaded', function(){
+  var inp = document.getElementById('inbox-input');
+  if(inp) inp.addEventListener('keydown', function(e){
+    if(e.key==='Enter' && (e.ctrlKey||e.metaKey)){ e.preventDefault(); inboxSubmit(); }
+  });
+});
 
 // ── CONFIRM / DENY SYSTEM (localStorage) ─────────────────────────────────
 var CB_KEY = 'kozak-confirmations';
