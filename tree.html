@@ -21,7 +21,7 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9;color:#0f
 .bh-btns{display:flex;gap:5px;flex-shrink:0;align-items:center;padding-top:2px}
 .bb{font-size:.7rem;font-weight:600;padding:4px 9px;border-radius:6px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#475569;cursor:pointer;white-space:nowrap}
 .bb:hover{background:#e2e8f0;color:#0f172a}
-.branch-body{padding:0;overflow:hidden}
+.branch-body{padding:0 0 0 56px;overflow:hidden}
 .branch-target{outline:2px dashed #dc2626;outline-offset:2px}
 .bsvg{display:block;width:100%;cursor:grab;background:#f8f9fb}
 .bsvg:active{cursor:grabbing}
@@ -304,7 +304,7 @@ var BW=214,BH=54,HGAP=62;
 function genOf(k){return Math.floor(Math.log2(k));}
 function rowOf(k){return k-Math.pow(2,genOf(k));}
 function ngOf(persons){return Math.floor(Math.log2(Math.max.apply(null,Object.keys(persons).map(Number))))+1;}
-function chOf(ng){return 100*Math.pow(2,ng-1);}
+function chOf(ng){return 160*Math.pow(2,ng-1);}
 function cwOf(ng){return (ng-1)*(BW+HGAP)+BW+32;}
 function yOf(k,CH){return (2*rowOf(k)+1)*CH/(2*Math.pow(2,genOf(k)));}
 function xOf(k,ng){return (ng-1-genOf(k))*(BW+HGAP);}
@@ -392,7 +392,7 @@ function drawBranch(branch){
   var ng=ngOf(persons);
   var CH=chOf(ng),CW=cwOf(ng);
   var svgEl=document.getElementById('svg-'+branch.id);
-  svgEl.style.height=(CH+56)+'px';
+  svgEl.style.height=(CH+72)+'px';
 
   var svg=d3.select('#svg-'+branch.id);
   var SC=svg.append('g');
