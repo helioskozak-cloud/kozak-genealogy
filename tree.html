@@ -47,19 +47,6 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9;color:#0f
 .cbar-btn-u:hover,.cbar-btn-u.active{background:#94a3b8;color:#fff}
 .cbar-saved{font-size:.63rem;color:#94a3b8;font-style:italic;margin-top:4px}
 .cbar-input{width:100%;margin-top:5px;font-size:.71rem;padding:4px 8px;border:1px solid #cbd5e1;border-radius:5px}
-/* FAMILY UNIT (siblings block) */
-.fam-block{padding:14px 18px 16px;border-top:1px solid #f1f5f9;background:#fff}
-.fam-hdr{font-size:.72rem;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
-.fam-connector{display:flex;align-items:flex-start;gap:0}
-.fam-parents{display:flex;flex-direction:column;gap:6px;margin-right:0}
-.fam-parent{background:#f1f5f9;border:1.5px solid #94a3b8;border-radius:5px;padding:5px 10px;font-size:.75rem;font-weight:600;color:#334155;white-space:nowrap}
-.fam-line-h{width:28px;border-top:1.5px solid #cbd5e1;margin-top:28px;flex-shrink:0}
-.fam-line-v{border-left:1.5px solid #cbd5e1;display:flex;flex-direction:column;gap:4px;padding-left:0}
-.fam-child{display:flex;align-items:center;gap:0}
-.fam-child-h{width:20px;border-top:1.5px solid #cbd5e1;flex-shrink:0}
-.fam-child-box{border-radius:5px;padding:5px 10px;font-size:.75rem;font-weight:600;white-space:nowrap}
-.fam-child-note{font-size:.68rem;font-weight:400;color:#64748b;margin-left:7px}
-.fam-note{font-size:.7rem;color:#94a3b8;font-style:italic;margin-top:8px}
 </style>
 </head>
 <body>
@@ -267,20 +254,8 @@ var BRANCHES=[
      facts:[['Origin','County Cork, Ireland → Waterbury CT'],
             ['Occupation','Ironworker, Scovill Manufacturing, Waterbury CT'],
             ['Key fact','County Cork origin distinguishes this family from the County Cavan McGivney family in Branch 2'],
-            ['Note','His parents (Michael\'s paternal grandparents) not yet in our research files']]}
- },
- family:{
-  heading:"Children of Patrick McGivney + Mary Lynch  (Waterbury CT)",
-  note:"Patrick and Mary had 13 children; several died in infancy or early childhood. Survivors listed below — sibling list may be incomplete, further research needed.",
-  children:[
-   {name:'Bl. Michael Joseph McGivney',note:'b.Aug 12 1852 · KofC founder · ← this branch',focal:true,branch:'mcg'},
-   {name:'John McGivney',note:'survived · lawyer · Waterbury CT',branch:'mcg'},
-   {name:'Thomas McGivney',note:'survived · became a Catholic priest',branch:'mcg',prob:true},
-   {name:'Patrick McGivney Jr.',note:'survived · took on family responsibilities after Michael\'s death',branch:'mcg',prob:true},
-   {name:'Mary McGivney',note:'survived · married name unknown',branch:'other',prob:true},
-   {name:'Anna / Annie McGivney',note:'survived · further details unknown',branch:'other',prob:true},
-   {name:'~7 others',note:'died in infancy or early childhood · names not in current research files',branch:'gray'},
-  ]
+            ['Note','His parents (Michael\'s paternal grandparents) not yet in our research files'],
+            ['Children (13 total)','Bl. Michael J. McGivney (KofC founder, this branch); John McGivney (lawyer, Waterbury CT); Thomas McGivney (Catholic priest, prob.); Patrick Jr. (prob.); Mary McGivney (married name unknown, prob.); Anna/Annie McGivney (prob.); ~7 others died in infancy — names not in current research files']]}
  }}
 
 ];// end BRANCHES
@@ -388,12 +363,27 @@ function collapseBranch(id){
 //  DRAW ONE BRANCH
 // ═══════════════════════════════════════════════════════════════
 var ZOOMS={};
+
+// Refit a branch SVG to its current rendered width (called on load and on resize)
+function fitBranch(branch){
+  var svgEl=document.getElementById('svg-'+branch.id);
+  if(!svgEl)return;
+  var bodyEl=document.getElementById('bb-'+branch.id);
+  if(bodyEl&&bodyEl.style.display==='none')return;
+  var ng=ngOf(branch.persons);
+  var CH=chOf(ng),CW=cwOf(ng);
+  var W=svgEl.getBoundingClientRect().width||window.innerWidth;
+  var s=(W-20)/CW*0.97;
+  svgEl.style.height=(CH*s+80)+'px';
+  var zoom=ZOOMS[branch.id];
+  if(zoom)d3.select(svgEl).call(zoom.transform,d3.zoomIdentity.translate(10,24).scale(s));
+}
+
 function drawBranch(branch){
   var persons=branch.persons;
   var ng=ngOf(persons);
   var CH=chOf(ng),CW=cwOf(ng);
   var svgEl=document.getElementById('svg-'+branch.id);
-  svgEl.style.height=(CH+72)+'px';
 
   var svg=d3.select('#svg-'+branch.id);
   var SC=svg.append('g');
@@ -478,58 +468,12 @@ function drawBranch(branch){
     }
   });
 
-  // Fit to full width of SVG
-  requestAnimationFrame(function(){
-    var r=svgEl.getBoundingClientRect();
-    var W=r.width||window.innerWidth,H=r.height||(CH+56);
-    var s=(W-20)/(CW)*0.97;
-    var ty=Math.max(24,(H-CH*s)/2);
-    svg.call(zoom.transform,d3.zoomIdentity.translate(10,ty).scale(s));
-  });
+  requestAnimationFrame(function(){ fitBranch(branch); });
 }
 
 // ═══════════════════════════════════════════════════════════════
 //  BUILD & RENDER ALL BRANCHES
 // ═══════════════════════════════════════════════════════════════
-// ═══════════════════════════════════════════════════════════════
-//  FAMILY BLOCK (siblings / children section below SVG)
-// ═══════════════════════════════════════════════════════════════
-var CHILD_CLR={
-  kozak:{bg:'#dcfce7',bd:'#15803d',fg:'#14532d'},
-  rel:  {bg:'#f3e8ff',bd:'#7e22ce',fg:'#3b0764'},
-  shom: {bg:'#e0f2fe',bd:'#0369a1',fg:'#0c4a6e'},
-  mcg:  {bg:'#fce7f3',bd:'#be185d',fg:'#831843'},
-  other:{bg:'#f1f5f9',bd:'#94a3b8',fg:'#475569'},
-  gray: {bg:'#f8fafc',bd:'#cbd5e1',fg:'#94a3b8'}
-};
-function buildFamilyBlock(branch){
-  if(!branch.family) return '';
-  var f=branch.family;
-  var rows='';
-  f.children.forEach(function(ch){
-    var c=CHILD_CLR[ch.branch]||CHILD_CLR.other;
-    var bd=ch.prob?'1.5px dashed '+c.bd:'1.5px solid '+c.bd;
-    var star=ch.focal?'<span style="font-size:.64rem;background:#fef9c3;color:#92400e;padding:1px 4px;border-radius:3px;margin-left:4px;font-weight:700">focal</span>':'';
-    var prob=ch.prob?'<span style="font-size:.64rem;background:#fff7ed;color:#d97706;padding:1px 4px;border-radius:3px;margin-left:4px">prob.</span>':'';
-    rows+='<div class="fam-child">'
-      +'<div class="fam-child-h"></div>'
-      +'<div class="fam-child-box" style="background:'+c.bg+';border:'+bd+';color:'+c.fg+'">'+ch.name+star+prob+'</div>'
-      +(ch.note?'<span class="fam-child-note">'+ch.note+'</span>':'')
-      +'</div>';
-  });
-  return '<div class="fam-block">'
-    +'<div class="fam-hdr">'+f.heading+'</div>'
-    +'<div class="fam-connector">'
-      +'<div class="fam-parents">'
-        +(branch.persons[3]?'<div class="fam-parent">'+branch.persons[3].name+'</div>':'')
-        +(branch.persons[2]?'<div class="fam-parent">'+branch.persons[2].name+'</div>':'')
-      +'</div>'
-      +'<div class="fam-line-h"></div>'
-      +'<div class="fam-line-v">'+rows+'</div>'
-    +'</div>'
-    +(f.note?'<div class="fam-note">'+f.note+'</div>':'')
-    +'</div>';
-}
 
 var container=document.getElementById('branches');
 BRANCHES.forEach(function(branch){
@@ -553,11 +497,15 @@ BRANCHES.forEach(function(branch){
     +'</div>'
     +'<div class="branch-body" id="bb-'+branch.id+'">'
       +'<svg id="svg-'+branch.id+'" class="bsvg"></svg>'
-      +buildFamilyBlock(branch)
     +'</div>';
   container.appendChild(div);
   drawBranch(branch);
 });
+
+// Re-fit all visible branches when window or browser zoom changes
+function fitAll(){ BRANCHES.forEach(fitBranch); }
+window.addEventListener('resize', fitAll);
+if(window.visualViewport) window.visualViewport.addEventListener('resize', fitAll);
 </script>
 </body>
 </html>
