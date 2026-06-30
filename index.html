@@ -622,7 +622,7 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
     <span style="display:flex;align-items:center;gap:4px"><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#be185d" stroke-width="2"/></svg>McGivney cluster</span>
   </div>
   <div style="overflow-x:auto;border-radius:10px;border:1px solid #e2e8f0">
-    <svg id="rsvg" viewBox="0 0 1215 710" style="display:block;width:1215px;max-width:100%;background:#f8f9fb;border-radius:10px;cursor:default"></svg>
+    <svg id="rsvg" viewBox="0 0 1215 950" style="display:block;width:1215px;max-width:100%;background:#f8f9fb;border-radius:10px;cursor:default"></svg>
   </div>
   <div style="margin-top:10px;font-size:.72rem;color:#94a3b8">Scroll right if the map is wider than your screen. Node text clipped? Hover for full label via browser tooltip.</div>
 </div>
@@ -1083,45 +1083,50 @@ function initGraph() {
     gray:  {bg:'#f1f5f9',  fg:'#475569', bd:'#94a3b8'},
   };
 
+  // Y-positions are birth-year proportional: y = 145 + (birth_year - 1820) * 4
+  // Older ancestors appear higher; younger generations lower. Estimates used where unknown.
   var N = [
-    // Core family (confirmed)
-    {id:'dorothy',    l:['Dorothy Shomsky','grandmother'],            x:175, y:400, t:'shom'},
-    {id:'thomas',     l:['Thomas P. Relihan','grandfather'],          x:322, y:400, t:'rel'},
-    {id:'nancy',      l:['Nancy Relihan Kozak',"Grant's mother"],    x:175, y:498, t:'rel'},
-    {id:'mark',       l:['Mark Kozak',"Grant's father"],              x:52,  y:498, t:'kozak'},
-    {id:'grant',      l:['Grant Kozak'],                              x:113, y:598, t:'kozak'},
-    {id:'tommy',      l:['Tommy Relihan Jr.','+ Carla Guarino'],      x:368, y:498, t:'rel'},
-    {id:'robert',     l:['Robert Relihan'],                           x:460, y:498, t:'rel'},
-    {id:'betsy',      l:['Betsy Relihan Gross'],                      x:545, y:498, t:'rel'},
-    // Duley ancestor cluster (probable)
-    {id:'johnsr-d',   l:['John Relihan Sr.','[Duley branch]'],        x:225, y:162, t:'prob'},
-    {id:'ann-duley',  l:['Ann Duley ✓','confirmed spelling'],    x:375, y:162, t:'prob'},
-    {id:'senator',    l:['Sen. John J. Relihan Jr.','spouse unknown'],x:82,  y:272, t:'prob'},
-    {id:'edward',     l:['Edward A. Relihan','⚠ PRIORITY 1'],   x:215, y:272, t:'miss'},
-    {id:'ann-lang',   l:['Ann Relihan Lang','d. Dec 22, 2008'],       x:345, y:272, t:'prob'},
-    {id:'margaret-d', l:['Margaret Mellott','Duley branch ✓ (S32)'],x:478,y:272, t:'prob'},
-    // McNamara branch (confirmed)
-    {id:'johnsr-m',   l:['John J. Relihan Sr.','[McNamara branch]'],  x:622, y:162, t:'mc'},
-    {id:'mabel',      l:['Mabel McNamara','great-grandmother'],        x:762, y:162, t:'mc'},
-    {id:'joan',       l:['Joan B. Relihan',"d.2024 · LH '49"],  x:558, y:272, t:'mc'},
-    {id:'sally',      l:['Sally Relihan Kelly',"d.2001 · LH '47"],x:650,y:272, t:'mc'},
-    {id:'ann-louise', l:['Ann Louise Martini',"d.2024 · LH '51"],x:752,y:272, t:'mc'},
-    {id:'john-az',    l:['John J. Relihan Jr. AZ',"d.2007 · FP '58"],x:852,y:272,t:'mc'},
-    // O'Connell branch
-    {id:'james-t',    l:["James T. + Mary O'Connell",'Bridgeport CT'],x:622, y:400, t:'oc'},
-    {id:'james-m',    l:['James M. Relihan','KofC ✓ d.2021'],   x:578, y:498, t:'oc'},
-    {id:'joseph',     l:['Joseph R. Relihan',"Fairfield Prep '47"],   x:680, y:498, t:'oc'},
+    // Core family (confirmed) — grandparents b.~1920, parents b.~1953, Grant b.~1990
+    {id:'dorothy',    l:['Dorothy Shomsky','grandmother'],             x:175,  y:550, t:'shom'},
+    {id:'thomas',     l:['Thomas P. Relihan','grandfather'],           x:322,  y:550, t:'rel'},
+    {id:'nancy',      l:['Nancy Relihan Kozak',"Grant's mother"],     x:175,  y:677, t:'rel'},
+    {id:'mark',       l:['Mark Kozak',"Grant's father"],               x:52,   y:677, t:'kozak'},
+    {id:'grant',      l:['Grant Kozak'],                               x:113,  y:825, t:'kozak'},
+    {id:'jessica',    l:['Jessica Kozak',"Grant's sister"],            x:255,  y:817, t:'kozak'},
+    {id:'hilary',     l:['Hilary Kozak Willis',"Grant's sister"],      x:400,  y:833, t:'kozak'},
+    {id:'malcolm',    l:['Malcolm Willis','Hilary spouse'],             x:520,  y:833, t:'gray'},
+    {id:'tommy',      l:['Tommy Relihan Jr.','+ Carla Guarino'],       x:368,  y:689, t:'rel'},
+    {id:'robert',     l:['Robert Relihan'],                            x:455,  y:697, t:'rel'},
+    {id:'betsy',      l:['Betsy Relihan Gross'],                       x:535,  y:705, t:'rel'},
+    // Duley ancestor cluster (probable) — parents b.~1875, children b.~1910–1929
+    {id:'johnsr-d',   l:['John Relihan Sr.','[Duley branch]'],         x:225,  y:365, t:'prob'},
+    {id:'ann-duley',  l:['Ann Duley ✓','confirmed spelling'],          x:375,  y:365, t:'prob'},
+    {id:'senator',    l:['Sen. John J. Relihan Jr.','spouse unknown'], x:82,   y:505, t:'prob'},
+    {id:'edward',     l:['Edward A. Relihan','b. Jun 24 1929'],        x:215,  y:581, t:'miss'},
+    {id:'ann-lang',   l:['Ann Relihan Lang','d. Dec 22, 2008'],        x:348,  y:585, t:'prob'},
+    {id:'margaret-d', l:['Margaret Mellott','Duley branch ✓ (S32)'],  x:478,  y:577, t:'prob'},
+    // McNamara branch (confirmed) — parents b.~1888–1892, children b.1929–1940
+    {id:'johnsr-m',   l:['John J. Relihan Sr.','[McNamara branch]'],   x:710,  y:417, t:'mc'},
+    {id:'mabel',      l:['Mabel McNamara','great-grandmother'],         x:820,  y:425, t:'mc'},
+    {id:'joan',       l:['Joan B. Relihan',"d.2024 · LH '49"],         x:665,  y:597, t:'mc'},
+    {id:'sally',      l:['Sally Relihan Kelly',"d.2001 · LH '47"],     x:755,  y:581, t:'mc'},
+    {id:'ann-louise', l:['Ann Louise Martini',"d.2024 · LH '51"],      x:845,  y:605, t:'mc'},
+    {id:'john-az',    l:['John J. Relihan Jr. AZ',"d.2007 · FP '58"], x:760,  y:625, t:'mc'},
+    // O'Connell branch — parents b.~1895, children b.~1927–1929
+    {id:'james-t',    l:["James T. + Mary O'Connell",'Bridgeport CT'], x:580,  y:445, t:'oc'},
+    {id:'james-m',    l:['James M. Relihan','KofC ✓ d.2021'],          x:548,  y:573, t:'oc'},
+    {id:'joseph',     l:['Joseph R. Relihan',"Fairfield Prep '47"],    x:680,  y:581, t:'oc'},
     // Property / business
-    {id:'landscape',  l:['Relihan Landscape','924 Baldwin Rd, Woodbridge'],x:315,y:648,t:'prop'},
-    {id:'irwin',      l:['Relihan & Irwin','Bridgeport (Relihan = ?)'],  x:468,y:648,t:'prop'},
-    {id:'solomon',    l:['Solomon & Relihan AZ','active Feb 2026'],        x:815,y:648,t:'prop'},
-    // McGivney cluster
-    {id:'patrick',    l:['Patrick McGivney','+ Mary Lynch'],            x:1040,y:162,t:'mcg'},
-    {id:'michael',    l:['Bl. Michael J. McGivney','founder KofC · no children'],x:1040,y:272,t:'mcg2'},
-    {id:'rose',       l:['Rose McGivney + Finn','key sibling line'],    x:958, y:385, t:'mcg'},
-    {id:'burns',      l:['Msgr. G.T. Burns','gm = Rose McGivney Finn'], x:1118,y:385, t:'mcg'},
-    {id:'walshe',     l:['John W.L. Walshe','great-grandnephew (public)'],x:958,y:485,t:'mcg'},
-    {id:'dwyer',      l:['Margaret McGivney Dwyer','→ Ransom / Phillips'],x:1118,y:485,t:'mcg'},
+    {id:'landscape',  l:['Relihan Landscape','924 Baldwin Rd, Woodbridge'], x:315, y:880, t:'prop'},
+    {id:'irwin',      l:['Relihan & Irwin','Bridgeport (Relihan = ?)'],    x:458, y:880, t:'prop'},
+    {id:'solomon',    l:['Solomon & Relihan AZ','active Feb 2026'],         x:755, y:880, t:'prop'},
+    // McGivney cluster — Patrick b.~1823, Michael b.1852, siblings ~1855–1860
+    {id:'patrick',    l:['Patrick McGivney','+ Mary Lynch'],                x:1040, y:157, t:'mcg'},
+    {id:'michael',    l:['Bl. Michael J. McGivney','founder KofC · no children'], x:1040, y:273, t:'mcg2'},
+    {id:'rose',       l:['Rose McGivney + Finn','key sibling line'],        x:958,  y:285, t:'mcg'},
+    {id:'burns',      l:['Msgr. G.T. Burns','gm = Rose McGivney Finn'],     x:1118, y:465, t:'mcg'},
+    {id:'walshe',     l:['John W.L. Walshe','great-grandnephew (public)'],  x:958,  y:625, t:'mcg'},
+    {id:'dwyer',      l:['Margaret McGivney Dwyer','→ Ransom / Phillips'],  x:1118, y:297, t:'mcg'},
   ];
 
   var E = [
@@ -1134,6 +1139,11 @@ function initGraph() {
     {f:'mark',      t:'nancy',      s:'solid', c:'#334155', w:2.2},
     {f:'nancy',     t:'grant',      s:'solid', c:'#334155', w:2.2},
     {f:'mark',      t:'grant',      s:'solid', c:'#334155', w:2.2},
+    {f:'nancy',     t:'jessica',    s:'solid', c:'#334155', w:2.2},
+    {f:'mark',      t:'jessica',    s:'solid', c:'#334155', w:2.2},
+    {f:'nancy',     t:'hilary',     s:'solid', c:'#334155', w:2.2},
+    {f:'mark',      t:'hilary',     s:'solid', c:'#334155', w:2.2},
+    {f:'hilary',    t:'malcolm',    s:'dot',   c:'#94a3b8', w:1.5},
     // Duley ancestor — dashed amber
     {f:'johnsr-d',  t:'ann-duley',  s:'dash',  c:'#d97706', w:1.8},
     {f:'johnsr-d',  t:'senator',    s:'dash',  c:'#d97706', w:1.5},
@@ -1169,12 +1179,11 @@ function initGraph() {
   N.forEach(function(n){ adj[n.id] = []; });
   E.forEach(function(e){ adj[e.f].push(e.t); adj[e.t].push(e.f); });
 
-  // Zone backgrounds
+  // Zone backgrounds — height extended for birth-year vertical layout
   var zones = [
-    {x:14,  y:125, w:560, h:555, fill:'#f0f4ff', rx:10},
-    {x:578, y:125, w:275, h:290, fill:'#fdf4ee', rx:10},
-    {x:578, y:420, w:275, h:260, fill:'#f5f3ff', rx:10},
-    {x:870, y:125, w:330, h:405, fill:'#fdf0f6', rx:10},
+    {x:14,  y:135, w:530, h:765, fill:'#f0f4ff', rx:10},  // Left: Kozak/Relihan
+    {x:548, y:135, w:314, h:765, fill:'#fff7ed', rx:10},  // Middle: CT Relihan Branches
+    {x:870, y:135, w:335, h:510, fill:'#fdf0f6', rx:10},  // Right: McGivney
   ];
   zones.forEach(function(z){
     svg.appendChild(mk('rect',{x:z.x,y:z.y,width:z.w,height:z.h,fill:z.fill,rx:z.rx,ry:z.rx}));
@@ -1182,10 +1191,9 @@ function initGraph() {
 
   // Zone labels
   var zlabels = [
-    {x:16, y:142, text:'Kozak / Relihan Confirmed + Probable Ancestors'},
-    {x:580, y:142, text:'McNamara Branch (confirmed)'},
-    {x:580, y:440, text:"O'Connell Branch"},
-    {x:872, y:142, text:'McGivney Family Cluster'},
+    {x:16,  y:152, text:'Kozak / Relihan Confirmed + Probable Ancestors'},
+    {x:552, y:152, text:"CT Relihan Branches (McNamara + O'Connell)"},
+    {x:874, y:152, text:'McGivney Family Cluster'},
   ];
   zlabels.forEach(function(z){
     var t = mk('text',{x:z.x,y:z.y,fill:'#94a3b8','font-size':'8','font-weight':'700','letter-spacing':'0.06em','font-family':'Inter,sans-serif'});
@@ -1194,7 +1202,7 @@ function initGraph() {
   });
 
   // Barrier line
-  var bar = mk('line',{x1:862,y1:118,x2:862,y2:672,stroke:'#dc2626','stroke-width':'1.5','stroke-dasharray':'5,5',opacity:'0.55'});
+  var bar = mk('line',{x1:862,y1:128,x2:862,y2:915,stroke:'#dc2626','stroke-width':'1.5','stroke-dasharray':'5,5',opacity:'0.55'});
   svg.appendChild(bar);
   var barT = mk('text',{x:862,y:112,'text-anchor':'middle',fill:'#dc2626','font-size':'8','font-weight':'700','font-family':'Inter,sans-serif','letter-spacing':'0.08em'});
   barT.textContent = '― NO PROVEN BRIDGE ―';
