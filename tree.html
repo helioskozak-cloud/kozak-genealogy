@@ -12,13 +12,15 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9;height:10
 #hdr a{color:#64748b;font-size:.78rem;font-weight:500;text-decoration:none;padding:5px 10px;border-radius:6px;border:1px solid #e2e8f0}
 #hdr a:hover{background:#f8fafc;color:#0f172a}
 #hdr .title{font-size:.88rem;font-weight:700;color:#0f172a}
-#hdr .hint{margin-left:auto;font-size:.72rem;color:#94a3b8}
-#wrap{flex:1;overflow-x:auto;overflow-y:auto;background:#f1f5f9}
-#wrap::-webkit-scrollbar{height:8px}
-#wrap::-webkit-scrollbar-track{background:#e2e8f0}
-#wrap::-webkit-scrollbar-thumb{background:#94a3b8;border-radius:4px}
+#hdr .hint{font-size:.72rem;color:#94a3b8}
+.zoom-btn{background:#fff;border:1px solid #e2e8f0;color:#475569;font-size:.8rem;font-weight:600;padding:4px 10px;border-radius:6px;cursor:pointer;line-height:1}
+.zoom-btn:hover{background:#f8fafc;color:#0f172a}
+#hdr .zoom-group{margin-left:auto;display:flex;gap:6px;align-items:center}
+#wrap{flex:1;overflow:hidden;background:#f1f5f9;position:relative}
+#wrap svg{width:100%;height:100%;cursor:grab}
+#wrap svg:active{cursor:grabbing}
 /* Detail panel */
-#panel{position:fixed;top:58px;right:14px;width:250px;background:#fff;border:1.5px solid #e2e8f0;border-radius:12px;padding:14px;font-size:.78rem;display:none;box-shadow:0 4px 20px rgba(0,0,0,.12);z-index:200}
+#panel{position:fixed;top:58px;right:14px;width:260px;background:#fff;border:1.5px solid #e2e8f0;border-radius:12px;padding:14px;font-size:.78rem;display:none;box-shadow:0 4px 20px rgba(0,0,0,.12);z-index:200}
 .pname{font-weight:700;font-size:.92rem;color:#0f172a;margin-bottom:9px;line-height:1.35;padding-right:20px}
 .prow{display:flex;gap:8px;margin-bottom:4px;line-height:1.5;color:#334155}
 .plbl{font-weight:600;color:#94a3b8;min-width:46px;flex-shrink:0;font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
@@ -32,8 +34,14 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9;height:10
 <div id="hdr">
   <a href="index.html">&#8592; Research</a>
   <span style="color:#e2e8f0">|</span>
-  <span class="title">Kozak / Relihan Family Tree</span>
-  <span class="hint">Scroll right to see all 3 branches &nbsp;·&nbsp; Click any name to highlight the full line &nbsp;·&nbsp; Esc to reset</span>
+  <span class="title">Kozak / Relihan / McGivney Family Tree</span>
+  <span class="hint">Scroll or pinch to zoom &nbsp;·&nbsp; Drag to pan &nbsp;·&nbsp; Click any name to highlight</span>
+  <div class="zoom-group">
+    <button class="zoom-btn" id="btn-out">−</button>
+    <button class="zoom-btn" id="btn-in">+</button>
+    <button class="zoom-btn" id="btn-fit">Fit</button>
+    <button class="zoom-btn" id="btn-reset">Reset</button>
+  </div>
 </div>
 
 <div id="wrap"><svg id="svg"></svg></div>
@@ -47,17 +55,18 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9;height:10
 <script>
 const SLOT  = 112;
 const XOFF  = 64;
-const SVG_W = 3600;
+const SVG_W = 4400;
 const SVG_H = 680;
 const ROW_Y = {5: 100, 4: 260, 3: 440, 1: 615};
 
 const C = {
-  dooley:  {fill:'#dbeafe', stroke:'#1d4ed8', text:'#1e3a8a', link:'#3b82f6'},
-  kozak:   {fill:'#dcfce7', stroke:'#15803d', text:'#14532d', link:'#22c55e'},
-  shomsky: {fill:'#f3e8ff', stroke:'#7e22ce', text:'#3b0764', link:'#a855f7'},
-  oconnell:{fill:'#e0e7ff', stroke:'#3730a3', text:'#1e1b4b', link:'#6366f1'},
-  mcnamara:{fill:'#ffedd5', stroke:'#c2410c', text:'#431407', link:'#f97316'},
-  unknown: {fill:'#f1f5f9', stroke:'#94a3b8', text:'#475569', link:'#94a3b8'},
+  dooley:   {fill:'#dbeafe', stroke:'#1d4ed8', text:'#1e3a8a', link:'#3b82f6'},
+  kozak:    {fill:'#dcfce7', stroke:'#15803d', text:'#14532d', link:'#22c55e'},
+  shomsky:  {fill:'#f3e8ff', stroke:'#7e22ce', text:'#3b0764', link:'#a855f7'},
+  oconnell: {fill:'#e0e7ff', stroke:'#3730a3', text:'#1e1b4b', link:'#6366f1'},
+  mcnamara: {fill:'#ffedd5', stroke:'#c2410c', text:'#431407', link:'#f97316'},
+  mcgivney: {fill:'#fce7f3', stroke:'#9d174d', text:'#831843', link:'#ec4899'},
+  unknown:  {fill:'#f1f5f9', stroke:'#94a3b8', text:'#475569', link:'#94a3b8'},
 };
 const GEN_LABEL = {5:'Great-grandparents', 4:'Grandparents', 3:"Parents' generation", 1:"Grant's generation"};
 
@@ -79,7 +88,7 @@ const nodes = [
   {id:'mar',     name:'Margaret Relihan Mellott',note:'d.after 2008',                                   branch:'dooley',  row:4, bx:7},
   {id:'jm2',     name:'James J. Mellott',        note:'Husband of Margaret',                            branch:'unknown', row:4, bx:8},
   {id:'jj-koz',  name:'John J. Kozak',           note:"Grant's grandfather · b.Jan 7 1924 · d.Sep 2020 Norwich CT", branch:'kozak', row:4, bx:9},
-  {id:'helen',   name:'Helen Ustaseski Kozak',   note:"Grant's grandmother · Norwich CT",               branch:'kozak',   row:4, bx:10},
+  {id:'helen',   name:'Helen Ustaseski Kozak',   note:"Grant's grandmother · b.Sep 25 1924 · d.Aug 6 2016 Norwich CT", branch:'kozak', row:4, bx:10},
   // DOOLEY — Parents' generation (row 3)
   {id:'nancy',   name:'Nancy Relihan Kozak',     note:"Grant's mother",                                 branch:'dooley',  row:3, bx:1},
   {id:'tommy',   name:'Tommy Relihan Jr.',       note:'+ Carla Guarino · no children',                  branch:'dooley',  row:3, bx:2},
@@ -91,12 +100,12 @@ const nodes = [
   {id:'ter',     name:'Terese Travis-Horvath',   note:'+ Robert Horvath',                               branch:'dooley',  row:3, bx:8},
   {id:'den',     name:'Denise Mellott Barnes',   note:'b.Bridgeport 1957 · d.Mar 11 2025',              branch:'dooley',  row:3, bx:9},
   {id:'mark',    name:'Mark Kozak',              note:"Grant's father · Norwich → Woodbridge CT",       branch:'kozak',   row:3, bx:10},
-  // GRANT'S GENERATION (row 1) — centered between Nancy(bx:1) and Mark(bx:10)
-  {id:'grant',   name:'Grant Kozak',             note:'+ Jessica · the research subject',               branch:'dooley',  row:1, bx:4},
-  {id:'hilary',  name:'Hilary Kozak Willis',     note:'+ Malcolm Willis',                               branch:'dooley',  row:1, bx:7},
+  // GRANT'S GENERATION (row 1)
+  {id:'grant',   name:'Grant Kozak',             note:'m. Jessica Horton (May 2021) · the research subject', branch:'dooley', row:1, bx:4},
+  {id:'hilary',  name:'Hilary Kozak Willis',     note:'+ Malcolm Willis · m. Jan 8 2022',               branch:'dooley',  row:1, bx:7},
   // O'CONNELL BRANCH
   {id:'jt-r',    name:'James T. Relihan',        note:'Bridgeport CT',                                  branch:'oconnell',row:5, bx:14},
-  {id:'mary-oc', name:"Mary O'Connell Relihan",  note:"O'Connell surname — McGivney bridge watchlist",  branch:'oconnell',row:5, bx:15},
+  {id:'mary-oc', name:"Mary O'Connell Relihan",  note:"O'Connell surname — possible Relihan–McGivney ancestor link (research ongoing)", branch:'oconnell',row:5, bx:15},
   {id:'jm-r',    name:'James M. Relihan',        note:'b.Aug 19 1927 Derby CT · d.Dec 10 2021 · KofC Orange CT', branch:'oconnell',row:4, bx:13},
   {id:'jr-r',    name:'Joseph R. Relihan',       note:"Fairfield Prep '47 · d.May 8 2018 Wakefield MA", branch:'oconnell',row:4, bx:16},
   {id:'jjr-oc',  name:'James Relihan Jr.',       note:'+ Geraldine Taradine · Naugatuck CT',            branch:'oconnell',row:3, bx:12},
@@ -112,7 +121,7 @@ const nodes = [
   {id:'jjr-mn',  name:'John J. Relihan Sr.',     note:'McNamara Branch · Fairfield CT (different family from Dooley Sr.)', branch:'mcnamara',row:5, bx:24},
   {id:'mabel',   name:'Mabel McNamara Relihan',  note:"Stratford CT · buried St. Michael's Cemetery",  branch:'mcnamara',row:5, bx:25},
   {id:'joan',    name:'Joan Byrne Relihan',       note:'b.Dec 3 1931 Forest Hills NY · d.May 29 2024 · Lauralton Hall \'49', branch:'mcnamara',row:4, bx:22},
-  {id:'sally',   name:'Sally Relihan Kelly',     note:'d.May 18 2001 (corrected date) · Lauralton Hall \'47', branch:'mcnamara',row:4, bx:24},
+  {id:'sally',   name:'Sally Relihan Kelly',     note:'d.May 18 2001 · Lauralton Hall \'47',            branch:'mcnamara',row:4, bx:24},
   {id:'jd-k',    name:'John D. Kelly',           note:'Husband of Sally',                               branch:'unknown', row:4, bx:25},
   {id:'nancy-mn',name:'Nancy Relihan Martini',   note:'b.Mar 7 1934 · d.Aug 14 2024 Winnetka IL',      branch:'mcnamara',row:4, bx:26},
   {id:'curt',    name:'W. Curt Martini Sr.',     note:'Husband of Nancy',                               branch:'unknown', row:4, bx:27},
@@ -123,8 +132,55 @@ const nodes = [
   {id:'mark-k',  name:'Mark J. Kelly',           note:'Child of Sally + John Kelly',                    branch:'mcnamara',row:3, bx:25},
   {id:'mara-km', name:'Mara Kelly Marsh',        note:'Child of Sally + John Kelly',                    branch:'mcnamara',row:3, bx:26},
   {id:'john-p',  name:'John P. Relihan, Esq.',   note:'Risk management executive · Thousand Oaks CA',  branch:'mcnamara',row:3, bx:27},
-  {id:'pat-r',   name:'Patrick Relihan',         note:'Solomon & Relihan · Phoenix AZ · likely active 2026', branch:'mcnamara',row:3, bx:28},
+  {id:'pat-r',   name:'Patrick Relihan',         note:'Solomon & Relihan · Phoenix AZ',                 branch:'mcnamara',row:3, bx:28},
   {id:'alisha',  name:'Alisha Fahrendorf',        note:'Partner, Snell & Wilmer · Phoenix AZ',         branch:'mcnamara',row:3, bx:29},
+  // McGIVNEY BRANCH — confirmed from Ancestry/FindAGrave records (bx 30–36)
+  // Great-grandparents (row 5)
+  {id:'peter-mcg', name:'Peter McGivney',
+   note:'b.1844 County Cavan, Ireland · d.Sep 15 1898 Derby CT (age 54) · gardener & florist · '
+       +'m.(1) Mary Callery: children Bryan+Rose; m.(2) Catherine O\'Shey: son Thomas Francis; '
+       +'m.(3) Ann McGivney ~1890: 4 children · buried New Saint Marys Cemetery Ansonia CT Sec C Lot 593 · '
+       +'parents: Bryan McGivney + Rose Reilly (County Cavan)',
+   branch:'mcgivney', row:5, bx:32},
+  {id:'ann-mcg',   name:'Ann McGivney',
+   note:'b.Jul 10 1867 County Cavan, Ireland · d.Feb 13 1948 Derby CT (age 80) · seamstress · '
+       +'m. Peter McGivney ~1890 · 4 children 1891–1898 · parents: John McGivney (age 25) + Rose Clark · '
+       +'buried Saint Marys Catholic Cemetery Ansonia CT',
+   branch:'mcgivney', row:5, bx:33},
+  {id:'maur-rel',  name:'Maurice Relihan',
+   note:'b.1856 County Kerry, Ireland · d.Aug 2 1921 Shelton CT · '
+       +'residence: 113 Division St Shelton CT · parents: James Relihan + Mary O\'Connor · '
+       +'possible ancestor link to O\'Connell branch (research ongoing)',
+   branch:'dooley', row:5, bx:35},
+  {id:'mary-dol',  name:'Mary Dolan',
+   note:'b.Apr 5 1866 County Roscommon, Ireland · d.Jan 8 1911 Derby CT · '
+       +'residence: 9 Seventh St Derby CT · parents: Thomas Dolan + Mary Towie',
+   branch:'dooley', row:5, bx:36},
+  // Grandparents (row 4)
+  {id:'johnj-mcg', name:'John J. McGivney',
+   note:'Son of Peter McGivney + Ann McGivney · sibling of Peter George · Derby CT',
+   branch:'mcgivney', row:4, bx:30},
+  {id:'bern-mcg',  name:'Bernard F. McGivney',
+   note:'Son of Peter McGivney + Ann McGivney · sibling of Peter George · Derby CT',
+   branch:'mcgivney', row:4, bx:31},
+  {id:'tf-mcg',    name:'Thomas F. McGivney',
+   note:'b.Jul 26 1875 Derby CT · son of Peter McGivney + Catherine O\'Shey · '
+       +'half-sibling of Peter George · mother Mary (Callery?) d.1887 when Thomas was 12',
+   branch:'mcgivney', row:4, bx:32},
+  {id:'pg-mcg',    name:'Peter G. McGivney',
+   note:'b.Feb 7 1891 Derby CT · d.Mar 25 1973 · son of Peter McGivney + Ann McGivney · '
+       +'professional gardener & florist · m. Helen Relihan Jun 14 1921 (met on NY–New Haven train ~1888) · '
+       +'no children · settled in Derby CT (Birmingham section) · '
+       +'buried Mt. St. Peter\'s Cemetery Rt.34 Derby CT Section E Lot 35',
+   branch:'mcgivney', row:4, bx:33},
+  {id:'helen-rel', name:'Helen R. Relihan',
+   note:'b.Jan 12 1894 Connecticut · d.May 5 1955 Shelton CT (age 61) · stenographer · '
+       +'daughter of Maurice Relihan + Mary Dolan · m. Peter G. McGivney Jun 14 1921 · no children · '
+       +'buried with Peter G. at Mt. St. Peter\'s Cemetery Derby CT Section E Lot 35 (Memorial #188448525)',
+   branch:'dooley', row:4, bx:34},
+  {id:'rose-mcg',  name:'Rosemary McGivney',
+   note:'Daughter of Peter McGivney + Ann McGivney · sibling of Peter George · Derby CT',
+   branch:'mcgivney', row:4, bx:35},
 ];
 
 // ── LINKS ─────────────────────────────────────────────────────────────────
@@ -188,6 +244,18 @@ const links = [
   {s:'john-az', t:'john-p',   type:'parent'},
   {s:'john-az', t:'pat-r',    type:'parent'},
   {s:'john-az', t:'alisha',   type:'parent'},
+  // McGivney Branch
+  {s:'peter-mcg', t:'ann-mcg',   type:'spouse'},
+  {s:'maur-rel',  t:'mary-dol',  type:'spouse'},
+  {s:'pg-mcg',    t:'helen-rel', type:'spouse'},
+  // Peter McGivney → children (all linked through Peter; mothers noted in each node)
+  {s:'peter-mcg', t:'johnj-mcg', type:'parent'},
+  {s:'peter-mcg', t:'bern-mcg',  type:'parent'},
+  {s:'peter-mcg', t:'tf-mcg',    type:'parent'},
+  {s:'peter-mcg', t:'pg-mcg',    type:'parent'},
+  {s:'peter-mcg', t:'rose-mcg',  type:'parent'},
+  // Maurice Relihan → Helen Relihan
+  {s:'maur-rel',  t:'helen-rel', type:'parent'},
 ];
 
 // ── BUILD ─────────────────────────────────────────────────────────────────
@@ -208,9 +276,9 @@ const links = [
   }));
 
   // Build traversal maps
-  const childrenOf = {}; // parentId → [childNode]
-  const parentsOf  = {}; // childId  → [parentNode]
-  const spousesOf  = {}; // nodeId   → [spouseNode]
+  const childrenOf = {};
+  const parentsOf  = {};
+  const spousesOf  = {};
   linkData.forEach(l => {
     if (l.type === 'parent') {
       (childrenOf[l.source.id] = childrenOf[l.source.id]||[]).push(l.target);
@@ -221,36 +289,24 @@ const links = [
     }
   });
 
-  // Full lineage: all ancestors (+ their spouses) + all descendants + own spouses + siblings
   function getLineage(d) {
     const set = new Set([d.id]);
     const addNode = (n) => { if (n && !set.has(n.id)) { set.add(n.id); return true; } return false; };
-
-    // Ancestors (BFS up)
     const up = [d.id];
     while (up.length) {
       const nid = up.shift();
       (parentsOf[nid]||[]).forEach(p => {
-        if (addNode(p)) {
-          up.push(p.id);
-          (spousesOf[p.id]||[]).forEach(s => addNode(s)); // parent's spouse
-        }
+        if (addNode(p)) { up.push(p.id); (spousesOf[p.id]||[]).forEach(s => addNode(s)); }
       });
     }
-    // Descendants (BFS down)
     const down = [d.id];
     while (down.length) {
       const nid = down.shift();
       (childrenOf[nid]||[]).forEach(c => {
-        if (addNode(c)) {
-          down.push(c.id);
-          (spousesOf[c.id]||[]).forEach(s => addNode(s));
-        }
+        if (addNode(c)) { down.push(c.id); (spousesOf[c.id]||[]).forEach(s => addNode(s)); }
       });
     }
-    // Own spouses
     (spousesOf[d.id]||[]).forEach(s => addNode(s));
-    // Siblings (share a parent)
     (parentsOf[d.id]||[]).forEach(p => {
       (childrenOf[p.id]||[]).forEach(sib => addNode(sib));
     });
@@ -258,37 +314,55 @@ const links = [
   }
 
   // ── SVG setup ──────────────────────────────────────────────────────────
-  const svg = d3.select('#svg')
-    .attr('width', SVG_W)
-    .attr('height', SVG_H)
-    .style('background', '#f8fafc');
+  const svg = d3.select('#svg');
 
-  svg.on('click', reset);
+  // All drawable content goes in this group so zoom transforms it
+  const SC = svg.append('g').attr('id','svgcontent');
+
+  // D3 zoom/pan
+  const zoom = d3.zoom()
+    .scaleExtent([0.12, 3])
+    .on('zoom', e => SC.attr('transform', e.transform));
+  svg.call(zoom).on('dblclick.zoom', null);
+
+  function fitView() {
+    const wrap = document.getElementById('wrap');
+    const vw = wrap.clientWidth, vh = wrap.clientHeight;
+    const scale = Math.min(vw / SVG_W, vh / SVG_H) * 0.95;
+    const tx = (vw - SVG_W * scale) / 2;
+    const ty = (vh - SVG_H * scale) / 2;
+    svg.transition().duration(400)
+      .call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
+  }
+
+  document.getElementById('btn-fit').onclick   = fitView;
+  document.getElementById('btn-in').onclick    = () => svg.transition().duration(200).call(zoom.scaleBy, 1.35);
+  document.getElementById('btn-out').onclick   = () => svg.transition().duration(200).call(zoom.scaleBy, 0.75);
+  document.getElementById('btn-reset').onclick = () => { reset(); fitView(); };
 
   // ── Branch bands ───────────────────────────────────────────────────────
   const bands = [
     {label:'Dooley Branch  —  Grant\'s Direct Line',
-     x1:0,                    x2:XOFF + 11*SLOT,
-     fill:'#eff6ff', border:'#1d4ed8'},
+     x1:0,                      x2:XOFF + 11*SLOT,  fill:'#eff6ff', border:'#1d4ed8'},
     {label:"O'Connell Branch",
-     x1:XOFF + 11*SLOT,       x2:XOFF + 21*SLOT,
-     fill:'#eef2ff', border:'#3730a3'},
+     x1:XOFF + 11*SLOT,         x2:XOFF + 21*SLOT,  fill:'#eef2ff', border:'#3730a3'},
     {label:'McNamara Branch  —  Fairfield CT → Phoenix AZ',
-     x1:XOFF + 21*SLOT,       x2:SVG_W,
-     fill:'#fff7ed', border:'#c2410c'},
+     x1:XOFF + 21*SLOT,         x2:XOFF + 30*SLOT,  fill:'#fff7ed', border:'#c2410c'},
+    {label:'McGivney Branch  —  Derby CT / County Cavan Ireland',
+     x1:XOFF + 30*SLOT,         x2:SVG_W,            fill:'#fdf2f8', border:'#9d174d'},
   ];
   bands.forEach(b => {
-    svg.append('rect')
+    SC.append('rect')
       .attr('x', b.x1).attr('y', 0)
       .attr('width', b.x2 - b.x1).attr('height', SVG_H)
       .attr('fill', b.fill);
-    svg.append('line')
+    SC.append('line')
       .attr('x1', b.x1).attr('y1', 0)
       .attr('x2', b.x1).attr('y2', SVG_H)
       .attr('stroke', b.border)
       .attr('stroke-width', 1.5)
       .attr('opacity', 0.25);
-    svg.append('text')
+    SC.append('text')
       .attr('x', (b.x1 + Math.min(b.x2, SVG_W)) / 2)
       .attr('y', 19)
       .attr('text-anchor','middle')
@@ -303,11 +377,11 @@ const links = [
 
   // ── Generation row bands ────────────────────────────────────────────────
   Object.entries(ROW_Y).forEach(([row, y]) => {
-    svg.append('rect')
+    SC.append('rect')
       .attr('x', 0).attr('y', y - 32)
       .attr('width', SVG_W).attr('height', 64)
       .attr('fill', 'rgba(255,255,255,0.55)');
-    svg.append('text')
+    SC.append('text')
       .attr('x', 6).attr('y', y - 16)
       .attr('font-size','8px').attr('font-weight','700')
       .attr('font-family','system-ui,sans-serif')
@@ -317,31 +391,24 @@ const links = [
   });
 
   // ── Elbow connectors (parent links) ────────────────────────────────────
-  // Group children by parent
   const elbows = [];
   Object.entries(childrenOf).forEach(([pid, children]) => {
     const parent = byId[pid];
     const childY = children[0].y;
     const midY   = parent.y + (childY - parent.y) * 0.5;
-
-    const xs   = children.map(c => c.x);
-    const minCX = Math.min(...xs);
-    const maxCX = Math.max(...xs);
-    // Bar must include the parent's x so stem connects
+    const xs     = children.map(c => c.x);
+    const minCX  = Math.min(...xs);
+    const maxCX  = Math.max(...xs);
     const barMinX = Math.min(parent.x, minCX);
     const barMaxX = Math.max(parent.x, maxCX);
-
-    // Stem: parent down to midY
     elbows.push({d:`M${parent.x},${parent.y + R + 1} V${midY}`,  pid, cid:null, b:parent.branch});
-    // Horizontal bar
     elbows.push({d:`M${barMinX},${midY} H${barMaxX}`,             pid, cid:null, b:parent.branch});
-    // Drops to each child
     children.forEach(c => {
       elbows.push({d:`M${c.x},${midY} V${c.y - R - 1}`,           pid, cid:c.id, b:parent.branch});
     });
   });
 
-  const linkG = svg.append('g').attr('id','links');
+  const linkG = SC.append('g').attr('id','links');
 
   const elbowSel = linkG.selectAll('path.elbow')
     .data(elbows, d => d.pid + (d.cid||'-bar'))
@@ -354,7 +421,6 @@ const links = [
     .attr('stroke-linecap','round')
     .attr('opacity', 0.4);
 
-  // Spouse lines
   const spouseSel = linkG.selectAll('line.spouse')
     .data(linkData.filter(l => l.type === 'spouse'))
     .join('line')
@@ -369,7 +435,7 @@ const links = [
     .attr('opacity', 0.7);
 
   // ── Nodes ──────────────────────────────────────────────────────────────
-  const nodeG   = svg.append('g').attr('id','nodes');
+  const nodeG   = SC.append('g').attr('id','nodes');
   const nodeSel = nodeG.selectAll('g')
     .data(nodes)
     .join('g')
@@ -412,12 +478,13 @@ const links = [
     .attr('font-weight','500')
     .text(d => d.name.length > 18 ? d.name.slice(0, 17) + '…' : d.name);
 
-  // ── Legend (bottom-left corner) ────────────────────────────────────────
+  // ── Legend ────────────────────────────────────────────────────────────
   const LEG = [
     ['dooley','Dooley Branch'],['kozak','Kozak'],['shomsky','Shomsky'],
-    ['oconnell',"O'Connell Branch"],['mcnamara','McNamara Branch'],['unknown','Unknown / ⚠ Priority'],
+    ['oconnell',"O'Connell Branch"],['mcnamara','McNamara Branch'],
+    ['mcgivney','McGivney Branch'],['unknown','Unknown / ⚠ Priority'],
   ];
-  const legG = svg.append('g').attr('transform',`translate(6, ${SVG_H - 8 - LEG.length * 15})`);
+  const legG = SC.append('g').attr('transform',`translate(6, ${SVG_H - 8 - LEG.length * 15})`);
   LEG.forEach(([b, label], i) => {
     legG.append('circle').attr('cx',6).attr('cy', i*15+5).attr('r',5)
       .attr('fill', C[b].fill).attr('stroke', C[b].stroke).attr('stroke-width', 1.5);
@@ -429,7 +496,6 @@ const links = [
   // ── Focus / highlight ──────────────────────────────────────────────────
   function focus(d) {
     const line = getLineage(d);
-
     nodeSel.select('circle:first-of-type')
       .attr('r', n => n.id === d.id ? 17 : line.has(n.id) ? 13 : R)
       .attr('stroke-width', n => n.id === d.id ? 3 : 2)
@@ -438,7 +504,6 @@ const links = [
       .attr('font-size', n => n.id === d.id ? '11px' : '9px')
       .attr('opacity', n => line.has(n.id) ? 1 : 0.12)
       .attr('y', n => (n.id === d.id ? 17 : line.has(n.id) ? 13 : R) + 13);
-
     elbowSel
       .attr('opacity', p => {
         if (!p.cid) return line.has(p.pid) ? 0.7 : 0.04;
@@ -451,11 +516,10 @@ const links = [
       .attr('opacity', l =>
         line.has(l.source.id) && line.has(l.target.id) ? 1 : 0.05
       );
-
-    // Panel
     const genL    = GEN_LABEL[d.row];
     const branchL = {dooley:'Dooley Branch',kozak:'Kozak',shomsky:'Shomsky',
-                     oconnell:"O'Connell Branch",mcnamara:'McNamara Branch',unknown:'Unknown / Unresolved'}[d.branch];
+                     oconnell:"O'Connell Branch",mcnamara:'McNamara Branch',
+                     mcgivney:'McGivney Branch',unknown:'Unknown / Unresolved'}[d.branch];
     document.getElementById('pname').textContent = d.name;
     const adj = new Set();
     linkData.forEach(l => {
@@ -480,6 +544,9 @@ const links = [
 
   document.getElementById('pclose').onclick = reset;
   document.addEventListener('keydown', e => { if (e.key === 'Escape') reset(); });
+
+  // Initial fit-to-screen on load
+  setTimeout(fitView, 50);
 })();
 </script>
 </body>
