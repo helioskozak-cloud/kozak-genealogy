@@ -180,6 +180,13 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
 .qt{font-size:.79rem;color:#0f172a;flex:1;line-height:1.4}
 .qn{font-size:.7rem;color:#64748b;margin-top:2px}
 
+/* MISSING LINK NOTES */
+.mnote-ta{width:100%;font-family:Inter,sans-serif;font-size:.78rem;padding:7px 9px;border:1.5px solid #cbd5e1;border-radius:6px;resize:vertical;min-height:46px;line-height:1.45;color:#0f172a;background:#f8fafc;margin-top:4px}
+.mnote-ta:focus{outline:none;border-color:#3b82f6}
+.mnote-row{display:flex;align-items:center;gap:8px;margin-top:5px}
+.mnote-btn{font-size:.7rem;font-weight:700;padding:4px 12px;background:#1e293b;color:#f1f5f9;border:none;border-radius:5px;cursor:pointer}
+.mnote-btn:hover{background:#334155}
+.mnote-saved{font-size:.67rem;color:#94a3b8;font-style:italic}
 @media(max-width:640px){
   .leads,.miss-grid,.web-grid{grid-template-columns:1fr}
   .gen-row{flex-direction:column}
@@ -191,8 +198,6 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
 <nav class="nav">
   <span class="brand">Kozak / Relihan Research</span>
   <button class="tab-btn active" onclick="switchTab('overview',this)">Overview</button>
-  <button class="tab-btn" onclick="switchTab('tree',this)">Family Register</button>
-  <button class="tab-btn" onclick="switchTab('web',this)">Research Web</button>
   <a href="tree.html" class="tab-btn" style="text-decoration:none">Pedigree Chart ↗</a>
   <button class="tab-btn" onclick="switchTab('missing',this)">Missing Links</button>
   <button class="tab-btn" onclick="switchTab('sources',this)">Sources</button>
@@ -224,23 +229,34 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
   <div class="sec-title">Kozak / Relihan Genealogy Research</div>
   <div class="sec-sub">Investigating whether Grant Kozak's maternal Relihan line connects, directly or indirectly, to the family of Blessed Michael J. McGivney — founder of the Knights of Columbus, Waterbury CT, 1882.</div>
 
-  <div class="alert alert-red"><span class="alert-icon">⚠</span><p><strong>Relihan-to-McGivney connection is NOT proven.</strong> All current links are social, institutional, or geographic proximity only. No direct genealogical bridge exists. Do not claim family connection without documentary proof.</p></div>
-  <div class="alert alert-amber"><span class="alert-icon">⚠</span><p><strong>Two separate "John J. Relihan Sr." families.</strong> Dooley/<strong>Duley</strong> branch (Grant's direct line, Bridgeport CT) and McNamara branch (Fairfield CT → Phoenix AZ) are NOT known to be related. Do not conflate them. "Duley" spelling confirmed via Ann Relihan Lang 2008 obituary.</p></div>
-  <div class="alert alert-amber"><span class="alert-icon">⚠</span><p><strong>Cynthia Bixler Relihan</strong> is Robert Relihan's second wife with no children with Robert. Lindsay Relihan is from his first marriage. Cynthia is <span class="badge be">Explained</span> — not a new lead.</p></div>
-  <div class="alert alert-amber"><span class="alert-icon">⚠</span><p><strong>Sally Relihan Kelly death date corrected:</strong> She died <strong>May 18, 2001</strong> — not 1962. Confirmed via Lauralton Hall In Memoriam + Joan B. Relihan 2024 obituary.</p></div>
-  <div class="alert alert-green"><span class="alert-icon">✓</span><p><strong>Margaret Relihan Mellott conflation largely resolved (genes2):</strong> Ann Relihan Lang's 2008 obituary (S32) explicitly lists "Sister, Margaret Melott" as surviving — confirming Margaret Relihan Mellott is in the <strong>Dooley/Duley branch</strong>. Her Lauralton Hall Class of 1951 listing alongside McNamara-branch sisters is a coincidence, not evidence of branch membership. The Willig Funeral Home Margaret R. Mellott (b. May 13, 1927, d. Dec 4, 2022) is the probable match (ages consistent). Do not treat conflation as live issue unless a second Margaret Relihan Mellott with conflicting facts emerges.</p></div>
-  <div class="alert alert-green"><span class="alert-icon">✓</span><p><strong>Senator John J. Relihan Jr. (Dooley/Duley branch) — death date confirmed (genes2):</strong> Wikipedia (citing Hartford Courant, Dec 16, 1966, p. 30) confirms he "Died in office" while serving as CT State Senator, District 21. Death ~December 1966. Born ~1927–28, Bridgeport CT. Died in office around age 38–39. Spouse and children still unknown. Source S31.</p></div>
-  <div class="alert alert-green"><span class="alert-icon">✓</span><p><strong>McGivney–Relihan marriage confirmed (Betsy research, S49–S55).</strong> Peter George McGivney (b.1891 Derby CT) married Helen R. Relihan (b.1894, daughter of Maurice Relihan of County Kerry) on Jun 14 1921. This documents a Relihan marrying into a McGivney family in CT. However, this McGivney branch (County Cavan, Derby CT) is almost certainly separate from Blessed Michael J. McGivney's family (County Cork, Waterbury CT). The open question: is Maurice Relihan (County Kerry, Shelton CT) related to Grant's Relihan ancestors? See Family Register tab for full detail.</p></div>
-  <div class="alert alert-green"><span class="alert-icon">✓</span><p><strong>Rose McGivney Finn descendant search complete — no Relihan bridge found.</strong> All accessible descendants checked: Walshe, Finn, Moriarty, Ransom, Burns lines. No Relihan surname appears anywhere in this branch. Sources S39–S41.</p></div>
-  <div class="alert alert-green"><span class="alert-icon">✓</span><p><strong>Shomsky/Demchak maternal branch fully documented.</strong> Dorothy Shomsky Relihan's parents, siblings, and cousins confirmed through obituaries. No McGivney connection in this line. Sources S42–S46. Full detail in Family Register tab.</p></div>
+  <div class="alert alert-red"><span class="alert-icon">⚠</span><p><strong>Relihan-to-McGivney connection is NOT proven.</strong> No direct genealogical bridge exists. All current links are social, institutional, or geographic proximity only. Do not claim family connection without documentary proof.</p></div>
 
-  <div class="stats">
-    <div class="stat"><div class="n">3</div><div class="l">Relihan branches mapped</div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0">
+    <div style="background:#f0fdf4;border:2px solid #22c55e;border-radius:9px;padding:14px 16px">
+      <div style="font-size:.75rem;font-weight:700;color:#15803d;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Confirmed This Session (Betsy Research, S49–S55)</div>
+      <p style="font-size:.8rem;color:#14532d;line-height:1.55;margin-bottom:6px"><strong>Peter George McGivney × Helen R. Relihan — married Jun 14 1921, Derby CT, no children.</strong></p>
+      <p style="font-size:.8rem;color:#14532d;line-height:1.55;margin-bottom:6px">Helen's father: <strong>Maurice Relihan</strong> (b.1856 County Kerry → Shelton CT). This is a documented Relihan–McGivney marriage in Connecticut.</p>
+      <p style="font-size:.8rem;color:#14532d;line-height:1.55;margin-bottom:0"><strong>Key conclusion:</strong> This McGivney family (County Cavan, Derby CT) is almost certainly <em>separate</em> from Blessed Michael J. McGivney (County Cork, Waterbury CT). See Pedigree Chart for full ancestry.</p>
+    </div>
+    <div style="background:#fef9c3;border:2px solid #d97706;border-radius:9px;padding:14px 16px">
+      <div style="font-size:.75rem;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">The Open Question</div>
+      <p style="font-size:.8rem;color:#78350f;line-height:1.55;margin-bottom:6px">Is <strong>Maurice Relihan</strong> (County Kerry, Shelton CT, d. Aug 2 1921) related to Grant's Relihan ancestors — <strong>John Relihan Sr. + Ann Duley</strong> (Bridgeport CT)?</p>
+      <p style="font-size:.8rem;color:#78350f;line-height:1.55;margin-bottom:0">Both are Irish-Catholic CT Relihan families from the same era. No documentary link confirmed. Maurice's parents: James Relihan + Mary O'Connor (County Kerry). See "Helen R. Relihan's Ancestors" branch in Pedigree Chart.</p>
+    </div>
+  </div>
+
+  <div style="font-size:.75rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin:20px 0 10px">What's been ruled out</div>
+  <div style="font-size:.8rem;color:#64748b;line-height:1.6">
+    <span style="margin-right:16px">✓ Rose McGivney Finn's full descendant tree checked — no Relihan surname anywhere (S39–S41)</span>
+    <span style="margin-right:16px">✓ Shomsky/Demchak maternal branch fully documented — no McGivney connection (S42–S46)</span>
+    <span>✓ Senator John J. Relihan Jr. died in office Dec 1966 — spouse + children still unknown (S31)</span>
+  </div>
+
+  <div class="stats" style="margin-top:20px">
     <div class="stat"><div class="n">0</div><div class="l">Blood links to McGivney confirmed</div></div>
-    <div class="stat"><div class="n">3</div><div class="l">Social / KofC proximity clues</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">Research branches in pedigree</div></div>
     <div class="stat"><div class="n">8</div><div class="l">Active missing links</div></div>
     <div class="stat"><div class="n">55</div><div class="l">Sources logged</div></div>
-    <div class="stat"><div class="n">11</div><div class="l">McGivney-side surnames to watch</div></div>
   </div>
 </div>
 
@@ -306,341 +322,6 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
 </div>
 </div>
 
-<!-- ════════════════════════════ CONFIRMED TREE ════════════════════════════ -->
-<div id="tab-tree" class="tab-panel">
-<div class="sec">
-  <div class="sec-title">Family Register</div>
-  <div class="sec-sub">Grant Kozak's family, organized by generation. Solid borders = confirmed by obituary or public record. Dashed amber borders = probable, needs your confirmation. Click <strong>[✓ Yes]</strong> or <strong>[✗ Wrong]</strong> on any uncertain item — your answers are saved in this browser.</div>
-</div>
-
-<div class="sec" style="background:#f0fdf4;border:2px solid #22c55e;border-radius:10px;padding:16px 18px;margin-bottom:24px">
-  <div class="sec-title" style="font-size:1.05rem;color:#15803d">What Betsy's Research Confirms (Sources S49–S55)</div>
-  <p style="font-size:.82rem;line-height:1.6;color:#14532d;margin-bottom:8px">Ancestry.com records shared by Betsy Relihan Gross document a Derby CT family:</p>
-  <ul style="font-size:.81rem;color:#14532d;line-height:1.7;padding-left:18px">
-    <li><strong>Confirmed:</strong> Peter George McGivney (b.Feb 7 1891, Derby CT) married Helen R. Relihan (b.Jan 12 1894) on <strong>June 14, 1921</strong> in Derby CT. No children. Both buried Mt. St. Peter's Cemetery, Derby CT.</li>
-    <li><strong>Helen's parents:</strong> Maurice Relihan (b.1856 County Kerry, Ireland; d.Aug 2 1921 Shelton CT) + Mary Dolan (b.1866 County Roscommon; d.1911 Derby CT).</li>
-    <li><strong>Peter George's parents:</strong> Peter McGivney (b.1844 County Cavan, Ireland; d.Sep 15 1898 Derby CT, gardener &amp; florist) + Ann McGivney née Clark (b.1867 County Cavan; d.Feb 13 1948 Derby CT).</li>
-  </ul>
-  <p style="font-size:.81rem;line-height:1.6;color:#14532d;margin-top:8px"><strong>Key conclusion:</strong> This McGivney family (County Cavan, Derby CT) is almost certainly a <em>separate</em> Irish-American family from Blessed Michael J. McGivney (whose father Patrick came from County Cork, Waterbury CT). The Betsy records confirm a Relihan–McGivney marriage but <em>not</em> to the Knights of Columbus founder's branch.</p>
-  <p style="font-size:.81rem;line-height:1.6;color:#14532d;margin-top:6px"><strong>Open question:</strong> Is Maurice Relihan (County Kerry, Shelton CT) related to Grant's Relihan ancestors (John Relihan Sr. + Ann Duley, Bridgeport CT)? If yes, Grant has a documented family connection to a Connecticut McGivney line — though still not to Blessed Michael's branch.</p>
-</div>
-
-<div class="sec">
-  <div class="sec-title" style="font-size:1.05rem;color:#1e3a8a">PATERNAL — Kozak</div>
-
-  <div class="gen-lbl">Great-great-grandparents <span class="badge bp">Probable — index only, needs primary source</span></div>
-  <div class="gen-row">
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person prob">John Kozak<span class="role">of Wilno, Poland · great-great-grandfather</span></div>
-        <span class="cx">×</span>
-        <div class="person prob">Unknown wife<span class="role">name not yet found</span></div>
-      </div>
-      <div class="children">
-        <span class="ch kozak">Nicholas Kozak → see below</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="gen-lbl">Great-grandparents <span class="badge bc">Confirmed</span></div>
-  <div class="gen-row">
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person kozak">Nicholas Kozak<span class="role">b. Sep 22 1893, Wilno, Poland · d. Mar 8 1950, Norwich CT</span></div>
-        <span class="cx">×</span>
-        <div class="person kozak">Anna Byczkowska<span class="role">great-grandmother · Polish immigrant community, Norwich CT</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="gen-lbl">Grandparents <span class="badge bc">Confirmed</span></div>
-  <div class="gen-row">
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person kozak">John J. Kozak<span class="role">b. Jan 7 1924, Greeneville, Norwich CT · d. Sep 6 2020</span></div>
-        <span class="cx">×</span>
-        <div class="person kozak prob">Helen Ustaseski<span class="role">b. Sep 25 1924 · d. Aug 6 2016 · married Nov 1955 · predeceased John · parents unknown</span></div>
-      </div>
-      <div class="children">
-        <span class="ch kozak">Mark Kozak → see Parents below · Palm Beach FL</span>
-        <span class="ch kozak">Cindy Kozak Buckley + Tom Buckley · Avon CT</span>
-        <span class="ch kozak">David Kozak + Elizabeth Anna Appel · West Hartford CT</span>
-        <span class="ch kozak">Jennie A. Kozak (b. May 8 1925 · d. Feb 18 2009) — never married · organist &amp; choir director, Divine Providence Church, 60 yrs</span>
-        <span class="ch kozak">Marion Kozak Little (d. 1982) → Lee Courtemanche + husband David (Concord MA), Michael Little + wife Carol (Shrewsbury MA) <span class="badge bp">husband's first name unknown</span></span>
-      </div>
-    </div>
-  </div>
-
-  <div style="margin:4px 0 6px 22px;padding:8px 12px;background:#f0f9ff;border:1.5px solid #7dd3fc;border-radius:7px;font-size:.76rem;color:#0c4a6e">
-    <strong>John J. Kozak — key details:</strong> US Navy signalman, WWII — North Atlantic &amp; Pacific, merchant vessels. Norwich Free Academy → Eastern CT State Teachers College → Columbia University (Master's). Career: teacher &amp; principal, Montville / Bozrah / Norwich school systems; principal Greeneville School, Golden Street, 1969–1984. Lifetime member Divine Providence Church (PNCC), Norwich — served as parish committee president. Buried: Divine Providence Cemetery, Norwich CT.<br>
-    <strong>Church context:</strong> Divine Providence = Polish National Catholic Church (PNCC), 11 Silver St, Norwich CT. The Kozak family were part of the Polish immigrant community centered on this parish. Jennie Kozak was its organist for 60 years.
-  </div>
-
-  <div style="margin:4px 0 0 22px;padding-left:12px;border-left:2px solid #bfdbfe">
-    <div class="gen-lbl" style="margin-top:6px">David Kozak branch <span class="badge bc">Confirmed S33</span></div>
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person kozak" style="min-width:auto">David Kozak<span class="role">West Hartford CT</span></div>
-        <span class="cx">×</span>
-        <div class="person kozak" style="min-width:auto">Elizabeth Anna Appel<span class="role">parents: William Appel + Susan (both predeceased by 2024)</span></div>
-      </div>
-      <div class="children">
-        <span class="ch">John William Kozak (b. Feb 22 2000, Hartford CT · d. Aug 24 2024, Santa Paula CA) <span class="badge bc">S33</span> — St. Peter Claver Church WH · burial Fairview Cemetery</span>
-        <span class="ch kozak">Collin Appel Kozak (b. 2002 · West Hartford CT)</span>
-      </div>
-    </div>
-    <div style="margin:6px 0 0 0;padding:7px 11px;background:#f0f7ff;border:1.5px solid #93c5fd;border-radius:6px;font-size:.74rem;color:#1e40af">
-      <strong>Elizabeth Appel's siblings (S33):</strong> Brothers — Edmund Appel, Bill Appel. Sisters — Sarah Appel Gardner (KY), Lisa Holmes Appel, Suzanne Brown Appel. Parents William Appel + Susan predeceased by Aug 2024.
-    </div>
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<div class="sec">
-  <div class="sec-title" style="font-size:1.05rem;color:#581c87">MATERNAL — Relihan / Shomsky</div>
-
-  <div class="gen-lbl">Great-great-grandparents (Demchak / Kosch) <span class="badge bc">Confirmed</span></div>
-  <div class="gen-row">
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person shom">George M. Demchak Sr.<span class="role">great-great-grandfather · Carpatho-Rusyn immigrant, Bridgeport CT</span></div>
-        <span class="cx">×</span>
-        <div class="person shom">Helen Kosch<span class="role">great-great-grandmother</span></div>
-      </div>
-      <div class="children">
-        <span class="ch shom">Mary Demchak Shomsky → see below</span>
-        <span class="ch">George M. Demchak Jr. (~1928–Sep 14 2010) + Eleanor Mudre · Stratford CT · US Army Korean War · Dresser Industries · St. John's Choir &amp; Male Chorus</span>
-        <span class="ch">Michael G. Demchak (b. Oct 12 1924 · d. Feb 4 2019) + Mary Figula · Wallingford CT · St. John's CROC parish <span class="badge bc">Confirmed S39</span> → see Michael G. Demchak branch below</span>
-        <span class="ch shom">Ann Demchak Vayser (b. Aug 21 1921 · d. Apr 10 2012) + Joseph H. Vayser Jr. · Stratford CT · widow · retired sec. Bridgeport Brass Co. · buried St. John's Cemetery Stratford <span class="badge bc">Confirmed S40</span></span>
-        <span class="ch miss">Helen Demchak Karaffa · d. before Jul 2003 (predeceased sister Mary — S24 confirmed) → son: Archpriest Stephen Karaffa (d. Nov 11 2008)</span>
-      </div>
-    </div>
-  </div>
-
-  <div style="margin:2px 0 0 22px;padding-left:12px;border-left:2px solid #bfdbfe">
-    <div class="gen-lbl" style="margin-top:4px">George M. Demchak Jr. branch <span class="badge bc">Confirmed</span></div>
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person shom" style="min-width:auto">George M. Demchak Jr.<span class="role">b. ~1928 · d. Sep 14 2010 · Stratford/Monroe CT</span></div>
-        <span class="cx">×</span>
-        <div class="person" style="min-width:auto">Eleanor Mudre<span class="role">wife · Stratford CT</span></div>
-      </div>
-      <div class="children">
-        <span class="ch">Mark Demchak + Christine · Monroe CT</span>
-        <span class="ch">David Demchak + Jean · Granby CT</span>
-        <span class="ch">Susan Demchak Horvath + Peter · Ohio <em style="font-size:.68rem;color:#64748b">(different Horvath family from Robert S. Horvath in Mellott branch)</em></span>
-        <span class="ch" style="font-style:italic;color:#64748b">Grandchildren: Kathryn, Natasha, Marcus, Cooper, Natalie, Olivia, Zolie</span>
-      </div>
-    </div>
-  </div>
-
-  <div style="margin:2px 0 4px 22px;padding-left:12px;border-left:2px solid #bfdbfe">
-    <div class="gen-lbl" style="margin-top:4px">Michael G. Demchak branch <span class="badge bc">Confirmed S39/S42</span></div>
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person shom" style="min-width:auto">Michael G. Demchak<span class="role">b. Oct 12 1924, Bridgeport · d. Feb 4 2019, Wallingford · WWII US Army · GE Bridgeport · US Baird Machinery Stratford</span></div>
-        <span class="cx">×</span>
-        <div class="person" style="min-width:auto">Mary Figula<span class="role">b. Bačkov, Czechoslovakia (Košice Region, Slovakia) · d. Oct 23 2016 · married ~68 yrs</span></div>
-      </div>
-      <div class="children">
-        <span class="ch">Gary Demchak + Cynthia · Meriden CT</span>
-        <span class="ch">Darlene Gallagher + Dennis · Monroe CT</span>
-        <span class="ch" style="font-style:italic;color:#64748b">Grandchildren: Christina Demchak, Gregory Demchak</span>
-      </div>
-    </div>
-  </div>
-
-  <div style="margin:4px 0 6px 22px;padding:7px 11px;background:#f0f9ff;border:1.5px solid #7dd3fc;border-radius:7px;font-size:.75rem;color:#0c4a6e">
-    <strong>Church / community:</strong> St. John the Baptist Carpatho-Russian Orthodox Church, 364 Mill Hill Ave, Bridgeport CT. Carpatho-Rusyn (Ruthenian) immigrant community from the Carpathian mountain region — modern western Ukraine / Slovakia / Poland border area. George Jr.'s and Ann Vayser's funerals held here; Mary Demchak Shomsky was a lifelong member; Michael G. Demchak and Mary Figula were communicants. Demchak, Shomsky, Kosch, and Figula are all Carpatho-Rusyn surnames. <strong>Village connection:</strong> Mary Figula (wife of Michael G. Demchak) was born in <strong>Bačkov, Czechoslovakia</strong> (modern Košice Region, eastern Slovakia) — a confirmed Carpatho-Rusyn village of origin in the extended Demchak family network. Helen Karaffa (née Demchak) son: <strong>Archpriest Stephen Karaffa</strong> (d. Nov 11, 2008), rector Ss. Peter &amp; Paul Orthodox Church, Burr Ridge IL — shows Carpatho-Russian Orthodox priestly line continuing from Demchak ancestry.
-  </div>
-
-  <div class="gen-lbl">Great-grandparents (Shomsky / Demchak) <span class="badge bc">Confirmed</span></div>
-  <div class="gen-row">
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person shom">Michael Shomsky<span class="role">great-grandfather · details to confirm</span></div>
-        <span class="cx">×</span>
-        <div class="person shom">Mary Demchak<span class="role">b. 1915, Bridgeport CT · d. Jul 1 2003, Bridgeport Hospital</span></div>
-      </div>
-      <div class="children">
-        <span class="ch miss">Dorothy Shomsky Relihan (d. before 2003 — predeceased her mother)</span>
-        <span class="ch shom">Ronald G. Shomsky (b. May 10 1939 · d. May 29 2014, CT Hospice, Branford) + Kathleen Murphy · 48 yrs married · Milford CT · Bridgeport Machines / Swiss Chalet Suites · Teamsters Local 191</span>
-        <span class="ch">Robert M. Shomsky (b. Nov 22 1935 · d. Apr 15 2011) · Bridgeport CT — children: Richard Shomsky, David Shomsky <span class="badge bp" style="font-size:.55rem">Death date S43</span></span>
-        <span class="ch miss">Richard "Skip" Shomsky · d. before Jul 2003 (predeceased mother Mary)</span>
-      </div>
-    </div>
-  </div>
-
-  <div style="margin:2px 0 4px 22px;padding-left:12px;border-left:2px solid #7dd3fc">
-    <div class="gen-lbl" style="margin-top:4px">Ronald G. Shomsky branch <span class="badge bc">Confirmed</span></div>
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person shom" style="min-width:auto">Ronald G. Shomsky</div>
-        <span class="cx">×</span>
-        <div class="person" style="min-width:auto">Kathleen Murphy</div>
-      </div>
-      <div class="children">
-        <span class="ch shom">Ronald Shomsky Jr. · Milford CT</span>
-        <span class="ch shom">Maureen Shomsky · Milford CT</span>
-        <span class="ch" style="font-style:italic;color:#64748b">Daughter-in-law: Judy Purcell-Shomsky · Grandchildren: Lenny Shomsky, Michael Shomsky, Kristie Shomsky, Carly Shomsky</span>
-      </div>
-    </div>
-  </div>
-
-  <div style="margin:2px 0 8px 22px;padding:7px 11px;background:#fef2f2;border:1.5px solid #fca5a5;border-radius:7px;font-size:.75rem;color:#7f1d1d">
-    <strong>Mary Demchak Shomsky — confirmed details:</strong> Retired inspector, Remington Arms, 35+ years. Lifelong member St. John the Baptist Carpatho Russian Orthodox Church, Bridgeport. Died July 1, 2003, Bridgeport Hospital, age 87. Predeceased by: daughter Dorothy Relihan, son Richard "Skip" Shomsky, and sibling Helen Demchak Karaffa. Surviving children: Robert Shomsky (Bridgeport CT) and Ronald G. Shomsky (Milford CT). <strong>8 grandchildren:</strong> Thomas Relihan Jr., Nancy Kozak, Betsy Gross, Robert Relihan (all via Dorothy); Ronald Shomsky Jr., Maureen Shomsky (via Ronald G.); Richard Shomsky, David Shomsky (via Robert). <strong>7 great-grandchildren:</strong> Lenny, Michael, Kristie, Carly Shomsky; Lindsay Relihan; Grant and Hillary Kozak. Sibling Ann Demchak's married name: <strong>Ann Demchak Vayser</strong> (Stratford CT per Mary's obit; Milford CT per George Jr.'s 2010 obit). Michael Shomsky's birth/death dates, parents, and full biography not yet found.
-  </div>
-
-  <div class="cbar" id="cbar-helen-k" data-id="helen-k">
-    <div class="cbar-lbl">Can you confirm Helen Ustaseski Kozak's dates? (Records show b. Sep 25 1924; d. Aug 6 2016, Norwich CT — source: Cavanagh Funeral Home)</div>
-    <button class="cbar-btn cbar-btn-y" onclick="cbSet('helen-k','confirmed')">✓ Yes, confirmed</button>
-    <button class="cbar-btn cbar-btn-u" onclick="cbSet('helen-k','unknown')">? Not sure</button>
-    <button class="cbar-btn cbar-btn-n" onclick="cbSet('helen-k','denied')">✗ Wrong — correct info below</button>
-    <input class="cbar-input" id="cbinput-helen-k" placeholder="e.g. maiden name, correct dates, parents' names" style="display:none" oninput="cbNote('helen-k',this.value)">
-    <span class="cbar-note" id="cbnote-helen-k"></span>
-  </div>
-
-  <div class="gen-lbl">Probable great-grandparents (Relihan) <span class="badge bp">Probable — confirm if you know</span></div>
-  <div class="gen-row">
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person prob">John Relihan Sr.<span class="role">probable great-grandfather · Bridgeport CT</span></div>
-        <span class="cx">×</span>
-        <div class="person prob">Ann Duley / Dooley<span class="role">probable great-grandmother · "Duley" spelling confirmed via Ann Lang 2008 obit</span></div>
-      </div>
-      <div class="children">
-        <span class="ch rel">Thomas Peter Relihan → see below</span>
-        <span class="ch miss">Sen. John J. Relihan Jr. — <strong>died in office ~Dec 1966</strong> (S31) — spouse &amp; children UNKNOWN</span>
-        <span class="ch miss">Edward A. Relihan (b. June 24, 1929, d. ~May 15, 1989 Newington CT) — spouse &amp; children UNKNOWN</span>
-        <span class="ch rel">Ann Relihan Lang + Frank O. Lang (d. Dec 22, 2008)</span>
-        <span class="ch rel">Margaret Relihan Mellott + James J. Mellott <span class="badge bc" style="font-size:.58rem">Dooley/Duley branch confirmed S32</span></span>
-      </div>
-    </div>
-  </div>
-  <div class="cbar" id="cbar-jjr-d" data-id="jjr-d">
-    <div class="cbar-lbl">Are John Relihan Sr. + Ann Duley your great-grandparents (Thomas P. Relihan's parents)?</div>
-    <button class="cbar-btn cbar-btn-y" onclick="cbSet('jjr-d','confirmed')">✓ Yes, confirmed</button>
-    <button class="cbar-btn cbar-btn-u" onclick="cbSet('jjr-d','unknown')">? Not sure</button>
-    <button class="cbar-btn cbar-btn-n" onclick="cbSet('jjr-d','denied')">✗ Wrong</button>
-    <span class="cbar-note" id="cbnote-jjr-d"></span>
-  </div>
-
-  <div style="margin:6px 0 0 22px;padding-left:12px;border-left:2px solid #c4b5fd">
-    <div class="gen-lbl" style="margin-top:4px">Ann Relihan Lang branch <span class="badge bc">Updated S32 genes2</span></div>
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person rel" style="min-width:auto">Ann Relihan Lang<span class="role">b. ~1932, Bridgeport CT · d. Dec 22 2008 · Funeral: Assumption Catholic Church, Woodbridge CT · Burial: Northwest Cemetery, Woodbridge CT</span></div>
-        <span class="cx">×</span>
-        <div class="person" style="min-width:auto">Frank O. Lang<span class="role">survived Ann as of Dec 2008 · obit not yet found</span></div>
-      </div>
-      <div class="children">
-        <span class="ch rel">Frank O. Lang III + wife Julie (maiden unknown)</span>
-        <span class="ch rel">Matthew G. Lang + wife Brenda (maiden unknown)</span>
-        <span class="ch rel">Carol Lang Barnes + husband Doug Barnes</span>
-        <span class="ch" style="font-style:italic;color:#64748b">7 grandchildren (names unknown)</span>
-      </div>
-    </div>
-    <div class="gen-lbl" style="margin-top:10px">Margaret Relihan Mellott branch <span class="badge bc">Dooley/Duley branch confirmed S32</span></div>
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person rel" style="min-width:auto">Margaret Relihan Mellott<span class="role">b. prob. May 13, 1927 · d. prob. Dec 4, 2022 · Lauralton Hall Class of 1951</span></div>
-        <span class="cx">×</span>
-        <div class="person" style="min-width:auto">James J. Mellott</div>
-      </div>
-      <div class="children">
-        <span class="ch">Terese Travis-Horvath + Robert S. Horvath → Christopher, Daniel, Kyle Travis</span>
-        <span class="ch">Denise Mellott Barnes + Charles F. Barnes Jr. (b. Bridgeport 1957 · d. Mar 11 2025)</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="gen-lbl" style="margin-top:14px">Grandparents</div>
-  <div class="gen-row">
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person rel prob">Thomas Peter Relihan<span class="role">grandfather · b. ~1930 CT · d. ~1990 CT <span class="badge bp">S35 — death index only</span></span></div>
-        <span class="cx">×</span>
-        <div class="person shom">Dorothy Shomsky Relihan<span class="role">b. ~1925, Bridgeport CT · d. before 2003</span></div>
-      </div>
-      <div class="children">
-        <span class="ch rel">Nancy Relihan Kozak → Grant's mother</span>
-        <span class="ch rel">Tommy Relihan Jr. + Carla Guarino (no children)</span>
-        <span class="ch rel">Robert Relihan + Cynthia Bixler [2nd wife] · Lindsay Relihan from 1st marriage</span>
-        <span class="ch rel">Betsy Relihan Gross + Jay Gross · California</span>
-      </div>
-    </div>
-  </div>
-  <div class="cbar" id="cbar-tp" data-id="tp">
-    <div class="cbar-lbl">Do you know Thomas P. Relihan's exact birth or death year? (Records show b.~1930, d.~1990)</div>
-    <button class="cbar-btn cbar-btn-y" onclick="cbSet('tp','confirmed')">✓ Those dates are right</button>
-    <button class="cbar-btn cbar-btn-u" onclick="cbSet('tp','unknown')">? I don't know</button>
-    <button class="cbar-btn cbar-btn-n" onclick="cbSet('tp','denied')">✗ Wrong — correct dates below</button>
-    <input class="cbar-input" id="cbinput-tp" placeholder="e.g. b. 1928, d. Mar 5 1991" style="display:none" oninput="cbNote('tp',this.value)">
-    <span class="cbar-note" id="cbnote-tp"></span>
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<div class="sec">
-  <div class="sec-title" style="font-size:1.05rem">PARENTS &amp; GRANT'S GENERATION</div>
-
-  <div class="gen-lbl">Parents</div>
-  <div class="gen-row">
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person kozak">Mark Kozak<span class="role">father · Norwich CT → Woodbridge CT</span></div>
-        <span class="cx">×</span>
-        <div class="person rel">Nancy Relihan Kozak<span class="role">mother</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="gen-lbl">Grant's generation</div>
-  <div class="gen-row">
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person grant">Grant Kozak<span class="role">research subject</span></div>
-        <span class="cx">×</span>
-        <div class="person">Jessica Horton Kozak<span class="role">m. May 2021 · PhD ABA, Columbia</span></div>
-      </div>
-    </div>
-    <div class="family-unit">
-      <div class="couple">
-        <div class="person kozak">Hilary Kozak Willis<span class="role">sister · COO LivSmooth, NYC</span></div>
-        <span class="cx">×</span>
-        <div class="person">Malcolm Willis<span class="role">m. Jan 8 2022</span></div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- ════════════════════════════ RESEARCH WEB ════════════════════════════ -->
-<div id="tab-web" class="tab-panel">
-<div class="sec">
-  <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
-    <div class="sec-title" style="margin-bottom:0">Research Web <span id="rsvg-hint" style="font-size:.73rem;font-weight:400;color:#94a3b8;font-family:Inter,sans-serif">· click a node to highlight its connections</span></div>
-    <button id="web-collapse-btn" onclick="toggleWebCollapse()" style="margin-left:auto;font-size:.72rem;font-weight:600;padding:5px 13px;border-radius:7px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#475569;cursor:pointer;flex-shrink:0">Collapse ▲</button>
-    <button onclick="switchTab('overview', document.querySelector('.tab-btn'))" style="font-size:.72rem;font-weight:600;padding:5px 13px;border-radius:7px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#475569;cursor:pointer;flex-shrink:0">← Back to Overview</button>
-  </div>
-  <div class="sec-sub">Broader hypothesis network. McGivney cluster (right of red barrier) has <strong>no proven genealogical bridge</strong> to any Relihan branch.</div>
-  <div id="web-body">
-    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:10px;font-size:.71rem;color:#475569;align-items:center">
-      <span style="display:flex;align-items:center;gap:4px"><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#334155" stroke-width="2.5"/></svg>Confirmed</span>
-      <span style="display:flex;align-items:center;gap:4px"><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#d97706" stroke-width="2" stroke-dasharray="6,3"/></svg>Probable</span>
-      <span style="display:flex;align-items:center;gap:4px"><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="2,4"/></svg>Research-only</span>
-      <span style="display:flex;align-items:center;gap:4px"><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#be185d" stroke-width="2"/></svg>McGivney cluster</span>
-    </div>
-    <div style="border-radius:10px;border:1px solid #e2e8f0;overflow:hidden">
-      <svg id="rsvg" style="display:block;width:100%;height:600px;background:#f8f9fb;border-radius:10px;cursor:grab;user-select:none"></svg>
-    </div>
-    <div style="margin-top:8px;font-size:.72rem;color:#94a3b8">Scroll/pinch to zoom &nbsp;·&nbsp; Drag to pan &nbsp;·&nbsp; Click a node to highlight connections</div>
-  </div>
-</div>
-</div>
-
 <!-- ════════════════════════════ MISSING LINKS ════════════════════════════ -->
 <div id="tab-missing" class="tab-panel">
 <div class="sec">
@@ -649,7 +330,7 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
 
   <div class="miss-grid">
 
-    <div class="mcard">
+    <div class="mcard" data-id="edward-relihan">
       <div class="mname">Edward A. Relihan <span class="badge bx">Priority 1</span></div>
       <div class="mlbl">Known facts</div>
       <div class="mbody">Born June 24, 1929. Probable son of John R. Relihan + Anna Dooley. Died ~May 15, 1989, Newington / Hartford County CT. Sibling of Thomas Peter, Senator John J., Ann Lang, Margaret Mellott.</div>
@@ -669,9 +350,12 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
       <div class="mbody">Hartford Courant pre-1989 is pre-digital. Requires microfilm at CT State Library (Hartford) or Newington Town Clerk written request. GenealogyBank coverage begins 1991.</div>
       <div class="mlbl">Surnames to cross-check</div>
       <div class="mnames"><span class="mpill">Walshe</span><span class="mpill">Finn</span><span class="mpill">Lawlor</span><span class="mpill">Dwyer</span><span class="mpill">Burns</span><span class="mpill">O'Connell</span><span class="mpill">Lynch</span><span class="mpill">Phillips</span><span class="mpill">Ransom</span></div>
+      <div class="mlbl" style="margin-top:8px">Your findings</div>
+      <textarea id="mnta-edward-relihan" class="mnote-ta" rows="2" placeholder="What did you find? Spouse name, obit text, children's names…"></textarea>
+      <div class="mnote-row"><button class="mnote-btn" onclick="missSave('edward-relihan')">Save</button><span class="mnote-saved" id="mnts-edward-relihan"></span></div>
     </div>
 
-    <div class="mcard">
+    <div class="mcard" data-id="senator-relihan">
       <div class="mname">Senator John J. Relihan Jr. <span class="badge bx">Priority 2</span></div>
       <div class="mlbl">Known facts <span class="badge bc">Updated genes2</span></div>
       <div class="mbody">CT State Senator, District 21, 1959–1966. Confirmed: <strong>died in office, ~December 1966</strong> (Wikipedia citing Hartford Courant Dec 16, 1966 p. 30; S31). Son of John Relihan + Ann Duley Relihan (confirmed via Ann Lang obit S32). Brother of Thomas Peter, Edward A., Ann Lang, Margaret Mellott (all confirmed S32). Born ~1927–28, Bridgeport CT. <strong>Fairfield Prep Class of 1946</strong>. He died at approximately age 38–39.</div>
@@ -682,9 +366,12 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
       <div class="mlbl">Next step</div>
       <div class="mbody"><strong>Hartford Courant microfilm, ~December 15–20, 1966</strong> at CT State Library (231 Capitol Ave, Hartford CT). The death notice should name his wife and children. Also try Bridgeport Post microfilm same dates.</div>
       <div class="mnames"><span class="mpill">Walshe</span><span class="mpill">Finn</span><span class="mpill">Lawlor</span><span class="mpill-n mpill">Irwin</span><span class="mpill-n mpill">Bridgeport bar</span></div>
+      <div class="mlbl" style="margin-top:8px">Your findings</div>
+      <textarea id="mnta-senator-relihan" class="mnote-ta" rows="2" placeholder="Microfilm results, spouse name, children, any obit text…"></textarea>
+      <div class="mnote-row"><button class="mnote-btn" onclick="missSave('senator-relihan')">Save</button><span class="mnote-saved" id="mnts-senator-relihan"></span></div>
     </div>
 
-    <div class="mcard">
+    <div class="mcard" data-id="nancy-martini">
       <div class="mname">Ann Louise "Nancy" Relihan Martini — children <span class="badge bp">Partially confirmed</span></div>
       <div class="mlbl">Known facts</div>
       <div class="mbody">Formal name: Ann Louise Relihan Martini. Known informally as "Nancy." Born Mar 7, 1934, Forest Hills NY. Died Aug 14, 2024, Winnetka IL, age 90. Lauralton Hall Class of 1951. Daughter of John J. Relihan Sr. + Mabel McNamara. Married W. Curt Martini Sr. Address: 945 Pine Tree Lane, Winnetka IL.</div>
@@ -701,9 +388,12 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
       </div>
       <div class="mlbl">Status</div>
       <div class="mbody">Donnellan Funeral Home obit is JS-gated. Children names partially confirmed via public household records. Priority reduced from 3 — main gap now is married surnames and W. Curt Sr. obit.</div>
+      <div class="mlbl" style="margin-top:8px">Your findings</div>
+      <textarea id="mnta-nancy-martini" class="mnote-ta" rows="2" placeholder="Martini children's spouses, W. Curt Sr. obit, any other info…"></textarea>
+      <div class="mnote-row"><button class="mnote-btn" onclick="missSave('nancy-martini')">Save</button><span class="mnote-saved" id="mnts-nancy-martini"></span></div>
     </div>
 
-    <div class="mcard med">
+    <div class="mcard med" data-id="john-finn">
       <div class="mname">John R. Finn — parents unconfirmed <span class="badge bp">Probable lead</span></div>
       <div class="mlbl">Known facts</div>
       <div class="mbody">Fairfield Prep In Memoriam, Class of 1946. One year ahead of Joseph R. Relihan (O'Connell branch, '47).</div>
@@ -717,9 +407,12 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
         <span class="ms">Bridgeport diocese birth records</span>
       </div>
       <div class="mnames"><span class="mpill">Finn</span><span class="mpill">McGivney</span><span class="mpill-n mpill">Fairfield Prep</span></div>
+      <div class="mlbl" style="margin-top:8px">Your findings</div>
+      <textarea id="mnta-john-finn" class="mnote-ta" rows="2" placeholder="John R. Finn's parents, birth record, any connection to Rose McGivney Finn…"></textarea>
+      <div class="mnote-row"><button class="mnote-btn" onclick="missSave('john-finn')">Save</button><span class="mnote-saved" id="mnts-john-finn"></span></div>
     </div>
 
-    <div class="mcard med">
+    <div class="mcard med" data-id="relihan-irwin">
       <div class="mname">Relihan &amp; Irwin — which Relihan? <span class="badge bt">Tenuous</span></div>
       <div class="mlbl">Known facts</div>
       <div class="mbody">Law firm in Bridgeport / Norwalk. Appears in state register / congressional directory context with Donald J. Irwin. Professional context overlaps with Senator John J. Relihan Jr.'s period.</div>
@@ -731,9 +424,12 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
         <span class="ms">"Relihan & Irwin" "John J. Relihan"</span>
         <span class="ms">"Donald J. Irwin" "Relihan" Connecticut</span>
       </div>
+      <div class="mlbl" style="margin-top:8px">Your findings</div>
+      <textarea id="mnta-relihan-irwin" class="mnote-ta" rows="2" placeholder="Which Relihan? CT bar records, any connection to Senator John J.…"></textarea>
+      <div class="mnote-row"><button class="mnote-btn" onclick="missSave('relihan-irwin')">Save</button><span class="mnote-saved" id="mnts-relihan-irwin"></span></div>
     </div>
 
-    <div class="mcard med">
+    <div class="mcard med" data-id="frank-lang">
       <div class="mname">Frank O. Lang — obituary not found <span class="badge bp">Active</span></div>
       <div class="mlbl">Known facts</div>
       <div class="mbody">Husband of Ann Relihan Lang. Woodbridge CT. Children: Frank O. Lang III + Julie (maiden unknown), Matthew G. Lang + Brenda (maiden unknown), Carol Lang Barnes + Doug Barnes.</div>
@@ -745,9 +441,12 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
         <span class="ms">New Haven Register archives "Frank Lang"</span>
         <span class="ms">CT death index "Frank Lang" Woodbridge</span>
       </div>
+      <div class="mlbl" style="margin-top:8px">Your findings</div>
+      <textarea id="mnta-frank-lang" class="mnote-ta" rows="2" placeholder="Frank O. Lang obit, Julie's maiden name, Brenda's maiden name…"></textarea>
+      <div class="mnote-row"><button class="mnote-btn" onclick="missSave('frank-lang')">Save</button><span class="mnote-saved" id="mnts-frank-lang"></span></div>
     </div>
 
-    <div class="mcard med">
+    <div class="mcard med" data-id="kelly-branch">
       <div class="mname">Kelly branch — children's spouses <span class="badge bp">Active</span></div>
       <div class="mlbl">Known facts</div>
       <div class="mbody">Sally Relihan Kelly + John D. Kelly: 5 children — Peter T., Sean G., Sarah A., Mark J. Kelly, Mara Kelly Marsh. John D. Kelly + Sheila Kelly (2nd wife): Siobhan, Scott, David Kelly.</div>
@@ -761,9 +460,12 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
         <span class="ms">"Mara Kelly Marsh" Relihan</span>
       </div>
       <div class="mnames"><span class="mpill">Walshe</span><span class="mpill">Finn</span><span class="mpill">Burns</span><span class="mpill">Lawlor</span><span class="mpill">Dwyer</span><span class="mpill">Phillips</span><span class="mpill">O'Connell</span></div>
+      <div class="mlbl" style="margin-top:8px">Your findings</div>
+      <textarea id="mnta-kelly-branch" class="mnote-ta" rows="2" placeholder="Peter T., Sean G., Sarah A., Mark J. Kelly spouses; Mara Marsh's children…"></textarea>
+      <div class="mnote-row"><button class="mnote-btn" onclick="missSave('kelly-branch')">Save</button><span class="mnote-saved" id="mnts-kelly-branch"></span></div>
     </div>
 
-    <div class="mcard low">
+    <div class="mcard low" data-id="senator-children">
       <div class="mname">Senator John J. Relihan Jr. — children <span class="badge bx">New priority: children's identities</span></div>
       <div class="mlbl">Known facts</div>
       <div class="mbody">Died in office ~December 1966, age ~38–39. If married with children, those children may still be living. The obituary in the Hartford Courant Dec 15–20, 1966 microfilm is the fastest path to their names.</div>
@@ -773,9 +475,12 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
         <span class="ms">Bridgeport Post microfilm Dec 15-20, 1966</span>
         <span class="ms">CT State death certificate ~December 1966 for John J. Relihan</span>
       </div>
+      <div class="mlbl" style="margin-top:8px">Your findings</div>
+      <textarea id="mnta-senator-children" class="mnote-ta" rows="2" placeholder="Children's names from microfilm, spouse name, parish…"></textarea>
+      <div class="mnote-row"><button class="mnote-btn" onclick="missSave('senator-children')">Save</button><span class="mnote-saved" id="mnts-senator-children"></span></div>
     </div>
 
-    <div class="mcard low">
+    <div class="mcard low" data-id="two-families">
       <div class="mname">Two Relihan Sr. families — same or separate? <span class="badge bt">Open question</span></div>
       <div class="mlbl">Known facts</div>
       <div class="mbody">Dooley/Duley branch Sr. (~1895 est., Bridgeport CT). McNamara branch Sr. (Fairfield CT, buried St. Michael's Stratford). Both Irish Catholic CT families named "John J. Relihan Sr."</div>
@@ -785,9 +490,12 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
         <span class="ms">1920–1930 census "John Relihan" Fairfield CT</span>
         <span class="ms">CT vital records · church baptism records</span>
       </div>
+      <div class="mlbl" style="margin-top:8px">Your findings</div>
+      <textarea id="mnta-two-families" class="mnote-ta" rows="2" placeholder="Census results, any evidence these are the same or different families…"></textarea>
+      <div class="mnote-row"><button class="mnote-btn" onclick="missSave('two-families')">Save</button><span class="mnote-saved" id="mnts-two-families"></span></div>
     </div>
 
-    <div class="mcard low">
+    <div class="mcard low" data-id="barnes-surname">
       <div class="mname">Barnes surname — appears twice <span class="badge bt">Flag</span></div>
       <div class="mlbl">Known facts</div>
       <div class="mbody">Carol Lang Barnes + Doug Barnes (child of Ann Relihan Lang). Denise Mellott Barnes + Charles Franklin Barnes Jr. (child of Margaret Relihan Mellott). Grant recognizes the Barnes name.</div>
@@ -799,6 +507,9 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
         <span class="ms">"Denise Mellott Barnes" children</span>
         <span class="ms">"Barnes" "Relihan" Connecticut</span>
       </div>
+      <div class="mlbl" style="margin-top:8px">Your findings</div>
+      <textarea id="mnta-barnes-surname" class="mnote-ta" rows="2" placeholder="Whether Carol's and Denise's Barnes are related, children's names…"></textarea>
+      <div class="mnote-row"><button class="mnote-btn" onclick="missSave('barnes-surname')">Save</button><span class="mnote-saved" id="mnts-barnes-surname"></span></div>
     </div>
 
   </div>
@@ -1070,22 +781,6 @@ function switchTab(id, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('active');
   btn.classList.add('active');
-  if (id === 'web') initGraph();
-}
-
-// ── RESEARCH WEB COLLAPSE ────────────────────────────────────────────────
-var _webCollapsed = false;
-function toggleWebCollapse() {
-  _webCollapsed = !_webCollapsed;
-  var body = document.getElementById('web-body');
-  var btn  = document.getElementById('web-collapse-btn');
-  if (_webCollapsed) {
-    body.style.display = 'none';
-    btn.textContent = 'Expand ▼';
-  } else {
-    body.style.display = '';
-    btn.textContent = 'Collapse ▲';
-  }
 }
 
 // ── RESEARCH INBOX (localStorage) ───────────────────────────────────────
@@ -1140,255 +835,29 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 
-// ── CONFIRM / DENY SYSTEM (localStorage) ─────────────────────────────────
-var CB_KEY = 'kozak-confirmations';
-function cbGet(){ return JSON.parse(localStorage.getItem(CB_KEY)||'{}'); }
-function cbSet(id, status){
-  var s = cbGet(); s[id] = {status:status, saved:new Date().toISOString().slice(0,10)};
-  if(status==='denied'){
-    var inp = document.getElementById('cbinput-'+id);
-    if(inp){ inp.style.display=''; inp.focus(); }
-  }
-  localStorage.setItem(CB_KEY, JSON.stringify(s));
-  cbRender();
+// ── MISSING LINKS NOTES (localStorage) ──────────────────────────────────
+var MISS_KEY = 'kozak-missing-notes';
+function missGet(){ return JSON.parse(localStorage.getItem(MISS_KEY)||'{}'); }
+function missSave(id){
+  var ta = document.getElementById('mnta-'+id);
+  if(!ta) return;
+  var s = missGet();
+  s[id] = {text:ta.value, saved:new Date().toISOString().slice(0,10)};
+  localStorage.setItem(MISS_KEY, JSON.stringify(s));
+  var sp = document.getElementById('mnts-'+id);
+  if(sp) sp.textContent = 'Saved '+s[id].saved;
 }
-function cbNote(id, val){
-  var s = cbGet();
-  if(!s[id]) s[id]={status:'denied',saved:new Date().toISOString().slice(0,10)};
-  s[id].note = val;
-  localStorage.setItem(CB_KEY, JSON.stringify(s));
-}
-function cbRender(){
-  var s = cbGet();
-  document.querySelectorAll('.cbar[data-id]').forEach(function(bar){
-    var id = bar.dataset.id;
-    var entry = s[id] || {};
-    var st = entry.status || '';
-    bar.classList.toggle('cb-confirmed', st==='confirmed');
-    bar.classList.toggle('cb-denied', st==='denied');
-    bar.querySelectorAll('.cbar-btn').forEach(function(btn){
-      btn.classList.remove('active');
-      if((btn.classList.contains('cbar-btn-y') && st==='confirmed') ||
-         (btn.classList.contains('cbar-btn-u') && st==='unknown')   ||
-         (btn.classList.contains('cbar-btn-n') && st==='denied')) btn.classList.add('active');
-    });
-    var noteEl = document.getElementById('cbnote-'+id);
-    if(noteEl) noteEl.textContent = entry.note ? 'Saved: "'+entry.note+'"' : (st ? 'Saved '+entry.saved : '');
+function missRender(){
+  var s = missGet();
+  Object.keys(s).forEach(function(id){
+    var ta = document.getElementById('mnta-'+id);
+    if(ta && s[id].text) ta.value = s[id].text;
+    var sp = document.getElementById('mnts-'+id);
+    if(sp && s[id].saved) sp.textContent = 'Saved '+s[id].saved;
   });
 }
-document.addEventListener('DOMContentLoaded', cbRender);
+document.addEventListener('DOMContentLoaded', missRender);
 
-var _graphInit = false;
-function initGraph() {
-  if (_graphInit) return;
-  if (!document.getElementById('rsvg')) return;
-  _graphInit = true;
-
-  var hint = document.getElementById('rsvg-hint');
-  var ns   = 'http://www.w3.org/2000/svg';
-  var NW = 130, NW2 = NW / 2, NH1 = 28, NH2 = 42;
-  var CW = 2400, CH = 840;
-  // Your Family zone: x 14–969
-  // CT leads (collapsed): x 975–1594
-  // McGivney cluster: x 1800–2390
-
-  function mk(tag, a) {
-    var el = document.createElementNS(ns, tag);
-    for (var k in a) el.setAttribute(k, a[k]);
-    return el;
-  }
-
-  // D3 zoom setup
-  var svg = d3.select('#rsvg');
-  var SC  = svg.append('g').attr('id','rwrap');
-  var zoom = d3.zoom().scaleExtent([0.10, 4])
-    .on('zoom', function(e){ SC.attr('transform', e.transform); });
-  svg.call(zoom);
-  var sc = SC.node();
-
-  var C = {
-    kozak:{bg:'#1d4ed8',fg:'#fff',bd:'#1e40af'},
-    rel:  {bg:'#7e22ce',fg:'#fff',bd:'#6b21a8'},
-    shom: {bg:'#0369a1',fg:'#fff',bd:'#075985'},
-    prob: {bg:'#fef9c3',fg:'#713f12',bd:'#ca8a04'},
-    miss: {bg:'#fee2e2',fg:'#991b1b',bd:'#dc2626'},
-    mc:   {bg:'#fff7ed',fg:'#9a3412',bd:'#fb923c'},
-    oc:   {bg:'#ede9fe',fg:'#4c1d95',bd:'#8b5cf6'},
-    prop: {bg:'#ecfdf5',fg:'#065f46',bd:'#34d399'},
-    mcg:  {bg:'#fce7f3',fg:'#9d174d',bd:'#f472b6'},
-    mcg2: {bg:'#be185d',fg:'#fff',bd:'#9d174d'},
-    gray: {bg:'#f1f5f9',fg:'#475569',bd:'#94a3b8'},
-  };
-
-  // Fixed generation rows — siblings share the same y so no one looks like
-  // they belong to a different generation just because of birth-year offset.
-  // Row A y=110  oldest ancestor
-  // Row B y=270  great-grandparents
-  // Row C y=440  grandparent generation
-  // Row D y=610  parents generation
-  // Row E y=775  Grant's generation
-  // Row F y=920  property / business
-  var N = [
-    // Row A — Patrick McGivney had 13 children; 5 research-relevant ones shown
-    {id:'patrick',    l:['Patrick McGivney','+ Mary Lynch · 13 children'],     x:2010, y:110, t:'mcg'},
-    // Row B — great-grandparents
-    // YOUR FAMILY zone (left of barrier):
-    {id:'johnsr-d',   l:['John Relihan Sr.','great-grandfather'],              x:190,  y:270, t:'prob'},
-    {id:'ann-duley',  l:['Ann Duley / Dooley','great-grandmother'],            x:330,  y:270, t:'prob'},
-    // CT RESEARCH zone — collapsed to one node; full details in Search Queue tab
-    {id:'ct-leads',   l:['CT Research Leads','15+ separate Relihan families'],  x:1380, y:440, t:'mc'},
-    // McGIVNEY zone (right of barrier) — Patrick had 13 children; key research siblings shown:
-    {id:'james-mcg',  l:['James F. McGivney','older brother of Michael'],       x:1870, y:200, t:'mcg'},
-    {id:'michael',    l:['Bl. Michael J. McGivney','founder KofC · b.1852'],   x:1870, y:310, t:'mcg2'},
-    {id:'john-mcg',   l:['John McGivney','sibling'],                            x:2010, y:200, t:'mcg'},
-    {id:'rose',       l:['Rose McGivney + Finn','key sibling line'],            x:2010, y:310, t:'mcg'},
-    {id:'dwyer',      l:['Margaret McGivney Dwyer','Ransom / Phillips line'],   x:2150, y:310, t:'mcg'},
-    // Row C — all grandparent-gen siblings at same y=440
-    // YOUR FAMILY zone:
-    {id:'senator',    l:['Sen. John J. Relihan Jr.','spouse unknown'],          x:60,   y:440, t:'prob'},
-    {id:'edward',     l:['Edward A. Relihan','b. Jun 24 1929'],                 x:200,  y:440, t:'miss'},
-    {id:'ann-lang',   l:['Ann Relihan Lang','d. Dec 22 2008'],                  x:340,  y:440, t:'prob'},
-    {id:'margaret-d', l:['Margaret Mellott','Duley branch confirmed'],          x:480,  y:440, t:'prob'},
-    {id:'dorothy',    l:['Dorothy Shomsky','grandmother confirmed'],             x:660,  y:440, t:'shom'},
-    {id:'thomas',     l:['Thomas P. Relihan','grandfather confirmed'],           x:800,  y:440, t:'rel'},
-    // Row D — parents generation
-    // YOUR FAMILY zone:
-    {id:'mark',       l:['Mark Kozak',"Grant's father"],                        x:60,   y:610, t:'kozak'},
-    {id:'nancy',      l:['Nancy Relihan Kozak',"Grant's mother"],               x:200,  y:610, t:'rel'},
-    {id:'tommy',      l:['Tommy Relihan Jr.','+ Carla Guarino'],                x:380,  y:610, t:'rel'},
-    {id:'robert',     l:['Robert Relihan'],                                     x:520,  y:610, t:'rel'},
-    {id:'betsy',      l:['Betsy Relihan Gross'],                                x:660,  y:610, t:'rel'},
-    // McGIVNEY zone:
-    {id:'burns',      l:['Msgr. G.T. Burns','gm = Rose McGivney Finn'],         x:1900, y:610, t:'mcg'},
-    // Row E — Grant's generation
-    {id:'grant',      l:['Grant Kozak'],                                        x:130,  y:775, t:'kozak'},
-    {id:'jessica',    l:['Jessica Horton Kozak',"Grant's wife"],                x:290,  y:775, t:'kozak'},
-    {id:'hilary',     l:['Hilary Kozak Willis',"Grant's sister"],               x:460,  y:775, t:'kozak'},
-    {id:'malcolm',    l:['Malcolm Willis','CRE Amherst NYC'],                   x:610,  y:775, t:'gray'},
-    {id:'walshe',     l:['John W.L. Walshe','great-grandnephew (public)'],      x:1960, y:775, t:'mcg'},
-  ];
-
-  var E = [
-    // Confirmed core family
-    {f:'dorothy',   t:'thomas',     s:'solid', c:'#334155', w:2.2},
-    {f:'johnsr-d',  t:'thomas',     s:'solid', c:'#334155', w:2.2},
-    {f:'thomas',    t:'nancy',      s:'solid', c:'#334155', w:2.2},
-    {f:'thomas',    t:'tommy',      s:'solid', c:'#334155', w:2.2},
-    {f:'thomas',    t:'robert',     s:'solid', c:'#334155', w:2.2},
-    {f:'thomas',    t:'betsy',      s:'solid', c:'#334155', w:2.2},
-    {f:'mark',      t:'nancy',      s:'solid', c:'#334155', w:2.2},
-    {f:'nancy',     t:'grant',      s:'solid', c:'#334155', w:2.2},
-    {f:'mark',      t:'grant',      s:'solid', c:'#334155', w:2.2},
-    {f:'nancy',     t:'hilary',     s:'solid', c:'#334155', w:2.2},
-    {f:'mark',      t:'hilary',     s:'solid', c:'#334155', w:2.2},
-    {f:'hilary',    t:'malcolm',    s:'dot',   c:'#94a3b8', w:1.5},
-    // Dooley/Duley ancestor — probable dashed amber
-    {f:'johnsr-d',  t:'ann-duley',  s:'dash',  c:'#d97706', w:1.8},
-    {f:'johnsr-d',  t:'senator',    s:'dash',  c:'#d97706', w:1.5},
-    {f:'johnsr-d',  t:'edward',     s:'dash',  c:'#dc2626', w:1.5},
-    {f:'johnsr-d',  t:'ann-lang',   s:'dash',  c:'#d97706', w:1.5},
-    {f:'johnsr-d',  t:'margaret-d', s:'dot',   c:'#f97316', w:1.5},
-    // McGivney cluster — Patrick's children
-    {f:'patrick',   t:'james-mcg',  s:'solid', c:'#be185d', w:2},
-    {f:'patrick',   t:'michael',    s:'solid', c:'#be185d', w:2},
-    {f:'patrick',   t:'john-mcg',   s:'solid', c:'#be185d', w:2},
-    {f:'patrick',   t:'rose',       s:'solid', c:'#be185d', w:2},
-    {f:'patrick',   t:'dwyer',      s:'solid', c:'#be185d', w:2},
-    {f:'rose',      t:'burns',      s:'solid', c:'#be185d', w:1.5},
-    {f:'rose',      t:'walshe',     s:'solid', c:'#be185d', w:1.5},
-  ];
-
-  var adj = {};
-  N.forEach(function(n){ adj[n.id] = []; });
-  E.forEach(function(e){ adj[e.f].push(e.t); adj[e.t].push(e.f); });
-
-  // Zone backgrounds
-  var zones = [
-    {x:14,   y:55, w:955,  h:760, fill:'#eff6ff', rx:10, label:'Your Family - Confirmed + Probable', lx:18},
-    {x:975,  y:55, w:620,  h:760, fill:'#fef9c3', rx:10, label:'Unrelated CT Relihan Leads (see Search Queue)', lx:980},
-    {x:1800, y:55, w:590,  h:760, fill:'#fdf0f6', rx:10, label:'McGivney Hypothesis Cluster', lx:1804},
-  ];
-  zones.forEach(function(z){
-    var r = mk('rect',{x:z.x,y:z.y,width:z.w,height:z.h,fill:z.fill,rx:z.rx,ry:z.rx});
-    r.setAttribute('pointer-events','none'); sc.appendChild(r);
-    var t = mk('text',{x:z.lx,y:z.y+18,fill:'#94a3b8','font-size':'8.5','font-weight':'700','letter-spacing':'0.06em','font-family':'Inter,sans-serif'});
-    t.setAttribute('pointer-events','none'); t.textContent = z.label.toUpperCase(); sc.appendChild(t);
-  });
-
-  // Barrier line between confirmed branches and McGivney hypothesis
-  var bar = mk('line',{x1:1795,y1:45,x2:1795,y2:825,stroke:'#dc2626','stroke-width':'1.5','stroke-dasharray':'5,5',opacity:'0.55'});
-  bar.setAttribute('pointer-events','none'); sc.appendChild(bar);
-  var barT = mk('text',{x:1795,y:35,'text-anchor':'middle',fill:'#dc2626','font-size':'7.5','font-weight':'700','font-family':'Inter,sans-serif','letter-spacing':'0.08em'});
-  barT.setAttribute('pointer-events','none'); barT.textContent = '-- NO PROVEN BRIDGE --'; sc.appendChild(barT);
-
-  // Generation row labels (left margin)
-  [{y:110,l:'Oldest ancestor'},{y:270,l:'Great-grandparents'},{y:440,l:'Grandparent generation'},{y:610,l:'Parents generation'},{y:775,l:"Grant's generation"}]
-  .forEach(function(g){
-    var t = mk('text',{x:4,y:g.y+5,fill:'#cbd5e1','font-size':'7.5','font-weight':'600','font-family':'Inter,sans-serif'});
-    t.setAttribute('pointer-events','none'); t.textContent = g.l.toUpperCase(); sc.appendChild(t);
-  });
-
-  // Edges
-  var eGrp = mk('g',{id:'eg'}); sc.appendChild(eGrp);
-  E.forEach(function(e){
-    var nf = N.find(function(n){return n.id===e.f;});
-    var nt = N.find(function(n){return n.id===e.t;});
-    if(!nf||!nt) return;
-    var da = e.s==='dash'?'7,4':e.s==='dot'?'2,5':null;
-    var attrs = {x1:nf.x,y1:nf.y,x2:nt.x,y2:nt.y,stroke:e.c,'stroke-width':e.w||1.5,fill:'none',class:'edge','data-n':e.f+' '+e.t,opacity:'0.72'};
-    if(da) attrs['stroke-dasharray']=da;
-    eGrp.appendChild(mk('line',attrs));
-  });
-
-  // Nodes
-  var nGrp = mk('g',{id:'ng'}); sc.appendChild(nGrp);
-  N.forEach(function(n){
-    var col = C[n.t] || C.gray;
-    var nh  = n.l.length > 1 ? NH2 : NH1;
-    var g = mk('g',{id:'node-'+n.id,class:'rnode','data-n':n.id,
-      transform:'translate('+(n.x-NW2)+','+(n.y-nh/2)+')',style:'cursor:pointer'});
-    g.appendChild(mk('rect',{width:NW,height:nh,rx:5,ry:5,fill:col.bg,stroke:col.bd,'stroke-width':'1.5'}));
-    var title = mk('title',{}); title.textContent = n.l.join(' - '); g.appendChild(title);
-    if(n.l.length===1){
-      var t = mk('text',{x:NW2,y:nh/2+4,'text-anchor':'middle',fill:col.fg,'font-size':'9.5','font-weight':'600','font-family':'Inter,sans-serif'});
-      t.textContent = n.l[0]; g.appendChild(t);
-    } else {
-      var t1 = mk('text',{x:NW2,y:nh/2-3,'text-anchor':'middle',fill:col.fg,'font-size':'9.5','font-weight':'600','font-family':'Inter,sans-serif'});
-      t1.textContent = n.l[0]; g.appendChild(t1);
-      var t2 = mk('text',{x:NW2,y:nh/2+12,'text-anchor':'middle',fill:col.fg,'font-size':'7.5','font-family':'Inter,sans-serif',opacity:'0.85'});
-      t2.textContent = n.l[1]; g.appendChild(t2);
-    }
-    g.addEventListener('click',function(ev){ ev.stopPropagation(); hlNode(n.id); });
-    nGrp.appendChild(g);
-  });
-
-  SC.on('click', hlReset);
-
-  function hlNode(id){
-    var con = new Set([id]);
-    adj[id].forEach(function(nb){ con.add(nb); });
-    sc.querySelectorAll('.rnode').forEach(function(el){ el.style.opacity=con.has(el.getAttribute('data-n'))?'1':'0.07'; });
-    sc.querySelectorAll('.edge').forEach(function(el){
-      var parts=(el.getAttribute('data-n')||'').split(' ');
-      el.style.opacity=parts.every(function(p){return con.has(p);})?'1':'0.03';
-    });
-    if(hint) hint.textContent = '- click background to reset';
-  }
-  function hlReset(){
-    sc.querySelectorAll('.rnode').forEach(function(el){ el.style.opacity='1'; });
-    sc.querySelectorAll('.edge').forEach(function(el){ el.style.opacity='0.72'; });
-    if(hint) hint.textContent = '- click a node to highlight its connections';
-  }
-
-  // Fit entire content into the visible SVG area on first load
-  requestAnimationFrame(function(){
-    var svgEl = document.getElementById('rsvg');
-    var rect  = svgEl.getBoundingClientRect();
-    var W = rect.width || 900, H = rect.height || 600;
-    var s = Math.min(W/CW, H/CH) * 0.90;
-    svg.call(zoom.transform, d3.zoomIdentity.translate((W-CW*s)/2,(H-CH*s)/2).scale(s));
-  });
-}
 </script>
 </body>
 </html>

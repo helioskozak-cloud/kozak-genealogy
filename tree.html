@@ -3,60 +3,69 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Family Pedigree — Kozak Genealogy</title>
+<title>Pedigree Charts — Kozak Genealogy</title>
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,sans-serif;background:#f8f9fb;height:100vh;display:flex;flex-direction:column;overflow:hidden;color:#0f172a}
-#hdr{flex-shrink:0;background:#1e293b;display:flex;align-items:center;padding:0 14px;height:46px;gap:10px}
+body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9;color:#0f172a;overflow-y:auto;overflow-x:hidden}
+#hdr{background:#1e293b;display:flex;align-items:center;padding:0 16px;height:48px;gap:10px;position:sticky;top:0;z-index:50}
 #hdr a{color:#94a3b8;font-size:.75rem;font-weight:500;text-decoration:none;padding:4px 10px;border-radius:6px;border:1px solid #334155}
 #hdr a:hover{background:#334155;color:#e2e8f0}
-.title{color:#f1f5f9;font-size:.85rem;font-weight:700}
-.hint{font-size:.68rem;color:#64748b}
-.zg{margin-left:auto;display:flex;gap:5px;align-items:center}
-.zbtn{background:transparent;border:1px solid #334155;color:#94a3b8;font-size:.78rem;font-weight:600;padding:4px 10px;border-radius:6px;cursor:pointer}
-.zbtn:hover{background:#334155;color:#e2e8f0}
-#wrap{flex:1;overflow:hidden;position:relative}
-#wrap svg{width:100%;height:100%;cursor:grab;background:#f8f9fb}
-#wrap svg:active{cursor:grabbing}
-/* Legend */
-#leg{position:absolute;bottom:12px;left:14px;display:flex;flex-direction:column;gap:4px;font-size:.67rem;color:#64748b;pointer-events:none}
-.lr{display:flex;align-items:center;gap:6px}
-.ls{width:28px;height:12px;border-radius:3px;border:1.5px solid}
-/* Detail panel */
-#panel{position:absolute;top:8px;right:12px;width:260px;background:#fff;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;font-size:.77rem;display:none;box-shadow:0 4px 20px rgba(0,0,0,.10);z-index:10}
-.pn{font-weight:700;font-size:.9rem;margin-bottom:4px;padding-right:20px;line-height:1.3}
-.pr{font-size:.67rem;color:#7e22ce;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
-.prow{display:flex;gap:7px;margin-bottom:3px;line-height:1.5;color:#334155;font-size:.74rem}
-.plbl{font-weight:700;color:#94a3b8;min-width:46px;flex-shrink:0;font-size:.64rem;text-transform:uppercase;padding-top:2px}
-.px{position:absolute;top:10px;right:11px;cursor:pointer;color:#94a3b8;font-size:.95rem;line-height:1}
+.htitle{color:#f1f5f9;font-size:.85rem;font-weight:700}
+.hhint{font-size:.67rem;color:#64748b;margin-left:4px}
+.branch{background:#fff;border-radius:12px;margin:16px;box-shadow:0 1px 4px rgba(0,0,0,.08);overflow:hidden}
+.bh{display:flex;align-items:flex-start;gap:12px;padding:14px 16px 12px;border-bottom:3px solid #e2e8f0}
+.bh-left{flex:1;min-width:0}
+.bh-name{font-size:.95rem;font-weight:700;margin-bottom:3px;line-height:1.3}
+.bh-note{font-size:.72rem;color:#64748b;line-height:1.45}
+.bh-btns{display:flex;gap:5px;flex-shrink:0;align-items:center;padding-top:2px}
+.bb{font-size:.7rem;font-weight:600;padding:4px 9px;border-radius:6px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#475569;cursor:pointer;white-space:nowrap}
+.bb:hover{background:#e2e8f0;color:#0f172a}
+.branch-body{padding:0;overflow:hidden}
+.bsvg{display:block;width:100%;cursor:grab;background:#f8f9fb}
+.bsvg:active{cursor:grabbing}
+#global-leg{display:flex;flex-wrap:wrap;gap:10px 20px;padding:10px 16px;font-size:.69rem;color:#64748b;background:#f8f9fb;border-bottom:1px solid #e2e8f0}
+.lr{display:flex;align-items:center;gap:5px}
+.ls{width:26px;height:11px;border-radius:3px;border:1.5px solid}
+#panel{position:fixed;top:56px;right:12px;width:284px;background:#fff;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;font-size:.76rem;display:none;box-shadow:0 4px 24px rgba(0,0,0,.12);z-index:100;max-height:calc(100vh - 80px);overflow-y:auto}
+.pn{font-weight:700;font-size:.9rem;margin-bottom:3px;padding-right:22px;line-height:1.3}
+.pr{font-size:.66rem;color:#7e22ce;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:9px}
+.prow{display:flex;gap:6px;margin-bottom:4px;line-height:1.5;color:#334155;font-size:.73rem}
+.plbl{font-weight:700;color:#94a3b8;min-width:52px;flex-shrink:0;font-size:.63rem;text-transform:uppercase;padding-top:2px}
+.px{position:absolute;top:10px;right:11px;cursor:pointer;color:#94a3b8;font-size:.95rem}
 .px:hover{color:#0f172a}
-/* Prob badge */
-.pbadge{display:inline-block;font-size:.58rem;font-weight:700;background:#fef9c3;color:#92400e;padding:1px 5px;border-radius:4px;margin-left:4px;vertical-align:middle}
+.cbar{margin:10px 0 4px;padding:8px 10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:7px}
+.cbar-q{font-size:.7rem;font-weight:600;color:#475569;margin-bottom:6px;line-height:1.4}
+.cbar-btns{display:flex;gap:5px;flex-wrap:wrap}
+.cbar-btn{font-size:.64rem;font-weight:700;padding:3px 9px;border-radius:5px;border:1.5px solid;cursor:pointer;transition:.1s}
+.cbar-btn-y{background:#f0fdf4;border-color:#22c55e;color:#15803d}
+.cbar-btn-y:hover,.cbar-btn-y.active{background:#22c55e;color:#fff}
+.cbar-btn-n{background:#fef2f2;border-color:#dc2626;color:#991b1b}
+.cbar-btn-n:hover,.cbar-btn-n.active{background:#dc2626;color:#fff}
+.cbar-btn-u{background:#f1f5f9;border-color:#94a3b8;color:#475569}
+.cbar-btn-u:hover,.cbar-btn-u.active{background:#94a3b8;color:#fff}
+.cbar-saved{font-size:.63rem;color:#94a3b8;font-style:italic;margin-top:4px}
+.cbar-input{width:100%;margin-top:5px;font-size:.71rem;padding:4px 8px;border:1px solid #cbd5e1;border-radius:5px}
 </style>
 </head>
 <body>
 
 <div id="hdr">
   <a href="index.html">&#8592; Research</a>
-  <span class="title">Kozak / Relihan Pedigree Chart</span>
-  <span class="hint">Scroll to zoom &nbsp;·&nbsp; Drag to pan &nbsp;·&nbsp; Click any box for details</span>
-  <div class="zg">
-    <button class="zbtn" id="btn-out">&#8722;</button>
-    <button class="zbtn" id="btn-in">+</button>
-    <button class="zbtn" id="btn-fit">Fit</button>
-  </div>
+  <span class="htitle">Pedigree Charts</span>
+  <span class="hhint">Scroll page to move between branches &nbsp;·&nbsp; Pan / zoom within each chart &nbsp;·&nbsp; Click any box for details</span>
 </div>
 
-<div id="wrap"><svg id="ts"></svg></div>
-
-<div id="leg">
-  <div class="lr"><div class="ls" style="background:#f3e8ff;border-color:#7e22ce"></div>Relihan / maternal</div>
-  <div class="lr"><div class="ls" style="background:#dcfce7;border-color:#15803d"></div>Kozak / paternal</div>
+<div id="global-leg">
+  <div class="lr"><div class="ls" style="background:#f3e8ff;border-color:#7e22ce"></div>Relihan (maternal)</div>
+  <div class="lr"><div class="ls" style="background:#dcfce7;border-color:#15803d"></div>Kozak (paternal)</div>
   <div class="lr"><div class="ls" style="background:#e0f2fe;border-color:#0369a1"></div>Shomsky / Demchak</div>
+  <div class="lr"><div class="ls" style="background:#fce7f3;border-color:#be185d"></div>McGivney research</div>
+  <div class="lr"><div class="ls" style="background:#f1f5f9;border-color:#94a3b8"></div>Married-in / other</div>
   <div class="lr"><div class="ls" style="background:#fef9c3;border-color:#d97706;border-style:dashed"></div>Probable — needs confirmation</div>
-  <div class="lr"><div class="ls" style="background:#f1f5f9;border-color:#94a3b8"></div>Married-in / unknown branch</div>
 </div>
+
+<div id="branches"></div>
 
 <div id="panel">
   <div class="px" id="px">&#x2715;</div>
@@ -66,435 +75,384 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f8f9fb;height:10
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════════════════════
-//  PEDIGREE CHART — slot-based layout
-//  Slot 1 = Grant (focal person)
-//  Slot 2k = maternal parent of slot k  (top branch)
-//  Slot 2k+1 = paternal parent of slot k  (bottom branch)
-//  Generation g: slots 2^g … 2^(g+1)-1
-//  All ancestors in 4 generations (g=0 Grant, g=1 parents,
-//  g=2 grandparents, g=3 great-grandparents)
-// ═══════════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════
+//  BRANCH DATA
+// ═══════════════════════════════════════════════════════════════
+var BRANCHES=[
 
-const BW = 204, BH = 52;   // box width / height
-const HGAP = 56;            // horizontal gap between columns
-const CH = 760;             // total canvas height
-const NGEN = 4;             // number of ancestor generations to show
+{id:'grant',color:'#1d4ed8',
+ name:'Grant Kozak — Confirmed Pedigree',
+ note:'Four generations of direct ancestors. Green = Kozak (paternal). Purple = Relihan/maternal. Blue = Shomsky/Demchak. Dashed amber border + dot = probable, needs documentary source.',
+ persons:{
+  1:{name:'Grant Kozak',branch:'kozak',relation:'Research subject',
+     facts:[['Spouse','Jessica Horton Kozak (m. May 2021)'],['Sister','Hilary Kozak Willis (m. Malcolm Willis, Jan 8 2022)']]},
+  2:{name:'Nancy Relihan Kozak',branch:'rel',relation:"Grant's mother",
+     facts:[['Parents','Thomas P. Relihan + Dorothy Shomsky Relihan'],
+            ['Siblings','Tommy Jr. (+ Carla Guarino, no children); Robert (+ Cynthia Bixler [2nd wife], Lindsay from 1st marriage); Betsy Gross (+ Jay Gross, California)']]},
+  3:{name:'Mark Kozak',branch:'kozak',relation:"Grant's father",
+     facts:[['Parents','John J. Kozak + Helen Ustaseski'],
+            ['Siblings','Cindy Buckley (Avon CT); David Kozak + Elizabeth Appel (West Hartford CT); Jennie Kozak (b.May 8 1925, d.Feb 18 2009, organist, never married); Marion Kozak Little (d.1982)']]},
+  4:{name:'Thomas P. Relihan',branch:'rel',prob:true,note:'b.~1930 · d.~1990 CT',
+     relation:"Nancy's father — dates still probable",
+     confirm:{id:'tp',q:"Do you know Thomas P. Relihan's exact birth or death year? (Records show b.~1930, d.~1990)"},
+     facts:[['Born','~1930 CT'],['Died','~1990 CT (US death index S35)'],
+            ['Spouse','Dorothy Shomsky Relihan'],
+            ['Children','Nancy Kozak; Tommy Jr.; Robert Relihan; Betsy Gross'],
+            ['Parents','John Relihan Sr. + Ann Duley (confirmed S32)'],
+            ['Siblings','Sen. John J. Relihan Jr. (CT State Sen. Dist.21, d.~Dec 1966 in office); Edward A. Relihan (b.Jun 24 1929, d.~May 1989 Newington CT); Ann Relihan Lang (d.Dec 22 2008); Margaret Relihan Mellott (d.Dec 4 2022)'],
+            ['Needed','Exact dates — New Haven Register / CT Post obit ~1990']]},
+  5:{name:'Dorothy Shomsky Relihan',branch:'shom',note:'b.~1925 Bridgeport · d.before 2003',
+     relation:"Nancy's mother",
+     facts:[['Born','~1925 Bridgeport CT'],['Died','Before Jul 2003 (predeceased her mother)'],
+            ['Parents','Michael Shomsky + Mary Demchak Shomsky'],
+            ['Siblings','Ronald G. Shomsky (d.May 29 2014); Robert M. Shomsky (d.Apr 15 2011); Richard "Skip" Shomsky (predeceased)']]},
+  6:{name:'John J. Kozak',branch:'kozak',note:'b.Jan 7 1924 · d.Sep 6 2020',
+     relation:"Mark's father",
+     facts:[['Born','Jan 7 1924 · Greeneville, Norwich CT'],['Died','Sep 6 2020 · Norwich CT'],
+            ['Military','US Navy signalman, WWII — North Atlantic & Pacific; merchant vessels'],
+            ['Education','Norwich Free Academy → Eastern CT State → Columbia University (Master\'s)'],
+            ['Career','Teacher & principal — Montville / Bozrah / Norwich; principal Greeneville School 1969–1984'],
+            ['Church','Divine Providence PNCC, 11 Silver St, Norwich CT — parish committee president, lifetime member'],
+            ['Burial','Divine Providence Cemetery, Norwich CT'],
+            ['Other children','Cindy Buckley (Avon CT); David Kozak + Elizabeth Appel (children: John William b.Feb 22 2000 d.Aug 24 2024, Collin b.2002); Jennie A. Kozak (d.Feb 18 2009); Marion Kozak Little (d.1982, children: Lee Courtemanche MA, Michael Little MA)']]},
+  7:{name:'Helen Ustaseski Kozak',branch:'kozak',note:'b.Sep 25 1924 · d.Aug 6 2016',
+     relation:"Mark's mother — confirmed",
+     facts:[['Born','Sep 25 1924'],['Died','Aug 6 2016 · Norwich CT'],
+            ['Married','Nov 1955'],['Source','S34 — Cavanagh Funeral Home Norwich CT (obId 25166430)'],
+            ['Open q.','Parents still unknown — call Cavanagh FH to confirm parents\' names']]},
+  8:{name:'John Relihan Sr.',branch:'rel',note:'Bridgeport CT · confirmed great-grandfather',
+     relation:"Thomas P. Relihan's father — confirmed via S32",
+     facts:[['Confirmed','Ann Relihan Lang 2008 obit (S32): "John and Ann Duley Relihan"'],
+            ['Location','Bridgeport CT'],
+            ['Children','Thomas P.; Sen. John J. Relihan Jr.; Edward A. Relihan (b.Jun 24 1929); Ann Relihan Lang (d.Dec 22 2008); Margaret Relihan Mellott (d.Dec 4 2022)']]},
+  9:{name:'Ann Duley Relihan',branch:'rel',note:'"Duley" spelling confirmed · S32',
+     relation:"Thomas P. Relihan's mother — confirmed via S32",
+     facts:[['"Duley" confirmed','Ann Relihan Lang 2008 obituary (S32): "John and Ann Duley Relihan"'],
+            ['"Dooley" variant','Also seen in SortedByName for Edward A. Relihan — same person'],
+            ['Source','S32']]},
+  10:{name:'Michael Shomsky',branch:'shom',prob:true,note:'Bridgeport CT · great-grandfather',
+      relation:"Dorothy Shomsky's father",
+      facts:[['Location','Bridgeport CT'],['Spouse','Mary Demchak Shomsky'],
+             ['Open q.','Birth/death dates and parents not yet found']]},
+  11:{name:'Mary Demchak Shomsky',branch:'shom',note:'b.~1915 · d.Jul 1 2003',
+      relation:"Dorothy Shomsky's mother",
+      facts:[['Born','~1915 Bridgeport CT'],['Died','Jul 1 2003 · Bridgeport Hospital (age ~87)'],
+             ['Career','Inspector, Remington Arms, 35+ years'],
+             ['Church','St. John the Baptist Carpatho Russian Orthodox Church, Bridgeport'],
+             ['Children','Dorothy Relihan (predeceased); Ronald G. Shomsky (d.May 29 2014); Robert M. Shomsky (d.Apr 15 2011); Richard "Skip" Shomsky (predeceased)'],
+             ['Her parents','George M. Demchak Sr. + Helen Kosch (Carpatho-Rusyn immigrant community)'],
+             ['Source','S21, S24']]},
+  12:{name:'Nicholas Kozak',branch:'kozak',note:'b.Sep 22 1893 Wilno · d.Mar 8 1950',
+      relation:"John J. Kozak's father",
+      facts:[['Born','Sep 22 1893 · Wilno, Russian Empire (now Vilnius, Lithuania)'],
+             ['Died','Mar 8 1950 · Norwich CT'],
+             ['Community','Polish immigrant community, Divine Providence PNCC, Norwich CT']]},
+  13:{name:'Anna Byczkowska',branch:'kozak',prob:true,note:'Polish immigrant · Norwich CT',
+      relation:"John J. Kozak's mother",
+      facts:[['Location','Polish immigrant community, Norwich CT'],
+             ['Open q.','Exact birth/death dates and parents unknown; maiden name spelling to confirm']]}
+}},
 
-// Slot → generation (0 = Grant)
-const gen  = k => Math.floor(Math.log2(k));
-// Slot → row within its generation (0-indexed, top to bottom)
-const row  = k => k - Math.pow(2, gen(k));
-// Slot → Y centre
-const yOf  = k => (2 * row(k) + 1) * CH / (2 * Math.pow(2, gen(k)));
-// Slot → X left edge  (gen 0 = rightmost column)
-const xOf  = k => (NGEN - 1 - gen(k)) * (BW + HGAP);
-const CW   = xOf(1) + BW + 24;   // total canvas width
+{id:'mcgivney',color:'#be185d',
+ name:"Peter George McGivney's Ancestors — Derby CT  (Betsy Research, S49–S54)",
+ note:"County Cavan ancestry — almost certainly SEPARATE from Blessed Michael J. McGivney (County Cork, Waterbury CT). Peter George (b.1891 Derby CT) married Helen R. Relihan Jun 14 1921, Derby CT. No children. See Branch 3 for Helen's ancestors.",
+ persons:{
+  1:{name:'Peter George McGivney',branch:'mcg',note:'b.Feb 7 1891 Derby CT · d.Mar 25 1973',
+     relation:"Son of Peter McGivney Sr. + Ann née Clark. Married Helen R. Relihan 1921.",
+     facts:[['Born','Feb 7 1891 · Derby CT'],['Died','Mar 25 1973'],
+            ['Married','Helen R. Relihan, Jun 14 1921, Derby CT — no children'],
+            ['Burial',"Mt. St. Peter's Cemetery Rt.34 Derby CT · Sec E Lot 35 (same plot as Helen)"],
+            ['Important','County Cavan ancestry — NOT the Waterbury CT McGivney line (County Cork)'],
+            ['Source','S51']]},
+  2:{name:'Ann née Clark McGivney',branch:'mcg',note:'b.Jul 10 1867 County Cavan · d.Feb 13 1948',
+     relation:"Peter George's mother",
+     facts:[['Born','Jul 10 1867 · County Cavan, Ireland'],['Died','Feb 13 1948 · Derby CT'],
+            ['Occupation','Seamstress'],['Parents','John McGivney + Rose Clark'],
+            ['Married','Peter McGivney Sr. ~1890'],
+            ['Burial','Saint Marys Cemetery, Ansonia CT'],['Source','S50']]},
+  3:{name:'Peter McGivney Sr.',branch:'mcg',note:'b.1844 County Cavan · d.Sep 15 1898',
+     relation:"Peter George's father",
+     facts:[['Born','1844 · County Cavan, Ireland'],['Died','Sep 15 1898 · Derby CT'],
+            ['Occupation','Gardener & florist'],
+            ['Burial','New Saint Marys Cemetery Ansonia CT · Sec C Lot 593'],
+            ['Other unions','Mary Callery (children Bryan + Rose); Catherine O\'Shey (son Thomas Francis b.Jul 26 1875)'],
+            ['Children with Ann','Peter George (b.1891), Bernard F., John J., Rosemary — all born 1891–1898'],
+            ['Source','S49']]},
+  4:{name:'John McGivney',branch:'mcg',note:"County Cavan · Ann's father",
+     relation:"Ann Clark's father",
+     facts:[['Location','County Cavan, Ireland'],['Spouse','Rose Clark'],['Child','Ann McGivney née Clark (b.Jul 10 1867)']]},
+  5:{name:'Rose Clark',branch:'mcg',note:"County Cavan · Ann's mother",
+     relation:"Ann Clark's mother",
+     facts:[['Location','County Cavan, Ireland'],['Spouse','John McGivney'],['Child','Ann McGivney née Clark (b.Jul 10 1867)']]}
+}},
 
-// Branch colour palette
-const CLR = {
-  relihan: {fill:'#f3e8ff', stroke:'#7e22ce', text:'#3b0764'},
-  kozak:   {fill:'#dcfce7', stroke:'#15803d', text:'#14532d'},
-  shomsky: {fill:'#e0f2fe', stroke:'#0369a1', text:'#0c4a6e'},
-  other:   {fill:'#f1f5f9', stroke:'#94a3b8', text:'#475569'},
-  prob:    {fill:'#fef9c3', stroke:'#d97706', text:'#92400e'},
+{id:'helen',color:'#7e22ce',
+ name:"Helen R. Relihan's Ancestors — Open Question",
+ note:"Helen (b.1894 CT) married Peter George McGivney 1921. Her father Maurice Relihan came from County Kerry. Open question: is Maurice related to Grant's Relihan ancestors — John Relihan Sr. + Ann Duley (Bridgeport CT)? No documentary link confirmed.",
+ persons:{
+  1:{name:'Helen R. Relihan',branch:'rel',note:'b.Jan 12 1894 CT · d.May 5 1955 Shelton CT',
+     relation:"Daughter of Maurice Relihan + Mary Dolan. Married Peter George McGivney 1921.",
+     facts:[['Born','Jan 12 1894 · CT'],['Died','May 5 1955 · Shelton CT'],
+            ['Occupation','Stenographer'],
+            ['Married','Peter George McGivney, Jun 14 1921, Derby CT — no children'],
+            ['Burial',"Mt. St. Peter's Cemetery Rt.34 Derby CT · Sec E Lot 35"],
+            ['Source','S52']]},
+  2:{name:'Mary Dolan',branch:'other',note:'b.Apr 5 1866 County Roscommon · d.Jan 8 1911',
+     relation:"Helen's mother",
+     facts:[['Born','Apr 5 1866 · County Roscommon, Ireland'],['Died','Jan 8 1911 · Derby CT'],
+            ['Parents','Thomas Dolan + Mary Towie'],['Source','S54']]},
+  3:{name:'Maurice Relihan',branch:'rel',note:'b.1856 County Kerry · d.Aug 2 1921 Shelton CT',
+     relation:"Helen's father — KEY open question re: connection to Grant's line",
+     facts:[['Born','1856 · County Kerry, Ireland'],['Died','Aug 2 1921 · Shelton CT'],
+            ['Parents','James Relihan + Mary O\'Connor (County Kerry)'],
+            ['Open question','Is Maurice (County Kerry, Shelton CT) related to John Relihan Sr. (Bridgeport CT), Grant\'s confirmed great-grandfather? Both Irish-Catholic CT Relihan families, same era. No documentary link yet.'],
+            ['Source','S53']]},
+  4:{name:'Thomas Dolan',branch:'other',note:"County Roscommon · Mary's father",
+     relation:"Mary Dolan's father",
+     facts:[['Location','County Roscommon, Ireland'],['Spouse','Mary Towie'],['Child','Mary Dolan (b.Apr 5 1866)']]},
+  5:{name:'Mary Towie',branch:'other',note:"County Roscommon · Mary's mother",
+     relation:"Mary Dolan's mother",
+     facts:[['Location','County Roscommon, Ireland'],['Spouse','Thomas Dolan'],['Child','Mary Dolan (b.Apr 5 1866)']]},
+  6:{name:'James Relihan',branch:'rel',note:"County Kerry · Maurice's father",
+     relation:"Maurice Relihan's father",
+     facts:[['Location','County Kerry, Ireland'],['Spouse',"Mary O'Connor"],
+            ['Child','Maurice Relihan (b.1856)'],['Note','No further records found']]},
+  7:{name:"Mary O'Connor",branch:'rel',note:"County Kerry · Maurice's mother",
+     relation:"Maurice Relihan's mother",
+     facts:[['Location','County Kerry, Ireland'],['Spouse','James Relihan'],
+            ['Child','Maurice Relihan (b.1856)'],['Note','No further records found']]}
+}}
+
+];// end BRANCHES
+
+// ═══════════════════════════════════════════════════════════════
+//  COLOURS
+// ═══════════════════════════════════════════════════════════════
+var CLR={
+  kozak:{fill:'#dcfce7',stroke:'#15803d',text:'#14532d'},
+  rel:  {fill:'#f3e8ff',stroke:'#7e22ce',text:'#3b0764'},
+  shom: {fill:'#e0f2fe',stroke:'#0369a1',text:'#0c4a6e'},
+  mcg:  {fill:'#fce7f3',stroke:'#be185d',text:'#831843'},
+  other:{fill:'#f1f5f9',stroke:'#94a3b8',text:'#475569'},
+  prob: {fill:'#fef9c3',stroke:'#d97706',text:'#92400e'}
 };
-function clr(p) {
-  if (!p || p.prob) return CLR.prob;
-  return CLR[p.branch] || CLR.other;
+function nodeClr(p){ return p.prob?CLR.prob:(CLR[p.branch]||CLR.other); }
+
+// ═══════════════════════════════════════════════════════════════
+//  LAYOUT
+// ═══════════════════════════════════════════════════════════════
+var BW=214,BH=54,HGAP=62;
+function genOf(k){return Math.floor(Math.log2(k));}
+function rowOf(k){return k-Math.pow(2,genOf(k));}
+function ngOf(persons){return Math.floor(Math.log2(Math.max.apply(null,Object.keys(persons).map(Number))))+1;}
+function chOf(ng){return 100*Math.pow(2,ng-1);}
+function cwOf(ng){return (ng-1)*(BW+HGAP)+BW+32;}
+function yOf(k,CH){return (2*rowOf(k)+1)*CH/(2*Math.pow(2,genOf(k)));}
+function xOf(k,ng){return (ng-1-genOf(k))*(BW+HGAP);}
+function trunc(s,n){return s.length>n?s.slice(0,n-1)+'…':s;}
+
+// ═══════════════════════════════════════════════════════════════
+//  CONFIRM / DENY (localStorage)
+// ═══════════════════════════════════════════════════════════════
+var CB_KEY='kozak-confirmations';
+function cbGet(){return JSON.parse(localStorage.getItem(CB_KEY)||'{}');}
+function cbSet(id,st){
+  var s=cbGet(); s[id]={status:st,saved:new Date().toISOString().slice(0,10)};
+  localStorage.setItem(CB_KEY,JSON.stringify(s)); renderCbar(id);
 }
-
-// ── PEOPLE DATA ───────────────────────────────────────────────────
-// slot: { name, branch, prob?, relation, facts:[['Label','Value'],...],
-//         note? (additional one-liner shown in box) }
-const P = {
-  // ── Grant's generation ────────────────────────────────────────
-  1: {
-    name:'Grant Kozak', branch:'relihan',
-    relation:'Research subject',
-    facts:[
-      ['Spouse','Jessica Horton Kozak (m. May 2021)'],
-      ['Sister','Hilary Kozak Willis (m. Malcolm Willis, Jan 8 2022)'],
-      ['Siblings note','See "Other Family" panel below chart'],
-    ]
-  },
-  // ── Parents (slots 2 = maternal/Nancy, 3 = paternal/Mark) ─────
-  2: {
-    name:'Nancy Relihan Kozak', branch:'relihan',
-    relation:"Grant's mother",
-    facts:[
-      ['Parents','Thomas P. Relihan + Dorothy Shomsky'],
-      ['Siblings','Tommy Jr. (+ Carla Guarino); Robert (+ Cynthia Bixler, child Lindsay); Betsy (+ Jay Gross, California)'],
-    ]
-  },
-  3: {
-    name:'Mark Kozak', branch:'kozak',
-    relation:"Grant's father",
-    facts:[
-      ['Parents','John J. Kozak + Helen Ustaseski'],
-      ['Residence','Norwich CT → Woodbridge CT'],
-      ['Siblings','Cindy Buckley (Avon CT); David + Elizabeth Kozak (West Hartford CT); Jennie Kozak d.2009; Marion Kozak Little d.1982'],
-    ]
-  },
-  // ── Grandparents (4 maternal-father, 5 maternal-mother,
-  //                  6 paternal-father, 7 paternal-mother) ───────
-  4: {
-    name:'Thomas P. Relihan', branch:'relihan', prob:true,
-    note:'b.~1930 · d.~1990 CT',
-    relation:"Grant's maternal grandfather",
-    facts:[
-      ['Born','~1930 CT'],
-      ['Died','~1990 CT (source: US death index S35)'],
-      ['Spouse','Dorothy Shomsky Relihan'],
-      ['Children','Nancy Kozak; Tommy Jr.; Robert; Betsy Gross'],
-      ['Needed','Full obituary — New Haven Register or CT Post ~1990'],
-    ]
-  },
-  5: {
-    name:'Dorothy Shomsky Relihan', branch:'shomsky',
-    note:'b.~1925 Bridgeport · d.before 2003',
-    relation:"Grant's maternal grandmother",
-    facts:[
-      ['Born','~1925 Bridgeport CT'],
-      ['Died','Before Jul 2003 (predeceased her mother Mary Demchak Shomsky)'],
-      ['Parents','Michael Shomsky + Mary Demchak Shomsky'],
-    ]
-  },
-  6: {
-    name:'John J. Kozak', branch:'kozak',
-    note:'b.Jan 7 1924 · d.Sep 6 2020',
-    relation:"Grant's paternal grandfather",
-    facts:[
-      ['Born','Jan 7 1924 · Greeneville, Norwich CT'],
-      ['Died','Sep 6 2020 · Norwich CT'],
-      ['Military','US Navy signalman, WWII — North Atlantic & Pacific; merchant vessels'],
-      ['Education','Norwich Free Academy → Eastern CT State Teachers College → Columbia University (Master\'s)'],
-      ['Career','Teacher & principal, Montville / Bozrah / Norwich schools; principal Greeneville School 1969–1984'],
-      ['Church','Divine Providence PNCC, 11 Silver St, Norwich CT — parish committee president; lifetime member'],
-      ['Burial','Divine Providence Cemetery, Norwich CT'],
-    ]
-  },
-  7: {
-    name:'Helen Ustaseski Kozak', branch:'kozak', prob:true,
-    note:'b.Sep 25 1924 · d.Aug 6 2016',
-    relation:"Grant's paternal grandmother",
-    facts:[
-      ['Born','Sep 25 1924'],
-      ['Died','Aug 6 2016 · Norwich CT (predeceased John J. Kozak)'],
-      ['Married','Nov 1955'],
-      ['Source','S34 — Cavanagh Funeral Home Norwich CT (obId 25166430). Full obit JS-gated.'],
-      ['Open q.','Parents unknown — call Cavanagh FH to confirm maiden name Ustaseski and identify her parents'],
-    ]
-  },
-  // ── Great-grandparents (slots 8–15) ───────────────────────────
-  8: {
-    name:'John Relihan Sr.', branch:'relihan', prob:true,
-    note:'Bridgeport CT · great-grandfather',
-    relation:"Thomas P. Relihan's father",
-    facts:[
-      ['Location','Bridgeport CT'],
-      ['Children','Thomas P. Relihan; Sen. John J. Relihan Jr. (d.~Dec 1966); Edward A. Relihan (b.1929, d.~May 1989); Ann Relihan Lang (d.Dec 2008); Margaret Relihan Mellott (d.Dec 2022)'],
-      ['Source','Confirmed as parents via Ann Relihan Lang 2008 obituary (S32): "John and Ann Duley Relihan"'],
-    ]
-  },
-  9: {
-    name:'Ann Duley / Dooley', branch:'relihan', prob:true,
-    note:'Bridgeport CT · "Duley" confirmed',
-    relation:"Thomas P. Relihan's mother",
-    facts:[
-      ['"Duley" spelling','Confirmed via Ann Relihan Lang 2008 obituary (S32)'],
-      ['"Dooley" variant','Also seen in SortedByName index for Edward A. Relihan — same person, spelling variant'],
-      ['Source','S32'],
-    ]
-  },
-  10: {
-    name:'Michael Shomsky', branch:'shomsky', prob:true,
-    note:'Bridgeport CT · great-grandfather',
-    relation:"Dorothy Shomsky's father",
-    facts:[
-      ['Location','Bridgeport CT'],
-      ['Spouse','Mary Demchak'],
-      ['Open q.','Birth/death dates and parents not yet found'],
-    ]
-  },
-  11: {
-    name:'Mary Demchak Shomsky', branch:'shomsky',
-    note:'b.~1915 · d.Jul 1 2003',
-    relation:"Dorothy Shomsky's mother",
-    facts:[
-      ['Born','~1915 Bridgeport CT'],
-      ['Died','Jul 1 2003 · Bridgeport Hospital · age ~87'],
-      ['Career','Inspector, Remington Arms, 35+ years'],
-      ['Church','St. John the Baptist Carpatho Russian Orthodox Church, Bridgeport'],
-      ['Children','Dorothy Shomsky Relihan (predeceased); Ronald G. Shomsky (d.May 29 2014); Robert M. Shomsky (d.Apr 15 2011); Richard "Skip" Shomsky (predeceased)'],
-      ['Parents','George M. Demchak Sr. + Helen Kosch (Carpatho-Rusyn immigrant community)'],
-      ['Source','S21, S24'],
-    ]
-  },
-  12: {
-    name:'Nicholas Kozak', branch:'kozak',
-    note:'b.Sep 22 1893 Wilno · d.Mar 8 1950',
-    relation:"John J. Kozak's father",
-    facts:[
-      ['Born','Sep 22 1893 · Wilno, Russian Empire (modern Vilnius, Lithuania)'],
-      ['Died','Mar 8 1950 · Norwich CT'],
-      ['Community','Polish immigrant community, Divine Providence PNCC, Norwich CT'],
-    ]
-  },
-  13: {
-    name:'Anna Byczkowska', branch:'kozak', prob:true,
-    note:'Polish immigrant · Norwich CT',
-    relation:"John J. Kozak's mother",
-    facts:[
-      ['Location','Polish immigrant community, Norwich CT'],
-      ['Open q.','Exact birth/death dates and parents not yet found; maiden name spelling to confirm'],
-    ]
-  },
-  // Slots 14 & 15 = Helen Ustaseski's parents — currently unknown
-};
-
-// ─────────────────────────────────────────────────────────────────
-//  SVG SETUP + D3 ZOOM
-// ─────────────────────────────────────────────────────────────────
-const svg  = d3.select('#ts');
-const zoom = d3.zoom().scaleExtent([0.15, 4])
-  .on('zoom', e => SC.attr('transform', e.transform));
-svg.call(zoom);
-const SC = svg.append('g').attr('id','sc');
-
-// ─────────────────────────────────────────────────────────────────
-//  DRAW CONNECTOR LINES
-// ─────────────────────────────────────────────────────────────────
-const lineG = SC.append('g').attr('id','lg');
-
-Object.keys(P).forEach(ks => {
-  const k = +ks;
-  const g = gen(k);
-  if (g >= NGEN - 1) return;   // great-grandparents have no parents shown
-
-  const ms = 2 * k;      // maternal-side parent slot
-  const ps = 2 * k + 1;  // paternal-side parent slot
-  const mPerson = P[ms];
-  const pPerson = P[ps];
-
-  const cx = xOf(k);           // child box left x
-  const cy = yOf(k);           // child box centre y
-  const vx = cx - HGAP / 2;   // x of vertical connector
-
-  // Line from child box left to vertical
-  lineG.append('line')
-    .attr('x1', cx).attr('y1', cy)
-    .attr('x2', vx).attr('y2', cy)
-    .attr('stroke', '#cbd5e1').attr('stroke-width', 1.5);
-
-  if (mPerson) {
-    const my = yOf(ms);
-    const mx = xOf(ms) + BW;   // right edge of maternal box
-    lineG.append('line')
-      .attr('x1', mx).attr('y1', my)
-      .attr('x2', vx).attr('y2', my)
-      .attr('stroke', '#cbd5e1').attr('stroke-width', 1.5);
-    // Stub vertical from maternal y toward child
-    const endY = pPerson ? yOf(ps) : cy;
-    lineG.append('line')
-      .attr('x1', vx).attr('y1', my)
-      .attr('x2', vx).attr('y2', endY)
-      .attr('stroke', '#cbd5e1').attr('stroke-width', 1.5);
-  }
-  if (pPerson) {
-    const py = yOf(ps);
-    const px = xOf(ps) + BW;
-    lineG.append('line')
-      .attr('x1', px).attr('y1', py)
-      .attr('x2', vx).attr('y2', py)
-      .attr('stroke', '#cbd5e1').attr('stroke-width', 1.5);
-  }
-});
-
-// ─────────────────────────────────────────────────────────────────
-//  DRAW GENERATION LABELS (left of each column)
-// ─────────────────────────────────────────────────────────────────
-const genNames = ['Grant\'s Generation', 'Parents', 'Grandparents', 'Great-Grandparents'];
-for (let g = 0; g < NGEN; g++) {
-  const x = xOf(Math.pow(2, g)) + BW / 2;
-  SC.append('text')
-    .attr('x', x).attr('y', 14)
-    .attr('text-anchor', 'middle')
-    .attr('font-family', 'system-ui,sans-serif')
-    .attr('font-size', 8.5).attr('font-weight', 700)
-    .attr('fill', '#94a3b8').attr('letter-spacing', '0.09em')
-    .text(genNames[g].toUpperCase());
+function cbNote(id,val){
+  var s=cbGet(); if(!s[id])s[id]={status:'denied',saved:new Date().toISOString().slice(0,10)};
+  s[id].note=val; localStorage.setItem(CB_KEY,JSON.stringify(s));
 }
-
-// ─────────────────────────────────────────────────────────────────
-//  DRAW PERSON BOXES
-// ─────────────────────────────────────────────────────────────────
-const boxG = SC.append('g').attr('id','bg');
-
-function truncate(s, max) { return s.length > max ? s.slice(0, max - 1) + '…' : s; }
-
-Object.keys(P).forEach(ks => {
-  const k = +ks;
-  const person = P[k];
-  if (!person) return;
-
-  const bx = xOf(k);
-  const by = yOf(k) - BH / 2;
-  const c  = clr(person);
-
-  const g = boxG.append('g')
-    .attr('class', 'pbox')
-    .style('cursor', 'pointer')
-    .on('click', () => showPanel(k));
-
-  // Main rect
-  g.append('rect')
-    .attr('x', bx).attr('y', by)
-    .attr('width', BW).attr('height', BH)
-    .attr('rx', 5)
-    .attr('fill', c.fill)
-    .attr('stroke', c.stroke)
-    .attr('stroke-width', 1.5)
-    .attr('stroke-dasharray', person.prob ? '5,3' : null);
-
-  // Name — split into two lines if needed
-  const name = person.name;
-  const parts = name.split(' ');
-  const mid = Math.ceil(parts.length / 2);
-  const l1 = parts.slice(0, mid).join(' ');
-  const l2 = parts.slice(mid).join(' ');
-  const twoLine = l2.length > 0;
-
-  if (twoLine) {
-    g.append('text')
-      .attr('x', bx + BW / 2).attr('y', by + BH / 2 - 5)
-      .attr('text-anchor', 'middle').attr('fill', c.text)
-      .attr('font-family', 'system-ui,sans-serif')
-      .attr('font-size', 10).attr('font-weight', 700)
-      .text(truncate(l1, 24));
-    g.append('text')
-      .attr('x', bx + BW / 2).attr('y', by + BH / 2 + 9)
-      .attr('text-anchor', 'middle').attr('fill', c.text)
-      .attr('font-family', 'system-ui,sans-serif')
-      .attr('font-size', 10).attr('font-weight', 700)
-      .text(truncate(l2, 24));
-  } else {
-    g.append('text')
-      .attr('x', bx + BW / 2).attr('y', by + BH / 2 + 4)
-      .attr('text-anchor', 'middle').attr('fill', c.text)
-      .attr('font-family', 'system-ui,sans-serif')
-      .attr('font-size', 10.5).attr('font-weight', 700)
-      .text(truncate(name, 24));
-  }
-
-  // Sub-note (one small line at bottom of box)
-  if (person.note) {
-    g.append('text')
-      .attr('x', bx + BW / 2).attr('y', by + BH - 6)
-      .attr('text-anchor', 'middle').attr('fill', c.text)
-      .attr('font-family', 'system-ui,sans-serif')
-      .attr('font-size', 7.5).attr('opacity', 0.7)
-      .text(truncate(person.note, 34));
-  }
-
-  // Amber dot for prob
-  if (person.prob) {
-    g.append('circle')
-      .attr('cx', bx + BW - 7).attr('cy', by + 7).attr('r', 3.5)
-      .attr('fill', '#d97706');
-  }
-});
-
-// ─────────────────────────────────────────────────────────────────
-//  "OTHER FAMILY" NOTE BELOW THE CHART
-// ─────────────────────────────────────────────────────────────────
-const OTHER = [
-  {hd:"Grant's siblings", items:[
-    'Hilary Kozak Willis + Malcolm Willis (m. Jan 8 2022) · COO LivSmooth, NYC'
-  ]},
-  {hd:"Thomas & Dorothy's other children (aunts/uncles)", items:[
-    'Tommy Relihan Jr. + Carla Guarino — no children',
-    'Robert Relihan + Cynthia Bixler [2nd wife] · daughter: Lindsay Relihan (1st marriage)',
-    'Betsy Relihan Gross + Jay Gross · California',
-  ]},
-  {hd:"Thomas's siblings (great-aunts/uncles)", items:[
-    'Sen. John J. Relihan Jr. — CT State Senator Dist.21 1959–1966 · d.~Dec 1966 in office · spouse & children UNKNOWN',
-    'Edward A. Relihan — b. Jun 24 1929 · d. ~May 15 1989 Newington CT · spouse & children UNKNOWN',
-    'Ann Relihan Lang + Frank O. Lang · d. Dec 22 2008 Woodbridge CT · children: Frank III, Matthew, Carol Barnes',
-    'Margaret Relihan Mellott + James J. Mellott · d. Dec 4 2022 · children: Terese Travis-Horvath, Denise Barnes',
-  ]},
-  {hd:"John J. Kozak's other children (aunts/uncles)", items:[
-    'Cindy Kozak Buckley + Tom Buckley · Avon CT',
-    'David Kozak + Elizabeth Appel · West Hartford CT · children: John William (b.2000, d.Aug 2024), Collin (b.2002)',
-    'Jennie A. Kozak · b. May 8 1925, d. Feb 18 2009 · never married · organist, Divine Providence PNCC, 60 yrs',
-    'Marion Kozak Little · d. 1982 · children: Lee Courtemanche (Concord MA), Michael Little (Shrewsbury MA)',
-  ]},
-];
-
-const noteG = SC.append('g').attr('transform', 'translate(12,' + (CH + 34) + ')');
-noteG.append('text')
-  .attr('font-family','system-ui,sans-serif').attr('font-size',8)
-  .attr('font-weight',700).attr('fill','#94a3b8').attr('letter-spacing','0.1em')
-  .text('OTHER CONFIRMED FAMILY MEMBERS');
-
-let ny = 18;
-OTHER.forEach(sec => {
-  noteG.append('text')
-    .attr('y', ny).attr('font-family','system-ui,sans-serif')
-    .attr('font-size',9.5).attr('font-weight',700).attr('fill','#475569')
-    .text('▸ ' + sec.hd);
-  ny += 14;
-  sec.items.forEach(item => {
-    noteG.append('text')
-      .attr('x', 14).attr('y', ny)
-      .attr('font-family','system-ui,sans-serif').attr('font-size',8.5).attr('fill','#64748b')
-      .text('· ' + item);
-    ny += 12;
+function renderCbar(id){
+  var e=cbGet()[id]||{}; var st=e.status||'';
+  var bar=document.getElementById('cbar-'+id); if(!bar)return;
+  bar.querySelectorAll('.cbar-btn').forEach(function(b){
+    b.classList.toggle('active',b.dataset.v===st);
   });
-  ny += 5;
+  var sv=document.getElementById('cbsaved-'+id);
+  if(sv)sv.textContent=e.note?'Saved: "'+e.note+'"':(st?'Saved '+e.saved:'');
+  var inp=document.getElementById('cbinp-'+id);
+  if(inp){inp.style.display=st==='denied'?'':'none';}
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var s=cbGet(); Object.keys(s).forEach(function(id){renderCbar(id);});
 });
 
-// ─────────────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════
 //  DETAIL PANEL
-// ─────────────────────────────────────────────────────────────────
-function showPanel(k) {
-  const p = P[k];
-  if (!p) return;
-  document.getElementById('pn').textContent = p.name;
-  document.getElementById('pr').textContent = p.relation + (p.prob ? ' ⚠ Probable' : '');
-  let html = '';
-  p.facts.forEach(([lbl, val]) => {
-    html += `<div class="prow"><span class="plbl">${lbl}</span><span>${val}</span></div>`;
+// ═══════════════════════════════════════════════════════════════
+function showPanel(person){
+  document.getElementById('pn').textContent=person.name;
+  document.getElementById('pr').textContent=person.relation+(person.prob?' ⚠ Probable':'');
+  var html='';
+  (person.facts||[]).forEach(function(f){
+    html+='<div class="prow"><span class="plbl">'+f[0]+'</span><span>'+f[1]+'</span></div>';
   });
-  document.getElementById('pb').innerHTML = html;
-  document.getElementById('panel').style.display = 'block';
-}
-document.getElementById('px').onclick = () => {
-  document.getElementById('panel').style.display = 'none';
-};
-svg.on('click', e => {
-  if (e.target === document.getElementById('ts') || e.target.tagName === 'svg') {
-    document.getElementById('panel').style.display = 'none';
+  if(person.confirm){
+    var c=person.confirm; var e=cbGet()[c.id]||{}; var st=e.status||'';
+    html+='<div class="cbar" id="cbar-'+c.id+'">'
+      +'<div class="cbar-q">'+c.q+'</div>'
+      +'<div class="cbar-btns">'
+      +'<button class="cbar-btn cbar-btn-y'+(st==='confirmed'?' active':'')+'" data-v="confirmed" onclick="cbSet(\''+c.id+'\',\'confirmed\')">✓ Confirmed</button>'
+      +'<button class="cbar-btn cbar-btn-u'+(st==='unknown'?' active':'')+'" data-v="unknown" onclick="cbSet(\''+c.id+'\',\'unknown\')">? Unknown</button>'
+      +'<button class="cbar-btn cbar-btn-n'+(st==='denied'?' active':'')+'" data-v="denied" onclick="cbSet(\''+c.id+'\',\'denied\')">✗ Wrong</button>'
+      +'</div>'
+      +'<input class="cbar-input" id="cbinp-'+c.id+'" style="display:'+(st==='denied'?'':'none')+'" placeholder="Enter correct dates…" oninput="cbNote(\''+c.id+'\',this.value)"'+(e.note?' value="'+e.note+'"':'')+'>'
+      +'<div class="cbar-saved" id="cbsaved-'+c.id+'">'+(e.note?'Saved: "'+e.note+'"':(st?'Saved '+e.saved:''))+'</div>'
+      +'</div>';
   }
-});
-
-// ─────────────────────────────────────────────────────────────────
-//  FIT VIEW + ZOOM BUTTONS
-// ─────────────────────────────────────────────────────────────────
-function fitView() {
-  const svgEl = document.getElementById('ts');
-  const rect  = svgEl.getBoundingClientRect();
-  const totalH = CH + ny + 50;
-  const s = Math.min(rect.width / (CW + 20), rect.height / totalH) * 0.90;
-  svg.call(zoom.transform, d3.zoomIdentity
-    .translate((rect.width - (CW + 20) * s) / 2, 20)
-    .scale(s));
+  document.getElementById('pb').innerHTML=html;
+  document.getElementById('panel').style.display='block';
 }
-requestAnimationFrame(() => requestAnimationFrame(fitView));
+document.getElementById('px').onclick=function(){document.getElementById('panel').style.display='none';};
 
-document.getElementById('btn-fit').onclick = fitView;
-document.getElementById('btn-in').onclick  = () => zoom.scaleBy(svg.transition().duration(250), 1.3);
-document.getElementById('btn-out').onclick = () => zoom.scaleBy(svg.transition().duration(250), 0.77);
+// ═══════════════════════════════════════════════════════════════
+//  BRANCH REORDER / COLLAPSE
+// ═══════════════════════════════════════════════════════════════
+function moveBranch(id,dir){
+  var wrap=document.getElementById('branches');
+  var el=document.getElementById('b-'+id);
+  if(dir===-1){var p=el.previousElementSibling;if(p)wrap.insertBefore(el,p);}
+  else{var n=el.nextElementSibling;if(n)wrap.insertBefore(n,el);}
+}
+function collapseBranch(id){
+  var body=document.getElementById('bb-'+id);
+  var btn=document.getElementById('bcoll-'+id);
+  var c=body.style.display==='none';
+  body.style.display=c?'':'none';
+  btn.textContent=c?'Collapse ▲':'Expand ▼';
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  DRAW ONE BRANCH
+// ═══════════════════════════════════════════════════════════════
+var ZOOMS={};
+function drawBranch(branch){
+  var persons=branch.persons;
+  var ng=ngOf(persons);
+  var CH=chOf(ng),CW=cwOf(ng);
+  var svgEl=document.getElementById('svg-'+branch.id);
+  svgEl.style.height=(CH+56)+'px';
+
+  var svg=d3.select('#svg-'+branch.id);
+  var SC=svg.append('g');
+  var zoom=d3.zoom().scaleExtent([0.10,5])
+    .on('zoom',function(e){SC.attr('transform',e.transform);});
+  svg.call(zoom);
+  ZOOMS[branch.id]=zoom;
+
+  // Gen labels
+  var gLbls=['Focal Person','Parents','Grandparents','Great-Grandparents','Gt-Gt-Grandparents'];
+  for(var g=0;g<ng;g++){
+    var gx=xOf(Math.pow(2,g),ng)+BW/2;
+    SC.append('text').attr('x',gx).attr('y',16)
+      .attr('text-anchor','middle').attr('font-size',8).attr('font-weight',700)
+      .attr('fill','#94a3b8').attr('letter-spacing','0.09em').attr('font-family','system-ui,sans-serif')
+      .text(gLbls[g]||'');
+  }
+
+  // Connectors
+  var lg=SC.append('g');
+  var maxSlot=Math.pow(2,ng)-1;
+  for(var k=1;k<=maxSlot;k++){
+    if(!persons[k])continue;
+    var ms=2*k,ps=2*k+1,haM=!!persons[ms],haP=!!persons[ps];
+    if(!haM&&!haP)continue;
+    var cx=xOf(k,ng),cy=yOf(k,CH),vx=cx-HGAP/2;
+    lg.append('line').attr('x1',cx).attr('y1',cy).attr('x2',vx).attr('y2',cy)
+      .attr('stroke','#cbd5e1').attr('stroke-width',1.5);
+    if(haM){
+      var my=yOf(ms,CH),mxr=xOf(ms,ng)+BW;
+      lg.append('line').attr('x1',mxr).attr('y1',my).attr('x2',vx).attr('y2',my)
+        .attr('stroke','#cbd5e1').attr('stroke-width',1.5);
+      lg.append('line').attr('x1',vx).attr('y1',my).attr('x2',vx).attr('y2',haP?yOf(ps,CH):cy)
+        .attr('stroke','#cbd5e1').attr('stroke-width',1.5);
+    }
+    if(haP){
+      var py=yOf(ps,CH),pxr=xOf(ps,ng)+BW;
+      lg.append('line').attr('x1',pxr).attr('y1',py).attr('x2',vx).attr('y2',py)
+        .attr('stroke','#cbd5e1').attr('stroke-width',1.5);
+      if(!haM)lg.append('line').attr('x1',vx).attr('y1',cy).attr('x2',vx).attr('y2',py)
+        .attr('stroke','#cbd5e1').attr('stroke-width',1.5);
+    }
+  }
+
+  // Boxes
+  var bg=SC.append('g');
+  Object.keys(persons).forEach(function(ks){
+    var k=+ks,person=persons[k];
+    var c=nodeClr(person);
+    var bx=xOf(k,ng),by=yOf(k,CH)-BH/2;
+    var g=bg.append('g').style('cursor','pointer')
+      .on('click',function(){showPanel(person);});
+    g.append('rect').attr('x',bx).attr('y',by).attr('width',BW).attr('height',BH)
+      .attr('rx',5).attr('fill',c.fill).attr('stroke',c.stroke).attr('stroke-width',1.8)
+      .attr('stroke-dasharray',person.prob?'5,3':null);
+    var nm=person.name,parts=nm.split(' ');
+    var mid=Math.ceil(parts.length/2);
+    var l1=parts.slice(0,mid).join(' '),l2=parts.slice(mid).join(' ');
+    if(l2){
+      g.append('text').attr('x',bx+BW/2).attr('y',by+BH/2-5)
+        .attr('text-anchor','middle').attr('fill',c.text)
+        .attr('font-family','system-ui,sans-serif').attr('font-size',10).attr('font-weight',700)
+        .text(trunc(l1,23));
+      g.append('text').attr('x',bx+BW/2).attr('y',by+BH/2+9)
+        .attr('text-anchor','middle').attr('fill',c.text)
+        .attr('font-family','system-ui,sans-serif').attr('font-size',10).attr('font-weight',700)
+        .text(trunc(l2,23));
+    } else {
+      g.append('text').attr('x',bx+BW/2).attr('y',by+BH/2+4)
+        .attr('text-anchor','middle').attr('fill',c.text)
+        .attr('font-family','system-ui,sans-serif').attr('font-size',11).attr('font-weight',700)
+        .text(trunc(nm,24));
+    }
+    if(person.note){
+      g.append('text').attr('x',bx+BW/2).attr('y',by+BH-6)
+        .attr('text-anchor','middle').attr('fill',c.text)
+        .attr('font-family','system-ui,sans-serif').attr('font-size',7.5).attr('opacity',0.72)
+        .text(trunc(person.note,34));
+    }
+    if(person.prob){
+      g.append('circle').attr('cx',bx+BW-7).attr('cy',by+7).attr('r',3.5).attr('fill','#d97706');
+    }
+  });
+
+  // Fit to full width of SVG
+  requestAnimationFrame(function(){
+    var r=svgEl.getBoundingClientRect();
+    var W=r.width||window.innerWidth,H=r.height||(CH+56);
+    var s=(W-20)/(CW)*0.97;
+    var ty=Math.max(24,(H-CH*s)/2);
+    svg.call(zoom.transform,d3.zoomIdentity.translate(10,ty).scale(s));
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  BUILD & RENDER ALL BRANCHES
+// ═══════════════════════════════════════════════════════════════
+var container=document.getElementById('branches');
+BRANCHES.forEach(function(branch){
+  var div=document.createElement('div');
+  div.className='branch'; div.id='b-'+branch.id;
+  div.innerHTML=
+    '<div class="bh" style="border-color:'+branch.color+'">'
+      +'<div class="bh-left">'
+        +'<div class="bh-name" style="color:'+branch.color+'">'+branch.name+'</div>'
+        +'<div class="bh-note">'+branch.note+'</div>'
+      +'</div>'
+      +'<div class="bh-btns">'
+        +'<button class="bb" onclick="moveBranch(\''+branch.id+'\',-1)">↑</button>'
+        +'<button class="bb" onclick="moveBranch(\''+branch.id+'\',1)">↓</button>'
+        +'<button class="bb" id="bcoll-'+branch.id+'" onclick="collapseBranch(\''+branch.id+'\')">Collapse ▲</button>'
+      +'</div>'
+    +'</div>'
+    +'<div class="branch-body" id="bb-'+branch.id+'">'
+      +'<svg id="svg-'+branch.id+'" class="bsvg"></svg>'
+    +'</div>';
+  container.appendChild(div);
+  drawBranch(branch);
+});
 </script>
 </body>
 </html>
