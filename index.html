@@ -1063,7 +1063,7 @@ function initGraph() {
   var hint = document.getElementById('rsvg-hint');
   var ns   = 'http://www.w3.org/2000/svg';
   var NW = 130, NW2 = NW / 2, NH1 = 28, NH2 = 42;
-  var CW = 2200, CH = 980;
+  var CW = 2400, CH = 980;
 
   function mk(tag, a) {
     var el = document.createElementNS(ns, tag);
@@ -1102,39 +1102,48 @@ function initGraph() {
   // Row E y=775  Grant's generation
   // Row F y=920  property / business
   var N = [
-    // Row A
-    {id:'patrick',    l:['Patrick McGivney','+ Mary Lynch'],                   x:1960, y:110, t:'mcg'},
-    // Row B
+    // Row A — Patrick McGivney had 13 children; 5 research-relevant ones shown
+    {id:'patrick',    l:['Patrick McGivney','+ Mary Lynch · 13 children'],     x:2010, y:110, t:'mcg'},
+    // Row B — great-grandparents
+    // YOUR FAMILY zone (left of barrier):
     {id:'johnsr-d',   l:['John Relihan Sr.','great-grandfather'],              x:190,  y:270, t:'prob'},
     {id:'ann-duley',  l:['Ann Duley / Dooley','great-grandmother'],            x:330,  y:270, t:'prob'},
-    {id:'james-t',    l:["James T. + Mary O'Connell",'research lead'],         x:640,  y:270, t:'oc'},
-    {id:'johnsr-m',   l:['John J. Relihan Sr.','[McNamara branch]'],           x:870,  y:270, t:'mc'},
-    {id:'mabel',      l:['Mabel McNamara','great-grandmother (MC)'],            x:1010, y:270, t:'mc'},
-    {id:'michael',    l:['Bl. Michael J. McGivney','founder KofC'],            x:1820, y:270, t:'mcg2'},
-    {id:'rose',       l:['Rose McGivney + Finn','key sibling line'],            x:1960, y:270, t:'mcg'},
-    {id:'dwyer',      l:['Margaret McGivney Dwyer','Ransom / Phillips line'],   x:2100, y:270, t:'mcg'},
+    // CT RESEARCH zone:
+    {id:'james-t',    l:["James T. + Mary O'Connell",'research lead'],         x:1100, y:270, t:'oc'},
+    {id:'johnsr-m',   l:['John J. Relihan Sr.','[McNamara branch]'],           x:1310, y:270, t:'mc'},
+    {id:'mabel',      l:['Mabel McNamara','great-grandmother (MC)'],            x:1450, y:270, t:'mc'},
+    // McGIVNEY zone (right of barrier) — Patrick had 13 children; key research siblings shown:
+    {id:'james-mcg',  l:['James F. McGivney','older brother of Michael'],       x:1870, y:200, t:'mcg'},
+    {id:'michael',    l:['Bl. Michael J. McGivney','founder KofC · b.1852'],   x:1870, y:310, t:'mcg2'},
+    {id:'john-mcg',   l:['John McGivney','sibling'],                            x:2010, y:200, t:'mcg'},
+    {id:'rose',       l:['Rose McGivney + Finn','key sibling line'],            x:2010, y:310, t:'mcg'},
+    {id:'dwyer',      l:['Margaret McGivney Dwyer','Ransom / Phillips line'],   x:2150, y:310, t:'mcg'},
     // Row C — all grandparent-gen siblings at same y=440
+    // YOUR FAMILY zone:
     {id:'senator',    l:['Sen. John J. Relihan Jr.','spouse unknown'],          x:60,   y:440, t:'prob'},
     {id:'edward',     l:['Edward A. Relihan','b. Jun 24 1929'],                 x:200,  y:440, t:'miss'},
     {id:'ann-lang',   l:['Ann Relihan Lang','d. Dec 22 2008'],                  x:340,  y:440, t:'prob'},
     {id:'margaret-d', l:['Margaret Mellott','Duley branch confirmed'],          x:480,  y:440, t:'prob'},
     {id:'dorothy',    l:['Dorothy Shomsky','grandmother confirmed'],             x:660,  y:440, t:'shom'},
     {id:'thomas',     l:['Thomas P. Relihan','grandfather confirmed'],           x:800,  y:440, t:'rel'},
-    {id:'james-m',    l:['James M. Relihan','KofC d.2021'],                     x:1010, y:440, t:'oc'},
-    {id:'joseph',     l:['Joseph R. Relihan',"Fairfield Prep '47"],             x:1150, y:440, t:'oc'},
-    {id:'joan',       l:['Joan B. Relihan',"d.2024 LH '49"],                    x:1340, y:440, t:'mc'},
-    {id:'sally',      l:['Sally Relihan Kelly',"d.2001 LH '47"],                x:1480, y:440, t:'mc'},
-    {id:'ann-louise', l:['Ann Louise Martini',"d.2024 LH '51"],                 x:1620, y:440, t:'mc'},
-    {id:'john-az',    l:['John J. Relihan Jr. AZ',"d.2007 FP '58"],            x:1680, y:440, t:'mc'},
-    {id:'william-w',  l:['William H. Willis Jr.','b.1927 Yale 1949'],          x:1960, y:440, t:'gray'},
+    {id:'william-w',  l:['William H. Willis Jr.','b.1927 Yale 1949'],          x:940,  y:440, t:'gray'},
+    // CT RESEARCH zone:
+    {id:'james-m',    l:['James M. Relihan','KofC d.2021'],                     x:1040, y:440, t:'oc'},
+    {id:'joseph',     l:['Joseph R. Relihan',"Fairfield Prep '47"],             x:1180, y:440, t:'oc'},
+    {id:'joan',       l:['Joan B. Relihan',"d.2024 LH '49"],                    x:1320, y:440, t:'mc'},
+    {id:'sally',      l:['Sally Relihan Kelly',"d.2001 LH '47"],                x:1460, y:440, t:'mc'},
+    {id:'ann-louise', l:['Ann Louise Martini',"d.2024 LH '51"],                 x:1580, y:440, t:'mc'},
+    {id:'john-az',    l:['John J. Relihan Jr. AZ',"d.2007 FP '58"],            x:1720, y:440, t:'mc'},
     // Row D — parents generation
+    // YOUR FAMILY zone:
     {id:'mark',       l:['Mark Kozak',"Grant's father"],                        x:60,   y:610, t:'kozak'},
     {id:'nancy',      l:['Nancy Relihan Kozak',"Grant's mother"],               x:200,  y:610, t:'rel'},
     {id:'tommy',      l:['Tommy Relihan Jr.','+ Carla Guarino'],                x:380,  y:610, t:'rel'},
     {id:'robert',     l:['Robert Relihan'],                                     x:520,  y:610, t:'rel'},
     {id:'betsy',      l:['Betsy Relihan Gross'],                                x:660,  y:610, t:'rel'},
-    {id:'burns',      l:['Msgr. G.T. Burns','gm = Rose McGivney Finn'],         x:1820, y:610, t:'mcg'},
-    {id:'gregory-w',  l:['Gregory T. Willis','Food Network co-founder'],        x:1960, y:610, t:'gray'},
+    {id:'gregory-w',  l:['Gregory T. Willis','Food Network co-founder'],        x:870,  y:610, t:'gray'},
+    // McGIVNEY zone:
+    {id:'burns',      l:['Msgr. G.T. Burns','gm = Rose McGivney Finn'],         x:1900, y:610, t:'mcg'},
     // Row E — Grant's generation
     {id:'grant',      l:['Grant Kozak'],                                        x:130,  y:775, t:'kozak'},
     {id:'jessica',    l:['Jessica Horton Kozak',"Grant's wife"],                x:290,  y:775, t:'kozak'},
@@ -1183,8 +1192,10 @@ function initGraph() {
     {f:'thomas',    t:'landscape',  s:'solid', c:'#059669', w:1.5},
     {f:'tommy',     t:'landscape',  s:'solid', c:'#059669', w:1.5},
     {f:'john-az',   t:'solomon',    s:'solid', c:'#059669', w:1.5},
-    // McGivney cluster
+    // McGivney cluster — Patrick's children
+    {f:'patrick',   t:'james-mcg',  s:'solid', c:'#be185d', w:2},
     {f:'patrick',   t:'michael',    s:'solid', c:'#be185d', w:2},
+    {f:'patrick',   t:'john-mcg',   s:'solid', c:'#be185d', w:2},
     {f:'patrick',   t:'rose',       s:'solid', c:'#be185d', w:2},
     {f:'patrick',   t:'dwyer',      s:'solid', c:'#be185d', w:2},
     {f:'rose',      t:'burns',      s:'solid', c:'#be185d', w:1.5},
@@ -1200,9 +1211,9 @@ function initGraph() {
 
   // Zone backgrounds
   var zones = [
-    {x:14,   y:55, w:945,  h:905, fill:'#eff6ff', rx:10, label:'Your Family - Confirmed + Probable', lx:18},
-    {x:965,  y:55, w:745,  h:905, fill:'#fef9c3', rx:10, label:'CT Relihan Research Leads (separate Relihan families)', lx:970},
-    {x:1720, y:55, w:465,  h:905, fill:'#fdf0f6', rx:10, label:'McGivney Hypothesis Cluster', lx:1724},
+    {x:14,   y:55, w:955,  h:905, fill:'#eff6ff', rx:10, label:'Your Family - Confirmed + Probable', lx:18},
+    {x:975,  y:55, w:815,  h:905, fill:'#fef9c3', rx:10, label:'CT Relihan Research Leads (separate Relihan families)', lx:980},
+    {x:1800, y:55, w:590,  h:905, fill:'#fdf0f6', rx:10, label:'McGivney Hypothesis Cluster', lx:1804},
   ];
   zones.forEach(function(z){
     var r = mk('rect',{x:z.x,y:z.y,width:z.w,height:z.h,fill:z.fill,rx:z.rx,ry:z.rx});
@@ -1212,9 +1223,9 @@ function initGraph() {
   });
 
   // Barrier line between confirmed branches and McGivney hypothesis
-  var bar = mk('line',{x1:1715,y1:45,x2:1715,y2:965,stroke:'#dc2626','stroke-width':'1.5','stroke-dasharray':'5,5',opacity:'0.55'});
+  var bar = mk('line',{x1:1795,y1:45,x2:1795,y2:965,stroke:'#dc2626','stroke-width':'1.5','stroke-dasharray':'5,5',opacity:'0.55'});
   bar.setAttribute('pointer-events','none'); sc.appendChild(bar);
-  var barT = mk('text',{x:1715,y:35,'text-anchor':'middle',fill:'#dc2626','font-size':'7.5','font-weight':'700','font-family':'Inter,sans-serif','letter-spacing':'0.08em'});
+  var barT = mk('text',{x:1795,y:35,'text-anchor':'middle',fill:'#dc2626','font-size':'7.5','font-weight':'700','font-family':'Inter,sans-serif','letter-spacing':'0.08em'});
   barT.setAttribute('pointer-events','none'); barT.textContent = '-- NO PROVEN BRIDGE --'; sc.appendChild(barT);
 
   // Generation row labels (left margin)
