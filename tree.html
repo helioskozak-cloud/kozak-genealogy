@@ -53,11 +53,11 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9;height:10
 </div>
 
 <script>
-const SLOT  = 112;
-const XOFF  = 64;
-const SVG_W = 4400;
-const SVG_H = 680;
-const ROW_Y = {5: 100, 4: 260, 3: 440, 1: 615};
+const SLOT  = 200;
+const XOFF  = 80;
+const SVG_W = 7800;
+const SVG_H = 780;
+const ROW_Y = {5: 120, 4: 310, 3: 500, 1: 695};
 
 const C = {
   dooley:   {fill:'#dbeafe', stroke:'#1d4ed8', text:'#1e3a8a', link:'#3b82f6'},
@@ -260,7 +260,7 @@ const links = [
 
 // ── BUILD ─────────────────────────────────────────────────────────────────
 (function(){
-  const R = 11;
+  const R = 13;
 
   // Assign pixel positions
   nodes.forEach(n => {
@@ -314,79 +314,101 @@ const links = [
   }
 
   // ── SVG setup ──────────────────────────────────────────────────────────
-  const svg = d3.select('#svg');
+  // Give SVG explicit pixel dimensions so D3 zoom has a stable reference frame
+  const wrap = document.getElementById('wrap');
+  let VW = wrap.clientWidth  || window.innerWidth;
+  let VH = wrap.clientHeight || (window.innerHeight - 46);
+  const svg = d3.select('#svg')
+    .attr('width',  VW)
+    .attr('height', VH)
+    .style('display','block')
+    .style('user-select','none');
 
   // All drawable content goes in this group so zoom transforms it
   const SC = svg.append('g').attr('id','svgcontent');
 
-  // D3 zoom/pan
+  // D3 zoom/pan — attach to SVG, transform SC group
+  let curK = 1;
   const zoom = d3.zoom()
-    .scaleExtent([0.12, 3])
-    .on('zoom', e => SC.attr('transform', e.transform));
-  svg.call(zoom).on('dblclick.zoom', null);
+    .scaleExtent([0.08, 4])
+    .extent([[0, 0], [VW, VH]])
+    .on('zoom', e => {
+      curK = e.transform.k;
+      SC.attr('transform', e.transform);
+      // Semantic zoom: show labels only when zoomed in enough
+      SC.selectAll('text.nodelabel')
+        .style('opacity', curK >= 0.45 ? 1 : 0);
+    });
+
+  svg.call(zoom);
 
   function fitView() {
-    const wrap = document.getElementById('wrap');
-    const vw = wrap.clientWidth, vh = wrap.clientHeight;
-    const scale = Math.min(vw / SVG_W, vh / SVG_H) * 0.95;
-    const tx = (vw - SVG_W * scale) / 2;
-    const ty = (vh - SVG_H * scale) / 2;
-    svg.transition().duration(400)
+    const w = wrap.clientWidth  || VW;
+    const h = wrap.clientHeight || VH;
+    const scale = Math.min(w / SVG_W, h / SVG_H) * 0.92;
+    const tx = (w - SVG_W * scale) / 2;
+    const ty = (h - SVG_H * scale) / 2;
+    svg.transition().duration(500)
       .call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
   }
 
+  // Resize SVG when window resizes
+  window.addEventListener('resize', () => {
+    VW = wrap.clientWidth; VH = wrap.clientHeight;
+    svg.attr('width', VW).attr('height', VH);
+    zoom.extent([[0,0],[VW,VH]]);
+  });
+
   document.getElementById('btn-fit').onclick   = fitView;
-  document.getElementById('btn-in').onclick    = () => svg.transition().duration(200).call(zoom.scaleBy, 1.35);
-  document.getElementById('btn-out').onclick   = () => svg.transition().duration(200).call(zoom.scaleBy, 0.75);
+  document.getElementById('btn-in').onclick    = () => svg.transition().duration(200).call(zoom.scaleBy, 1.4);
+  document.getElementById('btn-out').onclick   = () => svg.transition().duration(200).call(zoom.scaleBy, 0.72);
   document.getElementById('btn-reset').onclick = () => { reset(); fitView(); };
 
   // ── Branch bands ───────────────────────────────────────────────────────
   const bands = [
     {label:'Dooley Branch  —  Grant\'s Direct Line',
-     x1:0,                      x2:XOFF + 11*SLOT,  fill:'#eff6ff', border:'#1d4ed8'},
+     x1:0,              x2:XOFF + 11*SLOT,  fill:'#eff6ff', border:'#1d4ed8'},
     {label:"O'Connell Branch",
-     x1:XOFF + 11*SLOT,         x2:XOFF + 21*SLOT,  fill:'#eef2ff', border:'#3730a3'},
+     x1:XOFF + 11*SLOT, x2:XOFF + 21*SLOT,  fill:'#eef2ff', border:'#3730a3'},
     {label:'McNamara Branch  —  Fairfield CT → Phoenix AZ',
-     x1:XOFF + 21*SLOT,         x2:XOFF + 30*SLOT,  fill:'#fff7ed', border:'#c2410c'},
+     x1:XOFF + 21*SLOT, x2:XOFF + 30*SLOT,  fill:'#fff7ed', border:'#c2410c'},
     {label:'McGivney Branch  —  Derby CT / County Cavan Ireland',
-     x1:XOFF + 30*SLOT,         x2:SVG_W,            fill:'#fdf2f8', border:'#9d174d'},
+     x1:XOFF + 30*SLOT, x2:SVG_W,            fill:'#fdf2f8', border:'#9d174d'},
   ];
   bands.forEach(b => {
+    // pointer-events:none so background rects never intercept drag/wheel events
     SC.append('rect')
       .attr('x', b.x1).attr('y', 0)
       .attr('width', b.x2 - b.x1).attr('height', SVG_H)
-      .attr('fill', b.fill);
+      .attr('fill', b.fill)
+      .style('pointer-events','none');
     SC.append('line')
       .attr('x1', b.x1).attr('y1', 0)
       .attr('x2', b.x1).attr('y2', SVG_H)
-      .attr('stroke', b.border)
-      .attr('stroke-width', 1.5)
-      .attr('opacity', 0.25);
+      .attr('stroke', b.border).attr('stroke-width', 1.5).attr('opacity', 0.25)
+      .style('pointer-events','none');
     SC.append('text')
-      .attr('x', (b.x1 + Math.min(b.x2, SVG_W)) / 2)
-      .attr('y', 19)
-      .attr('text-anchor','middle')
-      .attr('font-size','10px')
-      .attr('font-weight','700')
-      .attr('font-family','system-ui,sans-serif')
-      .attr('letter-spacing','.1em')
-      .attr('fill', b.border)
-      .attr('opacity', 0.5)
+      .attr('x', (b.x1 + Math.min(b.x2, SVG_W)) / 2).attr('y', 22)
+      .attr('text-anchor','middle').attr('font-size','12px').attr('font-weight','700')
+      .attr('font-family','system-ui,sans-serif').attr('letter-spacing','.1em')
+      .attr('fill', b.border).attr('opacity', 0.45)
+      .style('pointer-events','none')
       .text(b.label.toUpperCase());
   });
 
   // ── Generation row bands ────────────────────────────────────────────────
   Object.entries(ROW_Y).forEach(([row, y]) => {
     SC.append('rect')
-      .attr('x', 0).attr('y', y - 32)
-      .attr('width', SVG_W).attr('height', 64)
-      .attr('fill', 'rgba(255,255,255,0.55)');
+      .attr('x', 0).attr('y', y - 38)
+      .attr('width', SVG_W).attr('height', 76)
+      .attr('fill', 'rgba(255,255,255,0.52)')
+      .style('pointer-events','none');
     SC.append('text')
-      .attr('x', 6).attr('y', y - 16)
-      .attr('font-size','8px').attr('font-weight','700')
+      .attr('x', 8).attr('y', y - 20)
+      .attr('font-size','9px').attr('font-weight','700')
       .attr('font-family','system-ui,sans-serif')
-      .attr('fill','#94a3b8')
-      .attr('letter-spacing','.06em')
+      .attr('fill','#94a3b8').attr('letter-spacing','.06em')
+      .style('pointer-events','none')
       .text(GEN_LABEL[+row].toUpperCase());
   });
 
@@ -469,14 +491,31 @@ const links = [
     .attr('stroke-dasharray','2,3')
     .attr('opacity', 0.5);
 
+  // White backdrop so labels are readable over colored bands
   nodeSel.append('text')
-    .attr('y', R + 13)
+    .attr('class','nodelabel nodelabel-bg')
+    .attr('y', R + 15)
     .attr('text-anchor','middle')
-    .attr('font-size','9px')
+    .attr('font-size','10px')
+    .attr('font-family','system-ui,sans-serif')
+    .attr('font-weight','700')
+    .attr('stroke','#f8fafc')
+    .attr('stroke-width', 4)
+    .attr('stroke-linejoin','round')
+    .attr('paint-order','stroke')
+    .style('pointer-events','none')
+    .text(d => d.name.length > 16 ? d.name.slice(0, 15) + '…' : d.name);
+
+  nodeSel.append('text')
+    .attr('class','nodelabel')
+    .attr('y', R + 15)
+    .attr('text-anchor','middle')
+    .attr('font-size','10px')
     .attr('font-family','system-ui,sans-serif')
     .attr('fill', d => C[d.branch].text)
-    .attr('font-weight','500')
-    .text(d => d.name.length > 18 ? d.name.slice(0, 17) + '…' : d.name);
+    .attr('font-weight','600')
+    .style('pointer-events','none')
+    .text(d => d.name.length > 16 ? d.name.slice(0, 15) + '…' : d.name);
 
   // ── Legend ────────────────────────────────────────────────────────────
   const LEG = [
@@ -545,8 +584,8 @@ const links = [
   document.getElementById('pclose').onclick = reset;
   document.addEventListener('keydown', e => { if (e.key === 'Escape') reset(); });
 
-  // Initial fit-to-screen on load
-  setTimeout(fitView, 50);
+  // Wait two frames so the SVG has been laid out before fitting
+  requestAnimationFrame(() => requestAnimationFrame(fitView));
 })();
 </script>
 </body>
