@@ -22,6 +22,7 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9;color:#0f
 .bb{font-size:.7rem;font-weight:600;padding:4px 9px;border-radius:6px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#475569;cursor:pointer;white-space:nowrap}
 .bb:hover{background:#e2e8f0;color:#0f172a}
 .branch-body{padding:0;overflow:hidden}
+.branch-target{outline:2px dashed #dc2626;outline-offset:2px}
 .bsvg{display:block;width:100%;cursor:grab;background:#f8f9fb}
 .bsvg:active{cursor:grabbing}
 #global-leg{display:flex;flex-wrap:wrap;gap:10px 20px;padding:10px 16px;font-size:.69rem;color:#64748b;background:#f8f9fb;border-bottom:1px solid #e2e8f0}
@@ -221,6 +222,39 @@ var BRANCHES=[
      relation:"Maurice Relihan's mother",
      facts:[['Location','County Kerry, Ireland'],['Spouse','James Relihan'],
             ['Child','Maurice Relihan (b.1856)'],['Note','No further records found']]}
+}}
+
+,
+
+// ── BRANCH 4: Blessed Michael J. McGivney — Research Target ──────
+{
+  id:'bjm', color:'#dc2626',
+  name:"Blessed Michael J. McGivney — The Research Target (NOT connected to any other branch)",
+  note:"Founder of the Knights of Columbus, 1882, New Haven CT. County Cork / Waterbury CT family — almost certainly SEPARATE from the Derby CT McGivney family (County Cavan) in Branch 2. This branch shows his known ancestry. The research goal is to find a genealogical bridge from Grant's Relihan line (Branch 1) to this family.",
+  persons:{
+  1:{name:'Bl. Michael J. McGivney',branch:'mcg',note:'b.Aug 12 1852 Waterbury CT · d.Aug 14 1890',
+     relation:'Founder of the Knights of Columbus (1882). Beatified Oct 31 2020.',
+     facts:[['Born','Aug 12 1852 · Waterbury CT'],
+            ['Died','Aug 14 1890 · Thomaston CT (tuberculosis, age 38)'],
+            ['Ordained','Dec 22 1877 · St. Mary\'s Church, Baltimore MD'],
+            ['Founded','Knights of Columbus — Mar 29 1882 · New Haven CT'],
+            ['Beatified','Oct 31 2020 by Pope Francis'],
+            ['Father','Patrick McGivney (County Cork, Ireland → Waterbury CT)'],
+            ['Mother','Mary Lynch McGivney (County Sligo, Ireland; d.1908 Waterbury CT)'],
+            ['Parish','St. Mary\'s Church, New Haven CT (as assistant pastor 1877–1884)'],
+            ['Buried','St. Mary\'s Church basement, New Haven CT → transferred 2012 to St. Thomas of Villanova, Ansonia CT'],
+            ['Key distinction','His father Patrick came from County Cork — NOT County Cavan. The Derby CT McGivney family in Branch 2 (County Cavan) is almost certainly a separate Irish-American family.']]},
+  2:{name:'Mary Lynch McGivney',branch:'other',note:'b.~1827 County Sligo · d.1908 Waterbury CT',
+     relation:"Michael's mother",
+     facts:[['Born','~1827 · County Sligo, Ireland'],['Died','1908 · Waterbury CT'],
+            ['Husband','Patrick McGivney (County Cork)'],
+            ['Note','Came from County Sligo — different Irish county from both Grant\'s Relihan line and the County Cavan McGivney family']]},
+  3:{name:'Patrick McGivney',branch:'mcg',note:'County Cork, Ireland → Waterbury CT',
+     relation:"Michael's father",
+     facts:[['Origin','County Cork, Ireland → Waterbury CT'],
+            ['Occupation','Ironworker, Scovill Manufacturing, Waterbury CT'],
+            ['Key fact','County Cork origin distinguishes this family from the County Cavan McGivney family in Branch 2'],
+            ['Note','His parents (Michael\'s paternal grandparents) not yet in our research files']]}
 }}
 
 ];// end BRANCHES
@@ -434,12 +468,16 @@ function drawBranch(branch){
 var container=document.getElementById('branches');
 BRANCHES.forEach(function(branch){
   var div=document.createElement('div');
-  div.className='branch'; div.id='b-'+branch.id;
+  div.className='branch'+(branch.id==='bjm'?' branch-target':''); div.id='b-'+branch.id;
+  var targetBanner=branch.id==='bjm'
+    ? '<div style="background:#fef2f2;border:1.5px solid #dc2626;border-radius:6px;padding:5px 10px;font-size:.71rem;font-weight:700;color:#991b1b;margin-top:7px;display:inline-block">⚠ NO PROVEN BRIDGE to any Relihan branch — this is the research target, not a confirmed relative</div>'
+    : '';
   div.innerHTML=
     '<div class="bh" style="border-color:'+branch.color+'">'
       +'<div class="bh-left">'
         +'<div class="bh-name" style="color:'+branch.color+'">'+branch.name+'</div>'
         +'<div class="bh-note">'+branch.note+'</div>'
+        +targetBanner
       +'</div>'
       +'<div class="bh-btns">'
         +'<button class="bb" onclick="moveBranch(\''+branch.id+'\',-1)">↑</button>'
