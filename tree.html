@@ -47,6 +47,13 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9;color:#0f
 .cbar-btn-u:hover,.cbar-btn-u.active{background:#94a3b8;color:#fff}
 .cbar-saved{font-size:.63rem;color:#94a3b8;font-style:italic;margin-top:4px}
 .cbar-input{width:100%;margin-top:5px;font-size:.71rem;padding:4px 8px;border:1px solid #cbd5e1;border-radius:5px}
+.desc-fam{padding:12px 16px 16px;background:#fdf4ff;border-top:2px solid #e9d5ff}
+.desc-fam-title{font-size:.72rem;font-weight:700;color:#6b21a8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.desc-cards{display:flex;flex-wrap:wrap;gap:8px}
+.desc-card{background:#fff;border:1.5px solid #be185d;border-radius:7px;padding:8px 11px;min-width:160px;max-width:210px;flex:1}
+.desc-card.unnamed{border-style:dashed;opacity:.75}
+.dc-name{font-size:.78rem;font-weight:700;color:#831843;margin-bottom:3px}
+.dc-info{font-size:.69rem;color:#64748b;line-height:1.5}
 </style>
 </head>
 <body>
@@ -154,161 +161,120 @@ var BRANCHES=[
              ['Open q.','Exact birth/death dates and parents unknown; maiden name spelling to confirm']]}
 }},
 
-{id:'mcgivney',color:'#be185d',
- name:"Peter George McGivney's Ancestors — Derby CT  (Betsy Research, S49–S54)",
- note:"⭐ WORKING HYPOTHESIS (Nancy Kozak): Peter McGivney Sr. (b.1844, County Cavan — Peter George's father) was a BROTHER or close cousin of Patrick McGivney (Fr. Michael's father, County Cork → Waterbury CT). If true, Peter George and Blessed Michael J. McGivney are first or second cousins — and the Relihan–McGivney marriage (Helen R. Relihan × Peter George, 1921) would be a Relihan marrying into a family closely related to the KofC founder. No documentary proof yet. Research path: Irish birth/baptism records for both Patrick McGivney and Peter McGivney Sr. to see if they share a father.",
+{id:'mcgivney_family',color:'#be185d',
+ name:'McGivney Family — County Cavan, Ireland → Derby CT & Waterbury CT',
+ note:'CENTRAL HYPOTHESIS (Nancy Kozak): Peter McGivney Sr. (Derby CT, b.1844, County Cavan) is a BROTHER or close cousin of Patrick McGivney Sr. (Waterbury CT, b.~1832, Crosserlough Parish, County Cavan). ⚠ BOTH are from County Cavan — the geographic obstacle was removed Jun 30 2026. If this sibling relationship is confirmed, Fr. Michael J. McGivney (KofC founder) and Peter George McGivney are first or second cousins. Helen R. Relihan married Peter George in 1921 — meaning the Relihan family married into a family closely connected to the KofC founder. Patrick McGivney Sr.\'s 7 children are shown as cards below — ONE of those lines may be the connection to the Relihan family. No documentary proof yet. Research path: Crosserlough and Castlerahan parish baptism records, County Cavan.',
+ descHtml:'<div class="desc-fam"><div class="desc-fam-title">Patrick McGivney Sr.\'s Children (Waterbury CT) — <span style="color:#dc2626">which line connects to the Relihan family?</span></div><div class="desc-cards"><div class="desc-card"><div class="dc-name">Bl. Michael J. McGivney</div><div class="dc-info">b.Aug 12 1852 · d.Aug 14 1890<br>Founded Knights of Columbus 1882<br>Beatified Oct 31 2020 (WikiTree McGivney-109)</div></div><div class="desc-card"><div class="dc-name">Mary Ann McGivney Lawlor</div><div class="dc-info">b.Sep 25 1853 · d.Jul 10 1927<br>m. Michael J. Lawlor Sr. (b.1847 Ireland)<br>Son: Michael J. Lawlor Jr. MD (b.1881)</div></div><div class="desc-card"><div class="dc-name">Rosanna Frances McGivney Finn</div><div class="dc-info">b.May 29 1857 · d.Dec 27 1923<br>m. Edward James Finn → 9 children incl.<br>Leo M. Finn (KofC Sup. Chaplain 1939–60)<br>Alfred J. Finn MD (b.1893)<br><strong>Living:</strong> Dr. Alfred J. Finn Jr., Torrington CT</div></div><div class="desc-card"><div class="dc-name">Margaret McGivney Dwyer</div><div class="dc-info">b.1858 Waterbury CT<br>m. Mr. Dwyer<br>Granddaughter: Marianna Dwyer Phillips<br>(b.~1946, attended 2020 beatification)</div></div><div class="desc-card"><div class="dc-name">John J. McGivney (Priest)</div><div class="dc-info">b.~1864 · d.Mar 16 1939 Bridgeport CT<br>Monsignor; 3rd Pastor St. Charles Borromeo<br>KofC Supreme Chaplain 1928–1939</div></div><div class="desc-card"><div class="dc-name">Patrick James McGivney (Priest)</div><div class="dc-info">b.Sep 25 1867 · d.May 7 1928<br>2nd Pastor St. Charles Borromeo, Bridgeport<br>KofC Sup. Chaplain 1901–1928 (longest)</div></div><div class="desc-card unnamed"><div class="dc-name">Unnamed Sister</div><div class="dc-info">4th surviving sister — name unconfirmed<br>Possible lead: "Anna A. McGivney" obit<br>Naugatuck Daily News, Feb 29 1944</div></div></div></div>',
  persons:{
   1:{name:'Peter George McGivney',branch:'mcg',note:'b.Feb 7 1891 Derby CT · d.Mar 25 1973',
-     relation:"Son of Peter McGivney Sr. + Ann née Clark. Married Helen R. Relihan 1921.",
+     relation:'Son of Peter McGivney Sr. (Derby CT) + Ann née Clark. Married Helen R. Relihan 1921 — NO CHILDREN.',
      facts:[['Born','Feb 7 1891 · Derby CT'],['Died','Mar 25 1973'],
-            ['Married','Helen R. Relihan, Jun 14 1921, Derby CT — no children'],
-            ['Burial',"Mt. St. Peter's Cemetery Rt.34 Derby CT · Sec E Lot 35 (same plot as Helen)"],
-            ['Important','County Cavan ancestry — NOT the Waterbury CT McGivney line (County Cork)'],
+            ['Married','Helen R. Relihan, Jun 14 1921, Derby CT — NO CHILDREN (dead-end branch)'],
+            ['Burial',"Mt. St. Peter's Cemetery Rt.34 Derby CT · Sec E Lot 35 (shared plot with Helen)"],
+            ["Helen's ancestry",'Helen R. Relihan (b.Jan 12 1894, d.May 5 1955 Shelton CT) was daughter of Maurice Relihan (b.1856 County Kerry → Derby CT). See Maurice Relihan Family branch. Probable siblings: John (~1892 = probable John R. Relihan Sr., Grant\'s great-grandfather) and James (~1895 = probable James T. Relihan).'],
             ['Source','S51']]},
-  2:{name:'Ann née Clark McGivney',branch:'mcg',note:'b.Jul 10 1867 County Cavan · d.Feb 13 1948',
-     relation:"Peter George's mother",
-     facts:[['Born','Jul 10 1867 · County Cavan, Ireland'],['Died','Feb 13 1948 · Derby CT'],
-            ['Occupation','Seamstress'],['Parents','John McGivney + Rose Clark'],
-            ['Married','Peter McGivney Sr. ~1890'],
-            ['Burial','Saint Marys Cemetery, Ansonia CT'],['Source','S50']]},
-  3:{name:'Peter McGivney Sr.',branch:'mcg',note:'b.1844 County Cavan · d.Sep 15 1898',
-     relation:"Peter George's father",
+  2:{name:'Peter McGivney Sr.',branch:'mcg',note:'b.1844 County Cavan · d.Sep 15 1898 Derby CT',
+     relation:"Peter George's father — PROBABLE BROTHER of Patrick McGivney Sr. (Waterbury CT), both from County Cavan",
      facts:[['Born','1844 · County Cavan, Ireland'],['Died','Sep 15 1898 · Derby CT'],
             ['Occupation','Gardener & florist'],
             ['Burial','New Saint Marys Cemetery Ansonia CT · Sec C Lot 593'],
-            ['Other unions','Mary Callery (children Bryan + Rose); Catherine O\'Shey (son Thomas Francis b.Jul 26 1875)'],
-            ['Children with Ann','Peter George (b.1891), Bernard F., John J., Rosemary — all born 1891–1898'],
+            ['Other relationships','Mary Callery (children Bryan + Rose); Catherine O\'Shey (son Thomas Francis b.Jul 26 1875)'],
+            ['Children with Ann Clark','Peter George (b.1891), Bernard F., John J., Rosemary — born 1891–1898'],
+            ['⚠ Sibling hypothesis','Patrick McGivney Sr. (Waterbury CT, b.~1832, Crosserlough Parish County Cavan) may be Peter\'s BROTHER or first cousin. Both from County Cavan, emigrated to CT. If confirmed: all 7 of Patrick\'s children (see cards below) are Peter George\'s first cousins.'],
             ['Source','S49']]},
-  4:{name:'John McGivney',branch:'mcg',note:"County Cavan · Ann's father",
-     relation:"Ann Clark's father",
+  3:{name:'Ann née Clark McGivney',branch:'mcg',note:'b.Jul 10 1867 County Cavan · d.Feb 13 1948 Derby CT',
+     relation:"Peter George's mother",
+     facts:[['Born','Jul 10 1867 · County Cavan, Ireland'],['Died','Feb 13 1948 · Derby CT'],
+            ['Occupation','Seamstress'],['Parents','John McGivney + Rose Clark (both County Cavan)'],
+            ['Married','Peter McGivney Sr. ~1890'],
+            ['Burial','Saint Marys Cemetery, Ansonia CT'],['Source','S50']]},
+  4:{name:'Patrick McGivney Sr.',branch:'mcg',prob:true,note:'b.~1832 County Cavan · d.Jun 6 1878 Waterbury CT',
+     relation:"⚠ SHOWN IN GRANDFATHER SLOT FOR LAYOUT ONLY — actually Peter McGivney Sr.'s PROBABLE BROTHER (same generation, both County Cavan). Founder of Waterbury McGivney line.",
+     facts:[['Born','~1832 · Drumkilly, Crosserlough Parish, County Cavan, Ireland'],
+            ['Died','Jun 6 1878 · Waterbury CT'],['Occupation','Ironworker/molder, Scovill Manufacturing Waterbury CT'],
+            ['⚠ POSITION NOTE','Displayed in great-grandfather slot for layout. He is Peter McGivney Sr.\'s PROBABLE BROTHER, not his father. Research needed: find Irish baptism records for both men in County Cavan to confirm shared father.'],
+            ['Wife','Mary Lynch (b.Aug 1834 Castlerahan Parish, County Cavan — NOT Sligo; d.Dec 8 1888 Waterbury CT). Married Nov 22 1850 Waterbury CT.'],
+            ['7 children (cards below)','Michael J. (KofC founder, 1852–1890); Mary Ann Lawlor (1853–1927); Rosanna Finn (1857–1923); Margaret Dwyer (1858–?); John J. priest (1864–1939); Patrick James priest (1867–1928); unnamed sister'],
+            ['KofC chaplaincy dynasty','1882–1960 (78 years): Michael J. founded KofC; Patrick James Sup. Chaplain 1901–28; John J. Sup. Chaplain 1928–39; Leo M. Finn (Rosanna\'s son) Sup. Chaplain 1939–60'],
+            ['Living contacts','John Walshe (attorney, Bridgeport CT — great-grandnephew); Marianna Dwyer Phillips (b.~1946); Dr. Alfred J. Finn Jr. (469 Migeon Ave, Torrington CT, (860) 489-0931)'],
+            ['WikiTree','McGivney-108']]},
+  5:{name:'Mary Lynch McGivney',branch:'other',prob:true,note:'b.Aug 1834 County Cavan · d.Dec 8 1888 Waterbury CT',
+     relation:"Patrick McGivney Sr.'s wife — SHOWN IN LAYOUT POSITION (see position note in Patrick's panel)",
+     facts:[['Born','August 1834 · Castlerahan Parish, County Cavan, Ireland'],
+            ['Died','Dec 8 1888 · Waterbury CT'],
+            ['Married','Patrick McGivney Sr., Nov 22 1850, Waterbury CT'],
+            ['Buried','Old St. Joseph Cemetery, Waterbury CT (with Patrick)'],
+            ['⚠ Correction','Previously listed as County Sligo — CONFIRMED County Cavan per WikiTree and Castlerahan Parish records'],
+            ['WikiTree','Lynch profile (from McGivney-108)']]},
+  6:{name:'John McGivney',branch:'mcg',note:"County Cavan · Ann Clark's father",
+     relation:"Ann née Clark's father",
      facts:[['Location','County Cavan, Ireland'],['Spouse','Rose Clark'],['Child','Ann McGivney née Clark (b.Jul 10 1867)']]},
-  5:{name:'Rose Clark',branch:'mcg',note:"County Cavan · Ann's mother",
-     relation:"Ann Clark's mother",
+  7:{name:'Rose Clark',branch:'mcg',note:"County Cavan · Ann Clark's mother",
+     relation:"Ann née Clark's mother",
      facts:[['Location','County Cavan, Ireland'],['Spouse','John McGivney'],['Child','Ann McGivney née Clark (b.Jul 10 1867)']]}
 }},
 
-{id:'helen',color:'#7e22ce',
- name:"Helen R. Relihan's Ancestors — Open Question",
- note:"Helen (b.1894 CT) married Peter George McGivney 1921 — NO CHILDREN, dead-end branch. The only remaining research path: proving Maurice Relihan (County Kerry, her father) shares a common ancestor with John Relihan Sr. (Bridgeport CT, Grant's confirmed great-grandfather). That would make this a collateral connection only, with no living descendants from the McGivney marriage.",
- persons:{
-  1:{name:'Helen R. Relihan',branch:'rel',note:'b.Jan 12 1894 CT · d.May 5 1955 Shelton CT',
-     relation:"Daughter of Maurice Relihan + Mary Dolan. Married Peter George McGivney 1921.",
-     facts:[['Born','Jan 12 1894 · CT'],['Died','May 5 1955 · Shelton CT'],
-            ['Occupation','Stenographer'],
-            ['Married','Peter George McGivney, Jun 14 1921, Derby CT — no children'],
-            ['Burial',"Mt. St. Peter's Cemetery Rt.34 Derby CT · Sec E Lot 35"],
-            ['Source','S52']]},
-  2:{name:'Mary Dolan',branch:'other',note:'b.Apr 5 1866 County Roscommon · d.Jan 8 1911',
-     relation:"Helen's mother",
-     facts:[['Born','Apr 5 1866 · County Roscommon, Ireland'],['Died','Jan 8 1911 · Derby CT'],
-            ['Parents','Thomas Dolan + Mary Towie'],['Source','S54']]},
-  3:{name:'Maurice Relihan',branch:'rel',note:'b.1856 County Kerry · d.Aug 2 1921 Shelton CT',
-     relation:"Helen's father — KEY open question re: connection to Grant's line",
-     facts:[['Born','1856 · County Kerry, Ireland'],['Died','Aug 2 1921 · Shelton CT'],
-            ['Parents','James Relihan + Mary O\'Connor (County Kerry)'],
-            ['Open question','Is Maurice (County Kerry, Shelton CT) related to John Relihan Sr. (Bridgeport CT), Grant\'s confirmed great-grandfather? Both Irish-Catholic CT Relihan families, same era. No documentary link yet.'],
-            ['Source','S53']]},
-  4:{name:'Thomas Dolan',branch:'other',note:"County Roscommon · Mary's father",
-     relation:"Mary Dolan's father",
-     facts:[['Location','County Roscommon, Ireland'],['Spouse','Mary Towie'],['Child','Mary Dolan (b.Apr 5 1866)']]},
-  5:{name:'Mary Towie',branch:'other',note:"County Roscommon · Mary's mother",
-     relation:"Mary Dolan's mother",
-     facts:[['Location','County Roscommon, Ireland'],['Spouse','Thomas Dolan'],['Child','Mary Dolan (b.Apr 5 1866)']]},
-  6:{name:'James Relihan',branch:'rel',note:"County Kerry · Maurice's father",
-     relation:"Maurice Relihan's father",
-     facts:[['Location','County Kerry, Ireland'],['Spouse',"Mary O'Connor"],
-            ['Child','Maurice Relihan (b.1856)'],['Note','No further records found']]},
-  7:{name:"Mary O'Connor",branch:'rel',note:"County Kerry · Maurice's mother",
-     relation:"Maurice Relihan's mother",
-     facts:[['Location','County Kerry, Ireland'],['Spouse','James Relihan'],
-            ['Child','Maurice Relihan (b.1856)'],['Note','No further records found']]}
-}}
 
-,
-
-// ── BRANCH 4: Blessed Michael J. McGivney — Research Target ──────
-{
-  id:'bjm', color:'#dc2626',
-  name:"Blessed Michael J. McGivney — The Research Target (NOT connected to any other branch)",
-  note:"Founder of the Knights of Columbus, 1882, New Haven CT. ⚠ CORRECTION: His father Patrick McGivney Sr. was from Drumkilly, Crosserlough Parish, County CAVAN — NOT County Cork as previously noted. His mother Mary Lynch was ALSO from County Cavan (Castlerahan Parish). This means the Waterbury CT McGivney family shares its Irish county of origin with the Derby CT McGivney family (Branch 2), strongly supporting Nancy Kozak's hypothesis of a family connection. Research path: Crosserlough and Castlerahan parish baptism records.",
-  persons:{
-  1:{name:'Bl. Michael J. McGivney',branch:'mcg',note:'b.Aug 12 1852 Waterbury CT · d.Aug 14 1890',
-     relation:'Founder of the Knights of Columbus (1882). Beatified Oct 31 2020.',
-     facts:[['Born','Aug 12 1852 · Waterbury CT'],
-            ['Died','Aug 14 1890 · Thomaston CT (tuberculosis, age 38)'],
-            ['Ordained','Dec 22 1877 · St. Mary\'s Church, Baltimore MD'],
-            ['Founded','Knights of Columbus — Mar 29 1882 · New Haven CT'],
-            ['Beatified','Oct 31 2020 by Pope Francis'],
-            ['Father','Patrick McGivney Sr. (b.~1832, Drumkilly, Crosserlough Parish, County Cavan, Ireland — NOT County Cork as previously noted)'],
-            ['Mother','Mary Lynch McGivney (b.Aug 1834, Castlerahan Parish, County Cavan; d.Dec 8 1888 Waterbury CT — NOT County Sligo as previously noted)'],
-            ['Parish','St. Mary\'s Church, New Haven CT (as assistant pastor 1877–1884)'],
-            ['Buried','Originally Old St. Joseph Cemetery, Waterbury CT; reinterred St. Mary\'s Church, New Haven CT (year: 1982 per research; our prior note said 2012 transfer to St. Thomas of Villanova, Ansonia CT — verify)'],
-            ['⚠ County Cavan confirmed','Both parents are from County Cavan — same county as the Derby CT McGivney family in Branch 2. This strongly supports Nancy Kozak\'s hypothesis of a shared origin.'],
-            ['WikiTree','McGivney-109 · FindAGrave #6735640']]},
-  2:{name:'Mary Lynch McGivney',branch:'other',note:'b.Aug 1834 County Cavan · d.Dec 8 1888 Waterbury CT',
-     relation:"Michael's mother — CONFIRMED County Cavan (correction from County Sligo)",
-     facts:[['Born','August 1834 · Castlerahan Parish, County Cavan, Ireland'],
-            ['Died','Dec 8 1888 · Waterbury CT (correction: prior data said 1908)'],
-            ['Buried','Old St. Joseph Cemetery, Waterbury CT (with husband Patrick)'],
-            ['Married','Patrick McGivney Sr., Nov 22 1850, Waterbury CT'],
-            ['⚠ Correction','Previously listed as County Sligo — CONFIRMED County Cavan per WikiTree and Castlerahan Parish records'],
-            ['WikiTree','Lynch profile (linked from McGivney-108)']]},
-  3:{name:'Patrick McGivney Sr.',branch:'mcg',note:'b.~1832 Drumkilly, County Cavan · d.Jun 6 1878 Waterbury',
-     relation:"Michael's father — CONFIRMED County Cavan (correction from County Cork)",
-     facts:[['Born','~1832 · Drumkilly, Crosserlough Parish, County Cavan, Ireland'],
-            ['Died','Jun 6 1878 · Waterbury CT'],
-            ['Buried','Old St. Joseph Cemetery, Waterbury CT'],
-            ['Occupation','Ironworker/molder at Scovill Manufacturing and other Waterbury brass mills'],
-            ['⚠ Correction','Previously listed as County Cork — CONFIRMED County Cavan per WikiTree McGivney-108, Crosserlough Parish (crosserloughparish.ie), and Wikipedia. Changes the Branch 2 hypothesis significantly.'],
-            ['Children (7 confirmed)','Michael J.; Mary Ann; Rosanna Frances; Margaret; John J. (priest); Patrick James (priest); 4th unnamed sister. Click each name below for detail.'],
-            ['Child 1 — Michael J.','b.Aug 12 1852 Waterbury CT · d.Aug 14 1890 (TB, age 38). Founded KofC 1882. Beatified 2020. WikiTree: McGivney-109'],
-            ['Child 2 — Mary Ann','b.Sep 25 1853 Waterbury CT · d.Jul 10 1927 Waterbury CT (age 73). m. Michael Joseph Lawlor Sr. (b.1847 Ireland), 1879 Waterbury. Son: Michael J. Lawlor Jr. MD (b.Sep 21 1881). WikiTree: McGivney-110'],
-            ['Child 3 — Rosanna Frances','b.May 29 1857 Waterbury CT · d.Dec 27 1923. m. Edward James Finn (b.1856 CT), 1883. 9 children (1884–1898) incl. Leo M. Finn (priest, KofC Sup. Chaplain 1939–60), Alfred J. Finn MD (b.1893, physician). WikiTree: McGivney-111'],
-            ['  Rosanna\'s children (9)','Joseph P. (b.Dec 10 1884); John W. (b.Jan 21 1886); Edward J. Jr. (b.Apr 24 1887); Leo M. (b.Aug 8 1888 — KofC Sup. Chaplain); Anna C. (b.Oct 1890); Francis J. (b.Oct 23 1890); Alfred J. MD (b.Apr 19 1893); Vincent E. (b.Jul 13 1896); Zita M. Burns (b.Oct 1 1898)'],
-            ['  Alfred J. Finn MD line','m. Elizabeth Meuten. Children: Patricia Ann Finn Moriarty (b.Jun 7 1933; d.Nov 25 2019 — 7 children); Marcia Finn Rice; Dr. Mark L. Finn; Dr. Alfred J. Finn Jr. (living — 469 Migeon Ave, Torrington CT, (860) 489-0931); Billy Finn (d.)'],
-            ['  Zita M. Finn Burns line','m. Gerald T. Burns, West Orange NJ. Children: Msgr. G. Thomas Burns (priest, d.Jun 23 2017); Mary Burns Muoio (Mantoloking NJ); Zita Burns O\'Brian (Montauk NY)'],
-            ['Child 4 — Margaret','b.1858 Waterbury CT. m. Mr. Dwyer (first name not found). Daughter: Marguerite Dwyer (never married; told family stories of "Uncle Mike"). Granddaughter: Marianna Dwyer Phillips (b.~1946 Waterbury CT — living, was at 2020 beatification). WikiTree: McGivney-112'],
-            ['Child 5 — John J.','b.~1864 Waterbury CT · d.Mar 16 1939 Bridgeport CT. Catholic priest, Monsignor (1932). 3rd Pastor St. Charles Borromeo, Bridgeport CT (1928–1939). KofC Supreme Chaplain 1928–1939. WikiTree: McGivney-131'],
-            ['Child 6 — Patrick James','b.Sep 25 1867 Bridgeport CT · d.May 7 1928. Catholic priest. 2nd Pastor St. Charles Borromeo, Bridgeport CT (1913–1928). KofC Sup. Chaplain 1901–1928 (27 yrs — longest tenure). WikiTree: McGivney-132'],
-            ['Child 7 — unnamed sister','4th surviving sister — name unconfirmed in any public record. Lead: "Anna A. McGivney" obit, Naugatuck Daily News Feb 29 1944 (Newspapers.com paywall). May be Annie or Anna.'],
-            ['Not confirmed','Thomas McGivney and Anna/Annie as adults — not in WikiTree, Geni, or public record. Likely died in infancy.'],
-            ['KofC chaplaincy dynasty','1884–1960 (76 years): Michael J. founded KofC (chaplain 1882); Patrick James Sup. Chaplain 1901–1928; John J. Sup. Chaplain 1928–1939; Leo M. Finn (Rosanna\'s son) Sup. Chaplain 1939–1960'],
-            ['Living contacts','John Walshe (attorney, Bridgeport CT — family expert, great-grandnephew); Marianna Dwyer Phillips (b.~1946 Waterbury CT); Dr. Alfred J. Finn Jr. (469 Migeon Ave, Torrington CT, (860) 489-0931)'],
-            ['Parents','Not yet found — search Crosserlough Parish, County Cavan baptism records for Patrick b.~1832'],
-            ['WikiTree','McGivney-108']]}
- }}
-
-,
 
 // ── BRANCH 5: Thomas P. Relihan — Dooley/Duley Ancestor Line ────────────
 {
   id:'tpr', color:'#7e22ce',
-  name:"Thomas P. Relihan — Probable Ancestors (Dooley/Duley Branch)",
-  note:"Thomas Peter Relihan (b.~1930 · d.~1990 CT, age 60) is Grant's maternal grandfather. His parents John Relihan Sr. + Ann Duley Relihan are PROBABLE — confirmed via Ann Relihan Lang's December 2008 obituary (S32). His siblings include Senator John J. Relihan Jr. (d.~Dec 1966 in office — spouse + children UNKNOWN), Edward A. Relihan (b.Jun 24 1929, d.~May 1989 Newington CT — highest-value missing branch), Ann Relihan Lang (d.Dec 22 2008), and Margaret Relihan Mellott (b.May 13 1927 · d.Dec 4 2022). ⚠ The 'John J. Relihan Sr.' of this Dooley/Duley branch (Bridgeport CT) may be a DIFFERENT PERSON from the McNamara branch's John J. Relihan Sr. (Fairfield/Stratford CT).",
+  name:'Maurice Relihan Family — All Connecticut Branches (S68)',
+  note:'Thomas Peter Relihan (b.~1930 · d.~1990 CT) is Grant\'s maternal grandfather. His parents John Relihan Sr. + Ann Duley are confirmed via S32. ⚡ NEW Jul 1 2026 (S68): 1910 Census confirms Maurice Relihan (b.1856 County Kerry → Derby CT, d.Aug 2 1921 Shelton CT) had 4 children: Mary A. (~1891), John (~1892), Helen (~1894 = confirmed Helen R. Relihan who married Peter George McGivney), James (~1895 = probable James T. Relihan). HYPOTHESIS: "John" (~1892) = John R. Relihan Sr. (Grant\'s great-grandfather). If confirmed, ALL CT Relihan branches descend from Maurice Relihan — this chart now shows him as the probable 3rd-great-grandfather.',
   persons:{
     1:{name:'Thomas P. Relihan',branch:'rel',prob:true,note:'b.~1930 CT · d.~1990 CT',
        relation:"Grant's maternal grandfather",
        confirm:{id:'tpr-dates',q:"Do you know Thomas P. Relihan's exact birth or death year? (US death index: b.~1930, d.~1990, age 60)"},
        facts:[['Born','~1930, Connecticut'],['Died','~1990, Connecticut (US death index · S35)'],
               ['Spouse','Dorothy Shomsky Relihan (b.~1925 Bridgeport CT · d. before Jul 2003)'],
-              ['Children','Nancy Relihan Kozak (→ Grant Kozak) · Thomas "Tommy" Relihan Jr. + Carla Guarino (924 Baldwin Rd Woodbridge CT; Relihan Landscape Construction, inc. Dec 7 1988) · Robert Relihan + [1st wife, daughter Lindsay Relihan]; 2nd wife Cynthia Bixler (no children together — Cynthia is NOT a new research lead) · Elizabeth "Betsy" Relihan Gross + Jay (California — provided Ancestry images S49–S55)'],
-              ['Siblings','Sen. John J. Relihan Jr. (Fairfield Prep \'46 · CT State Senator Dist.21 · d.~Dec 1966 in office — spouse + children UNKNOWN, archive priority) · Edward A. Relihan (b.Jun 24 1929 · d.~May 1989 Newington CT — MISSING spouse + children) · Ann Relihan Lang (d.Dec 22 2008) · Margaret Relihan Mellott (d.Dec 4 2022)'],
-              ['Ann Lang branch','Husband Frank O. Lang (obit not found, search New Haven Register) → Frank O. Lang III + Julie (maiden unknown) · Matthew G. Lang + Brenda (maiden unknown) · Carol Lang Barnes + Doug Barnes (7 grandchildren). ⚠ Julie\'s and Brenda\'s maiden names unknown — could be bridge surnames.'],
-              ['Mellott branch','Husband James J. Mellott → Terese Travis-Horvath + Robert S. Horvath · Christopher J. Travis + Melissa · Daniel J. Travis · Kyle P. Travis · Denise M. Mellott Barnes + Charles Franklin Barnes Jr. (d.Mar 11 2025). ⚠ Barnes surname also appears as Carol Lang Barnes — whether same family is unknown.'],
+              ['Children','Nancy Relihan Kozak (→ Grant Kozak) · Thomas "Tommy" Relihan Jr. + Carla Guarino (924 Baldwin Rd Woodbridge CT; Relihan Landscape Construction, inc. Dec 7 1988) · Robert Relihan + 2nd wife Cynthia Bixler · Elizabeth "Betsy" Relihan Gross + Jay (California — provided Ancestry census images S49–S55, S68)'],
+              ['Siblings','Sen. John J. Relihan Jr. (Fairfield Prep \'46 · CT State Senator Dist.21 · d.~Dec 1966 in office) · Edward A. Relihan (b.Jun 24 1929 · d.~May 1989 Newington CT) · Ann Relihan Lang (d.Dec 22 2008) · Margaret Relihan Mellott (d.Dec 4 2022)'],
+              ['Ann Lang branch','Husband Frank O. Lang → Frank O. Lang III + Julie · Matthew G. Lang + Brenda · Carol Lang Barnes + Doug Barnes (7 grandchildren). Maiden names of Julie + Brenda unknown — bridge surname candidates.'],
+              ['Mellott branch','Husband James J. Mellott → Terese Travis-Horvath · Christopher J. Travis · Daniel J. Travis · Kyle P. Travis · Denise M. Mellott Barnes + Charles Franklin Barnes Jr. (d.Mar 11 2025)'],
               ['Needed','Full obituary — New Haven Register or CT Post ~1990 · Holt & Holt Funeral Home, Woodbridge CT'],
-              ['Source','S35 (US death index); S32 (Ann Lang obit confirms Thomas as son of John + Ann Duley)']]},
-    2:{name:'John Relihan Sr.',branch:'rel',prob:true,note:'Bridgeport CT · PROBABLE',
-       relation:"Thomas's father — confirmed via S32",
+              ['Source','S35; S32']]},
+    2:{name:'John Relihan Sr.',branch:'rel',prob:true,note:'Bridgeport CT · b.~1892 Derby CT (S68 hypothesis)',
+       relation:"Thomas's father — confirmed via S32. PROBABLE son of Maurice Relihan (b.1856 County Kerry).",
        facts:[['Confirmed','Ann Relihan Lang 2008 obit (S32): "daughter of John and Ann Duley Relihan"'],
-              ['Middle initial','Appears as "John J." in Margaret Mellott obit (S03) and "John R." in SortedByName (S04) — unresolved; "John" per Ann Lang obit (S32)'],
+              ['Middle initial','Appears as "John J." (S03), "John R." (S04), and "John" (S32) — unresolved'],
+              ['⚡ S68 Hypothesis','1910 Census shows "John" (age 18, b.~1892) as son of Maurice Relihan + Mary Dolan in Derby CT. This is likely John R. Relihan Sr. — same geographic area, correct birth year for fathering children 1927–1932.'],
               ['Known children','Senator John J. Relihan Jr. · Thomas P. Relihan · Edward A. Relihan (b.Jun 24 1929) · Ann Relihan Lang · Margaret Relihan Mellott'],
-              ['⚠ Two families warning','A separate John J. Relihan Sr. (Fairfield CT, married Mabel McNamara, buried St. Michael\'s Cemetery Stratford CT) also exists. Same man or different? DO NOT merge — compare 1920–1940 census records.'],
-              ['Source','S02; S03; S32']]},
+              ['Helen R. Relihan connection','If John (~1892) = this ancestor, then Helen R. Relihan (b.Jan 12 1894, who married Peter George McGivney 1921) is his SISTER. James T. Relihan (who married Mary O\'Connell → James M. b.1927 + Joseph R. b.1928) is another probable sibling.'],
+              ['⚠ McNamara warning','John J. Relihan Sr. (Fairfield CT, married Mabel McNamara, buried St. Michael\'s Stratford CT) is a SEPARATE documented person. May be the same man or different. Do not merge without census proof.'],
+              ['Source','S02; S03; S32; S68']]},
     3:{name:'Ann Duley Relihan',branch:'rel',prob:true,note:'"Duley" confirmed S32',
        relation:"Thomas's mother — confirmed via S32",
        facts:[['"Duley" confirmed','Ann Relihan Lang 2008 obit (S32): "daughter of John and Ann Duley Relihan"'],
-              ['Spelling variants','"Dooley" also seen in SortedByName (S04) for Edward A. Relihan — same person'],
-              ['Source','S32']]}
+              ['"Dooley" variant','Also seen in SortedByName (S04) — same person, spelling variation'],
+              ['Source','S32']]},
+    4:{name:'Maurice Relihan',branch:'rel',prob:true,note:'b.1856 County Kerry · d.Aug 2 1921 Shelton CT',
+       relation:"John R. Relihan Sr.'s PROBABLE father (S68) — IF confirmed, common ancestor of ALL CT Relihan branches",
+       facts:[['Born','1856 · County Kerry, Ireland'],
+              ['Died','Aug 2 1921 · 113 Division St., Shelton, Fairfield County CT'],
+              ['Parents','James Relihan (County Kerry) + Mary O\'Connor'],
+              ['Spouse','Mary Dolan (b.Apr 5 1866 County Roscommon; d.Jan 8 1911, 9 Seventh St., Derby CT)'],
+              ['⚡ 1910 Census (S68)','Maurice + Mary Dolan household, Derby CT. 4 known children: Mary A. (19, b.~1891); John (18, b.~1892 = PROBABLE John R. Relihan Sr.); Helen/Hector S. (17, b.Jan 12 1894 = CONFIRMED Helen R. Relihan); James (15, b.~1895 = PROBABLE James T. Relihan who married Mary O\'Connell → James M. b.1927 Derby + Joseph R. b.1928 Bridgeport)'],
+              ['Hypothesis impact','If "John" (~1892) = John R. Relihan Sr.: Maurice Relihan (County Kerry) is the common ancestor of ALL CT Relihan research branches — Dooley/Duley (John), O\'Connell (James T.), and McGivney-Relihan marriage (Helen). James M. Relihan (KofC, Orange CT) is Helen\'s nephew.'],
+              ['Confirmation targets','Maurice Relihan 1921 Shelton CT obituary (lists surviving children by name) · John R. Relihan Sr. 1930 census Bridgeport CT (age ~38, wife Ann, birthplace CT) · Thomas P. Relihan death certificate (lists paternal grandparents)'],
+              ['Source','S53; S68']]},
+    5:{name:'Mary Dolan',branch:'other',prob:true,note:'b.Apr 5 1866 County Roscommon · d.Jan 8 1911 Derby CT',
+       relation:"Maurice Relihan's wife — John R. Relihan Sr.'s probable mother",
+       facts:[['Born','Apr 5 1866 · County Roscommon, Ireland'],
+              ['Died','Jan 8 1911 · 9 Seventh St., Derby, New Haven County CT'],
+              ['Parents','Thomas Dolan + Mary Towie (both County Roscommon)'],
+              ['Home address','9 Seventh Street, Derby CT — the Relihan family home'],
+              ['Source','S54']]},
+    6:{name:'James Relihan',branch:'rel',prob:true,note:"County Kerry, Ireland · Maurice's father",
+       relation:"Maurice Relihan's father",
+       facts:[['Location','County Kerry, Ireland'],['Spouse',"Mary O'Connor"],
+              ['Child','Maurice Relihan (b.1856 County Kerry)'],
+              ['Note','Maurice named his son "James" (b.~1895 Derby CT) after grandfather James — consistent Irish naming pattern'],
+              ['Source','S53']]},
+    7:{name:"Mary O'Connor",branch:'rel',prob:true,note:"County Kerry, Ireland · Maurice's mother",
+       relation:"Maurice Relihan's mother",
+       facts:[['Location','County Kerry, Ireland'],['Spouse','James Relihan'],
+              ['Child','Maurice Relihan (b.1856 County Kerry)'],
+              ['Source','S53']]}
   }
 },
 
@@ -593,9 +559,10 @@ function drawBranch(branch){
 var container=document.getElementById('branches');
 BRANCHES.forEach(function(branch){
   var div=document.createElement('div');
-  div.className='branch'+(branch.id==='bjm'?' branch-target':''); div.id='b-'+branch.id;
-  var targetBanner=branch.id==='bjm'
-    ? '<div style="background:#fef2f2;border:1.5px solid #dc2626;border-radius:6px;padding:5px 10px;font-size:.71rem;font-weight:700;color:#991b1b;margin-top:7px;display:inline-block">⚠ NO PROVEN BRIDGE to any Relihan branch — this is the research target, not a confirmed relative</div>'
+  var isTarget=branch.id==='mcgivney_family';
+  div.className='branch'+(isTarget?' branch-target':''); div.id='b-'+branch.id;
+  var targetBanner=isTarget
+    ? '<div style="background:#fef2f2;border:1.5px solid #dc2626;border-radius:6px;padding:5px 10px;font-size:.71rem;font-weight:700;color:#991b1b;margin-top:7px;display:inline-block">⚠ NO PROVEN BRIDGE between the two McGivney families — Patrick (Waterbury) and Peter (Derby) shown as siblings is a HYPOTHESIS only. Dashed amber dot = probable/unconfirmed.</div>'
     : '';
   div.innerHTML=
     '<div class="bh" style="border-color:'+branch.color+'">'
@@ -612,6 +579,7 @@ BRANCHES.forEach(function(branch){
     +'</div>'
     +'<div class="branch-body" id="bb-'+branch.id+'">'
       +'<svg id="svg-'+branch.id+'" class="bsvg"></svg>'
+      +(branch.descHtml||'')
     +'</div>';
   container.appendChild(div);
   drawBranch(branch);
