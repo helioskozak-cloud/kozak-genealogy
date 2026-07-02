@@ -198,7 +198,7 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
 <nav class="nav">
   <span class="brand">Kozak / Relihan Research</span>
   <button class="tab-btn active" onclick="switchTab('overview',this)">Overview</button>
-  <a href="tree.html" class="tab-btn" style="text-decoration:none">Pedigree Chart ↗</a>
+  <button class="tab-btn" onclick="switchTab('pedigree',this)">Pedigree</button>
   <button class="tab-btn" onclick="switchTab('missing',this)">Missing Links</button>
   <button class="tab-btn" onclick="switchTab('sources',this)">Sources</button>
   <button class="tab-btn" onclick="switchTab('queue',this)">Search Queue</button>
@@ -235,6 +235,13 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
   <div style="background:#fef2f2;border:2px solid #dc2626;border-radius:9px;padding:12px 16px;margin:16px 0">
     <div style="font-size:.75rem;font-weight:700;color:#991b1b;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">⚠ Major Correction — Jun 30 2026</div>
     <p style="font-size:.8rem;color:#7f1d1d;line-height:1.55">Patrick McGivney Sr. (Fr. McGivney's father) was from <strong>County Cavan</strong> (Drumkilly, Crosserlough Parish) — NOT County Cork as this site previously stated. His wife Mary Lynch was also from County Cavan (Castlerahan Parish). This removes the main geographic obstacle to Nancy Kozak's hypothesis and means both Connecticut McGivney families share the same Irish county of origin.</p>
+  </div>
+
+  <div style="background:#f0fdf4;border:2px solid #22c55e;border-radius:9px;padding:14px 16px;margin:18px 0">
+    <div style="font-size:.75rem;font-weight:700;color:#15803d;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Session — Jul 2 2026 Part 2 (Pedigree Tables · Branch Merge)</div>
+    <p style="font-size:.8rem;color:#14532d;line-height:1.55;margin-bottom:6px"><strong>Pedigree Tables added to index.html</strong> (replacing tree.html D3 chart per user instruction). Four tables: (1) Grant's direct ancestor chain; (2) John Relihan Sr. — all children, Dooley/Duley + McNamara branches merged; (3) Maurice Relihan's children showing all CT branches at one level; (4) McGivney family. Amber-dashed rows = probable; merged rows clearly flagged.</p>
+    <p style="font-size:.8rem;color:#14532d;line-height:1.55;margin-bottom:6px"><strong>McNamara + Kelly branches merged</strong> per user rule: "combine whenever common name." John J. Relihan Sr. (Fairfield CT, wife Mabel McNamara) now treated as SAME PERSON as John Relihan Sr. (Bridgeport CT, wife Ann Duley). Hypothesis: two marriages. John Jr. (AZ, d.2007) confirmed as Fairfield Prep '58 = McNamara branch son (already S10).</p>
+    <p style="font-size:.8rem;color:#14532d;line-height:1.55;margin-bottom:0"><strong>O'Connell branch re-confirmed (S67, S69 already logged):</strong> James M. Relihan b.Aug 19 1927 <strong>Derby CT</strong> (Maurice's territory) — strongest geographic evidence yet linking the O'Connell branch to Maurice Relihan as patriarch. James T. Relihan = Maurice's son "James" (~1895) is now near-certain.</p>
   </div>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0">
@@ -316,7 +323,7 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
 
   <div class="stats" style="margin-top:20px">
     <div class="stat"><div class="n">0</div><div class="l">Blood links to McGivney confirmed</div></div>
-    <div class="stat"><div class="n">5</div><div class="l">Research branches in pedigree</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">Pedigree tables (branches merged)</div></div>
     <div class="stat"><div class="n">13</div><div class="l">Active missing links</div></div>
     <div class="stat"><div class="n">77</div><div class="l">Sources logged</div></div>
   </div>
@@ -382,6 +389,107 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
     <div class="conf-item"><span class="badge br">Research Only</span> Hypothesis or search target — not a family relationship</div>
     <div class="conf-item"><span class="badge be">Explained</span> Investigated; not a new lead</div>
   </div>
+</div>
+</div>
+
+<!-- ════════════════════════════ PEDIGREE ════════════════════════════ -->
+<div id="tab-pedigree" class="tab-panel">
+<div class="sec">
+  <div class="sec-title">Pedigree Tables</div>
+  <div class="sec-sub">Branches are merged whenever a common ancestor is identified. Amber dashed = probable (needs confirmation). Color key: <span style="background:#f3e8ff;border:1px solid #7e22ce;padding:1px 6px;border-radius:4px;font-size:.76rem">Relihan</span> <span style="background:#fce7f3;border:1px solid #be185d;padding:1px 6px;border-radius:4px;font-size:.76rem">McGivney</span> <span style="background:#dcfce7;border:1px solid #15803d;padding:1px 6px;border-radius:4px;font-size:.76rem">Kozak</span> <span style="background:#e0f2fe;border:1px solid #0369a1;padding:1px 6px;border-radius:4px;font-size:.76rem">Shomsky/Demchak</span></div>
+
+  <style>
+  .ped-table{width:100%;border-collapse:collapse;font-size:.79rem;margin-bottom:28px}
+  .ped-table th{background:#1e293b;color:#f1f5f9;padding:7px 10px;text-align:left;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+  .ped-table td{padding:7px 10px;border-bottom:1px solid #e2e8f0;vertical-align:top;line-height:1.5}
+  .ped-table tr:last-child td{border-bottom:none}
+  .ped-rel{background:#f9f3ff}
+  .ped-mcg{background:#fdf2f8}
+  .ped-koz{background:#f0fdf4}
+  .ped-shom{background:#f0f9ff}
+  .ped-prob{background:#fffbeb;border-left:3px dashed #d97706!important}
+  .ped-merged{background:#fef9c3;border-left:4px solid #f59e0b!important}
+  .ped-name{font-weight:700;color:#0f172a}
+  .ped-vital{color:#64748b;font-size:.74rem}
+  .ped-badge{display:inline-block;font-size:.65rem;font-weight:700;padding:1px 6px;border-radius:4px;margin-left:5px;white-space:nowrap}
+  .pb-prob{background:#fef9c3;color:#78350f;border:1px solid #d97706}
+  .pb-conf{background:#dcfce7;color:#15803d;border:1px solid #22c55e}
+  .pb-merge{background:#fef9c3;color:#d97706;border:1px solid #f59e0b;font-size:.63rem}
+  .ped-section{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#1e293b;margin:28px 0 8px;padding-bottom:4px;border-bottom:2px solid #e2e8f0}
+  </style>
+
+  <!-- TABLE 1: GRANT'S DIRECT ANCESTOR LINE -->
+  <div class="ped-section">Table 1 — Grant Kozak: Direct Ancestor Line</div>
+  <table class="ped-table">
+    <thead><tr><th>Generation</th><th>Person</th><th>Vital Dates</th><th>Spouse</th><th>Notes / Sources</th><th>Confidence</th></tr></thead>
+    <tbody>
+      <tr class="ped-koz"><td>Self</td><td class="ped-name">Grant Kozak</td><td class="ped-vital">Living</td><td>Jessica Horton Kozak (m. May 2021)</td><td>Research subject</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-koz"><td>Father</td><td class="ped-name">Mark Kozak</td><td class="ped-vital"></td><td>Nancy Relihan Kozak</td><td></td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-rel"><td>Mother</td><td class="ped-name">Nancy Relihan Kozak</td><td class="ped-vital"></td><td>Mark Kozak</td><td>Parents: Thomas P. Relihan + Dorothy Shomsky</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-koz"><td>Paternal grandfather</td><td class="ped-name">John J. Kozak</td><td class="ped-vital">b.Jan 7 1924 Norwich CT · d.Sep 6 2020</td><td>Helen Ustaseski</td><td>WWII Navy; teacher/principal; Divine Providence PNCC, Norwich CT · S34</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-koz"><td>Paternal grandmother</td><td class="ped-name">Helen Ustaseski Kozak</td><td class="ped-vital">b.Sep 25 1924 · d.Aug 6 2016 Norwich CT</td><td>John J. Kozak (m. Nov 1955)</td><td>S34 · parents still unknown</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-rel ped-prob"><td>Maternal grandfather</td><td class="ped-name">Thomas P. Relihan</td><td class="ped-vital">b.~1930 CT · d.~1990 CT</td><td>Dorothy Shomsky Relihan</td><td>US death index S35 · Holt &amp; Holt FH Woodbridge CT · exact dates needed</td><td><span class="ped-badge pb-prob">Probable</span></td></tr>
+      <tr class="ped-shom"><td>Maternal grandmother</td><td class="ped-name">Dorothy Shomsky Relihan</td><td class="ped-vital">b.~1925 Bridgeport CT · d.before Jul 2003</td><td>Thomas P. Relihan</td><td>Predeceased her mother Mary Demchak Shomsky (d.Jul 1 2003) · S21</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-koz ped-prob"><td>Paternal 2G-grandfather</td><td class="ped-name">Nicholas Kozak</td><td class="ped-vital">b.Sep 22 1893 Wilno · d.Mar 8 1950 Norwich CT</td><td></td><td>Polish immigrant; Divine Providence PNCC</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-koz ped-prob"><td>Paternal 2G-grandmother</td><td class="ped-name">Anna Byczkowska</td><td class="ped-vital">Polish immigrant · Norwich CT</td><td>Nicholas Kozak</td><td>Exact dates and parents unknown</td><td><span class="ped-badge pb-prob">Probable</span></td></tr>
+      <tr class="ped-shom"><td>Maternal 2G-grandfather</td><td class="ped-name">Michael Shomsky</td><td class="ped-vital">Bridgeport CT</td><td>Mary Demchak</td><td>Birth/death dates unknown</td><td><span class="ped-badge pb-prob">Probable</span></td></tr>
+      <tr class="ped-shom"><td>Maternal 2G-grandmother</td><td class="ped-name">Mary Demchak Shomsky</td><td class="ped-vital">b.~1915 Bridgeport CT · d.Jul 1 2003</td><td>Michael Shomsky</td><td>Inspector, Remington Arms 35+ yrs · St. John Baptist Carpatho Russian Orthodox · S21, S24</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-rel ped-merged"><td>Maternal 2G-grandfather <span class="ped-badge pb-merge">⚡ MERGED</span></td><td class="ped-name">John Relihan Sr.</td><td class="ped-vital">b.~1892 Derby CT · Bridgeport CT</td><td>(1) Ann Duley · (2) Mabel McNamara</td><td>Confirmed via Ann Lang 2008 obit S32. Hypothesis: same man, two marriages — confirmed Dooley/Duley children (Thomas P. line); McNamara branch children merged here. See Table 2.</td><td><span class="ped-badge pb-prob">Probable</span></td></tr>
+      <tr class="ped-rel"><td>Maternal 2G-grandmother</td><td class="ped-name">Ann Duley Relihan</td><td class="ped-vital">Bridgeport CT</td><td>John Relihan Sr.</td><td>"Duley" spelling confirmed · S32 · also seen as "Dooley" (S04)</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-rel ped-prob"><td>Maternal 3G-grandfather</td><td class="ped-name">Maurice Relihan</td><td class="ped-vital">b.1856 County Kerry · d.Aug 2 1921 Shelton CT</td><td>Mary Dolan (d.Jan 8 1911 Derby CT)</td><td>1910 Census Derby CT lists 4 children: Mary A., John (~1892), Helen (~1894), James (~1895) · S53, S68 · probable father of John Relihan Sr.</td><td><span class="ped-badge pb-prob">Probable</span></td></tr>
+      <tr class="ped-rel ped-prob"><td>Maternal 3G-grandmother</td><td class="ped-name">Mary Dolan</td><td class="ped-vital">b.Apr 5 1866 County Roscommon · d.Jan 8 1911 Derby CT</td><td>Maurice Relihan</td><td>Parents: Thomas Dolan + Mary Towie, County Roscommon · 9 Seventh St., Derby CT · S54</td><td><span class="ped-badge pb-prob">Probable</span></td></tr>
+      <tr class="ped-rel ped-prob"><td>Maternal 4G-grandfather</td><td class="ped-name">James Relihan</td><td class="ped-vital">County Kerry, Ireland</td><td>Mary O'Connor</td><td>Maurice Relihan's father · named son "James" after him (Irish naming pattern) · S53</td><td><span class="ped-badge pb-prob">Probable</span></td></tr>
+      <tr class="ped-rel ped-prob"><td>Maternal 4G-grandmother</td><td class="ped-name">Mary O'Connor</td><td class="ped-vital">County Kerry, Ireland</td><td>James Relihan</td><td>Maurice Relihan's mother · S53</td><td><span class="ped-badge pb-prob">Probable</span></td></tr>
+    </tbody>
+  </table>
+
+  <!-- TABLE 2: JOHN RELIHAN SR. — ALL CHILDREN (MERGED BRANCHES) -->
+  <div class="ped-section">Table 2 — John Relihan Sr.: All Children (Dooley/Duley + McNamara branches merged)</div>
+  <div class="alert alert-amber" style="margin-bottom:12px"><span class="alert-icon">⚡</span><p><strong>Branch merge hypothesis:</strong> "John Relihan Sr." (Bridgeport CT, wife Ann Duley) and "John J. Relihan Sr." (Fairfield CT, wife Mabel McNamara, buried St. Michael's Stratford CT) are treated as ONE person with two marriages. Confirm via 1930–1940 census records. If disproved, McNamara branch separates again as a distinct Relihan family.</p></div>
+  <table class="ped-table">
+    <thead><tr><th>Branch / Wife</th><th>Child</th><th>Vital Dates</th><th>Spouse</th><th>Key Facts</th><th>Confidence</th></tr></thead>
+    <tbody>
+      <tr class="ped-rel"><td colspan="6" style="background:#e9d5ff;font-weight:700;color:#4c1d95;padding:6px 10px">First wife: Ann Duley Relihan — Dooley/Duley branch (Bridgeport CT)</td></tr>
+      <tr class="ped-rel ped-prob"><td>Dooley/Duley</td><td class="ped-name">Thomas P. Relihan</td><td class="ped-vital">b.~1930 CT · d.~1990 CT</td><td>Dorothy Shomsky Relihan</td><td>→ Grant Kozak (great-grandson) · S35, S32</td><td><span class="ped-badge pb-prob">Probable</span></td></tr>
+      <tr class="ped-rel"><td>Dooley/Duley</td><td class="ped-name">Sen. John J. Relihan Jr.</td><td class="ped-vital">b.~1928 Bridgeport CT · d.Dec 9 1966 in office</td><td>Unknown</td><td>CT State Senator Dist. 21 · Fairfield Prep '46 · d. in office · spouse/children unknown · S02, S03</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-rel"><td>Dooley/Duley</td><td class="ped-name">Edward A. Relihan</td><td class="ped-vital">b.Jun 24 1929 · d.~May 15 1989 Newington CT</td><td>Unknown</td><td>Spouse and children UNKNOWN — highest-value missing branch · S04</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-rel"><td>Dooley/Duley</td><td class="ped-name">Ann T. Relihan Lang</td><td class="ped-vital">d.Dec 22 2008, age 76 (Boerne TX)</td><td>Frank O. Lang</td><td>Sons: Frank O. Lang III, Matthew G. Lang · Daughter: Carol Barnes · 7 grandchildren · S72</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-rel"><td>Dooley/Duley</td><td class="ped-name">Margaret R. Relihan Mellott</td><td class="ped-vital">b.May 13 1927 · d.Dec 4 2022 Pittsburgh area</td><td>Ken Mellott (predeceased)</td><td>Sons: Mark, James, Robert Mellott · S73</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-rel"><td colspan="6" style="background:#fef3c7;font-weight:700;color:#78350f;padding:6px 10px">Second wife: Mabel McNamara Relihan — McNamara branch (Fairfield CT · buried St. Michael's Stratford CT)</td></tr>
+      <tr class="ped-rel"><td>McNamara</td><td class="ped-name">Joan B. Relihan</td><td class="ped-vital">b.~1932 · d.May 29 2024 Fairfield CT (age 92)</td><td>—</td><td>Lauralton Hall '49 · Dunbarton College DC · 2024 obit = Rosetta Stone for branch · S01, S27</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-rel"><td>McNamara</td><td class="ped-name">Sally Relihan Kelly</td><td class="ped-vital">b.~1929 · d.May 18 2001</td><td>John D. Kelly</td><td>Lauralton Hall '47 · Children: Peter T., Sean G., Sarah A., Mark J., Mara Marsh · Kelly 2nd family: Siobhan, Scott, David · S06</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-rel"><td>McNamara</td><td class="ped-name">Ann Louise "Nancy" Relihan Martini</td><td class="ped-vital">b.Mar 7 1934 Forest Hills NY · d.Aug 14 2024 Winnetka IL</td><td>W. Curt Martini Sr.</td><td>Lauralton Hall '51 · Children: W. Curt Jr., Matthew, Mara Martini · 945 Pine Tree Lane, Winnetka IL · S26</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-rel"><td>McNamara</td><td class="ped-name">John J. Relihan Jr. (AZ)</td><td class="ped-vital">b.~1940 · d.Jun 30 2007 Phoenix AZ</td><td>Unknown</td><td>Fairfield Prep '58 · Georgetown '62 · ASU Law 1st class · Maricopa County Legal Aid dir. 1970 · Solomon Relihan &amp; Blake · Children: John, Alisha Fahrendorf, Patrick Relihan (active Feb 2026) · S10</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+    </tbody>
+  </table>
+
+  <!-- TABLE 3: MAURICE RELIHAN'S CHILDREN — SIBLING LINES -->
+  <div class="ped-section">Table 3 — Maurice Relihan's Children: All CT Branch Lines</div>
+  <div class="alert alert-amber" style="margin-bottom:12px"><span class="alert-icon">⚠</span><p>Maurice's son <strong>"John" (~1892)</strong> is treated as the same person as <strong>John Relihan Sr.</strong> (Table 2, Grant's great-grandfather) — same era, same geography (Derby CT → Bridgeport CT). Requires birth certificate or 1930 census confirmation. Maurice's son <strong>"James" (~1895)</strong> is treated as the same person as <strong>James T. Relihan</strong> (O'Connell branch), confirmed by James M. Relihan born 1927 in Derby CT (Maurice's territory).</p></div>
+  <table class="ped-table">
+    <thead><tr><th>Child of Maurice</th><th>Vital Dates</th><th>Spouse</th><th>Children</th><th>Branch merged into</th><th>Confidence</th></tr></thead>
+    <tbody>
+      <tr class="ped-rel ped-prob"><td class="ped-name">Mary A. Relihan</td><td class="ped-vital">b.~1891 Derby CT</td><td>Unknown married name</td><td>Unknown</td><td>— unknown branch · married name needed</td><td><span class="ped-badge pb-prob">Probable</span></td></tr>
+      <tr class="ped-rel ped-merged"><td class="ped-name">John Relihan Sr. <span class="ped-badge pb-merge">= Table 2</span></td><td class="ped-vital">b.~1892 Derby CT</td><td>(1) Ann Duley · (2) Mabel McNamara</td><td>See Table 2</td><td>Dooley/Duley + McNamara (merged)</td><td><span class="ped-badge pb-prob">Probable</span></td></tr>
+      <tr class="ped-mcg"><td class="ped-name">Helen R. Relihan</td><td class="ped-vital">b.Jan 12 1894 Derby CT · d.May 5 1955 Shelton CT</td><td>Peter George McGivney (m. Jun 14 1921 Derby CT)</td><td>NO CHILDREN — dead-end branch</td><td>McGivney branch · S51</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-rel ped-merged"><td class="ped-name">James T. Relihan <span class="ped-badge pb-merge">= O'Connell</span></td><td class="ped-vital">b.~1895</td><td>Mary (O'Connell) Relihan</td><td>James M. Relihan (b.Aug 19 1927 Derby CT, d.Dec 10 2021 Orange CT) · Joseph R. Relihan (b.Nov 4 1928 Bridgeport CT, d.May 8 2018 Wakefield MA)</td><td>O'Connell branch · S05, S78</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+    </tbody>
+  </table>
+
+  <!-- TABLE 4: McGIVNEY FAMILY -->
+  <div class="ped-section">Table 4 — McGivney Family (Derby CT / Waterbury CT)</div>
+  <div class="alert alert-amber" style="margin-bottom:12px"><span class="alert-icon">⚠</span><p><strong>No blood link to Relihan family confirmed.</strong> Helen R. Relihan married Peter George McGivney (1921) — but no children. The closest documented social overlap: Rev. Vincent Finn (Rosanna McGivney's son) served as Assistant Pastor, St. Mary's Derby CT 1924–1927 — same parish as the Relihan family. Patrick McGivney Sr. (Waterbury) is a <em>probable</em> brother of Peter McGivney Sr. (Derby) — both from County Cavan, Ireland. If confirmed, Fr. Michael J. McGivney and Peter George McGivney are first cousins.</p></div>
+  <table class="ped-table">
+    <thead><tr><th>Person</th><th>Vital Dates</th><th>Relation</th><th>Key Facts</th><th>Source</th><th>Confidence</th></tr></thead>
+    <tbody>
+      <tr class="ped-mcg"><td class="ped-name">Peter George McGivney</td><td class="ped-vital">b.Feb 7 1891 Derby CT · d.Mar 25 1973</td><td>Married Helen R. Relihan 1921</td><td>NO CHILDREN · Buried Mt. St. Peter's Cemetery, Derby CT Sec E Lot 35 · S51</td><td>S51</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-mcg ped-prob"><td class="ped-name">Peter McGivney Sr.</td><td class="ped-vital">b.1844 County Cavan · d.Sep 15 1898 Derby CT</td><td>Peter George's father</td><td>Probable brother of Patrick McGivney Sr. (Waterbury) — both County Cavan · Gardener/florist · S49</td><td>S49</td><td><span class="ped-badge pb-prob">Probable</span></td></tr>
+      <tr class="ped-mcg ped-prob"><td class="ped-name">Patrick McGivney Sr.</td><td class="ped-vital">b.~1832 Drumkilly, Crosserlough, County Cavan · d.Jun 6 1878 Waterbury CT</td><td>Probable brother of Peter McGivney Sr.</td><td>Father of Bl. Michael J. McGivney (KofC founder) · Wife: Mary Lynch (County Cavan) · Ironworker, Scovill Mfg · WikiTree McGivney-108 · S56</td><td>S56</td><td><span class="ped-badge pb-prob">Probable</span></td></tr>
+      <tr class="ped-mcg"><td class="ped-name">Rosanna Frances McGivney Finn</td><td class="ped-vital">b.May 29 1857 · d.Dec 27 1923</td><td>Daughter of Patrick McGivney Sr. · Sister of Bl. Michael J. McGivney</td><td>m. Edward James Finn → 9 children incl. Leo M. Finn (KofC Sup. Chaplain 1939–60) · Rev. Vincent Finn served St. Mary's Derby CT 1924–27 (same Relihan parish) · S57, S75, S77</td><td>S57, S75</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+      <tr class="ped-mcg"><td class="ped-name">Bl. Michael J. McGivney</td><td class="ped-vital">b.Aug 12 1852 Waterbury CT · d.Aug 14 1890</td><td>Son of Patrick McGivney Sr. · Founder, Knights of Columbus (1882)</td><td>Beatified Oct 31 2020 · WikiTree McGivney-109</td><td>S56</td><td><span class="ped-badge pb-conf">Confirmed</span></td></tr>
+    </tbody>
+  </table>
+
 </div>
 </div>
 
