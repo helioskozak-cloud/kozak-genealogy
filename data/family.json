@@ -1,10 +1,58 @@
 {
   "meta": {
-    "schemaVersion": 1,
-    "description": "Night 1 mechanical extraction of index.html BRANCHES array + Sources table. See PRESENTATION_REDESIGN_PLAN.md section 4 for the target schema this seeds. Prose (43 Part narrative sections) is NOT yet mined into this file — that is Nights 2-3. partRefs[] on persons is present but empty for every record because the source BRANCHES data has no partRefs field today.",
-    "personRecordCount": 50,
+    "schemaVersion": 2,
+    "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined the Overview-tab narrative Parts 43 down through 22 (most recent/information-dense) for facts not yet captured: new ancestral-generation persons named only in prose (Bryan McGivney/Creenow, John McGivney/Derrylahan, Bridget Gibney, the Malone NY McGivney generations, Ellen McGivney/Drumbee), a parts{} object summarizing each mined Part with sourceRefs/personRefs, partRefs[] populated on existing persons, and the Part 41 (S121) McGivney cousin-relationship resolution (Peter Sr./Patrick Sr. = first cousins, not probable brothers) propagated to all affected person records. Parts 21 down through 1 are NOT YET MINED — see remainingParts below and NIGHT_2_REMAINING.md.",
+    "personRecordCount": 58,
     "crossRefCount": 4,
-    "sourceRecordCount": 123
+    "sourceRecordCount": 123,
+    "partsMined": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "remainingParts": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "remainingPartsNote": "Parts 1-21 of the 43-Part Overview-tab narrative have not yet been mined into this file. See NIGHT_2_REMAINING.md at repo root for detail. Night 3 should pick up starting at Part 21 and work down to Part 1."
   },
   "branches": [
     {
@@ -196,7 +244,9 @@
       },
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        38
+      ]
     },
     "grant-5": {
       "id": "grant-5",
@@ -729,12 +779,20 @@
         [
           "Source",
           "S51"
+        ],
+        [
+          "Relationship to Bl. Michael J. McGivney",
+          "SECOND COUSINS — confirmed Jul 5 2026 (Part 41, S121). Common ancestor: an unnamed McGivney patriarch, b.~1780-1790 County Cavan, whose sons Bryan (Creenow) and John (Derrylahan) were brothers per strong circumstantial evidence (not directly documented)."
         ]
       ],
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        33,
+        39,
+        41
+      ]
     },
     "mcgivney_family-2": {
       "id": "mcgivney_family-2",
@@ -743,7 +801,7 @@
       "kind": "persons",
       "name": "Peter McGivney Sr.",
       "branch": "mcg",
-      "relation": "Peter George's father — PROBABLE BROTHER/COUSIN of Patrick McGivney Sr. (Waterbury CT) · both Crosserlough Parish, County Cavan",
+      "relation": "Peter George's father — FIRST COUSIN of Patrick McGivney Sr. (Waterbury CT), confirmed Jul 5 2026 (Part 41, S121) — corrects the earlier 'probable brothers' hypothesis (Part 11, S90). Both Crosserlough Parish, County Cavan.",
       "note": "b.1844 County Cavan · d.Sep 15 1898 Derby CT",
       "prob": false,
       "facts": [
@@ -790,12 +848,21 @@
         [
           "Source",
           "S49 + S90 + S92"
+        ],
+        [
+          "✓ RESOLVED Jul 5 2026 (Part 41, S121) — supersedes the Jul 3 \"strengthened hypothesis\" fact above",
+          "Ancestry.com record confirms Patrick McGivney Sr.'s father = John McGivney (Derrylahan), NOT Bryan McGivney. Peter Sr.'s confirmed father remains Bryan McGivney (Creenow, S120). Bryan and John are brothers (strong circumstantial case, not directly documented). Therefore Peter Sr. and Patrick Sr. are FIRST COUSINS, not brothers — the earlier 'probable brother' hypothesis (Part 11, S90) is WITHDRAWN. Consequently Peter George McGivney (Peter Sr.'s son) and Bl. Michael J. McGivney (Patrick Sr.'s son) are SECOND COUSINS."
         ]
       ],
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        26,
+        33,
+        40,
+        41
+      ]
     },
     "mcgivney_family-3": {
       "id": "mcgivney_family-3",
@@ -840,7 +907,9 @@
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        26
+      ]
     },
     "mcgivney_family-4": {
       "id": "mcgivney_family-4",
@@ -901,7 +970,13 @@
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        24,
+        25,
+        27,
+        33,
+        41
+      ]
     },
     "mcgivney_family-5": {
       "id": "mcgivney_family-5",
@@ -942,7 +1017,9 @@
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        25
+      ]
     },
     "mcgivney_family-6": {
       "id": "mcgivney_family-6",
@@ -1032,6 +1109,10 @@
         [
           "WikiTree",
           "McGivney-109"
+        ],
+        [
+          "Relationship to Peter George McGivney",
+          "SECOND COUSINS — confirmed Jul 5 2026 (Part 41, S121). See mcgivney_family-1 / mcgivney_family-2 for the full resolution."
         ]
       ],
       "confirm": null,
@@ -1042,7 +1123,10 @@
         "groupIndex": 0,
         "childIndex": 0
       },
-      "partRefs": []
+      "partRefs": [
+        25,
+        41
+      ]
     },
     "mcgivney_family-cg0-1": {
       "id": "mcgivney_family-cg0-1",
@@ -1334,12 +1418,23 @@
         [
           "Source",
           "S02; S03; S32; S68; S78; S79"
+        ],
+        [
+          "1950 US Census (Part 42, S122)",
+          "MyHeritage-indexed 1950 US Federal Census, Bridgeport, Fairfield County CT: John J. Relihan head of household with wife Anna Relihan and children including Thomas Relihan (b.~1931) + four siblings — matches all five known Dooley-branch children exactly. Sub-chain C (this man = Maurice Relihan's son John) upgraded from 'highly probable' to 'very strong' circumstantial. Still no single document directly names John Relihan Sr. as Maurice Relihan's son — the 1920 Census for Maurice's household, or Maurice's Aug 1921 obituary, would close the gap."
         ]
       ],
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        33,
+        36,
+        37,
+        38,
+        39,
+        42
+      ]
     },
     "tpr-3": {
       "id": "tpr-3",
@@ -1376,7 +1471,9 @@
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        42
+      ]
     },
     "tpr-4": {
       "id": "tpr-4",
@@ -1417,7 +1514,11 @@
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        33,
+        42,
+        43
+      ]
     },
     "tpr-5": {
       "id": "tpr-5",
@@ -1450,7 +1551,9 @@
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        38
+      ]
     },
     "tpr-6": {
       "id": "tpr-6",
@@ -1588,7 +1691,10 @@
         "groupIndex": 0,
         "childIndex": 2
       },
-      "partRefs": []
+      "partRefs": [
+        33,
+        39
+      ]
     },
     "tpr-cg0-3": {
       "id": "tpr-cg0-3",
@@ -1626,7 +1732,11 @@
         "groupIndex": 0,
         "childIndex": 3
       },
-      "partRefs": []
+      "partRefs": [
+        36,
+        37,
+        43
+      ]
     },
     "mcn-1": {
       "id": "mcn-1",
@@ -1708,7 +1818,9 @@
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        38
+      ]
     },
     "mcn-3": {
       "id": "mcn-3",
@@ -1737,7 +1849,9 @@
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        38
+      ]
     },
     "mcn-cg0-1": {
       "id": "mcn-cg0-1",
@@ -1868,6 +1982,351 @@
         "childIndex": 3
       },
       "partRefs": []
+    },
+    "bryan-mcgivney-creenow": {
+      "id": "bryan-mcgivney-creenow",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Bryan McGivney (Creenow)",
+      "branch": "mcg",
+      "relation": "Peter McGivney Sr.'s father — CONFIRMED Jul 5 2026 (S120). Fr. McGivney's great-great-uncle if the Bryan/John brothers hypothesis holds.",
+      "note": "b.~1808 Creenow, Crosserlough Parish, Co. Cavan · d. before 1901 (Ireland)",
+      "prob": true,
+      "facts": [
+        [
+          "Confirmed as Peter Sr.'s father",
+          "McGivney Family Newsletter (Oct 2000, via Find A Grave memorial #188442550): Peter McGivney Sr.'s father = \"Brian McGivney\", mother = \"a Reilly\" (first name unconfirmed; naming-pattern circumstantial evidence points to \"Rose\" — see Part 28, UNCONFIRMED). Source: S120."
+        ],
+        [
+          "Documented in Ireland",
+          "1828 Tithe Applotment Books and 1857 Griffith's Valuation both place Bryan McGivney at Creenow, Crosserlough Parish, Co. Cavan, alongside Andrew, Michael, Nicholas, and Thomas McGivney (S90, S112)."
+        ],
+        [
+          "Wife",
+          "Unnamed in any source found; maiden name Reilly, from the small Creenow Reilly family (James O'Reilly 1828 -> son Peter Reilly 1857, same townland). Naming-pattern hypothesis (two independent branches used \"Rose\" for daughters) suggests \"Rose Reilly\" — UNCONFIRMED (Part 28)."
+        ],
+        [
+          "Children who stayed in Ireland (confirmed via 1901/1911 census + St Joseph's Drumkilly headstones, S108-S110)",
+          "Andrew (b.~1839, widower farmer by 1901); Bernard Sr. (b.~1848, m. Bridget, d.Aug 13 1924, wife d.Mar 20 1925 — precise dates from headstone); Anne (b.~1841, never married, d. betw.1901-1911)."
+        ],
+        [
+          "Son who emigrated",
+          "Peter McGivney Sr. (b.1845 Co. Cavan, emigrated to Derby CT, d.Sep 15 1898) — see mcgivney_family-2."
+        ],
+        [
+          "Sibling hypothesis re: John McGivney (Derrylahan)",
+          "Strong circumstantial case that Bryan and John McGivney (Patrick Sr.'s father) were brothers — same small Crosserlough Parish (~2-3km apart), same generation, both documented in Griffith's 1857. NOT directly documented by any parish/land record; pre-1843 Crosserlough Catholic records were destroyed. This hypothesis underpins the Part 41 (S121) resolution that Patrick Sr. and Peter Sr. are first cousins, but the residual gap is explicitly noted at Part 40 (S120) and Part 35 (S115)."
+        ],
+        [
+          "Source",
+          "S90, S94, S108, S109, S110, S112, S114, S115, S120, S121"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        22,
+        28,
+        29,
+        30,
+        31,
+        32,
+        34,
+        35,
+        40,
+        41
+      ]
+    },
+    "john-mcgivney-derrylahan": {
+      "id": "john-mcgivney-derrylahan",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "John McGivney (Derrylahan)",
+      "branch": "mcg",
+      "relation": "Patrick McGivney Sr.'s father — CONFIRMED Jul 5 2026 (S121). Bryan McGivney's probable brother.",
+      "note": "b.~1810-1815 Co. Cavan · arrived Derrylahan/Drumbee area between 1821-1832",
+      "prob": true,
+      "facts": [
+        [
+          "Confirmed as Patrick Sr.'s father",
+          "Ancestry.com record (S121): Patrick McGivney Sr. (b.1832, d.Jun 6 1878 Waterbury CT) born in Drumbee, Crosserlough Parish, to John McGivney and Bridget Gibney."
+        ],
+        [
+          "Not a Derrylahan native",
+          "The 1821 Cavan census (a rare surviving fragment) lists Derrylahan townland residents but NO McGivney — John McGivney arrived in the Derrylahan/Drumbee area between 1821 and Patrick's 1832 birth (Part 35, S115)."
+        ],
+        [
+          "1857 Griffith's Valuation",
+          "Documented at Derrylahan townland, Crosserlough Parish (S90, S103, S114). Not present in the 1828 Tithe Applotment Books for Derrylahan — consistent with a post-1828 arrival."
+        ],
+        [
+          "Wife",
+          "Bridget Gibney (see bridget-gibney-mcgivney) — confirmed S121, corrects an earlier WikiTree \"Bridget Sheridan\" attribution."
+        ],
+        [
+          "Son",
+          "Patrick McGivney Sr. (b.~1832 Drumbee/Drumkilly area -> emigrated 1847 -> Waterbury CT, d.1878) -> father of Bl. Michael J. McGivney."
+        ],
+        [
+          "Sibling hypothesis",
+          "See bryan-mcgivney-creenow — strong circumstantial case John and Bryan were brothers; not directly documented."
+        ],
+        [
+          "Source",
+          "S90, S103, S106, S114, S115, S121"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        24,
+        27,
+        34,
+        35,
+        41
+      ]
+    },
+    "bridget-gibney-mcgivney": {
+      "id": "bridget-gibney-mcgivney",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Bridget Gibney",
+      "branch": "mcg",
+      "relation": "John McGivney's wife, Patrick McGivney Sr.'s mother — CONFIRMED S121",
+      "note": "b.~1801 Kilnaleck, Co. Cavan",
+      "prob": true,
+      "facts": [
+        [
+          "Confirmed as Patrick Sr.'s mother",
+          "Ancestry.com record (S121): Patrick McGivney Sr. born to John McGivney and Bridget Gibney. Corrects an earlier, disputed WikiTree attribution of \"Mary Sheridan\"."
+        ],
+        [
+          "1821 Kilnaleck census identification",
+          "1821 Census, House 11, Kilnaleck village: BRIDGET GIBNY, b.~1801 (age 20), daughter of Patrick Gibny (48, Farmer & Mason) + Anne (43). Age math: ~31 years old when Patrick Sr. was born (1832) — consistent. Four consecutive Gibny households (Houses 11-14) in the 1821 Kilnaleck census confirm a substantial Gibney kin-cluster there. Source: S96."
+        ],
+        [
+          "Note",
+          "Gibney is a documented variant spelling of McGivney in this parish — extensive inter-clan marriage was common in Co. Cavan (S103)."
+        ],
+        [
+          "Source",
+          "S90, S96, S103, S121"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        22,
+        24,
+        41
+      ]
+    },
+    "patrick-mcgivney-b1782": {
+      "id": "patrick-mcgivney-b1782",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Patrick McGivney (b.~1782, WikiTree McGivney-13)",
+      "branch": "mcg",
+      "relation": "Probable patriarch of the Creenow McGivney household (Andrew, and hypothetically Bryan/Michael/Nicholas/Thomas)",
+      "note": "b.~1782 Co. Cavan · d.Jan 26 1857 Malone NY",
+      "prob": true,
+      "facts": [
+        [
+          "WikiTree profile",
+          "McGivney-13 (managed by Mulcogi Fisher, stub, last updated 2014, no primary sources cited beyond family recollection). Lists only Andrew (b.~1801) as a confirmed child, explicitly noting \"[sibling(s) unknown]\"."
+        ],
+        [
+          "Wife",
+          "Bridget Lynch (b.~1787 Ireland)."
+        ],
+        [
+          "Father",
+          "Nicholas McGivney (b.~1760, WikiTree McGivney-14) — see nicholas-mcgivney-b1760."
+        ],
+        [
+          "Confirmed child",
+          "Andrew McGivney (b.~1801, emigrated Malone NY Aug 1833) — see andrew-mcgivney-b1801-malone."
+        ],
+        [
+          "Working hypothesis — UNCONFIRMED",
+          "If Patrick fathered Andrew (~1801) in his early 20s, he could have had several more sons born 1804-1815 (ages consistent with the 1828 Creanew Tithe Books' 5-man household: Andrew, Bryan ~b.1808, Michael ~b.1810/11, Nicholas ~b.1813-20, Thomas ~b.1810/13). This would make Patrick the great-great-grandfather of BOTH Peter McGivney Sr. (via hypothetical son Bryan) and Fr. McGivney (via John, if John is also a son of Patrick or of Nicholas Sr.). NOT confirmed by any primary source — WikiTree lists only Andrew."
+        ],
+        [
+          "Also resolved here (Part 23, S102)",
+          "The 1827 Creanew estate record's \"Bernard\" (whose 27 acres passed to Bryan) is a separate son of Patrick's (b.~1803-1808, Andrew's younger brother) who died young — NOT Andrew's own son Bernard (b.~1830, born too late to be the 1827 landholder)."
+        ],
+        [
+          "Source",
+          "S94, S101, S102"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        22,
+        23,
+        30
+      ]
+    },
+    "nicholas-mcgivney-b1760": {
+      "id": "nicholas-mcgivney-b1760",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Nicholas McGivney (b.~1760, WikiTree McGivney-14)",
+      "branch": "mcg",
+      "relation": "Patrick McGivney (b.1782)'s father — earliest identified McGivney generation in this line",
+      "note": "b.~1760 Ireland",
+      "prob": true,
+      "facts": [
+        [
+          "WikiTree profile",
+          "McGivney-14 — incomplete stub; no parents, no spouse, and no children listed other than Patrick (b.~1782)."
+        ],
+        [
+          "Note",
+          "Part 22 age-math analysis flags that the \"Nicholas\" who was a household head in the 1828 Creanew Tithe Books cannot be Patrick's son \"Nicholas Jr.\" (b.~1820, only 8 in 1828) — raising the unconfirmed hypothesis that this Nicholas Sr. (b.~1760) had additional, unlisted sons of his own besides Patrick."
+        ],
+        [
+          "Source",
+          "S101"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        22
+      ]
+    },
+    "andrew-mcgivney-b1801-malone": {
+      "id": "andrew-mcgivney-b1801-malone",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Andrew McGivney (b.~1801, Creenow -> Malone NY)",
+      "branch": "mcg",
+      "relation": "Patrick McGivney (b.1782)'s confirmed son; emigrated to Malone, Franklin Co. NY, Aug 1833",
+      "note": "b.~1801 Co. Cavan · d.Mar 22 1862 Malone NY",
+      "prob": true,
+      "facts": [
+        [
+          "WikiTree",
+          "McGivney-10."
+        ],
+        [
+          "Wife",
+          "Catherine McCabe (b.~1804 Pottlebrack, Co. Cavan, daughter of Dennis McCabe). Andrew worked as a farm hand in Pottlebrack (neighboring Creenow) where they met."
+        ],
+        [
+          "Emigration",
+          "Emigrated to Malone, Franklin County, NY in August 1833, together with Catherine's brother Patrick 'Paddy' McCabe. Confirmed by Malone NY tombstone (S100): 'Natives of Co. Caven Ireland.'"
+        ],
+        [
+          "Children",
+          "Bernard McGivney (b.~1830 Co. Cavan, born ~3 years before emigration — see bernard-mcgivney-b1830-malone); Ann (b.1847 Malone NY). RootsWeb source states Andrew had multiple children (~9 total per some accounts), most unidentified."
+        ],
+        [
+          "1857 Creenow Griffith's \"Andrew\"",
+          "The Andrew McGivney who appears in Creenow's 1857 Griffith's Valuation is NOT this Andrew (who was already in Malone NY by then) — it is a different man, either a nephew named after him or a namesake relative."
+        ],
+        [
+          "Source",
+          "S94, S100, S101, S102, S112"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        22,
+        23,
+        30,
+        31
+      ]
+    },
+    "bernard-mcgivney-b1830-malone": {
+      "id": "bernard-mcgivney-b1830-malone",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Bernard McGivney (b.~1830, Malone NY)",
+      "branch": "mcg",
+      "relation": "Andrew McGivney (b.1801)'s son, born in Co. Cavan shortly before the family's 1833 emigration",
+      "note": "b.~1830 Co. Cavan",
+      "prob": true,
+      "facts": [
+        [
+          "Born pre-emigration",
+          "Born ~3 years before Andrew + Catherine McCabe emigrated (Aug 1833) — travelled to the US as an infant."
+        ],
+        [
+          "Wife",
+          "Ann Lawless (b.~1835 Ireland)."
+        ],
+        [
+          "Daughter",
+          "Catherine McGivney (b.1863, Malone, Franklin Co. NY)."
+        ],
+        [
+          "Note",
+          "Not to be confused with the 1827 Creenow estate-record 'Bernard' (a different, older son of Patrick McGivney b.~1782, Andrew's own brother, who died young — see patrick-mcgivney-b1782). Andrew named this son after that deceased brother, per Irish naming custom."
+        ],
+        [
+          "Source",
+          "S102"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        23
+      ]
+    },
+    "ellen-mcgivney-drumbee": {
+      "id": "ellen-mcgivney-drumbee",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Ellen McGivney (Drumbee)",
+      "branch": "mcg",
+      "relation": "Unidentified McGivney woman holding land in Drumbee, 1857 — open question, possibly connected to John McGivney (Derrylahan)",
+      "note": "holding land, Drumbee townland, Crosserlough Parish, 1857",
+      "prob": true,
+      "facts": [
+        [
+          "1857 Griffith's Valuation",
+          "Ellen McGivney holds a lease in her own name in Drumbee townland — immediately adjacent to John McGivney's Derrylahan. A female lease-holder in her own name in 1857 Ireland was almost always a widow or unmarried heir."
+        ],
+        [
+          "Open question — three candidate identities (UNRESOLVED)",
+          "(A) widow of a McGivney who held land in Drumbee, possibly a son of John McGivney who predeceased her — making Ellen a daughter-in-law of John; (B) a daughter of John McGivney (Patrick Sr.'s father) who remained in Drumbee while Patrick emigrated; (C) a member of an unrelated McGivney family in the same area. If (A) or (B), Ellen is either Fr. McGivney's aunt or sister-in-law."
+        ],
+        [
+          "Resolution requires",
+          "Crosserlough Catholic baptism register entry for Ellen (probably b.~1820-1840) or detailed estate/tenant records — not yet obtained."
+        ],
+        [
+          "Source",
+          "S103, S114"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        24,
+        34
+      ]
     }
   },
   "sources": {
@@ -3469,6 +3928,321 @@
       "confidence": "Confirmed",
       "notes": "Key results: THOMAS RELIHAN d.Dec 16 1990 Woodbridge; DOROTHY RELIHAN d.Jun 16 1988 Woodbridge; MABEL RELIHAN d.Dec 12 1987 Bridgeport; JOHN RELIHAN d.May 23 1955 Bridgeport (Dooley-branch patriarch); JOHN RELIHAN d.Jul 31 1957 Bridgeport (probable McNamara-branch patriarch — full death index pull Jul 2 2026 identified this previously unattributed death); JOHN RELIHAN d.Dec 15 1966 Bridgeport (Senator John J. Relihan Jr.); EDWARD RELIHAN d.May 21 1989 WATERBURY (corrects prior Newington entry); MAURICE RELIHAN d.Aug 2 1921 Shelton CT (corroborates S53); CORINNE RELIHAN d.Apr 3 1998 New Haven (corroborates S69 wife predeceased). Total: 60 RELIHAN deaths in CT Death Index 1897-2001. Full 60-record enumeration (Jul 2 2026) identified McNamara patriarch candidate + confirmed no other Bridgeport Johns beyond these three. Mary Dolan Relihan (d.Jan 8 1911 Derby) appears as MARY RELIHAN, corroborating S54. Additional targeted queries (now S89): JAMES RELIHAN d.Sep 10 1946 DERBY = James T. Relihan Sr. (O'Connell branch patriarch); MARY A. RELIHAN d.Aug 23 1948 DERBY = Mary A. Relihan (Maurice's unmarried daughter); HELEN MCGIVNEY d.May 5 1955 SHELTON = Helen R. Relihan McGivney; PETER MCGIVNEY d.Mar 25 1973 DERBY = probable Peter George McGivney (b.1891).",
       "dataQuirk": null
+    }
+  },
+  "parts": {
+    "22": {
+      "number": 22,
+      "date": "2026-07-03",
+      "title": "WikiTree confirms 3-generation County Cavan -> Malone NY chain: Nicholas McGivney (b.~1760) -> Patrick McGivney (b.~1782) -> Andrew McGivney (b.~1801); patriarch identified; age-inconsistency flags the 1828 Tithe \"Nicholas\" as a different, older man",
+      "sourceRefs": [
+        "S101"
+      ],
+      "personRefs": [
+        "nicholas-mcgivney-b1760",
+        "patrick-mcgivney-b1782",
+        "andrew-mcgivney-b1801-malone"
+      ],
+      "summary": "WikiTree stub profiles (McGivney-14, -13, -10, last updated 2014, uncited beyond family recollection) give: Nicholas McGivney (b.~1760 Ireland) -> Patrick McGivney (b.~1782 Co. Cavan, d.Jan 26 1857 Malone NY) + Bridget Lynch (b.~1787) -> Andrew McGivney (b.~1801, d.Mar 22 1862 Malone NY) + Catherine McCabe — matching the Malone NY tombstone data (S100). WikiTree lists only Andrew as Patrick's child; the 1828 Creanew Tithe Books' 5-man household (Andrew, Bryan, Michael, Nicholas, Thomas) is NOT corroborated by WikiTree beyond Andrew. Age-math problem flagged: Patrick's other son 'Nicholas Jr.' was only b.~1820 (per tombstone), too young to be the Tithe Books' 1828 household-head 'Nicholas' — so that Nicholas must be a different, older relative (working hypothesis: Patrick's brother, i.e. another son of Nicholas Sr. b.~1760)."
+    },
+    "23": {
+      "number": 23,
+      "date": "2026-07-03",
+      "title": "Andrew McGivney's 1833 emigration fully documented (m. Catherine McCabe, Pottlebrack); Bernard McGivney (b.~1830) = Andrew's son, born pre-emigration; the 1827 'Bernard' land-record RESOLVED as a different, deceased brother",
+      "sourceRefs": [
+        "S102"
+      ],
+      "personRefs": [
+        "andrew-mcgivney-b1801-malone",
+        "patrick-mcgivney-b1782"
+      ],
+      "summary": "RootsWeb Crosserlough page documents Andrew McGivney (b.~1800/01, Creenow) marrying Catherine McCabe (b.~1804, Pottlebrack, daughter of Dennis McCabe) and emigrating to Malone, Franklin Co. NY in August 1833 with Catherine's brother Patrick 'Paddy' McCabe. Their son Bernard McGivney (b.~1830 Co. Cavan) was born before emigration. RESOLVED: the 1827 Creenow estate record's 'Bernard' (whose 27 acres passed to Bryan McGivney) is NOT Andrew's son Bernard (born 1830, too late) but rather a separate, older son of Patrick McGivney (b.~1782) — Andrew's own brother — who died young holding land briefly before Bryan inherited it. Andrew later named his own firstborn son after this deceased brother, per Irish naming custom."
+    },
+    "24": {
+      "number": 24,
+      "date": "2026-07-03",
+      "title": "Patrick McGivney Sr. born in DRUMBEE, not Derrylahan (birthplace vs. father's later residence distinguished); parents = John McGivney + Bridget Gibney; complete 1857 Griffith's Crosserlough McGivney/Givney map (17+ entries, 9 townlands)",
+      "sourceRefs": [
+        "S103"
+      ],
+      "personRefs": [
+        "mcgivney_family-4",
+        "john-mcgivney-derrylahan",
+        "bridget-gibney-mcgivney",
+        "ellen-mcgivney-drumbee"
+      ],
+      "summary": "Ancestry record: Patrick McGivney Sr. (b.~1832) was born in DRUMBEE (not Derrylahan) to John McGivney + Bridget Gibney; married Mary Lynch Nov 22 1850 Waterbury CT; d.Jun 6 1878 Waterbury CT. Distinguishes birthplace (Drumbee, 1832) from father John's later 1857 Griffith's residence (Derrylahan) — John moved between Patrick's birth and 1857. Also in Drumbee 1857: Ellen McGivney (possible sister/relative of Patrick, first noted here). Full Crosserlough Griffith's McGivney/Givney census: 17+ entries across 9 townlands (Creenow, Derrylahan, Drumbee, Drumcassidy x2, Drumloman, Kilnaleck x6, Corduff, Drumnalaragh, Corglass)."
+    },
+    "25": {
+      "number": 25,
+      "date": "2026-07-03",
+      "title": "Patrick McGivney Sr. emigrated 1847 from Kilnaleck; 13 children with Mary Lynch (6 documented, incl. Michael firstborn 1852); Peter McGivney Sr. burial confirmed Ansonia CT; Drumloman clan-origin theory",
+      "sourceRefs": [
+        "S104"
+      ],
+      "personRefs": [
+        "mcgivney_family-4",
+        "mcgivney_family-5",
+        "mcgivney_family-2"
+      ],
+      "summary": "Cavan County Library source: Patrick McGivney Sr. emigrated from the Kilnaleck/Drumbee area of Crosserlough Parish to CT in 1847, married Mary Lynch (of Ballyjamesduff, Co. Cavan); the couple had 13 children total, only 6 documented (incl. Michael Joseph b.1852, firstborn, later Bl. Michael J. McGivney; two more sons -- Patrick James b.1867 and John J. b.1864 -- also became priests and KofC Supreme Chaplains). Peter McGivney Sr.'s burial confirmed at Cemetery of the Three Saints, Ansonia CT (Derby line). RootsWeb notes float a 'Drumloman origin' theory for the wider McGivney clan (Drumloman is adjacent to Creenow) — suggests Bryan and John McGivney descend from a shared extended clan but are 'more likely cousins than siblings' per this source (in tension with the later Part 35/41 brothers hypothesis)."
+    },
+    "26": {
+      "number": 26,
+      "date": "2026-07-03",
+      "title": "Peter McGivney Sr. was a widower before 1880 (first wife name unknown, died early); 4 confirmed children with 2nd wife Ann; Ann b.Jul 7 1867 d.Feb 13 1948, owned 13 rental homes in Derby/Milford CT",
+      "sourceRefs": [
+        "S105"
+      ],
+      "personRefs": [
+        "mcgivney_family-2",
+        "mcgivney_family-3"
+      ],
+      "summary": "McGivney Family Newsletter (Oct 2000) gives Peter McGivney Sr.'s full biography: b.~1845 Co. Cavan, first married young (wife's name unknown, died early, leaving him a widower by the early 1880s), remarried Ann (b.Jul 7 1867) ~1890. Four children confirmed with Ann: Peter G., John J., Bernard F., Rosemary (corrects an earlier 6-child list that included unconfirmed 'James' and 'Philip'). Peter died 1898 leaving Ann a widow with 4 children ages 1-7; she built a real-estate portfolio of 13 rental homes in Derby/Milford CT before her 1948 death."
+    },
+    "27": {
+      "number": 27,
+      "date": "2026-07-03",
+      "title": "Crosserlough Parish's three churches identified (St Mary's, St Patrick's Kilnaleck, St Joseph's Drumkilly); Drumkilly confirmed as Patrick McGivney Sr.'s birthplace; Drumbee vs Drumkilly discrepancy noted; 4 distinct 'John McGivney's disambiguated",
+      "sourceRefs": [
+        "S106"
+      ],
+      "personRefs": [
+        "mcgivney_family-4",
+        "john-mcgivney-derrylahan"
+      ],
+      "summary": "Crosserlough Parish (~80 townlands, 3 churches) website corroborates Drumkilly as Patrick McGivney Sr.'s birth area (vs. a separate Ancestry.ca record giving 'Drumbee' — both are real, adjacent townlands, treated as the same small locality; Drumkilly treated as authoritative). Parish site independently confirms Fr. McGivney's Cavan-area origin. Noted for disambiguation: at least 4 distinct 'John McGivney' individuals appear in the research (Patrick Sr.'s father; his 1857 Griffith's entry; a 'John Givney' in Corduff; and Ann née Clark's father per S50) — going forward all references use birth year + location."
+    },
+    "28": {
+      "number": 28,
+      "date": "2026-07-03",
+      "title": "1901/1911 Irish Census — Creenow and Drumkilly households; Bryan McGivney's children confirmed (Andrew, Bernard Sr., Anne, + emigrant Peter Sr.); Derrin DED = both Creenow AND Drumkilly (same district)",
+      "sourceRefs": [
+        "S108",
+        "S109"
+      ],
+      "personRefs": [
+        "bryan-mcgivney-creenow"
+      ],
+      "summary": "1901/1911 census cross-reference confirms Bryan McGivney's (b.~1808, Creenow) children who stayed in Ireland: Andrew (b.~1839, widower farmer by 1901), Bernard Sr. (b.~1841-1848, m. Bridget, 4 children/2 surviving), Anne (b.~1841, never married, d. betw. 1901-1911). Peter McGivney Sr. (emigrated Derby CT) is the fourth known sibling. Creenow and Drumkilly (John McGivney's area) both fall within the Derrin District Electoral Division — confirming the two family clusters were geographic neighbors (~2-3km), supporting the Bryan-John brothers hypothesis. Zero McGivney households remain in Drumkilly itself by 1901/1911 (John's line fully emigrated or died out there)."
+    },
+    "29": {
+      "number": 29,
+      "date": "2026-07-03",
+      "title": "St Joseph's Cemetery Drumkilly headstones: Bernard McGivney Sr. d.Aug 13 1924 + wife Bridget d.Mar 20 1925 confirmed (Bryan's son); Michael + Nora McGivney confirmed (Andrew's son); Bryan McGivney's own grave weathered/unreadable",
+      "sourceRefs": [
+        "S110"
+      ],
+      "personRefs": [
+        "bryan-mcgivney-creenow"
+      ],
+      "summary": "Five McGivney headstones at St Joseph's Cemetery Drumkilly, all descendants of Bryan McGivney (b.~1808, Creenow) staying in Ireland. Most significant: Bernard McGivney (d.Mar 22 1964) headstone names his parents as BERNARD (d.Aug 13 1924) + BRIDGET (d.Mar 20 1925) — this is Bernard McGivney Sr. (b.~1848, Creenow, Bryan's confirmed son, Peter Sr.'s brother), giving his precise death date for the first time. No stone found for Bryan McGivney himself or his Reilly wife — likely weathered/unmarked, consistent with 19th-c. rural Cavan burial customs."
+    },
+    "30": {
+      "number": 30,
+      "date": "2026-07-03",
+      "title": "NLI Crosserlough RC baptism register confirmed to exist (1843-1880) but inaccessible via web (HTTP 403, bot-detection); WikiTree Patrick McGivney-13 (b.~1782) analyzed as probable Creanew patriarch; Bryan's baptism still unreachable",
+      "sourceRefs": [
+        "S111"
+      ],
+      "personRefs": [
+        "patrick-mcgivney-b1782",
+        "bryan-mcgivney-creenow"
+      ],
+      "summary": "National Library of Ireland Crosserlough parish register (registers.nli.ie/parishes/0826) covers baptisms Oct 1843-Aug 1880 and marriages 1868-1881 — but Peter McGivney Sr. (b.~1844-45) would fall in segment 1 (Oct 1843-Feb 1876), potentially recoverable, while Bryan's own baptism (b.~1808) predates all surviving segments and is unreachable. Direct programmatic access returns HTTP 403; requires browser/human session or a RootsIreland.ie paid subscription. WikiTree McGivney-13 (Patrick, b.~1782 Co. Cavan, d.Jan 26 1857 Malone NY) + Bridget Lynch analyzed as the probable grandparent generation for the 5-man 1828 Creenow McGivney household (Andrew/Bryan/Michael/Nicholas/Thomas), via a 'Rose' naming-pattern hypothesis for Bryan's wife (UNCONFIRMED)."
+    },
+    "31": {
+      "number": 31,
+      "date": "2026-07-03",
+      "title": "Griffith's 1857 complete Creenow list: 5 McGivney + Peter Reilly + Cosgrove + 2 Leddy; Reilly family in Creenow 1828-1857 confirmed (gone by 1901); new Kilnaleck name Bartholomew McGivney",
+      "sourceRefs": [
+        "S112"
+      ],
+      "personRefs": [
+        "bryan-mcgivney-creenow"
+      ],
+      "summary": "Complete 1857 Griffith's Creenow townland list confirmed: Cosgrave James, Leddy John, Leddy Judith, McGivney Andrew/Bryan/Michael/Nicholas/Thomas, Reilly Peter — matching the 1828 Tithe Books household set with name-head succession (James O'Reilly 1828 -> Peter Reilly 1857, ~29yrs = father-son). This confirms a small Creenow Reilly family existed 1828-1857 (Bryan McGivney's wife's family) but the Reilly holding disappears from Creenow by the 1901 census. New name: Bartholomew McGivney, Kilnaleck (additional to the known Kilnaleck cluster of Philip/Philip T./Thomas/Stephen/Patrick)."
+    },
+    "32": {
+      "number": 32,
+      "date": "2026-07-03",
+      "title": "1901+1911 Drumkilly Reilly households; two Charles Reilly families; James Reilly (b.~1838, servant) = probable descendant of James O'Reilly (Creanew 1828); Creenow McGivney continuity confirmed to 2018",
+      "sourceRefs": [
+        "S113"
+      ],
+      "personRefs": [
+        "bryan-mcgivney-creenow"
+      ],
+      "summary": "1901/1911 Drumkilly census shows two separate Charles Reilly households (a parallel Reilly line distinct from the Creenow Reilly family that intermarried with the McGivneys). A James Reilly (b.~1838, servant in a Galligan household, 1911) is hypothesized as a grandson of James O'Reilly (Creanew 1828) via son Peter Reilly (Creenow 1857). Andy McGivney's 2018 death notice (rip.ie, Crenew/Kilnaleck) confirms Creenow McGivney family presence continuous from 1828 to 2018 — but via the separate Patrick/Nicholas Creenow line, NOT Bryan's direct line."
+    },
+    "33": {
+      "number": 33,
+      "date": "2026-07-03",
+      "title": "Focus session: mapping the full Fr. McGivney -> Nancy Relihan chain into 4 sub-chains, confirmed vs. probable",
+      "sourceRefs": [],
+      "personRefs": [
+        "mcgivney_family-1",
+        "mcgivney_family-2",
+        "mcgivney_family-4",
+        "tpr-4",
+        "tpr-2",
+        "grant-4"
+      ],
+      "summary": "Formalized the 4 sub-chains connecting Bl. Michael J. McGivney to Nancy Relihan Kozak: Sub-chain A (Fr. McGivney to Peter McGivney Sr., then PROBABLE first-cousin link, later CONFIRMED Part 41); Sub-chain B (Peter McGivney Sr. -> Peter George McGivney -> m. Helen R. Relihan, CONFIRMED); Sub-chain C (Maurice Relihan's son John = John Relihan Sr. Dooley branch, PROBABLE, still open as of Part 43); Sub-chain D (John Relihan Sr. Dooley branch -> Nancy Relihan Kozak, CONFIRMED). At time of writing, Sub-chain A was still the open gap later resolved in Part 41."
+    },
+    "34": {
+      "number": 34,
+      "date": "2026-07-05",
+      "title": "Complete Crosserlough Griffith's 1857 McGivney list across all townlands; Ellen McGivney (Drumbee) = new; Drumcassidy cluster = new; four geographic clusters mapped",
+      "sourceRefs": [
+        "S114"
+      ],
+      "personRefs": [
+        "ellen-mcgivney-drumbee",
+        "john-mcgivney-derrylahan",
+        "bryan-mcgivney-creenow"
+      ],
+      "summary": "Full 1857 Griffith's Valuation McGivney list for Crosserlough Parish: Creenow (Andrew, Bryan, Michael, Nicholas, Thomas), Derrylahan (John), Drumbee (Ellen — NEW), Drumcassidy (Andrew, Mary, Thomas — NEW cluster), Kilnaleck (Bartholomew, Patrick, Philip x2, Stephen), Drumloman (James — NEW, isolated). Ellen McGivney's solo lease in Drumbee (adjacent to John's Derrylahan) suggests she is a widow or unmarried heir — possibly John McGivney's daughter or daughter-in-law, i.e. possibly Fr. McGivney's aunt or sister-in-law. Identity unresolved; open question."
+    },
+    "35": {
+      "number": 35,
+      "date": "2026-07-05",
+      "title": "1821 Derrylahan census shows NO McGivney; John McGivney arrived 1821-1832; Crosserlough Parish website confirms Drumkilly-area origin for Patrick Sr.; Bryan-John sibling hypothesis strengthened",
+      "sourceRefs": [
+        "S115"
+      ],
+      "personRefs": [
+        "john-mcgivney-derrylahan",
+        "bryan-mcgivney-creenow"
+      ],
+      "summary": "The 1821 Cavan census (rare surviving fragment) lists Derrylahan townland residents but NO McGivney — establishing John McGivney arrived in Derrylahan between 1821 and 1832 (his son Patrick Sr. was born there/nearby ~1832), i.e. he was not a Derrylahan native. Working hypothesis: John was a younger brother of Bryan McGivney (established at Creenow by 1828), who as a younger son had to find his own tenancy ~2-3km away rather than inherit the Creenow holding — classic pre-Famine Cavan pattern. Crosserlough Parish's own website independently corroborates 'Drumkilly area' as Patrick Sr.'s origin. Still NOT a documented brothers relationship — circumstantial only."
+    },
+    "36": {
+      "number": 36,
+      "date": "2026-07-05",
+      "title": "Joseph R. Relihan 2018 obituary confirms James T. Relihan = father; Fairfield Prep connection across three Relihan branches",
+      "sourceRefs": [
+        "S116"
+      ],
+      "personRefs": [
+        "tpr-cg0-3"
+      ],
+      "summary": "Joseph R. Relihan (b.Nov 4 1928 Bridgeport CT, d.May 8 2018 Woburn MA) obituary explicitly names parents as 'the late James T. and Mary (O'Connell) Relihan', confirming James T. Relihan (b.~1895, d.Sep 10 1946 Derby CT) as father. Surviving brother named as 'James Relihan of Orange CT' = James M. Relihan. Joseph was born in BRIDGEPORT CT (not Derby) in 1928 — same city where John Relihan Sr. (Dooley branch) appears in the 1940 census, the strongest circumstantial link yet for Sub-chain C."
+    },
+    "37": {
+      "number": 37,
+      "date": "2026-07-05",
+      "title": "Fairfield Prep In Memoriam confirms Joe R. Relihan '47; overlapped with Sen. John J. Relihan Jr. '46 — Sub-chain C near-confirmation",
+      "sourceRefs": [
+        "S117"
+      ],
+      "personRefs": [
+        "tpr-cg0-3",
+        "tpr-2"
+      ],
+      "summary": "Fairfield Prep's official In Memoriam page confirms Joseph R. Relihan (James T. Relihan's son) Class of 1947, and John J. Relihan Jr. (McNamara branch, Fairfield Prep '58) — but NOT Sen. John J. Relihan Jr. (Dooley branch, d.1966, too early for the current In Memoriam list; his '46 class year rests on S88). Joe R. '47 and Sen. John Jr. '46 overlapped ~3 years at the same school, both born ~1927-1928, both Bridgeport-area — strengthens (not yet confirms) Sub-chain C (James T. and John Sr. Dooley-branch = brothers, both Maurice's sons)."
+    },
+    "38": {
+      "number": 38,
+      "date": "2026-07-05",
+      "title": "Complete CT Death Index Relihan family sweep (57 records 1899-1998): Mary Dolan d.1911 Derby confirmed; Thomas P. Relihan d.1990 Woodbridge confirmed; Mabel (McNamara) Relihan d.1987 Bridgeport confirmed",
+      "sourceRefs": [
+        "S118"
+      ],
+      "personRefs": [
+        "tpr-5",
+        "grant-4",
+        "mcn-3",
+        "tpr-2",
+        "mcn-2"
+      ],
+      "summary": "Mary Dolan Relihan (Maurice's wife) confirmed d.Jan 8 1911 Derby CT — 10 years before Maurice, meaning all children born pre-1911. Thomas P. Relihan Sr. confirmed d.Dec 16 1990 Woodbridge CT (m. Winifred O'Connor Dec 29 1989, died ~1yr later same town). Mabel (McNamara) Relihan confirmed d.Dec 12 1987 Bridgeport CT. Two undated John Relihan Bridgeport deaths remain (1955-05-23 and 1957-07-31) — one Dooley branch, one McNamara branch, not yet definitively assigned at time of writing."
+    },
+    "39": {
+      "number": 39,
+      "date": "2026-07-05",
+      "title": "CT Death Index McGivney sweep (61 records): Helen (Relihan) McGivney d.May 5 1955 Shelton CONFIRMED; Peter George McGivney d.Mar 25 1973 Derby CONFIRMED; John Relihan Sr. Dooley-branch death candidate = May 23 1955 Bridgeport (18 days after Helen)",
+      "sourceRefs": [
+        "S119"
+      ],
+      "personRefs": [
+        "tpr-cg0-2",
+        "mcgivney_family-1",
+        "tpr-2"
+      ],
+      "summary": "Helen R. (Relihan) McGivney confirmed d.May 5 1955 Shelton CT (same city as her father Maurice's 1921 death — family settled there 1921-1955). Peter George McGivney confirmed d.Mar 25 1973 Derby CT (age ~78). John Relihan (Dooley branch, Maurice's probable son) most likely = the May 23 1955 Bridgeport death entry — 18 days after Helen's death, both siblings, same geographic corridor — though the alternative (Jul 31 1957 Bridgeport, since assigned to the McNamara-branch patriarch, see Part 5 disproof) was not yet ruled out at time of writing."
+    },
+    "40": {
+      "number": 40,
+      "date": "2026-07-05",
+      "title": "MAJOR BREAKTHROUGH — Sub-chain A CONFIRMED: Peter McGivney Sr. (Derby CT) = son of Bryan McGivney (Creenow) + Reilly wife",
+      "sourceRefs": [
+        "S120"
+      ],
+      "personRefs": [
+        "mcgivney_family-2",
+        "bryan-mcgivney-creenow"
+      ],
+      "summary": "McGivney Family Newsletter (Oct 2000, via Find A Grave #188442550) states Peter McGivney Sr.'s father = 'Brian McGivney', mother = 'a Reilly'. Combined with Bryan McGivney's confirmed presence at Creenow (1828 Tithe Books, 1857 Griffith's) this CLOSES the Ireland-to-America gap: Bryan McGivney (Creenow) + Reilly wife -> Peter McGivney Sr. (b.1845 Co. Cavan, d.Sep 15 1898 Derby CT). Residual gap: Bryan-John brothers link and the Reilly wife's first name remain undocumented by direct record."
+    },
+    "41": {
+      "number": 41,
+      "date": "2026-07-05",
+      "title": "Ancestry.com CONFIRMS Patrick McGivney Sr.'s parents = John McGivney + Bridget Gibney — RESOLVES Peter/Patrick relationship as FIRST COUSINS (not brothers); Fr. McGivney + Peter George = SECOND COUSINS — FINAL",
+      "sourceRefs": [
+        "S121"
+      ],
+      "personRefs": [
+        "mcgivney_family-2",
+        "mcgivney_family-4",
+        "mcgivney_family-1",
+        "john-mcgivney-derrylahan",
+        "bridget-gibney-mcgivney",
+        "bryan-mcgivney-creenow"
+      ],
+      "summary": "RESOLVED (corrects Part 11/S90): Ancestry.com record shows Patrick McGivney Sr. (b.1832, d.Jun 6 1878 Waterbury CT) born Drumbee, Crosserlough Parish, to John McGivney + Bridget Gibney (not 'Bridget Sheridan' as WikiTree suggested). Peter McGivney Sr.'s confirmed father is Bryan McGivney (Creenow, S120). John and Bryan are brothers (strong circumstantial case — Crosserlough Parish, same family area; no direct document). Therefore: Patrick Sr. and Peter Sr. = FIRST COUSINS (withdrawing the earlier 'probable brothers' hypothesis); Fr. Michael J. McGivney (Patrick's son) and Peter George McGivney (Peter Sr.'s son) = SECOND COUSINS. Common ancestor: an unnamed McGivney patriarch, b.~1780-1790 County Cavan."
+    },
+    "42": {
+      "number": 42,
+      "date": "2026-07-05",
+      "title": "1950 US Census confirms John J. Relihan + Anna Relihan household Bridgeport CT; Sub-chain C upgraded to \"very strong\"",
+      "sourceRefs": [
+        "S122"
+      ],
+      "personRefs": [
+        "tpr-2",
+        "tpr-3"
+      ],
+      "summary": "1950 US Federal Census (MyHeritage) shows John J. Relihan head of household with wife Anna and children incl. Thomas Relihan (b.~1931) + 4 siblings in Bridgeport CT — matches all 5 known Dooley-branch children. Sub-chain C (John Relihan Sr. = Maurice Relihan's son) upgraded from 'highly probable' to 'very strong' circumstantial; still no document directly naming John as Maurice's son."
+    },
+    "43": {
+      "number": 43,
+      "date": "2026-07-06",
+      "title": "CT Death Index targeted query: JAMES RELIHAN d.Sep 10 1946 Derby CT = James T. Relihan (Maurice's son); MAURICE RELIHAN d.Aug 2 1921 Shelton CT confirmed",
+      "sourceRefs": [
+        "S123"
+      ],
+      "personRefs": [
+        "tpr-cg0-3",
+        "tpr-4"
+      ],
+      "summary": "CT Death Index confirms James T. Relihan d.Sep 10 1946 Derby CT and re-confirms Maurice Relihan d.Aug 2 1921 Shelton CT. Priority target for Sub-chain C documentary proof: James T.'s Sep 1946 Evening Sentinel obituary (Derby Public Library microfilm or GenealogyBank subscription; not in free LNV archive, which only covers through Jan 1931)."
+    },
+    "5-pinned-alert": {
+      "number": 5,
+      "date": "2026-07-02",
+      "title": "CONFIRMED — Branch Merge DISPROVEN — Two Separate John Relihans (pinned alert box, sits above Part 43 in the live Overview tab)",
+      "sourceRefs": [
+        "S78",
+        "S79"
+      ],
+      "personRefs": [
+        "tpr-2",
+        "grant-8",
+        "mcn-2"
+      ],
+      "summary": "DISPROVEN: the 'one man, two marriages' hypothesis for John Relihan is disproven by (1) CT Marriage Index 1897-2001 shows the ONLY John Relihan CT marriage is John + Mabel McNamara Sep 15 1926 Bridgeport -- no John Relihan + Ann Dooley/Duley CT marriage exists; (2) Mabel McNamara Relihan lived until Dec 12 1987, spanning the entire 1927-1934 birth window of the Dooley-branch children, so she cannot be their mother. CONFIRMED: two different men named John (J.) Relihan in Bridgeport CT — (A) John Relihan Sr. (Dooley branch) + Ann Dooley/Duley -> Sen. John Jr., Edward, Thomas P., Ann Lang, Margaret Mellott; (B) John J. Relihan Sr. (McNamara branch) + Mabel McNamara -> Joan, Sally Kelly, Ann Louise Martini, John Jr. AZ. Both families sent daughters to Lauralton Hall, suggesting they knew each other as relatives (brothers or cousins) despite being distinct households.",
+      "note": "This alert box is pinned above the Part 43 entry in the live Overview tab and was read incidentally while mining Parts 22-43; it is NOT part of the Part 22-43 numbered range and Parts 1-21 (where Part 5 itself lives) remain unmined for Night 3."
     }
   }
 }
