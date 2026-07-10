@@ -1,11 +1,32 @@
 {
   "meta": {
     "schemaVersion": 2,
-    "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined the Overview-tab narrative Parts 43 down through 22 (most recent/information-dense) for facts not yet captured: new ancestral-generation persons named only in prose (Bryan McGivney/Creenow, John McGivney/Derrylahan, Bridget Gibney, the Malone NY McGivney generations, Ellen McGivney/Drumbee), a parts{} object summarizing each mined Part with sourceRefs/personRefs, partRefs[] populated on existing persons, and the Part 41 (S121) McGivney cousin-relationship resolution (Peter Sr./Patrick Sr. = first cousins, not probable brothers) propagated to all affected person records. Parts 21 down through 1 are NOT YET MINED — see remainingParts below and NIGHT_2_REMAINING.md.",
-    "personRecordCount": 58,
+    "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined Overview-tab Parts 43-22. Night 3 finished prose-mining Parts 21 down through 1 (including two un-numbered pre-numbering sessions and a duplicate 'Part 2' pedigree-tables box, recorded under disambiguating keys '1-addendum-jul1', '2-pinned-pedigree', '2-addendum-jul2' rather than silently merged or dropped), added 10 new persons named only in prose (Malone NY McGivney generations: Bridget Lynch, Nicholas McGivney b.~1820, Catherine McCabe, Patrick Gibny of Kilnaleck; Dooley-branch Relihan siblings: Sen. John J. Relihan Jr., Edward A. Relihan, Ann Relihan Lang, Margaret Relihan Mellott; plus Rose McBride and Sean Relihan as open-identity/probable-descendant records), and folded the Missing Links tab's 17 cards and the Search Queue tab's ~24 groups into person-linked openQuestions[] arrays (id/title/status/priority/origin/summary/exactSearches/sourceRefs) instead of leaving them as separate unstructured HTML-only content. All 43 Parts (1-43) now have a parts{} entry with sourceRefs/personRefs/summary. All 123 sources (S01-S123) are referenced somewhere in the file (as a sources{} entry plus at least one cross-reference in parts{}, a person's facts, or an openQuestions[] entry). index.html's live rendering is untouched.",
+    "personRecordCount": 68,
     "crossRefCount": 4,
     "sourceRecordCount": 123,
     "partsMined": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
       22,
       23,
       24,
@@ -29,30 +50,10 @@
       42,
       43
     ],
-    "remainingParts": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21
-    ],
-    "remainingPartsNote": "Parts 1-21 of the 43-Part Overview-tab narrative have not yet been mined into this file. See NIGHT_2_REMAINING.md at repo root for detail. Night 3 should pick up starting at Part 21 and work down to Part 1."
+    "openQuestionsCount": 47,
+    "peopleWithOpenQuestions": 25,
+    "remainingParts": [],
+    "remainingPartsNote": "None — all 43 Parts (1-43) are mined. Night 3 additionally folded the Missing Links and Search Queue tabs into openQuestions[]. Remaining work per PRESENTATION_REDESIGN_PLAN.md is Night 4 onward: building the unified graph structure and front-end (index.html rendering untouched by Nights 1-3 by design)."
   },
   "branches": [
     {
@@ -171,7 +172,9 @@
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        3
+      ]
     },
     "grant-3": {
       "id": "grant-3",
@@ -423,7 +426,9 @@
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        12
+      ]
     },
     "grant-10": {
       "id": "grant-10",
@@ -497,7 +502,42 @@
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [],
+      "openQuestions": [
+        {
+          "id": "sq-shomsky-demchak",
+          "title": "Search Queue: Shomsky / Demchak Maternal Line",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Well-documented cluster (George M. Demchak Sr./Jr., Michael G. Demchak, Ann Demchak Vayser, Helen Demchak Karaffa, Robert M. Shomsky all confirmed). Remaining gaps: Michael Shomsky's birth/death/parents (no result found); George M. Demchak Sr. and Helen Kosch Demchak's immigration records from Carpatho-Rusyn territory (no result found) — both need St. John the Baptist CROC parish records (364 Mill Hill Ave, Bridgeport CT) or FamilySearch passenger arrivals 1895-1915.",
+          "sourceRefs": [
+            "S20",
+            "S22",
+            "S24",
+            "S39",
+            "S40",
+            "S41",
+            "S43",
+            "S44",
+            "S45",
+            "S46"
+          ]
+        },
+        {
+          "id": "sq-demchak-jr-branch",
+          "title": "Search Queue: George M. Demchak Jr. Branch",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Confirmed: George M. Demchak Jr.'s children (Mark, David, Susan Horvath) and 7 grandchildren, via his Sep 14 2010 obituary. Not started: further details on Mark Demchak (Monroe CT); confirming David Demchak's wife's name (Jean vs. Kim discrepancy between sources); confirming Susan Horvath as Susan Demchak Horvath (distinct from an unrelated Robert S. Horvath in the Mellott branch).",
+          "sourceRefs": [
+            "S22",
+            "S39",
+            "S41"
+          ]
+        }
+      ]
     },
     "grant-12": {
       "id": "grant-12",
@@ -526,7 +566,28 @@
       "confirm": null,
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [],
+      "openQuestions": [
+        {
+          "id": "sq-kozak-ustaseski",
+          "title": "Search Queue: Kozak / Ustaseski Paternal Line",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Confirmed: John J. Kozak and Jennie A. Kozak obituaries; Nicholas Kozak's Ancestry index entry (b.Sep 22 1893 Wilno Poland, father John Kozak, d.Mar 8 1950 Norwich CT — needs a primary source). Not started: Nicholas Kozak and Anna Byczkowska immigration/naturalization records; confirming John Kozak of Wilno as Nicholas's father. Needs archive: Divine Providence Church (PNCC) Norwich parish records; Cavanagh Funeral Home call to confirm Helen Ustaseski Kozak's parents.",
+          "sourceRefs": [
+            "S15",
+            "S16",
+            "S17",
+            "S18",
+            "S19",
+            "S33",
+            "S36",
+            "S37",
+            "S38"
+          ]
+        }
+      ]
     },
     "grant-13": {
       "id": "grant-13",
@@ -585,7 +646,22 @@
         "groupIndex": 0,
         "childIndex": 1
       },
-      "partRefs": []
+      "partRefs": [
+        4
+      ],
+      "openQuestions": [
+        {
+          "id": "sq-property-business",
+          "title": "Search Queue: Property / Business — Baldwin Rd cluster and Relihan Landscape",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "All three queued searches (930 Baldwin Rd deed/permit; full assessor history for 924/930/934 Baldwin Rd; CT city directories cross-referencing Relihan with Walshe/Finn/Lawlor) are 'Not started.'",
+          "sourceRefs": [
+            "S11"
+          ]
+        }
+      ]
     },
     "grant-cg0-2": {
       "id": "grant-cg0-2",
@@ -615,7 +691,9 @@
         "groupIndex": 0,
         "childIndex": 2
       },
-      "partRefs": []
+      "partRefs": [
+        4
+      ]
     },
     "grant-cg0-3": {
       "id": "grant-cg0-3",
@@ -645,7 +723,9 @@
         "groupIndex": 0,
         "childIndex": 3
       },
-      "partRefs": []
+      "partRefs": [
+        4
+      ]
     },
     "grant-cg1-1": {
       "id": "grant-cg1-1",
@@ -696,7 +776,18 @@
         "groupIndex": 1,
         "childIndex": 2
       },
-      "partRefs": []
+      "partRefs": [],
+      "openQuestions": [
+        {
+          "id": "sq-appel-family",
+          "title": "Search Queue: Appel Family Line",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Confirmed via John William Kozak's obituary: Elizabeth Anna Appel's parents William Appel + Susan (both predeceased by Aug 2024), and her siblings Edmund, Bill, Sarah Appel Gardner (KY), Lisa Holmes Appel, Suzanne Brown Appel. All four follow-up obituary searches for the siblings are 'Not started.'",
+          "sourceRefs": []
+        }
+      ]
     },
     "grant-cg1-3": {
       "id": "grant-cg1-3",
@@ -789,9 +880,31 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": [
+        10,
         33,
         39,
         41
+      ],
+      "openQuestions": [
+        {
+          "id": "helen-mcgivney",
+          "title": "Helen R. Relihan x Peter George McGivney — no children (dead-end branch)",
+          "status": "open",
+          "priority": "1",
+          "origin": "missing-links",
+          "summary": "Helen R. Relihan (b.Jan 12 1894) married Peter George McGivney (b.1891) Jun 14 1921 Derby CT; they had no children. HELEN MCGIVNEY d.May 5 1955 Shelton CT and PETER MCGIVNEY d.Mar 25 1973 Derby CT both confirmed via CT Death Index (S89). The connection to Nancy Relihan Kozak, if it exists, passes through Helen's siblings (John, James, Mary A.), not through direct descent.",
+          "exactSearches": [
+            "John R. Relihan Sr. birth record — Derby CT, birth ~1892, parents Maurice Relihan + Mary Dolan",
+            "'John Relihan' 1920 census Derby CT or New Haven County",
+            "'John Relihan' 1930 census Bridgeport CT — confirm birthplace CT + father born Ireland",
+            "Maurice Relihan 1921 death notice (Shelton CT) — should list surviving children by name",
+            "'James Relihan' + 'Mary O'Connor' County Kerry — Maurice's parents in Irish records"
+          ],
+          "sourceRefs": [
+            "S68",
+            "S89"
+          ]
+        }
       ]
     },
     "mcgivney_family-2": {
@@ -858,10 +971,34 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": [
+        11,
+        13,
         26,
         33,
         40,
         41
+      ],
+      "openQuestions": [
+        {
+          "id": "peter-patrick-brothers",
+          "title": "Were Peter McGivney Sr. and Patrick McGivney Sr. brothers?",
+          "status": "resolved",
+          "priority": null,
+          "origin": "missing-links",
+          "summary": "RESOLVED Jul 5 2026 (S121): FIRST COUSINS, not brothers. Patrick McGivney Sr. born Drumbee to John McGivney + Bridget Gibney (S121); Peter McGivney Sr.'s father = Bryan McGivney of Creenow + Reilly wife (S120). John and Bryan (both Crosserlough Parish) are brothers, making Patrick Sr. and Peter Sr. first cousins, and Fr. Michael J. McGivney and Peter George McGivney second cousins.",
+          "exactSearches": [
+            "IrishGenealogy.ie — Crosserlough RC baptism index 1820-1850, search McGivney",
+            "FamilySearch — Crosserlough Catholic Parish baptisms 1843-1880",
+            "1880 US Census 'Peter McGivney' Derby CT — father's birthplace column",
+            "1880 US Census 'Patrick McGivney' Waterbury CT — father's birthplace column",
+            "DNA match — contact Dr. Alfred J. Finn Jr. (860) 489-0931 re: Derby CT McGivney branch"
+          ],
+          "sourceRefs": [
+            "S90",
+            "S120",
+            "S121"
+          ]
+        }
       ]
     },
     "mcgivney_family-3": {
@@ -908,6 +1045,7 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": [
+        13,
         26
       ]
     },
@@ -971,11 +1109,72 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": [
+        11,
         24,
         25,
         27,
         33,
         41
+      ],
+      "openQuestions": [
+        {
+          "id": "peter-patrick-brothers",
+          "title": "Were Peter McGivney Sr. and Patrick McGivney Sr. brothers?",
+          "status": "resolved",
+          "priority": null,
+          "origin": "missing-links",
+          "summary": "RESOLVED Jul 5 2026 (S121): FIRST COUSINS, not brothers. Patrick McGivney Sr. born Drumbee to John McGivney + Bridget Gibney (S121); Peter McGivney Sr.'s father = Bryan McGivney of Creenow + Reilly wife (S120). John and Bryan (both Crosserlough Parish) are brothers, making Patrick Sr. and Peter Sr. first cousins, and Fr. Michael J. McGivney and Peter George McGivney second cousins.",
+          "exactSearches": [
+            "IrishGenealogy.ie — Crosserlough RC baptism index 1820-1850, search McGivney",
+            "FamilySearch — Crosserlough Catholic Parish baptisms 1843-1880",
+            "1880 US Census 'Peter McGivney' Derby CT — father's birthplace column",
+            "1880 US Census 'Patrick McGivney' Waterbury CT — father's birthplace column",
+            "DNA match — contact Dr. Alfred J. Finn Jr. (860) 489-0931 re: Derby CT McGivney branch"
+          ],
+          "sourceRefs": [
+            "S90",
+            "S120",
+            "S121"
+          ]
+        },
+        {
+          "id": "patrick-sr-parents",
+          "title": "Patrick McGivney Sr.'s parents — CONFIRMED Jul 3 2026",
+          "status": "resolved",
+          "priority": null,
+          "origin": "missing-links",
+          "summary": "Father: John McGivney (Derrylahan/Drumbee townland, Crosserlough Parish). Mother: Bridget Gibney (per an Ancestry.com genealogy record) — though a WikiTree biography of the same record gives 'Mary Sheridan' as the mother's maiden name (father's name is consistent across sources; mother's maiden name is disputed). Patrick was born ~1832 in Drumbee townland; emigrated ~1849-1850, married Mary Lynch Waterbury CT Nov 22 1850, had 13 children (7 survived).",
+          "exactSearches": [
+            "FamilySearch — Crosserlough Catholic Parish baptisms 1843-1880 for McGivney",
+            "IrishGenealogy.ie — Crosserlough RC baptism index ~1832 Patrick son of John McGivney",
+            "Ancestry.com 'Patrick McGivney b.1832' full tree — confirm parents John + Bridget"
+          ],
+          "sourceRefs": [
+            "S90",
+            "S107"
+          ]
+        },
+        {
+          "id": "sq-mcgivney-jun30-session",
+          "title": "Search Queue: McGivney Descendant Research — Jun 30 2026 Session",
+          "status": "resolved",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Foundational session confirming Patrick McGivney Sr.'s County Cavan (not County Cork) origin, all 7 McGivney siblings, the KofC Supreme Chaplaincy dynasty (1884-1960), and Patrick Sr.'s parents (John McGivney + Bridget Gibney, S90). Remaining needs-archive items: 1880 US Census for Mary Lynch McGivney's widow household; 'Anna A. McGivney' 1944 Naugatuck obituary. Not-started: contacting living family sources John Walshe, Marianna Dwyer Phillips, and Dr. Alfred J. Finn Jr.",
+          "sourceRefs": [
+            "S56",
+            "S57",
+            "S58",
+            "S59",
+            "S60",
+            "S61",
+            "S62",
+            "S63",
+            "S64",
+            "S65",
+            "S90"
+          ]
+        }
       ]
     },
     "mcgivney_family-5": {
@@ -1164,7 +1363,27 @@
         "groupIndex": 0,
         "childIndex": 1
       },
-      "partRefs": []
+      "partRefs": [
+        1
+      ],
+      "openQuestions": [
+        {
+          "id": "lawlor-descendants",
+          "title": "Mary Ann Lawlor's full family — husband's first name and further descendants",
+          "status": "open",
+          "priority": null,
+          "origin": "missing-links",
+          "summary": "Mary Ann McGivney (b.Sep 25 1853, d.Jul 10 1927 Waterbury CT) married Michael Joseph Lawlor Sr. (b.1847 Ireland) in 1879; son Michael Joseph Lawlor Jr. MD (b.Sep 21 1881). Michael Sr.'s first name is inferred only from his son's name, not independently confirmed. No further Lawlor descendants found in public records.",
+          "exactSearches": [
+            "Waterbury Republican obituaries Jul 1927 — 'Mary Ann Lawlor' or 'Mary Ann McGivney'",
+            "1900 census — Lawlor household Waterbury CT",
+            "'Michael J. Lawlor' physician Waterbury CT — 1930-1960 directories"
+          ],
+          "sourceRefs": [
+            "S59"
+          ]
+        }
+      ]
     },
     "mcgivney_family-cg0-2": {
       "id": "mcgivney_family-cg0-2",
@@ -1202,7 +1421,62 @@
         "groupIndex": 0,
         "childIndex": 2
       },
-      "partRefs": []
+      "partRefs": [
+        1,
+        2
+      ],
+      "openQuestions": [
+        {
+          "id": "john-finn",
+          "title": "John R. Finn (Fairfield Prep 1946) — parents unconfirmed",
+          "status": "open",
+          "priority": null,
+          "origin": "missing-links",
+          "summary": "John R. Finn, Fairfield Prep Class of 1946 (one year ahead of Joseph R. Relihan '47, and a classmate of Senator John J. Relihan Jr. '46). If his parents are Edward J. Finn + Rose McGivney Finn, he is a direct McGivney descendant and school contemporary of a Relihan — the closest documented social overlap found. Not yet confirmed which of Rosanna McGivney Finn's 9 children is his parent.",
+          "exactSearches": [
+            "'John R. Finn' parents Waterbury CT",
+            "'John R. Finn' 'Edward J. Finn'",
+            "CT vital records 'John R. Finn' birth",
+            "Bridgeport diocese birth records"
+          ],
+          "sourceRefs": [
+            "S75",
+            "S76"
+          ]
+        },
+        {
+          "id": "sq-walshe-finn-bridge",
+          "title": "Search Queue: Walshe / Finn / McGivney Bridge — Extended",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Multiple confirmed descendants of Rosanna McGivney Finn (John W.L. Walshe, Msgr. G. Thomas Burns, Patricia Finn Moriarty, Margaret Ransom, Sister Louise Finn CND, Dr. Alfred J. Finn Jr., Mark P. Moriarty) — no Relihan connection found in any. Not started: identifying which of Rosanna's Finn children is John Walshe's direct parent (one Finn child still unaccounted for); Marianna Dwyer Phillips's husband Jack's surname and children.",
+          "sourceRefs": [
+            "S07",
+            "S08",
+            "S12",
+            "S28",
+            "S29",
+            "S30",
+            "S39",
+            "S40",
+            "S41"
+          ]
+        },
+        {
+          "id": "sq-john-r-finn-parents",
+          "title": "Search Queue: John R. Finn (Fairfield Prep 1946) — Parents",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "All three queued searches (CT vital records for parents; 'John R. Finn' + 'Edward J. Finn' or 'Rose McGivney'; Bridgeport diocese birth records) are 'Not started.'",
+          "sourceRefs": [
+            "S09",
+            "S75",
+            "S76"
+          ]
+        }
+      ]
     },
     "mcgivney_family-cg0-3": {
       "id": "mcgivney_family-cg0-3",
@@ -1232,7 +1506,45 @@
         "groupIndex": 0,
         "childIndex": 3
       },
-      "partRefs": []
+      "partRefs": [
+        1
+      ],
+      "openQuestions": [
+        {
+          "id": "dwyer-husband",
+          "title": "Mr. Dwyer — Margaret McGivney's husband's first name",
+          "status": "open",
+          "priority": null,
+          "origin": "missing-links",
+          "summary": "Margaret McGivney (b.1858 Waterbury CT) married a 'Mr. Dwyer' whose first name is not found in any public record. Their daughter Marguerite Dwyer (never married) raised Marianna Dwyer Phillips (b.~1946 Waterbury CT), a living memory-keeper who would likely know her grandfather's first name.",
+          "exactSearches": [],
+          "contact": "Marianna Dwyer Phillips (b.~1946, Waterbury CT; m. Jack Phillips 1971)",
+          "sourceRefs": [
+            "S61"
+          ]
+        },
+        {
+          "id": "sq-mcgivney-new-nodes",
+          "title": "Search Queue: McGivney Family Tree — New nodes added",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Confirmed: Rosanna McGivney Finn's children list (S28, S29) and Margaret McGivney Dwyer as a confirmed sibling with granddaughter Marianna Phillips. Not started: identifying which Finn child is Walshe's parent; identifying Margaret Dwyer's children (the generation between her and Marianna Phillips).",
+          "sourceRefs": [
+            "S28",
+            "S29"
+          ]
+        },
+        {
+          "id": "sq-mcgivney-jun30-dwyer",
+          "title": "Search Queue: contact Marianna Dwyer Phillips re: Dwyer/McGivney family memory",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Living granddaughter of Margaret McGivney Dwyer, b.~1946 Waterbury CT, at the 2020 beatification. Could confirm Mr. Dwyer's first name and whether she has heard of the Derby CT McGivney family or the unnamed 4th McGivney sister.",
+          "sourceRefs": []
+        }
+      ]
     },
     "mcgivney_family-cg0-4": {
       "id": "mcgivney_family-cg0-4",
@@ -1266,7 +1578,9 @@
         "groupIndex": 0,
         "childIndex": 4
       },
-      "partRefs": []
+      "partRefs": [
+        1
+      ]
     },
     "mcgivney_family-cg0-5": {
       "id": "mcgivney_family-cg0-5",
@@ -1300,7 +1614,9 @@
         "groupIndex": 0,
         "childIndex": 5
       },
-      "partRefs": []
+      "partRefs": [
+        1
+      ]
     },
     "mcgivney_family-cg0-6": {
       "id": "mcgivney_family-cg0-6",
@@ -1326,7 +1642,25 @@
         "groupIndex": 0,
         "childIndex": 6
       },
-      "partRefs": []
+      "partRefs": [
+        1
+      ],
+      "openQuestions": [
+        {
+          "id": "annie-mcgivney-naugatuck",
+          "title": "Anna A. McGivney — Naugatuck 1944 obituary (unnamed 4th surviving sister)",
+          "status": "open",
+          "priority": "2",
+          "origin": "missing-links",
+          "summary": "Patrick McGivney Sr. had 7 confirmed surviving children; one is named only as an unnamed '4th surviving sister' in all public records. An 'Anna A. McGivney' obituary appears in the Naugatuck Daily News, Feb 29 1944, but is behind a Newspapers.com paywall — not yet confirmed as this 4th sister.",
+          "exactSearches": [
+            "Newspapers.com — 'Anna A. McGivney' Naugatuck Daily News Feb 29 1944",
+            "Naugatuck Public Library — microfilm reader access (free local)",
+            "CT Death Index — 'Anna McGivney' Naugatuck area 1944"
+          ],
+          "sourceRefs": []
+        }
+      ]
     },
     "tpr-1": {
       "id": "tpr-1",
@@ -1370,7 +1704,10 @@
       },
       "crossRef": null,
       "childGroupInfo": null,
-      "partRefs": []
+      "partRefs": [
+        3,
+        6
+      ]
     },
     "tpr-2": {
       "id": "tpr-2",
@@ -1428,12 +1765,65 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": [
+        1,
+        2,
+        3,
+        6,
         33,
         36,
         37,
         38,
         39,
         42
+      ],
+      "openQuestions": [
+        {
+          "id": "john-relihan-hypothesis",
+          "title": "CRITICAL HYPOTHESIS: 'John' Relihan (~1892) = John R. Relihan Sr. (Grant's great-grandfather)",
+          "status": "open",
+          "priority": "1",
+          "origin": "missing-links",
+          "summary": "The 1910 Census (S68) shows Maurice Relihan's Derby CT household included a son 'John,' b.~1892. If this John = John R. Relihan Sr. (Dooley/Duley branch), then ALL three CT Relihan research branches (Dooley/Duley, O'Connell, and the McGivney-Relihan marriage) are Maurice Relihan's children. Evidence is circumstantial (birth year, geography, naming pattern) — no document yet directly names John R. Relihan Sr.'s parents.",
+          "exactSearches": [
+            "'John Relihan' 1920 census Derby CT — age ~28, son of Maurice Relihan",
+            "'John Relihan' 1930 census Bridgeport CT — head of household, wife Ann, CT-born ~1892",
+            "John R. Relihan Sr. death certificate — parents Maurice Relihan + Mary Dolan",
+            "Thomas P. Relihan Sr. death certificate — paternal grandparents",
+            "Maurice Relihan 1921 Shelton CT obituary — surviving children listed by name"
+          ],
+          "sourceRefs": [
+            "S68"
+          ]
+        },
+        {
+          "id": "two-families",
+          "title": "Three Relihan families — same or separate? (Maurice Relihan single-ancestor hypothesis)",
+          "status": "open",
+          "priority": null,
+          "origin": "missing-links",
+          "summary": "1910 Census (S68): Maurice Relihan + Mary Dolan household, Derby CT, had children Mary A. (~1891), John (~1892), Helen (~1894, confirmed), James (~1895, probable James T.). Hypothesis: 'John' = John R. Relihan Sr. (Dooley/Duley branch) -> if confirmed, ALL Relihan research branches (Dooley/Duley, O'Connell/James T., and the McGivney-Relihan marriage via Helen) descend from Maurice Relihan. The McNamara branch (John J. Relihan Sr. + Mabel McNamara) is a separate open question — same era, different town (Fairfield vs. Derby), not established as the same or a different John.",
+          "exactSearches": [
+            "1920-1930 census 'John Relihan' Bridgeport CT",
+            "1920-1930 census 'John Relihan' Fairfield CT",
+            "CT vital records, church baptism records"
+          ],
+          "sourceRefs": [
+            "S68"
+          ]
+        },
+        {
+          "id": "sq-john-relihan-maurice-son",
+          "title": "Search Queue: PRIORITY — John R. Relihan Sr. = Maurice Relihan's Son?",
+          "status": "open",
+          "priority": "1",
+          "origin": "search-queue",
+          "summary": "Found lead: 1910 Census (S68) confirms son 'John' b.~1892 in Maurice's household. Not started: 1920/1930 census searches for John Relihan in Derby/Bridgeport CT; John R. Relihan Sr. or Thomas P. Relihan Sr. death certificates (list parents); Maurice Relihan's Aug 1921 Shelton CT obituary. Related O'Connell-branch items (James T. Relihan) already confirmed: Joseph R. Relihan's parents (S67), James T. as the 1910-census 'James' (probable), James M. Relihan's full 2018-documented obituary (S69).",
+          "sourceRefs": [
+            "S67",
+            "S68",
+            "S69"
+          ]
+        }
       ]
     },
     "tpr-3": {
@@ -1472,7 +1862,24 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": [
+        3,
+        6,
+        12,
         42
+      ],
+      "openQuestions": [
+        {
+          "id": "sq-ann-duley-identity",
+          "title": "Search Queue: Ann Duley / Relihan Ancestor — spelling & identity",
+          "status": "resolved",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Confirmed: 'Duley' spelling (not Dooley) per Ann Relihan Lang's obituary (S32/S02). Confirmed: Margaret Relihan Mellott is a blood sister of Ann Lang per the same obituary (Lauralton Hall overlap with the McNamara sisters is coincidence, not evidence of a merged branch). Confirmed: Thomas P. Relihan's death date Dec 16 1990 Woodbridge CT (S79). Not started: resolving whether 'John J.' or 'John R.' is the correct middle initial for John Relihan Sr.",
+          "sourceRefs": [
+            "S32",
+            "S79"
+          ]
+        }
       ]
     },
     "tpr-4": {
@@ -1515,9 +1922,61 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": [
+        1,
+        2,
+        3,
         33,
         42,
         43
+      ],
+      "openQuestions": [
+        {
+          "id": "john-relihan-hypothesis",
+          "title": "CRITICAL HYPOTHESIS: 'John' Relihan (~1892) = John R. Relihan Sr. (Grant's great-grandfather)",
+          "status": "open",
+          "priority": "1",
+          "origin": "missing-links",
+          "summary": "The 1910 Census (S68) shows Maurice Relihan's Derby CT household included a son 'John,' b.~1892. If this John = John R. Relihan Sr. (Dooley/Duley branch), then ALL three CT Relihan research branches (Dooley/Duley, O'Connell, and the McGivney-Relihan marriage) are Maurice Relihan's children. Evidence is circumstantial (birth year, geography, naming pattern) — no document yet directly names John R. Relihan Sr.'s parents.",
+          "exactSearches": [
+            "'John Relihan' 1920 census Derby CT — age ~28, son of Maurice Relihan",
+            "'John Relihan' 1930 census Bridgeport CT — head of household, wife Ann, CT-born ~1892",
+            "John R. Relihan Sr. death certificate — parents Maurice Relihan + Mary Dolan",
+            "Thomas P. Relihan Sr. death certificate — paternal grandparents",
+            "Maurice Relihan 1921 Shelton CT obituary — surviving children listed by name"
+          ],
+          "sourceRefs": [
+            "S68"
+          ]
+        },
+        {
+          "id": "two-families",
+          "title": "Three Relihan families — same or separate? (Maurice Relihan single-ancestor hypothesis)",
+          "status": "open",
+          "priority": null,
+          "origin": "missing-links",
+          "summary": "1910 Census (S68): Maurice Relihan + Mary Dolan household, Derby CT, had children Mary A. (~1891), John (~1892), Helen (~1894, confirmed), James (~1895, probable James T.). Hypothesis: 'John' = John R. Relihan Sr. (Dooley/Duley branch) -> if confirmed, ALL Relihan research branches (Dooley/Duley, O'Connell/James T., and the McGivney-Relihan marriage via Helen) descend from Maurice Relihan. The McNamara branch (John J. Relihan Sr. + Mabel McNamara) is a separate open question — same era, different town (Fairfield vs. Derby), not established as the same or a different John.",
+          "exactSearches": [
+            "1920-1930 census 'John Relihan' Bridgeport CT",
+            "1920-1930 census 'John Relihan' Fairfield CT",
+            "CT vital records, church baptism records"
+          ],
+          "sourceRefs": [
+            "S68"
+          ]
+        },
+        {
+          "id": "sq-john-relihan-maurice-son",
+          "title": "Search Queue: PRIORITY — John R. Relihan Sr. = Maurice Relihan's Son?",
+          "status": "open",
+          "priority": "1",
+          "origin": "search-queue",
+          "summary": "Found lead: 1910 Census (S68) confirms son 'John' b.~1892 in Maurice's household. Not started: 1920/1930 census searches for John Relihan in Derby/Bridgeport CT; John R. Relihan Sr. or Thomas P. Relihan Sr. death certificates (list parents); Maurice Relihan's Aug 1921 Shelton CT obituary. Related O'Connell-branch items (James T. Relihan) already confirmed: Joseph R. Relihan's parents (S67), James T. as the 1910-census 'James' (probable), James M. Relihan's full 2018-documented obituary (S69).",
+          "sourceRefs": [
+            "S67",
+            "S68",
+            "S69"
+          ]
+        }
       ]
     },
     "tpr-5": {
@@ -1692,8 +2151,32 @@
         "childIndex": 2
       },
       "partRefs": [
+        1,
+        10,
         33,
         39
+      ],
+      "openQuestions": [
+        {
+          "id": "helen-mcgivney",
+          "title": "Helen R. Relihan x Peter George McGivney — no children (dead-end branch)",
+          "status": "open",
+          "priority": "1",
+          "origin": "missing-links",
+          "summary": "Helen R. Relihan (b.Jan 12 1894) married Peter George McGivney (b.1891) Jun 14 1921 Derby CT; they had no children. HELEN MCGIVNEY d.May 5 1955 Shelton CT and PETER MCGIVNEY d.Mar 25 1973 Derby CT both confirmed via CT Death Index (S89). The connection to Nancy Relihan Kozak, if it exists, passes through Helen's siblings (John, James, Mary A.), not through direct descent.",
+          "exactSearches": [
+            "John R. Relihan Sr. birth record — Derby CT, birth ~1892, parents Maurice Relihan + Mary Dolan",
+            "'John Relihan' 1920 census Derby CT or New Haven County",
+            "'John Relihan' 1930 census Bridgeport CT — confirm birthplace CT + father born Ireland",
+            "Maurice Relihan 1921 death notice (Shelton CT) — should list surviving children by name",
+            "'James Relihan' + 'Mary O'Connor' County Kerry — Maurice's parents in Irish records"
+          ],
+          "sourceRefs": [
+            "S52",
+            "S68",
+            "S89"
+          ]
+        }
       ]
     },
     "tpr-cg0-3": {
@@ -1733,6 +2216,10 @@
         "childIndex": 3
       },
       "partRefs": [
+        1,
+        2,
+        4,
+        10,
         36,
         37,
         43
@@ -1819,7 +2306,22 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": [
+        2,
+        8,
         38
+      ],
+      "openQuestions": [
+        {
+          "id": "sq-mcn-patriarch",
+          "title": "Search Queue: John J. Relihan Sr. (McNamara branch) — death date lead",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Found lead: JOHN RELIHAN d.Jul 31 1957 Bridgeport CT is the only unattributed of three Bridgeport John Relihan deaths in the full CT Death Index sweep, and is the probable McNamara-branch patriarch (consistent with Mabel McNamara Relihan's 30-year widowhood to 1987). Needs archive: Bridgeport Post microfilm ~Aug 1-7 1957. If his obituary names Maurice Relihan + Mary Dolan as parents, it would be the single most important document remaining in the entire research project — definitively connecting both Bridgeport Relihan branches to Maurice's line.",
+          "sourceRefs": [
+            "S79"
+          ]
+        }
       ]
     },
     "mcn-3": {
@@ -1850,6 +2352,7 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": [
+        8,
         38
       ]
     },
@@ -1889,7 +2392,33 @@
         "groupIndex": 0,
         "childIndex": 1
       },
-      "partRefs": []
+      "partRefs": [],
+      "openQuestions": [
+        {
+          "id": "kelly-branch",
+          "title": "Kelly branch — children's spouses unknown",
+          "status": "open",
+          "priority": null,
+          "origin": "missing-links",
+          "summary": "Sally Relihan Kelly + John D. Kelly had 5 children (Peter T., Sean G., Sarah A., Mark J. Kelly, Mara Kelly Marsh); John D. Kelly's 2nd wife Sheila added 3 more (Siobhan, Scott, David). Sally died young; the blended Catholic family has a high chance of marriage into Irish Catholic CT families including potential McGivney-side surnames, none yet confirmed.",
+          "exactSearches": [
+            "'Peter T. Kelly' spouse / wedding",
+            "'Sean G. Kelly' 'Sally Relihan'",
+            "'Mark J. Kelly' + Walshe Finn Lawlor",
+            "'Mara Kelly Marsh' Relihan"
+          ],
+          "sourceRefs": []
+        },
+        {
+          "id": "sq-kelly-branch",
+          "title": "Search Queue: Kelly Branch (Sally Relihan Kelly's children)",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "All 5 of Sally's children's spouses (Peter T., Sean G., Mark J. Kelly, Mara Kelly Marsh) and John D. Kelly's own marriage record to Sally remain 'Not started.'",
+          "sourceRefs": []
+        }
+      ]
     },
     "mcn-cg0-2": {
       "id": "mcn-cg0-2",
@@ -1939,7 +2468,39 @@
         "groupIndex": 0,
         "childIndex": 2
       },
-      "partRefs": []
+      "partRefs": [
+        7
+      ],
+      "openQuestions": [
+        {
+          "id": "nancy-martini",
+          "title": "Ann Louise 'Nancy' Relihan Martini — children's married surnames",
+          "status": "open",
+          "priority": "3",
+          "origin": "missing-links",
+          "summary": "Born Mar 7 1934 Forest Hills NY, died Aug 14 2024 Winnetka IL. Daughter of John J. Relihan Sr. (McNamara branch) + Mabel McNamara. Children W. Curt Martini Jr., Matthew Martini, and Mara Martini are partially confirmed via household records at 945 Pine Tree Lane, Winnetka IL; married surnames of Curt Jr. and Matthew, and whether Mara married, remain unknown. Donnellan Funeral Home obituary is JS-gated.",
+          "exactSearches": [
+            "'W. Curt Martini' obituary Winnetka Illinois",
+            "'Curt Martini Jr.' wedding / spouse",
+            "'Matthew Martini' Winnetka",
+            "'Mara Martini' wedding / married name"
+          ],
+          "sourceRefs": [
+            "S26"
+          ]
+        },
+        {
+          "id": "sq-nancy-martini",
+          "title": "Search Queue: Ann Louise 'Nancy' Relihan Martini — Priority 3",
+          "status": "open",
+          "priority": "3",
+          "origin": "search-queue",
+          "summary": "Confirmed: formal name and Lauralton Hall Class of 1951 (S26). Found lead: children W. Curt Martini Jr., Matthew Martini, Mara Martini via household records; a LinkedIn profile for a 'Mara Brett Martini' in Chicago IL is tenuous/uncorroborated. Needs archive: call Donnellan Funeral Home (847) 675-1990 for the JS-gated full obituary text.",
+          "sourceRefs": [
+            "S26"
+          ]
+        }
+      ]
     },
     "mcn-cg0-3": {
       "id": "mcn-cg0-3",
@@ -1981,7 +2542,21 @@
         "groupIndex": 0,
         "childIndex": 3
       },
-      "partRefs": []
+      "partRefs": [],
+      "openQuestions": [
+        {
+          "id": "sq-arizona-branch",
+          "title": "Search Queue: Arizona Branch (John J. Relihan Jr. AZ descendants)",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Confirmed: John J. Relihan Jr. obituary, Phoenix AZ, Jun 30 2007 (S82) — Fairfield Prep '58, Georgetown, ASU Law. Found lead: 'Solomon & Relihan' law firm (Yelp, Feb 2026) — a Patrick Relihan likely still practicing. Not started: AZ Bar lookup for Patrick Relihan; 'Alisha Relihan Fahrendorf' and 'Taun Relihan' (San Francisco) background checks to confirm as his children.",
+          "sourceRefs": [
+            "S13",
+            "S82"
+          ]
+        }
+      ]
     },
     "bryan-mcgivney-creenow": {
       "id": "bryan-mcgivney-creenow",
@@ -2027,6 +2602,14 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": [
+        11,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20,
         22,
         28,
         29,
@@ -2083,6 +2666,8 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": [
+        11,
+        16,
         24,
         27,
         34,
@@ -2122,6 +2707,10 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": [
+        11,
+        15,
+        17,
+        19,
         22,
         24,
         41
@@ -2171,6 +2760,7 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": [
+        21,
         22,
         23,
         30
@@ -2247,6 +2837,7 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": [
+        21,
         22,
         23,
         30,
@@ -2326,6 +2917,623 @@
       "partRefs": [
         24,
         34
+      ]
+    },
+    "bridget-lynch-malone": {
+      "id": "bridget-lynch-malone",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Bridget Lynch (Malone NY)",
+      "branch": "mcg",
+      "relation": "Wife of Patrick McGivney (b.~1782); mother of Nicholas McGivney (b.~1820) and grandmother-in-law line of Andrew McGivney's Malone NY branch",
+      "note": "b.~1793 Ireland · d.Jan 20 1879 Malone NY, age 86",
+      "prob": true,
+      "facts": [
+        [
+          "Tombstone",
+          "St. Joseph's Cemetery, Section 5, Malone, Franklin County NY: \"Patrick McGIVNEY Died Jan. 26, 1857 AE 75 Y'rs. Bridget LYNCH His Wife Died Jan. 20, 1879 AE 86 Y'rs.\" Also on the stone: daughter Catherine (d.Feb 7 1846, age 25); daughter Bridget (1837-1911); son Nicholas McGivney (d.Dec 6 1905, age 85) + wife Ann (d.Dec 17 1909, age 82)."
+        ],
+        [
+          "Note on surname coincidence",
+          "Bridget Lynch (Patrick b.~1782's wife, Malone NY branch) shares a surname with Mary Lynch (Patrick McGivney Sr.'s wife, Waterbury CT, Fr. McGivney's mother) but the two are not established as related — Lynch is a common County Cavan surname."
+        ],
+        [
+          "Source",
+          "S100, S101"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        21
+      ]
+    },
+    "nicholas-mcgivney-b1820-malone": {
+      "id": "nicholas-mcgivney-b1820-malone",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Nicholas McGivney (b.~1820, Malone NY)",
+      "branch": "mcg",
+      "relation": "Son of Patrick McGivney (b.~1782) + Bridget Lynch; brother of Andrew McGivney (b.~1801, Malone NY)",
+      "note": "b.~1820 Co. Cavan · d.Dec 6 1905 Malone NY, age 85",
+      "prob": true,
+      "facts": [
+        [
+          "Tombstone",
+          "Same Malone NY stone as parents Patrick + Bridget Lynch: \"Nicholas McGivney Died Dec. 6, 1905, AE 85 Y'rs. [wife] Ann Died Dec. 17, 1909, AE 82 Y'rs.\""
+        ],
+        [
+          "Wife",
+          "Ann (b.~1827, d.Dec 17 1909 Malone NY) — maiden name not recorded."
+        ],
+        [
+          "Significance",
+          "This Nicholas (b.~1820) is one candidate for the \"Nicholas\" in the 1828 Creanew Tithe Books' five-man household (Andrew, Bryan, Michael, Nicholas, Thomas) — but Part 22 (S101) flags an age problem: a household head in 1828 would need to be an adult (18+), and this Nicholas would only have been ~8 in 1828, too young. The Tithe Books' \"Nicholas\" is therefore probably a different, older relative (working hypothesis: Patrick's brother, i.e. another son of Nicholas Sr. b.~1760)."
+        ],
+        [
+          "Source",
+          "S100, S101"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        21
+      ]
+    },
+    "catherine-mccabe-mcgivney": {
+      "id": "catherine-mccabe-mcgivney",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Catherine McCabe (McGivney)",
+      "branch": "mcg",
+      "relation": "Wife of Andrew McGivney (b.~1801, Creenow -> Malone NY); daughter of Dennis McCabe of Pottlebrack",
+      "note": "b.~1803-1804 Pottlebrack, Co. Cavan · d.Jun 9 1891 Malone NY, age 88",
+      "prob": true,
+      "facts": [
+        [
+          "Tombstone",
+          "St. Joseph's Cemetery, Section 5, Malone NY: \"Andrew McGIVNEY Died Mar. 23, 1862 AE 62 Yrs. Catherine His Wife Died June 9, 1891 AE 88 Yrs. Natives of Co. Caven Ireland.\" A second \"Catherine Died Feb. 22, 1906 AE 82\" on the reverse of the stone is likely a daughter or daughter-in-law (b.~1824), not this Catherine."
+        ],
+        [
+          "Origin",
+          "Daughter of Dennis McCabe, Pottlebrack townland (neighboring Creenow, Crosserlough Parish). Andrew worked as a farm hand in Pottlebrack when they met and married."
+        ],
+        [
+          "Emigration",
+          "Emigrated with Andrew to Malone, Franklin County NY in August 1833, together with her brother Patrick \"Paddy\" McCabe."
+        ],
+        [
+          "Children",
+          "Bernard McGivney (b.~1830 Co. Cavan, born before emigration — see bernard-mcgivney-b1830-malone); Ann (b.1847 Malone NY); RootsWeb sources suggest as many as 9 children total, most unidentified."
+        ],
+        [
+          "Source",
+          "S100, S102"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        21
+      ]
+    },
+    "patrick-gibny-kilnaleck": {
+      "id": "patrick-gibny-kilnaleck",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Patrick Gibny (Kilnaleck)",
+      "branch": "mcg",
+      "relation": "Probable father of Bridget Gibney (John McGivney/Derrylahan's wife, mother of Patrick McGivney Sr., Fr. McGivney's grandmother)",
+      "note": "b.~1773 Kilnaleck, Co. Cavan (age 48 in 1821 census)",
+      "prob": true,
+      "facts": [
+        [
+          "1821 Census, Kilnaleck village, House 11",
+          "Patrick Gibny (48, Farmer & Mason, head) + Anne (43, Flax Spinner, wife) + Michael (16, son) + Thomas (14, son) + Eliza (22, daughter) + Bridget (20, daughter). Bridget (b.~1801) is the strongest identified candidate for Bridget Gibney, Patrick McGivney Sr.'s mother — age math fits (Bridget ~27 when Bryan McGivney appears in the 1828 Tithe Books; ~31 when Patrick Sr. was born in 1832)."
+        ],
+        [
+          "Wife",
+          "Anne (b.~1778, Flax Spinner) — maiden name not recorded."
+        ],
+        [
+          "Occupation",
+          "Mason & Farmer — a respected artisan-farmer trade, consistent with intermarriage between two established Crosserlough Catholic families (Gibney and McGivney)."
+        ],
+        [
+          "Other Kilnaleck Gibny households, 1821 (possible relatives)",
+          "House 12: Thomas Gibny (50, Farmer) + Catherine (46) + Michael (16) + Catherine (12). House 13: James Gibny (46, Farmer) + Catherine (44) + Bernard (4) + Mary (8) + Catherine (6). House 14: Bernard Gibny (45, Farmer) + Catherine (31) + Patrick (4) + Mary (8) + Catherine (6) + Catherine (20, house servant). House 10: John Gibny (27, Servant Labourer)."
+        ],
+        [
+          "Status",
+          "UNCONFIRMED identity match — no baptism or marriage record has yet been found directly linking this Bridget Gibny (age 20 in 1821) to John McGivney (Derrylahan) as his wife."
+        ],
+        [
+          "Source",
+          "S96"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        17
+      ]
+    },
+    "rose-mcbride": {
+      "id": "rose-mcbride",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Rose McBride",
+      "branch": "rel",
+      "relation": "Unidentified woman in the John Relihan Sr. (Dooley branch) household, Bridgeport CT, 1950 census — relationship not yet established",
+      "note": "appears Bridgeport CT 1950 census · d.Sep 5 1967 Bridgeport CT",
+      "prob": true,
+      "facts": [
+        [
+          "1950 US Census, 765 Myrtle Ave Bridgeport CT",
+          "Household: John Relihan Sr. + Rose McBride + Ann Relihan + Margaret Mary Relihan + Thomas Relihan. Ann Duley Relihan (John Sr.'s wife) is ABSENT from this household; Senator John Jr. and Edward have moved out."
+        ],
+        [
+          "Death confirmed",
+          "CT Death Index: ROSE MCBRIDE d.Sep 5 1967 BRIDGEPORT CT — she remained in Bridgeport 17 years after the 1950 census."
+        ],
+        [
+          "Identity — UNRESOLVED",
+          "Does not appear in Ann Relihan Lang's 2008 obituary sibling list (S32), so she is not one of the five confirmed Dooley-branch children. Leading hypotheses: a widowed sister of Ann Duley Relihan, or another relative who moved in with the family c.1940-1950. No CT marriage record connects any \"McBride\" to \"Duley\" or \"Relihan\" (1897-2001)."
+        ],
+        [
+          "Husband candidates (unconfirmed)",
+          "Three male Bridgeport McBrides died between the 1940 and 1950 censuses, any of whom could explain widowhood: GEORGE McBride d.Jul 17 1942; JOHN McBride d.Jun 5 1943; DANIEL McBride d.Aug 6 1943."
+        ],
+        [
+          "Source",
+          "S85, S79, S78"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        6,
+        7
+      ],
+      "openQuestions": [
+        {
+          "id": "sq-rose-mcbride",
+          "title": "Search Queue: Rose McBride — identity and relationship unresolved",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Found lead: death confirmed Sep 5 1967 Bridgeport CT (S85 full CT Death Index API). No CT marriage record connects any McBride to Duley/Relihan (S78) — she likely married outside CT or was already widowed before 1897. Next: search Bridgeport newspaper for her Sep 1967 obituary, which would list surviving family and confirm her relationship to the Relihans.",
+          "sourceRefs": [
+            "S78",
+            "S85"
+          ]
+        }
+      ]
+    },
+    "senator-john-j-relihan-jr": {
+      "id": "senator-john-j-relihan-jr",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Sen. John J. Relihan Jr.",
+      "branch": "rel",
+      "relation": "Son of John Relihan Sr. (Dooley branch) + Ann Duley Relihan; oldest of the five confirmed Dooley-branch children (1940 census)",
+      "note": "b.~1927-1928 Bridgeport CT · d.Dec 15 1966 Bridgeport CT (died in office), age ~38-39",
+      "prob": false,
+      "facts": [
+        [
+          "Education",
+          "Fairfield Prep, Class of 1946 (confirmed, Fairfield Prep In Memoriam, S76). Fairfield University, Class of 1952 (Fairfield University In Memoriam, S88) — likely enrolled ~1948 after a ~2-year gap, then law school ~1952-1955, then practiced law in Bridgeport CT."
+        ],
+        [
+          "Political career",
+          "Connecticut State Senate, District 21 (Bridgeport), Democrat, served 1959-1966; died in office. Only Democrat ever to hold that seat; successor George Gunther (R) served until 2007 (Wikipedia, S70)."
+        ],
+        [
+          "Death",
+          "CT Vital Records Index of Deaths: JOHN RELIHAN, 1966-12-15, BRIDGEPORT (S79). Hartford Courant Dec 16 1966 p.30 reported the death (S31/S70)."
+        ],
+        [
+          "Law firm hypothesis",
+          "\"Relihan & Irwin\" — a Bridgeport/Norwalk law firm referenced in family tradition. Donald J. Irwin (Yale Law 1954, CT Congressman 4th District 1959-61 & 1965-69, KofC member, b.Sep 7 1926, d.Jul 7 2013) is a near-exact age contemporary in CT Democratic politics and the probable law partner (S66) — NOT documentarily confirmed via CT bar records."
+        ],
+        [
+          "Spouse and children",
+          "UNKNOWN. If he married and had children, they would be his own generation's bridge candidates to McGivney-descendant surnames (Walshe, Finn, Lawlor, Dwyer, Burns, Phillips, Ransom). CT Marriage Index (S78) shows no CT marriage record for him 1948-1960 — he likely married outside CT, as his father did. Hartford Courant/Bridgeport Post microfilm Dec 15-20 1966 is the next research target (would name survivors)."
+        ],
+        [
+          "Fairfield Prep classmate",
+          "John R. Finn (Fairfield Prep Class of 1946, S76) was his classmate — the closest documented direct social overlap between a Relihan and a confirmed McGivney-line Finn descendant, though John R. Finn's own McGivney parentage is itself unconfirmed."
+        ],
+        [
+          "Source",
+          "S25, S31, S66, S70, S76, S78, S79, S88"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        2,
+        9
+      ],
+      "openQuestions": [
+        {
+          "id": "senator-relihan",
+          "title": "Senator John J. Relihan Jr. — spouse, children, KofC membership unknown",
+          "status": "open",
+          "priority": "2",
+          "origin": "missing-links",
+          "summary": "CT State Senator District 21, 1959-1966, died in office ~age 38-39 (Dec 15 1966, confirmed S79/S31). Son of John Relihan Sr. + Ann Duley Relihan, brother of Thomas Peter, Edward A., Ann Lang, Margaret Mellott (all confirmed S32). Fairfield Prep Class of 1946. Spouse, children, parish, burial, and whether he is the Relihan of 'Relihan & Irwin' remain unknown.",
+          "exactSearches": [
+            "Hartford Courant microfilm ~Dec 15-20 1966, CT State Library, 231 Capitol Ave Hartford CT",
+            "Bridgeport Post microfilm same dates"
+          ],
+          "sourceRefs": [
+            "S25",
+            "S31",
+            "S79"
+          ]
+        },
+        {
+          "id": "relihan-irwin",
+          "title": "Relihan & Irwin law firm — which Relihan is the partner?",
+          "status": "open",
+          "priority": null,
+          "origin": "missing-links",
+          "summary": "Donald Jay Irwin confirmed (S66): Yale Law 1954, CT Congressman 4th District 1959-61 & 1965-69, KofC member, b.Sep 7 1926, d.Jul 7 2013 — a near-exact age contemporary of Senator John J. Relihan Jr. in CT Democratic politics, almost certainly the law partnership. Not yet confirmed via CT bar records that the Relihan partner is specifically the Senator. Family tradition also references a 'Relihan & Finn' firm with no corroborating record.",
+          "exactSearches": [
+            "'Relihan & Irwin' Bridgeport bar records, CT Judicial Branch lookup",
+            "'Relihan & Irwin' 'John J. Relihan' 1959-1966",
+            "'Donald J. Irwin' Walshe OR Finn OR McGivney"
+          ],
+          "sourceRefs": [
+            "S66"
+          ]
+        },
+        {
+          "id": "senator-children",
+          "title": "Senator John J. Relihan Jr. — children's identities",
+          "status": "open",
+          "priority": null,
+          "origin": "missing-links",
+          "summary": "Died in office ~Dec 1966, age ~38-39. If married with children, those children may still be living (~55-65 today). Hartford Courant/Bridgeport Post microfilm Dec 15-20 1966 is the fastest path to their names.",
+          "exactSearches": [
+            "Hartford Courant microfilm Dec 15-20 1966, CT State Library",
+            "Bridgeport Post microfilm Dec 15-20 1966",
+            "CT State death certificate ~December 1966 for John J. Relihan"
+          ],
+          "sourceRefs": []
+        },
+        {
+          "id": "sq-senator-relihan",
+          "title": "Search Queue: Senator John J. Relihan Jr. — Priority 2",
+          "status": "open",
+          "priority": "2",
+          "origin": "search-queue",
+          "summary": "Confirmed: Fairfield Prep '46 + Fairfield University Class of 1952 (S25, S88); died Dec 15 1966 Bridgeport CT (S79, S31). No digital obituary found. Needs archive: Hartford Courant/Bridgeport Post microfilm Dec 15-20 1966 (would name wife and children). Not started: KofC membership search; 'Relihan & Irwin' + 'John J. Relihan' search.",
+          "sourceRefs": [
+            "S25",
+            "S31",
+            "S79",
+            "S88"
+          ]
+        },
+        {
+          "id": "sq-relihan-irwin-firm",
+          "title": "Search Queue: Relihan & Irwin Law Firm",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Found lead: Donald J. Irwin confirmed (S66) — Yale Law 1954, CT Congressman, KofC member, near-exact contemporary of Senator John J. Relihan Jr. Not started: CT Judicial Branch attorney lookup (lookup.jud.ct.gov/AttorneyFirm) for firm registration; 'Relihan & Irwin' Bridgeport/Norwalk/Walshe/Finn searches.",
+          "sourceRefs": [
+            "S66"
+          ]
+        }
+      ]
+    },
+    "edward-a-relihan": {
+      "id": "edward-a-relihan",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Edward A. Relihan",
+      "branch": "rel",
+      "relation": "Son of John Relihan Sr. (Dooley branch) + Ann Duley Relihan",
+      "note": "b.Jun 24 1929 · d.May 21 1989 Waterbury CT",
+      "prob": false,
+      "facts": [
+        [
+          "Death — corrected",
+          "CT Death Index (S79): EDWARD RELIHAN, 1989-05-21, WATERBURY. Prior site data said \"~May 15 1989 Newington CT\" — both the date and city were wrong; corrected Jul 2 2026."
+        ],
+        [
+          "Family relocation evidence",
+          "Both Edward and his mother Ann Duley Relihan (d.Feb 27 1970) died in Waterbury CT — indicates the Dooley branch relocated from Bridgeport to Waterbury sometime after the 1950 census (S91)."
+        ],
+        [
+          "Spouse, children — UNKNOWN",
+          "No obituary text retrieved (Hartford Courant/Waterbury Republican-American pre-1991 is not digitized; requires CT State Library microfilm or Newington/Waterbury Town Clerk request). His spouse or children could reveal a marriage into Walshe, Finn, Lawlor, Dwyer, Burns, Phillips, O'Connell, Lynch, or Ransom — flagged as the highest-value unknown Dooley-branch lead."
+        ],
+        [
+          "Probable son — Sean Relihan (UNCONFIRMED)",
+          "Sean Relihan (b.1966 Waterbury CT) shares Edward's Waterbury CT geography; see sean-relihan record. Not yet confirmed via Edward's 1989 obituary."
+        ],
+        [
+          "Source",
+          "S79, S91, S32, S87"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [],
+      "openQuestions": [
+        {
+          "id": "edward-relihan",
+          "title": "Edward A. Relihan — spouse, children, parish unknown",
+          "status": "open",
+          "priority": "1",
+          "origin": "missing-links",
+          "summary": "Born Jun 24 1929; probable son of John R. Relihan Sr. + Ann Duley; died May 21 1989 Waterbury CT (corrected from a prior wrong date/city). Spouse and children unknown — his marriage could reveal a bridge into Walshe, Finn, Lawlor, Dwyer, Burns, Phillips, O'Connell, Lynch, or Ransom, the closest potential direct McGivney bridge found so far.",
+          "exactSearches": [
+            "'Edward A. Relihan' obituary",
+            "'Edward Relihan' Newington",
+            "'Edward Relihan' 'May 15 1989'",
+            "'Edward A Relihan' Hartford Courant",
+            "'Edward Relihan' 'Anna Dooley'"
+          ],
+          "sourceRefs": [
+            "S79"
+          ]
+        },
+        {
+          "id": "sq-edward-relihan",
+          "title": "Search Queue: Edward A. Relihan — Priority 1",
+          "status": "open",
+          "priority": "1",
+          "origin": "search-queue",
+          "summary": "Confirmed: died May 21 1989 Waterbury CT (S79, corrects a prior wrong date/city). Not started: wife/children search, 'Edward Relihan + Anna Dooley' search. Needs archive: Hartford Courant microfilm; Newington Town Clerk death record request.",
+          "sourceRefs": [
+            "S04",
+            "S79"
+          ]
+        },
+        {
+          "id": "sq-dooley-next-gen",
+          "title": "Search Queue: Dooley-Branch Next Generation — Edward + Senator Relihan descendants",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Found lead: Sean Relihan (b.1966) is a probable son of Edward A. Relihan based on shared Waterbury CT geography and plausible age gap (S78, S87) — NOT confirmed; requires Edward's 1989 Waterbury obituary. Sean's sons Kyle Patrick and Kegan Louis Relihan confirmed via June Bell Fiondella's obituary (S87). Also considered and set aside: could Sean instead be the Senator's son (he died Dec 1966, before Sean's 1966 birth is plausible but Sean's Waterbury address better matches Edward's branch).",
+          "sourceRefs": [
+            "S78",
+            "S87"
+          ]
+        }
+      ]
+    },
+    "ann-relihan-lang": {
+      "id": "ann-relihan-lang",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Ann T. Relihan Lang",
+      "branch": "rel",
+      "relation": "Daughter of John Relihan Sr. (Dooley branch) + Ann Duley Relihan",
+      "note": "d.Dec 22 2008, age 76 (Boerne TX, recently moved from Zionsville IN)",
+      "prob": false,
+      "facts": [
+        [
+          "Obituary (S32, S72)",
+          "Explicitly states she is \"daughter of John and Ann Duley Relihan\" — this is the primary source confirming the \"Duley\" spelling (not \"Dooley\") and confirming her parents' identities. Predeceased by 3 brothers: John (the Senator), Thomas, Edward."
+        ],
+        [
+          "Husband",
+          "Frank O. Lang (Woodbridge CT) — his own obituary not yet found."
+        ],
+        [
+          "Children",
+          "Frank O. Lang III (m. Julie, maiden name unknown); Matthew G. Lang (m. Brenda, maiden name unknown); Carol Lang Barnes (m. Doug Barnes). 7 grandchildren."
+        ],
+        [
+          "Burial",
+          "Northwest Cemetery, Woodbridge CT; Assumption Catholic Church."
+        ],
+        [
+          "Open question — Barnes surname",
+          "Carol Lang Barnes's husband Doug Barnes shares a surname with Denise Mellott Barnes's husband Charles Franklin Barnes Jr. (Margaret Relihan Mellott's daughter) — unconfirmed whether the two Barnes families are related."
+        ],
+        [
+          "Source",
+          "S32, S72, S79"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        2
+      ],
+      "openQuestions": [
+        {
+          "id": "frank-lang",
+          "title": "Frank O. Lang — obituary not found",
+          "status": "open",
+          "priority": null,
+          "origin": "missing-links",
+          "summary": "Husband of Ann Relihan Lang, Woodbridge CT. Children: Frank O. Lang III (m. Julie, maiden name unknown), Matthew G. Lang (m. Brenda, maiden name unknown), Carol Lang Barnes (m. Doug Barnes). Frank's own obituary, and the two daughters-in-law's maiden names, are not yet found.",
+          "exactSearches": [
+            "'Frank O. Lang' Woodbridge CT obituary",
+            "New Haven Register archives 'Frank Lang'",
+            "CT death index 'Frank Lang' Woodbridge"
+          ],
+          "sourceRefs": [
+            "S32",
+            "S72"
+          ]
+        },
+        {
+          "id": "barnes-surname",
+          "title": "Barnes surname — appears twice, possibly related families",
+          "status": "open",
+          "priority": null,
+          "origin": "missing-links",
+          "summary": "Carol Lang Barnes (m. Doug Barnes, child of Ann Relihan Lang) and Denise Mellott Barnes (m. Charles Franklin Barnes Jr., child of Margaret Relihan Mellott) share the Barnes surname through their husbands. Not yet confirmed whether the two Barnes families are related, or the children of either couple.",
+          "exactSearches": [
+            "'Carol Lang Barnes' 'Doug Barnes' children",
+            "'Denise Mellott Barnes' children",
+            "'Barnes' 'Relihan' Connecticut"
+          ],
+          "sourceRefs": []
+        },
+        {
+          "id": "sq-lang-barnes-mellott",
+          "title": "Search Queue: Lang / Barnes / Travis / Mellott",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Confirmed: Teresa Mellott Travis identified as James + Margaret Mellott's daughter (S86); her son Christopher J. Travis is Margaret Mellott's grandson. Found lead: Judson Mellott (m. Debra Romard 1988 Easton CT, S86) possibly another son of James + Margaret, not yet confirmed. Needs archive: Frank O. Lang's obituary (New Haven Register). Not started: maiden names for Julie (m. Frank O. Lang III) and Brenda (m. Matthew G. Lang); children of Carol Lang Barnes and Denise Mellott Barnes; whether the two Barnes families are related.",
+          "sourceRefs": [
+            "S86"
+          ]
+        }
+      ]
+    },
+    "margaret-relihan-mellott": {
+      "id": "margaret-relihan-mellott",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Margaret M. Relihan Mellott",
+      "branch": "rel",
+      "relation": "Daughter of John Relihan Sr. (Dooley branch) + Ann Duley Relihan",
+      "note": "b.May 13 1927 Glassport PA · d.Dec 4 2022 (UPMC Mercy Hospital, Pittsburgh area), age 95",
+      "prob": false,
+      "facts": [
+        [
+          "Education",
+          "Lauralton Hall, Class of 1951 (coincidentally the same class year as two McNamara-branch Relihan daughters — Joan and Ann Louise \"Nancy\" Martini — a coincidence, not evidence of a merged branch, per S32)."
+        ],
+        [
+          "Husband",
+          "Ken Mellott (predeceased; married 56 years)."
+        ],
+        [
+          "Children",
+          "Mark Mellott (Liberty Borough PA); James Mellott (Liberty Borough PA) — probable father of Teresa Mellott Travis (m. Wayne Travis Jun 24 1978 Fairfield CT, S86) and possibly Judson Mellott (m. Debra Romard 1988 Easton CT, S86 — unconfirmed); Robert Mellott (Noblesville IN)."
+        ],
+        [
+          "Grandchildren",
+          "Natalie (m. Ryan Taylor) Mellott; Emily (m. Larry) Barker; Christopher J. Travis (via Teresa Mellott Travis, S86); 5 great-grandchildren total."
+        ],
+        [
+          "Birth-date discrepancy",
+          "A Willig Funeral Home record for a \"Margaret R. Mellott, born May 13 1927, died Dec 4 2022\" exists, but Lauralton Hall Class of 1951 implies a birth closer to 1933-1934 — the 1927 record may belong to a different Margaret Mellott. Unresolved."
+        ],
+        [
+          "Source",
+          "S32, S73, S83, S86"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        2,
+        6
+      ],
+      "openQuestions": [
+        {
+          "id": "barnes-surname",
+          "title": "Barnes surname — appears twice, possibly related families",
+          "status": "open",
+          "priority": null,
+          "origin": "missing-links",
+          "summary": "Carol Lang Barnes (m. Doug Barnes, child of Ann Relihan Lang) and Denise Mellott Barnes (m. Charles Franklin Barnes Jr., child of Margaret Relihan Mellott) share the Barnes surname through their husbands. Not yet confirmed whether the two Barnes families are related, or the children of either couple.",
+          "exactSearches": [
+            "'Carol Lang Barnes' 'Doug Barnes' children",
+            "'Denise Mellott Barnes' children",
+            "'Barnes' 'Relihan' Connecticut"
+          ],
+          "sourceRefs": []
+        },
+        {
+          "id": "sq-lang-barnes-mellott",
+          "title": "Search Queue: Lang / Barnes / Travis / Mellott",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Confirmed: Teresa Mellott Travis identified as James + Margaret Mellott's daughter (S86); her son Christopher J. Travis is Margaret Mellott's grandson. Found lead: Judson Mellott (m. Debra Romard 1988 Easton CT, S86) possibly another son of James + Margaret, not yet confirmed. Needs archive: Frank O. Lang's obituary (New Haven Register). Not started: maiden names for Julie (m. Frank O. Lang III) and Brenda (m. Matthew G. Lang); children of Carol Lang Barnes and Denise Mellott Barnes; whether the two Barnes families are related.",
+          "sourceRefs": [
+            "S14",
+            "S86"
+          ]
+        }
+      ]
+    },
+    "sean-relihan": {
+      "id": "sean-relihan",
+      "sourceTree": "prose",
+      "sourceKey": null,
+      "kind": "prose",
+      "name": "Sean Relihan",
+      "branch": "rel",
+      "relation": "Probable son of Edward A. Relihan (Dooley branch) — UNCONFIRMED",
+      "note": "b.1966 Waterbury CT",
+      "prob": true,
+      "facts": [
+        [
+          "Marriage",
+          "Sean Relihan + Kim Lisa Fiondella, married Sep 2 1988 Southington CT (CT Marriage Index, S78)."
+        ],
+        [
+          "Residence",
+          "OfficialUSA public records: 130 Piping Rock Drive, Waterbury CT; also 1404 Meriden Ave, Southington CT."
+        ],
+        [
+          "Children",
+          "Kyle Patrick Relihan and Kegan Louis Relihan (confirmed via June Bell Fiondella's — Kim's mother's — obituary, S87)."
+        ],
+        [
+          "Hypothesis",
+          "Sean's Waterbury CT residence matches Edward A. Relihan's 1989 Waterbury death city, and his birth year (1966) is consistent with Edward (b.1929) as father (~age 37). NOT confirmed — requires Edward A. Relihan's 1989 Waterbury Republican-American obituary (GenealogyBank paywall, not yet retrieved)."
+        ],
+        [
+          "Source",
+          "S78, S87"
+        ]
+      ],
+      "confirm": null,
+      "crossRef": null,
+      "childGroupInfo": null,
+      "partRefs": [
+        6
+      ],
+      "openQuestions": [
+        {
+          "id": "sq-dooley-next-gen",
+          "title": "Search Queue: Dooley-Branch Next Generation — Edward + Senator Relihan descendants",
+          "status": "open",
+          "priority": null,
+          "origin": "search-queue",
+          "summary": "Found lead: Sean Relihan (b.1966) is a probable son of Edward A. Relihan based on shared Waterbury CT geography and plausible age gap (S78, S87) — NOT confirmed; requires Edward's 1989 Waterbury obituary. Sean's sons Kyle Patrick and Kegan Louis Relihan confirmed via June Bell Fiondella's obituary (S87). Also considered and set aside: could Sean instead be the Senator's son (he died Dec 1966, before Sean's 1966 birth is plausible but Sean's Waterbury address better matches Edward's branch).",
+          "sourceRefs": [
+            "S78",
+            "S87"
+          ]
+        }
       ]
     }
   },
@@ -3931,6 +5139,330 @@
     }
   },
   "parts": {
+    "1": {
+      "number": 1,
+      "date": "2026-06-30",
+      "title": "McGivney Siblings & Descendants — all 7 confirmed McGivney siblings documented; KofC Supreme Chaplaincy dynasty; living contacts identified",
+      "sourceRefs": [
+        "S56",
+        "S57",
+        "S58",
+        "S59",
+        "S60",
+        "S61",
+        "S62",
+        "S63",
+        "S64",
+        "S65"
+      ],
+      "personRefs": [
+        "mcgivney_family-cg0-1",
+        "mcgivney_family-cg0-2",
+        "mcgivney_family-cg0-3",
+        "mcgivney_family-cg0-4",
+        "mcgivney_family-cg0-5",
+        "mcgivney_family-cg0-6"
+      ],
+      "summary": "The earliest recorded research session (undated 'Part' number in the source — treated as Part 1, the foundational session predating the site's numbering convention). Documented all 7 confirmed McGivney siblings (Michael J., Mary Ann Lawlor, Rosanna Finn, Margaret Dwyer, John J. the priest, Patrick James the priest, and an unnamed 4th sister) via WikiTree profiles S56-S65. Established that the McGivney family held the KofC Supreme Chaplaincy continuously 1884-1960 (76 years) through Fr. Michael, brothers Patrick J. and John J., and nephew Leo M. Finn. Identified living contacts: John Walshe (Bridgeport CT attorney, family expert), Marianna Dwyer Phillips (b.~1946 Waterbury CT, granddaughter of Margaret Dwyer), Dr. Alfred J. Finn Jr. (Torrington CT)."
+    },
+    "2": {
+      "number": 2,
+      "date": "2026-07-01",
+      "title": "James M. Relihan full obituary found; Senator Wikipedia confirmed (CT Senate District 21); MyHeritage census confirms 161 Prospect St Bridgeport household; Ann Lang and Margaret Mellott obituaries enriched; County Kerry Irish roots confirmed (Listowel Parish)",
+      "sourceRefs": [
+        "S69",
+        "S70",
+        "S71",
+        "S72",
+        "S73",
+        "S74"
+      ],
+      "personRefs": [
+        "tpr-cg0-3",
+        "senator-john-j-relihan-jr",
+        "ann-relihan-lang",
+        "margaret-relihan-mellott",
+        "tpr-4"
+      ],
+      "summary": "James M. Relihan's full obituary found (S69): b.Aug 19 1927 Derby CT, d.Dec 10 2021, age 94; parents confirmed James T. + Mary O'Connell Relihan; wife Corinne Sponheimer (predeceased); 6 children. Senator John J. Relihan Jr.'s Wikipedia entry confirmed (S70): CT State Senate District 21 (Bridgeport), Democrat, 1959-1966, died in office, only Democrat ever to hold the seat. MyHeritage 1935/1940/1950 census (S71) confirms John J. + Anna E. Relihan household at 161 Prospect St Bridgeport CT; children match S32 (Ann Lang's obit); a 'Rose McBride' appears alongside Thomas in the 1950 household, identity unknown at this point. Ann Lang's obituary enriched (S72): d.Dec 22 2008 age 76; husband Frank Lang; sons Frank O. Lang III + Matthew G. Lang; daughter Carol Barnes; confirms 3 predeceased brothers (John, Thomas, Edward). Margaret Mellott's obituary found (S73): b.May 13 1927 Glassport PA, d.Dec 4 2022 age 95. County Kerry Irish roots confirmed (S74): Listowel Parish RC baptism records show John Relihan + Catherine Griffin family; son James (b.Nov 15 1811, Gortdromagowna) is the probable father of Maurice Relihan (b.1856) — the Irish-generation root of the entire CT Relihan tree."
+    },
+    "3": {
+      "number": 3,
+      "date": "2026-07-02",
+      "title": "CT Vital Records Sweep — CT Marriage Records API full Relihan sweep (S78); CT Death Records API full Relihan sweep (S79); Mary Dolan's death confirmed",
+      "sourceRefs": [
+        "S78",
+        "S79"
+      ],
+      "personRefs": [
+        "tpr-1",
+        "tpr-2",
+        "tpr-3",
+        "tpr-4",
+        "grant-2"
+      ],
+      "summary": "CT Marriage Records API (data.ct.gov/fy7b-hj53) full Relihan sweep (S78), 1897-2001: confirmed Mark Kozak + Nancy Relihan (Apr 11 1981 Woodbridge CT); John Relihan Sr. + Mabel McNamara (Sep 15 1926 Bridgeport CT); James T. Relihan + Mary O'Connell (Apr 21 1926 Ansonia CT); Elizabeth Relihan + Jay Gross (Oct 23 1982 Woodbridge CT); Sally Relihan + John Kelly (Aug 1 1953 Fairfield CT); Margaret Relihan + James Mellott (Jul 28 1953 Bridgeport CT); Thomas P. Relihan + Dorothy Shomsky (Jun 6 1953 Bridgeport CT — confirms Shomsky maiden name); Thomas 'Tommy' Relihan Jr. + Carla Guarino (Oct 23 1976 Woodbridge CT); James M. Relihan + Corinne Sponheimer (May 12 1951 Derby CT); Ann Relihan + Walter Martini (Jun 17 1961 Fairfield CT). CT Death Records API (data.ct.gov/psf6-3vsu) full Relihan sweep (S79): Maurice Relihan Aug 2 1921 Shelton CT; Thomas P. Relihan Dec 16 1990 Woodbridge CT (upgraded from Probable); Dorothy Shomsky Relihan Jun 16 1988 Woodbridge CT; Mabel McNamara Relihan Dec 12 1987 Bridgeport CT; John Relihan Sr. May 23 1955 Bridgeport CT; Senator John J. Relihan Jr. Dec 15 1966 Bridgeport CT (corrects a prior 'Dec 9' entry); Edward A. Relihan corrected to May 21 1989 Waterbury CT (prior data had wrong city AND date). Mary Dolan Relihan's death confirmed: MARY RELIHAN d.Jan 8 1911 Derby CT."
+    },
+    "4": {
+      "number": 4,
+      "date": "2026-07-02",
+      "title": "CT Marriage sweep extended (S78 follow-up) — Thomas Relihan Jr.'s second marriage confirmed; James M. Relihan's children's marriages confirmed; Joseph R. Relihan's family documented; James M. Relihan's full obituary (S80); Robert Relihan's family located (S81)",
+      "sourceRefs": [
+        "S67",
+        "S78",
+        "S79",
+        "S80",
+        "S81"
+      ],
+      "personRefs": [
+        "grant-cg0-1",
+        "grant-cg0-2",
+        "grant-cg0-3",
+        "tpr-cg0-3"
+      ],
+      "summary": "Thomas 'Tommy' Relihan Jr.'s SECOND MARRIAGE confirmed (S78): Thomas Relihan + Winifred O'Connor, Dec 29 1989 Woodbridge CT — after his first marriage to Carla Guarino (Oct 1976) and the Dec 1988 incorporation of Relihan Landscape Construction (Carla as Secretary/Director), suggesting a 1989 divorce. James M. Relihan's children's 4 CT marriages confirmed (S78): Eileen -> James Santanelli (1974); Donald -> Susan Hoyt (1981); Kathleen -> Hazen Magowan (2000); Joseph -> Camille Siena (1990). Joseph R. Relihan's family documented via his 2018 obituary (S67, McDonald Funeral Services): m. Marilyn A. Peabody (predeceased); children Steven, Robert, Jane Kerhulas, Scott; confirms 'brother James Relihan (Orange CT)' = James M. Relihan, proving the siblings share father James T. Relihan. James M. Relihan's full family confirmed via New Haven Register Dec 2021 obit (S80): 6 children total, wife Corinne Sponheimer (predeceased), 7 grandchildren, 3 great-grandchildren; son Robert predeceased, possibly the 'ROBER RELIHAN' d.Mar 20 1974 Milford CT. Robert Relihan's family located via public professional profiles (S81): 2nd wife Dr. Cynthia Bixler Relihan (Emergency/Primary Care MD); daughter Lindsay E. Relihan (PhD Applied Economics, Wharton/Penn 2018, now Asst. Prof. of Economics at Purdue). Mary A. Relihan and Rose McBride both ruled out as CT-married brides (S78/S79) — Mary A. probable died unmarried, no descendants."
+    },
+    "5": {
+      "number": 5,
+      "date": "2026-07-02",
+      "title": "CONFIRMED — Branch Merge DISPROVEN — Two Separate John Relihans (pinned alert box, sits above Part 43 in the live Overview tab)",
+      "sourceRefs": [
+        "S78",
+        "S79"
+      ],
+      "personRefs": [
+        "tpr-2",
+        "grant-8",
+        "mcn-2"
+      ],
+      "summary": "DISPROVEN: the 'one man, two marriages' hypothesis for John Relihan is disproven by (1) CT Marriage Index 1897-2001 shows the ONLY John Relihan CT marriage is John + Mabel McNamara Sep 15 1926 Bridgeport -- no John Relihan + Ann Dooley/Duley CT marriage exists; (2) Mabel McNamara Relihan lived until Dec 12 1987, spanning the entire 1927-1934 birth window of the Dooley-branch children, so she cannot be their mother. CONFIRMED: two different men named John (J.) Relihan in Bridgeport CT — (A) John Relihan Sr. (Dooley branch) + Ann Dooley/Duley -> Sen. John Jr., Edward, Thomas P., Ann Lang, Margaret Mellott; (B) John J. Relihan Sr. (McNamara branch) + Mabel McNamara -> Joan, Sally Kelly, Ann Louise Martini, John Jr. AZ. Both families sent daughters to Lauralton Hall, suggesting they knew each other as relatives (brothers or cousins) despite being distinct households.",
+      "note": "Renamed from the Night 2 placeholder key '5-pinned-alert' during Night 3 — this pinned alert box IS the complete Part 5 narrative (verified against index.html lines 247-252); there is no separate/longer Part 5 elsewhere in the Overview tab."
+    },
+    "6": {
+      "number": 6,
+      "date": "2026-07-02",
+      "title": "Dooley Census (S85), Mellott Branch (S86), Sean Relihan (S87) — 1940/1950 census households; Teresa Mellott Travis identified; 'Duley' spelling corrected across all nodes",
+      "sourceRefs": [
+        "S85",
+        "S86",
+        "S87"
+      ],
+      "personRefs": [
+        "tpr-1",
+        "tpr-2",
+        "tpr-3",
+        "margaret-relihan-mellott",
+        "sean-relihan",
+        "rose-mcbride"
+      ],
+      "summary": "S85 — MyHeritage 1940+1950 US Census (Dooley branch): 1940 census at 161 Prospect St Bridgeport confirms household John J. Relihan + Anna E. (Dooley/Duley) + 5 children (John J. Jr. listed first/oldest, Edward, Thomas, Ann T., Margarete M.). 1950 census at 765 Myrtle Ave Bridgeport shows John Sr. + Rose McBride + Ann + Margaret Mary + Thomas — Ann Dooley Relihan absent, Senator and Edward moved out. CT Death Index confirms ROSE MCBRIDE d.Sep 5 1967 Bridgeport, consistent with the 1950 household address. S86 — CT Open Data supplemental (Mellott + Fairfield cluster): Teresa Mellott Travis confirmed as daughter of James + Margaret (Relihan) Mellott via her Jun 24 1978 Fairfield CT marriage to Wayne Travis; son Christopher J. Travis identified as a grandson of Margaret Mellott; James Mellott d.Oct 21 1994 Fairfield CT; WILLI RELIHAN d.1960 + MARGA RELIHAN d.1969 Fairfield = only two Relihan deaths ever recorded in Fairfield CT; Hartford Relihan cluster (11+ deaths 1900-1944) confirmed as an entirely separate, unrelated family. 'Duley' spelling corrected across all nodes (Ann Relihan Lang's obituary says Duley, not Dooley — prior sessions had it backwards). S87 — Sean Relihan (probable Dooley-branch descendant, b.1966 Waterbury CT) married Kim Lisa Fiondella Sep 2 1988 Southington CT; Kim's mother's obituary confirms grandchildren Kyle Patrick + Kegan Louis Relihan; Sean's Waterbury CT address matches Edward A. Relihan's death city — hypothesis Sean = Edward's son, NOT YET CONFIRMED."
+    },
+    "7": {
+      "number": 7,
+      "date": "2026-07-02",
+      "title": "Rose McBride Research; Dennis Relihan (unrelated NJ branch, ruled out); Confirmatory research on Ann Louise 'Nancy' Martini and James M. Relihan's children",
+      "sourceRefs": [
+        "S01",
+        "S32",
+        "S78",
+        "S79",
+        "S80",
+        "S83"
+      ],
+      "personRefs": [
+        "rose-mcbride",
+        "mcn-cg0-2"
+      ],
+      "summary": "Rose McBride husband candidates narrowed via CT Death Index: three male Bridgeport McBrides died 1942-1943 (George, John, Daniel) — any could explain a c.1942-1943 widowhood that preceded her joining the Relihan household by the 1950 census. No CT marriage connects any of them to Ann Duley or the Relihan family; she likely married outside CT. Dennis Michael Relihan (1940-1975) identified as an UNKNOWN/unrelated branch: Find a Grave #121745930 confirms he drowned in a Danube River training accident (US Army 1st Bn 52nd Infantry, West Germany), buried Arlington National Cemetery; 1940 census places him in New Jersey — not attributable to the CT Maurice Relihan line, noted as ruled-out. Confirmatory research (previously documented, re-verified): Ann Relihan + Walter Curt Martini Sr., Jun 17 1961 Fairfield CT (= Ann Louise 'Nancy' Martini, McNamara branch) — 'WALTE' in the CT index confirmed as an abbreviation of Walter."
+    },
+    "8": {
+      "number": 8,
+      "date": "2026-07-02",
+      "title": "McNamara Patriarch Death Date identified (Jul 31 1957 Bridgeport); Full CT Death Index Pull (60 records) — no new branches beyond already-documented ones",
+      "sourceRefs": [
+        "S79",
+        "S84"
+      ],
+      "personRefs": [
+        "mcn-2",
+        "mcn-3"
+      ],
+      "summary": "JOHN RELIHAN d.Jul 31 1957 BRIDGEPORT identified as the probable McNamara-branch patriarch death date: full CT Death Index enumeration (60 RELIHAN records) shows exactly THREE Bridgeport John Relihan deaths — May 23 1955 (Dooley-branch patriarch), Jul 31 1957 (previously unattributed), Dec 15 1966 (Senator). Mabel McNamara Relihan's survival until Dec 12 1987 (30+ years of widowhood) is consistent with her husband dying in 1957. Requires Bridgeport Post ~Aug 1-7 1957 microfilm to confirm. Full 60-record CT Death Index summary otherwise confirmed no new branches: JEAN RELIHAN Waterbury 1951 + EVELYN RELIHAN Waterbury 1986 + JAMES RELIHAN Waterbury 1971 already resolved via S84 (Jean Schmidt née Relihan, parents James C. + Evelyn Glazier Relihan — an entirely separate Stafford Springs CT family, unrelated to the Maurice Relihan line). DOROTHY RELIHAN 1988 Woodbridge = Dorothy Shomsky Relihan (already documented). FRANCES RELIHAN 1987 North Canaan + RUTH RELIHAN 1992 Winchester = unknown branches, not yet investigated."
+    },
+    "9": {
+      "number": 9,
+      "date": "2026-07-02",
+      "title": "Fairfield University In Memoriam confirms Senator John J. Relihan Jr., Class of 1952",
+      "sourceRefs": [
+        "S88"
+      ],
+      "personRefs": [
+        "senator-john-j-relihan-jr"
+      ],
+      "summary": "Fairfield University's In Memoriam page (memoriam.fairfield.edu/memoriam/y1950, covering 1950s graduates) lists 'John Relihan (December 15, 1966), Class of 1952' — the death date is an exact match for Senator John J. Relihan Jr. (Dooley branch). Combined with his confirmed Fairfield Prep Class of 1946, this gives a career reconstruction: Prep '46 -> Fairfield University '52 (enrolled ~1948, possibly after a 2-year gap) -> law school ~1952-1955 -> Bridgeport attorney -> CT State Senate District 21, Democrat, 1959-1966 -> died in office Dec 15 1966. Also searched without result: Political Graveyard (no Relihan entry), CTGenWeb Stratford St. Michael's Cemetery transcription (incomplete, no Relihan), Bridgeport digital newspaper archive (earliest free access 1922; the 1957/1966 obituaries require microfilm), Fairfield Public Library obit index (only goes back to 1982)."
+    },
+    "10": {
+      "number": 10,
+      "date": "2026-07-03",
+      "title": "S89 — James T. Relihan + Mary O'Connell Relihan death dates confirmed via targeted CT Death Index queries; Helen McGivney and Peter McGivney deaths confirmed; Derby McGivney cluster fully enumerated; CT Marriage Index exhausted for McGivney-Relihan marriages",
+      "sourceRefs": [
+        "S89"
+      ],
+      "personRefs": [
+        "tpr-cg0-3",
+        "tpr-cg0-2",
+        "mcgivney_family-1"
+      ],
+      "summary": "S89 — CT Death Index targeted queries: JAMES RELIHAN d.Sep 10 1946 DERBY CT = James T. Relihan Sr. (Maurice's son, father of James M. and Joseph R.), died ~age 51. MARY OCONNELL d.Nov 2 1972 DERBY CT = his wife, survived him 26 years. HELEN MCGIVNEY d.May 5 1955 SHELTON CT = Helen R. Relihan McGivney (Maurice's daughter) — died in the same town where her father Maurice died in 1921. PETER MCGIVNEY d.Mar 25 1973 DERBY CT = probable Peter George McGivney, died at ~age 82, 18 years after Helen, no children confirmed. Derby McGivney cluster fully enumerated: 17 McGivney deaths in Derby CT 1898-1992 plus 2 in Bridgeport (including John J. McGivney, Msgr., Fr. Michael's brother, pastor St. Charles Borromeo Bridgeport 1928-1939) plus 1 in Shelton (Helen). CT Marriage Index exhausted for MCGIVNEY-RELIHAN marriages: full query of 36 groom + 32 bride McGivney marriages 1897-2001 found ZERO Relihan-McGivney marriages — the 1921 Helen-Peter marriage is not in the CT Marriage Index (data gap or different registration form)."
+    },
+    "11": {
+      "number": 11,
+      "date": "2026-07-03",
+      "title": "CRITICAL BREAKTHROUGH — Griffith's Valuation Crosserlough Parish confirms Bryan McGivney (Creenow) and John McGivney (Derrylahan) both in the same parish; Patrick Sr.'s parents confirmed (John McGivney + Bridget Gibney, disputed vs. 'Mary Sheridan'); 1827 land record; Philip McGivney's church donation; cemetery evidence",
+      "sourceRefs": [
+        "S90",
+        "S107"
+      ],
+      "personRefs": [
+        "bryan-mcgivney-creenow",
+        "john-mcgivney-derrylahan",
+        "mcgivney_family-2",
+        "mcgivney_family-4",
+        "bridget-gibney-mcgivney"
+      ],
+      "summary": "Full enumeration of Griffith's Valuation (1847-1864) for Crosserlough Parish, County Cavan confirms Bryan McGivney in Creenow (Peter McGivney Sr.'s confirmed father) AND John McGivney in Derrylahan (Patrick McGivney Sr.'s confirmed father) both documented in the same small parish, alongside other McGivney households: Andrew + Mary + Thomas (Drumcassidy); Patrick + Philip + Philip T. + Stephen + Thomas (Kilnaleck); Ellen (Drumbee); James (Drumloman) — all within 5km, substantially strengthening the Peter-Patrick brothers/cousins hypothesis. Patrick McGivney Sr.'s parents CONFIRMED: father = John McGivney; mother = Bridget Gibney (per an Ancestry.com record) — though a WikiTree biography for the same record independently gives the mother as 'Mary Sheridan,' a disputed maiden name (father's name is consistent across sources). A 1827 land record documents Bryan McGivney taking over 27 acres in Creenow 'previously owned by Bernard' — the earliest documented Creenow McGivney holding, implying an older Bernard McGivney (father or uncle) predeceased him. Philip McGivney (Kilnaleck) confirmed as the donor of the St. Patrick's Church Kilnaleck site (crosserloughparish.ie), likely a third branch of the same extended family. Cemetery evidence: St. Joseph's Drumkilly has 5 McGivney family headstone groups; St. Mary's Crosserlough has a fourth Crosserlough McGivney line (Peter McGivney of Drumcassidy, d.1925)."
+    },
+    "12": {
+      "number": 12,
+      "date": "2026-07-03",
+      "title": "CT vital records complete sweep (S91) — Ann Duley Relihan's death confirmed; a distinct Southwestern CT Relihan family identified (Greenwich/Fairfield/Stamford cluster, unrelated); complete CT Relihan vital-records picture (4 distinct families)",
+      "sourceRefs": [
+        "S91"
+      ],
+      "personRefs": [
+        "tpr-3",
+        "grant-9"
+      ],
+      "summary": "Ann Duley Relihan's death CONFIRMED: ANNA RELIHAN d.Feb 27 1970 WATERBURY CT — the only Anna/Anna Relihan in all CT records; survived her husband John Sr. by 13-15 years, both she and son Edward A. died in Waterbury, confirming the Dooley branch's relocation there after ~1950. A distinct Southwestern CT Relihan family identified, SEPARATE from the Maurice Relihan line: coastal Fairfield County towns (Greenwich, Fairfield, Stamford, Darien, Norwalk), 8+ deaths 1899-1991, 4+ marriages, centered on Dennis Relihan + Dorothy Dauscha (m.1927 Greenwich) as probable parents of James Relihan + Patricia Fogg (m.1966 Greenwich); this James may be the James Relihan d.Jan 22 1980 Stamford. Complete CT Relihan vital-records picture: 40 groom + 27 bride marriages + 57 deaths enumerated, revealing FOUR distinct CT Relihan families with no connection to each other beyond surname: (1) Maurice Relihan line (our research family); (2) Hartford cluster (11+ deaths 1900-1944, unrelated); (3) Southwestern CT cluster (identified this session); (4) Norfolk/North Canaan cluster (Litchfield County, unrelated); plus the already-resolved Winchester/Winsted James C. Relihan family."
+    },
+    "13": {
+      "number": 13,
+      "date": "2026-07-03",
+      "title": "Peter McGivney Sr.'s mother confirmed as née Reilly (S92); 5 sons confirmed married in Derby/Ansonia CT 1914-1931; a third-generation Peter McGivney (Bernard/John/James/Philip's son) discovered",
+      "sourceRefs": [
+        "S92"
+      ],
+      "personRefs": [
+        "mcgivney_family-2",
+        "mcgivney_family-3",
+        "bryan-mcgivney-creenow"
+      ],
+      "summary": "Find A Grave memorial #188442550 and the McGivney Family Newsletter (Oct 2000) confirm Peter McGivney Sr.'s father = Bryan McGivney (Creenow) and mother = née Reilly (first name unknown) — distinguishing his parentage clearly from Patrick McGivney Sr.'s mother (Bridget Gibney/Mary Sheridan, disputed), supporting the different-father (first-cousin, not brothers) hypothesis. 5+ sons of Peter McGivney Sr. confirmed via a complete CT McGivney marriage sweep (20 groom marriages, 1897-2001): James + Jennie Kendrick (1914 Huntington); Bernard F. + Mary (1925 Derby); John J. + Jennie Rourke (1926 Derby); Philip + Alice Gordon (1931 Ansonia); Peter George + Helen Relihan (1921 Derby, not in the CT Marriage Index). Ann Clark McGivney raised these children alone after Peter Sr.'s 1898 death; she survived until 1948. Previous site data listed only 4 children (Peter George, Bernard F., John J., Rosemary) — James and Philip newly added. A third-generation Peter McGivney discovered: PETER MCGIVNEY + HELEN FITZPATRICK, Sep 3 1946 Ansonia CT — since Peter George had no children, this Peter is a son of Bernard, John, James, or Philip; he died Mar 29 1992 Derby CT, extending the documented Derby McGivney family to at least 4 generations."
+    },
+    "14": {
+      "number": 14,
+      "date": "2026-07-03",
+      "title": "Tithe Applotment Books (1823-37) for Crosserlough Parish confirm Drumcassidy McGivney+Reilly community; explains Bryan McGivney's Reilly wife's origin; McGivney, New Brunswick Canada village noted",
+      "sourceRefs": [
+        "S93"
+      ],
+      "personRefs": [
+        "bryan-mcgivney-creenow"
+      ],
+      "summary": "Tithe Applotment Books for Crosserlough Parish (1823-37), accessed free via the National Archives of Ireland, show Peter McGivney + Thomas McGivney living side by side with THREE Reilly households (Peter, Patt, John Reilly) in Drumcassidy townland (just south of Creenow) in the 1820s — 20+ years before Griffith's Valuation. This is strong circumstantial evidence for why Bryan McGivney (Creenow) married a Reilly woman: the McGivney and Reilly families were established neighbors in adjacent Crosserlough townlands for generations. Additional Reilly households found in Drumvora, Killytogher, Derrylea, and Derrylahan — Reilly households appear in at least 5 Crosserlough townlands in the 1820s, as O'Reilly is the most common surname in County Cavan. Also noted: a village named 'McGivney' exists in York County, New Brunswick, Canada, founded by Irish McGivney settlers in the mid-19th century — a 'John McGivney born 1830 in York County' is a possible separate emigrant branch, not yet connected to the Crosserlough family."
+    },
+    "15": {
+      "number": 15,
+      "date": "2026-07-03",
+      "title": "BREAKTHROUGH — Bryan McGivney confirmed in Creanew (1828 Tithe Books spelling) with James O'Reilly as his literal townland neighbor; Kilnaleck Gibney connection to Bridget Gibney strengthened",
+      "sourceRefs": [
+        "S94"
+      ],
+      "personRefs": [
+        "bryan-mcgivney-creenow",
+        "bridget-gibney-mcgivney"
+      ],
+      "summary": "The Tithe Applotment Books spell the townland 'Creanew' (not 'Creenow' as in Griffith's Valuation) — with the correct spelling, all 8 households in the 1828 townland are found: Bryan Magibny, Thomas Magibny, Michael Magibny, Jas Orielly (James O'Reilly), Hugh Coscary, Peter Coscary, James Leddy, Terence Leddy. With only 8 households in the settlement and a McGivney-O'Reilly marriage nearly inevitable given the pattern, Peter McGivney Sr.'s maternal grandfather was almost certainly James O'Reilly of Creanew. Kilnaleck (the parish's main village) had FOUR Gibney households in the 1828 Tithe Books (Thomas, James, Bryan, Patrick Gibney) — supporting Bridget Gibney (Patrick McGivney Sr.'s mother) as almost certainly from the Kilnaleck Gibney community. Drumkilly (site of St. Joseph's Cemetery, many McGivney graves) had 3 Reilly households in 1828 (Thomas, Michael, John), confirming Reilly as the dominant Catholic family there too."
+    },
+    "16": {
+      "number": 16,
+      "date": "2026-07-03",
+      "title": "A second, different Bryan McGivney found in Drumlornin (Drumloman) 1828 — a third McGivney cluster; John McGivney (Patrick Sr.'s father) still not found in 1828 Tithe Books; comprehensive Reilly picture across 7 townlands",
+      "sourceRefs": [
+        "S95"
+      ],
+      "personRefs": [
+        "bryan-mcgivney-creenow",
+        "john-mcgivney-derrylahan"
+      ],
+      "summary": "A second, DIFFERENT Bryan McGivney is confirmed in Drumlornin (= Drumloman) in the 1828 Tithe Books, distinct from the Creenow Bryan McGivney — meaning Crosserlough Parish had at least THREE McGivney clusters in 1828: Creanew (Bryan+Thomas+Michael), Drumlornin (a different Bryan), and Drumcassidy (Peter+Thomas). By Griffith's Valuation, the Drumlornin Bryan's son James McGivney occupies Drumloman. John McGivney (Patrick Sr.'s father) is NOT found in any of 10+ Crosserlough townlands searched in the 1828 Tithe Books — Derrylahan (his later Griffith's location) was predominantly Protestant/Ulster Scots in 1828, suggesting John moved there as a Catholic tenant sometime between 1828 and 1847, or was too young/a sub-tenant not separately assessed in 1828. Comprehensive 1828 Reilly picture: households confirmed in at least 7 Crosserlough townlands (Creanew, Drumcassidy, Drumkilly, Derrylea, Drumakinneo, Derrylahan, Drumvora)."
+    },
+    "17": {
+      "number": 17,
+      "date": "2026-07-03",
+      "title": "BREAKTHROUGH — Bridget Gibny (age 20, 1821 Kilnaleck census) identified as the strongest candidate for Bridget Gibney, Patrick McGivney Sr.'s mother; four Gibny family clusters enumerated; Reilly families in Kilnaleck 1821 also documented",
+      "sourceRefs": [
+        "S96"
+      ],
+      "personRefs": [
+        "bridget-gibney-mcgivney",
+        "patrick-gibny-kilnaleck"
+      ],
+      "summary": "The 1821 Census for Kilnaleck village (CavanTownlands.ie), Crosserlough Parish, House 11: Patrick Gibny (48, Farmer & Mason, head) + Anne (43, Flax Spinner) + Michael (16) + Thomas (14) + Eliza (22) + Bridget (20, daughter). This Bridget Gibny, born ~1801, is the strongest identified candidate for Bridget Gibney (John McGivney's wife, Patrick McGivney Sr.'s mother) — age math fits: ~27 when Bryan McGivney appears in the 1828 Tithe Books, ~31 when Patrick Sr. was born in 1832. Her father Patrick Gibny (Mason & Farmer) was a respected artisan-farmer, consistent with two established Crosserlough Catholic families intermarrying. Four Gibny family clusters enumerated in Kilnaleck 1821 (Houses 11-14), matching the FOUR Gibney households later seen in the 1828 Tithe Books, confirming continuity. Reilly families also documented in Kilnaleck 1821 (Houses 7, 10, 11, 18) — no McGivney appears in Kilnaleck itself in 1821 (Bryan was in nearby Creanew; John McGivney's 1821 location remains unknown)."
+    },
+    "18": {
+      "number": 18,
+      "date": "2026-07-03",
+      "title": "Complete 1821 NAI (National Archives of Ireland) McGivney/Cavan sweep — all 51 entries are in Annagelliff Parish, NONE in Crosserlough; the NAI digital archive does not contain Crosserlough's surviving 1821 census",
+      "sourceRefs": [
+        "S97"
+      ],
+      "personRefs": [
+        "bryan-mcgivney-creenow"
+      ],
+      "summary": "A full page-by-page enumeration of the National Archives of Ireland's 1821 census database (census.nationalarchives.ie) for surname McGivney + County Cavan returned exactly 51 results across 6 pages — every single one in Annagelliff Parish (Corlurgan, Crumlin, Crubany, Blake, Killagary, Edendeclare, Poles townlands), ZERO in Crosserlough. This means the NAI digital database does NOT contain the Crosserlough census records (held separately; CavanTownlands.ie has at least Kilnaleck townland data). An intriguing but almost certainly unrelated Annagelliff candidate: 'Bernd McGivney (30, Farmer, Crumlin, Annagelliff, 1821)' + wife Mary (28) + daughter Mary (1) — 7 years before Bryan McGivney appears in Creanew, Crosserlough (1828 Tithe Books) and in a different parish ~10-15 miles away; could be the same man before relocating, or an unrelated McGivney family. Annagelliff had at least 5 distinct McGivney household clusters in 1821, suggesting it was a major McGivney stronghold alongside Crosserlough."
+    },
+    "19": {
+      "number": 19,
+      "date": "2026-07-03",
+      "title": "1901+1911 Irish Census, Kilnaleck DED — Drumcassidy McGivney households persist; Kilnaleck Gibney households persist; Drumhee/Drumbee has zero McGivney by 1901, confirming Patrick Sr.'s family fully emigrated by 1850",
+      "sourceRefs": [
+        "S98"
+      ],
+      "personRefs": [
+        "bridget-gibney-mcgivney",
+        "bryan-mcgivney-creenow"
+      ],
+      "summary": "The 1901 Irish Census for the Kilnaleck DED (which contains Crosserlough Parish) shows: Kilnaleck village — 3 Gibney households + 3 McGivney households (one house containing both); Drumcassidy — 3 McGivney households alongside Reilly families; Drumhee (= Drumbee, Patrick McGivney Sr.'s birth townland) — ZERO McGivney by 1901, only Ulster Scots surnames, confirming Patrick's family had fully emigrated by ~1850; Crosserlough townland itself — 39 households, zero McGivney or Gibney. By 1911, Drumcassidy House 4 contains BOTH McGivney and Reilly — the same McGivney-Reilly intermarriage pattern seen across at least 3 generations (1828 Tithe Books through 1911), strongly suggesting Bryan McGivney's Reilly wife reflects a genuine multi-generational intermarriage tradition rather than an isolated case. Kilnaleck Gibney continuity confirmed 1821-1901-1911: the family persisted in the village for 90+ years."
+    },
+    "20": {
+      "number": 20,
+      "date": "2026-07-03",
+      "title": "CavanTownlands.ie Crosserlough Parish database — five McGivney names in Creanew confirmed in BOTH 1828 and 1857; Crosserlough's 1821 census IS held in a separate (non-NAI) database; O'Reilly estate rentals (1815-16) identified as the likely source for the 1827 Bernard-to-Bryan land transfer",
+      "sourceRefs": [
+        "S99"
+      ],
+      "personRefs": [
+        "bryan-mcgivney-creenow"
+      ],
+      "summary": "The CavanTownlands.ie Crosserlough Parish page confirms 29-year continuity: the same five McGivney names (Andrew, Bryan, Michael, Nicholas, Thomas) appear in Creanew in BOTH the 1828 Tithe Applotment Books AND the 1857 Griffith's Valuation, consistent with the 1827 estate record showing Bryan inheriting Bernard McGivney's 27 acres — Bernard's heirs all settled Creanew and remained for at least three decades. Crosserlough's 1821 census DOES survive separately from the NAI digital archive: CavanTownlands.ie holds ~80,000 individual records across 17 of County Cavan's 36 civil parishes including Crosserlough, taken 28 May 1821, with a published index (Crosserlough Census Index 1821, Marie Keogh, 2000). O'Reilly estate rentals from 1815-1816 are identified as covering Crosserlough Parish, making the O'Reilly estate the prime candidate source for the 1827 Bernard-to-Bryan McGivney land transfer record — if Bernard appears in the 1815-1816 rental, it would place him in Creanew a full decade before the Tithe Books and confirm him as patriarch of all 5 Creanew McGivneys."
+    },
+    "21": {
+      "number": 21,
+      "date": "2026-07-03",
+      "title": "Malone NY St. Joseph Cemetery tombstones — Andrew McGivney d.1862 confirmed 'Natives of Co. Caven Ireland'; Patrick McGivney (b.~1782) + Bridget Lynch identified as parents of Nicholas McGivney (b.~1820); Bernard-vs-Patrick 1827 discrepancy discussed",
+      "sourceRefs": [
+        "S100"
+      ],
+      "personRefs": [
+        "andrew-mcgivney-b1801-malone",
+        "patrick-mcgivney-b1782",
+        "bridget-lynch-malone",
+        "nicholas-mcgivney-b1820-malone",
+        "catherine-mccabe-mcgivney"
+      ],
+      "summary": "St. Joseph's Cemetery, Section 5, Malone, Franklin County NY contains the tombstone of Andrew McGivney (d.Mar 23 1862, age 62) + wife Catherine (d.Jun 9 1891, age 88), inscribed 'Natives of Co. Caven Ireland' — confirming both as the Malone NY branch of the Creanew McGivney family. In the same lot: Patrick McGivney (d.May 4 1862, age 23), Andrew's son, a Union soldier (Co. C, 98th NY Volunteers) who died the same year as his father. A separate stone in the same section records Patrick McGivney (d.Jan 26 1857, age 75) + wife Bridget Lynch (d.Jan 20 1879, age 86), with additional family: daughters Catherine (d.1846) and Bridget (1837-1911), and son Nicholas McGivney (d.Dec 6 1905, age 85) + wife Ann (d.Dec 17 1909). Since Nicholas (b.~1820) is one of the FIVE Creanew McGivneys (Andrew, Bryan, Michael, Nicholas, Thomas), this makes Patrick (b.~1782) the probable FATHER of the Creanew Nicholas — and possibly of all five. Bernard-vs-Patrick discrepancy discussed: two competing hypotheses for the 1827 Creanew estate record's 'Bernard' (either Patrick's own church-warden nickname 'Barney,' or Patrick's own father) remain unresolved."
+    },
     "22": {
       "number": 22,
       "date": "2026-07-03",
@@ -4228,21 +5760,52 @@
       ],
       "summary": "CT Death Index confirms James T. Relihan d.Sep 10 1946 Derby CT and re-confirms Maurice Relihan d.Aug 2 1921 Shelton CT. Priority target for Sub-chain C documentary proof: James T.'s Sep 1946 Evening Sentinel obituary (Derby Public Library microfilm or GenealogyBank subscription; not in free LNV archive, which only covers through Jan 1931)."
     },
-    "5-pinned-alert": {
-      "number": 5,
-      "date": "2026-07-02",
-      "title": "CONFIRMED — Branch Merge DISPROVEN — Two Separate John Relihans (pinned alert box, sits above Part 43 in the live Overview tab)",
+    "1-addendum-jul1": {
+      "number": 1,
+      "date": "2026-07-01",
+      "title": "Jul 1 2026 (S66-S68) — un-numbered session immediately following Part 1: Donald J. Irwin confirmed, O'Connell branch (Joseph R. Relihan's parents) confirmed, PROBABLE BRANCH MERGER hypothesis first raised (Maurice Relihan's 1910 census household)",
       "sourceRefs": [
-        "S78",
-        "S79"
+        "S66",
+        "S67",
+        "S68"
+      ],
+      "personRefs": [
+        "tpr-4",
+        "tpr-cg0-3",
+        "tpr-cg0-2",
+        "tpr-2"
+      ],
+      "summary": "Un-numbered content in the source (no 'Part N' label; sits between the Jun 30 session and the numbered Part 2). Business & Property tab added. Donald Jay Irwin confirmed (Yale Law 1954, CT Congressman 4th District 1959-61 & 1965-69, KofC member, b.Sep 7 1926, d.Jul 7 2013) as the probable 'Irwin' of 'Relihan & Irwin.' O'Connell branch confirmed: Joseph R. Relihan's parents = James T. Relihan + Mary O'Connell Relihan; O'Connell flagged as a McGivney-side bridge surname. PROBABLE BRANCH MERGER first raised: the 1910 Census (image from Betsy Relihan Gross) shows Maurice Relihan + Mary Dolan household, Derby CT, with 4 children: Mary A. (~1891), John (~1892), Helen (~1894, confirmed = Helen R. Relihan), James (~1895). James T. Relihan is almost certainly this 'James.' If also 'John' (~1892) = John R. Relihan Sr. (Dooley/Duley branch), all Relihan research branches descend from Maurice Relihan (b.1856 County Kerry) — this is the hypothesis that drives most of Parts 2-42's research."
+    },
+    "2-pinned-pedigree": {
+      "number": 2,
+      "date": "2026-07-02",
+      "title": "Pedigree Tables added to index.html (replacing tree.html D3 chart); McNamara + Kelly branches merged into the Dooley-branch tree per 'combine whenever common name' rule; O'Connell branch re-confirmed (Derby CT geography)",
+      "sourceRefs": [
+        "S67",
+        "S69"
       ],
       "personRefs": [
         "tpr-2",
-        "grant-8",
-        "mcn-2"
+        "mcn-2",
+        "senator-john-j-relihan-jr"
       ],
-      "summary": "DISPROVEN: the 'one man, two marriages' hypothesis for John Relihan is disproven by (1) CT Marriage Index 1897-2001 shows the ONLY John Relihan CT marriage is John + Mabel McNamara Sep 15 1926 Bridgeport -- no John Relihan + Ann Dooley/Duley CT marriage exists; (2) Mabel McNamara Relihan lived until Dec 12 1987, spanning the entire 1927-1934 birth window of the Dooley-branch children, so she cannot be their mother. CONFIRMED: two different men named John (J.) Relihan in Bridgeport CT — (A) John Relihan Sr. (Dooley branch) + Ann Dooley/Duley -> Sen. John Jr., Edward, Thomas P., Ann Lang, Margaret Mellott; (B) John J. Relihan Sr. (McNamara branch) + Mabel McNamara -> Joan, Sally Kelly, Ann Louise Martini, John Jr. AZ. Both families sent daughters to Lauralton Hall, suggesting they knew each other as relatives (brothers or cousins) despite being distinct households.",
-      "note": "This alert box is pinned above the Part 43 entry in the live Overview tab and was read incidentally while mining Parts 22-43; it is NOT part of the Part 22-43 numbered range and Parts 1-21 (where Part 5 itself lives) remain unmined for Night 3."
+      "summary": "A second, distinct session is also labeled 'Part 2' in the source (dated Jul 2 2026, pinned near the top of the live Overview tab above Part 43 — a duplicate/inconsistent label from the site's own numbering, not a Night-3 error; recorded here under a disambiguating key rather than silently overwritten). Four pedigree tables added to index.html: (1) Grant's direct ancestor chain; (2) John Relihan Sr. — all children, Dooley/Duley + McNamara branches merged; (3) Maurice Relihan's children showing all CT branches at one level; (4) McGivney family. McNamara + Kelly branches were merged per the user's stated rule 'combine whenever common name': John J. Relihan Sr. (Fairfield CT, wife Mabel McNamara) was at this point treated as the SAME PERSON as John Relihan Sr. (Bridgeport CT, wife Ann Duley) under a since-DISPROVEN two-marriages hypothesis (disproven at Part 5 — see mcn-2/tpr-2 facts). O'Connell branch re-confirmed: James M. Relihan b.Aug 19 1927 Derby CT — strong geographic evidence for the O'Connell branch (James T. Relihan) as Maurice Relihan's son."
+    },
+    "2-addendum-jul2": {
+      "number": 2,
+      "date": "2026-07-02",
+      "title": "Jul 2 2026 (S75-S77) — un-numbered session: Rosanna McGivney Finn's 9 children fully documented; Fairfield Prep In Memoriam confirms 4 Relihan/Finn alumni; Rev. Vincent Finn's 1924-27 Derby CT posting confirmed",
+      "sourceRefs": [
+        "S75",
+        "S76",
+        "S77"
+      ],
+      "personRefs": [
+        "mcgivney_family-cg0-2",
+        "senator-john-j-relihan-jr"
+      ],
+      "summary": "Un-numbered content in the source (no 'Part N' label; sits between the numbered Part 3 and Part 2). Rosanna Frances McGivney Finn's 9 children fully documented via WikiTree McGivney-111 (S75): Joseph Patrick, John William, Edward James Jr., Msgr. Leo M. Finn (KofC Supreme Chaplain 1939-60), Anna C., Fr. Francis James Finn, Dr. Alfred Joseph Finn, Fr. Vincent Edward Finn, Zita M. Finn Burns — 3 of 9 were priests. Fairfield Prep In Memoriam confirms 4 Relihan/Finn alumni (S76): John R. Finn ('46) and Senator John J. Relihan Jr. ('46) were classmates; Joe R. Relihan ('47); a previously-unknown John J. Relihan ('58, later identified as the McNamara-branch AZ grandson). Rev. Vincent Finn (Rosanna's son, McGivney's grand-nephew) served as Assistant Pastor at St. Mary's Church, Derby CT 1924-1927 (S77) — the same parish where Helen Relihan married Peter George McGivney in June 1921, the closest social-proximity overlap yet found between the two families."
     }
   }
 }
