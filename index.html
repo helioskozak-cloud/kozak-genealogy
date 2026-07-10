@@ -203,6 +203,7 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
   <button class="tab-btn" onclick="switchTab('sources',this)">Sources</button>
   <button class="tab-btn" onclick="switchTab('queue',this)">Search Queue</button>
   <button class="tab-btn" onclick="switchTab('business',this)">Business &amp; Property</button>
+  <button class="tab-btn" onclick="switchTab('graph',this);setTimeout(function(){if(typeof fitGraphOnShow==='function')fitGraphOnShow();},50)">Graph (Beta)</button>
 </nav>
 
 <!-- ════════════════════════════ OVERVIEW ════════════════════════════ -->
@@ -2169,6 +2170,241 @@ if(window.visualViewport) window.visualViewport.addEventListener('resize', fitAl
   </div>
 
 </div>
+</div>
+
+<!-- ════════════════════════════ UNIFIED GRAPH (BETA / NIGHT 4 WIP) ════════════════════════════ -->
+<div id="tab-graph" class="tab-panel">
+<div class="sec">
+  <div class="sec-title">Unified Graph <span class="badge bp">Beta — Night 4 WIP</span></div>
+  <div class="sec-sub">One connected node/edge graph built live from <code>data/family.json</code> — replaces the 4 separate ahnentafel pedigree trees on the Pedigree tab with a single force-directed layout covering every person record (persons + child-group entries + prose-mined people). Deliberately unstyled: card design and the two-tier hover/click pop-out are Night 5 work. Click a node for a bare-bones detail panel. Drag nodes to de-overlap; scroll/drag the canvas to zoom/pan.</div>
+  <div style="display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 14px;font-size:.72rem;color:#64748b;align-items:center">
+    <span><span style="display:inline-block;width:20px;border-top:2px solid #94a3b8;vertical-align:middle;margin-right:5px"></span>parent / child</span>
+    <span><span style="display:inline-block;width:20px;border-top:2px dashed #7e22ce;vertical-align:middle;margin-right:5px"></span>spouse</span>
+    <span><span style="display:inline-block;width:20px;border-top:2px dashed #dc2626;vertical-align:middle;margin-right:5px"></span>disproven-link</span>
+    <span><span style="display:inline-block;width:20px;border-top:2px dotted #cbd5e1;vertical-align:middle;margin-right:5px"></span>same-person (duplicate node across trees, not yet merged in the data)</span>
+    <span><span style="display:inline-block;width:9px;height:9px;border-radius:50%;border:1.8px dashed #d97706;vertical-align:middle;margin-right:5px"></span>probable / unconfirmed</span>
+  </div>
+  <div id="graph-status" style="font-size:.78rem;color:#94a3b8;margin-bottom:8px">Loading data/family.json…</div>
+  <svg id="graph-svg" style="width:100%;height:78vh;background:#f8f9fb;border:1px solid #e2e8f0;border-radius:8px;cursor:grab;display:block"></svg>
+</div>
+
+<div id="gpanel" style="position:fixed;top:56px;right:12px;width:284px;background:#fff;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;font-size:.76rem;display:none;box-shadow:0 4px 24px rgba(0,0,0,.12);z-index:200;max-height:calc(100vh - 80px);overflow-y:auto">
+  <div id="gpx" style="position:absolute;top:10px;right:11px;cursor:pointer;color:#94a3b8;font-size:.95rem">&#x2715;</div>
+  <div id="gpn" style="font-weight:700;font-size:.9rem;margin-bottom:3px;padding-right:22px;line-height:1.3"></div>
+  <div id="gpr" style="font-size:.66rem;color:#7e22ce;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:9px"></div>
+  <div id="gpb"></div>
+</div>
+
+<script>
+(function(){
+// ═══════════════════════════════════════════════════════════════
+//  UNIFIED GRAPH — Night 4: replace the 4 disconnected ahnentafel
+//  trees with one connected node/edge graph read from family.json.
+// ═══════════════════════════════════════════════════════════════
+
+function showGraphPanel(node){
+  document.getElementById('gpn').textContent = node.name;
+  document.getElementById('gpr').textContent = (node.relation || node.kind || '') + (node.prob ? ' ⚠ Probable' : '');
+  var html = '';
+  (node.facts || []).forEach(function(f){
+    html += '<div class="prow"><span class="plbl">' + f[0] + '</span><span>' + f[1] + '</span></div>';
+  });
+  document.getElementById('gpb').innerHTML = html;
+  document.getElementById('gpanel').style.display = 'block';
+}
+document.getElementById('gpx').onclick = function(){ document.getElementById('gpanel').style.display = 'none'; };
+
+// mcgivney_family persons[4] (Patrick McGivney Sr.) and persons[5] (Mary Lynch) are
+// explicitly "SHOWN IN LAYOUT SLOT ONLY" in the source BRANCHES data (index.html,
+// mcgivney_family persons 4/5 POSITION NOTE) — Patrick is Peter Sr.'s first cousin,
+// not his father, per S121. Suppress the auto-derived ahnentafel parent edges for
+// those two slots; the real relationships are added explicitly via EXTRA_EDGES below.
+var SUPPRESS_PARENT = { 'mcgivney_family:2': [4, 5] };
+
+// data/family.json does not yet store structured persons[].relations{} (Nights 1-3
+// preserved the original ahnentafel sourceKey/childGroupInfo shape rather than the
+// relations{} schema in PRESENTATION_REDESIGN_PLAN.md section 4 — flagged as a
+// follow-up). These cross-tree/cross-kind edges are hand-verified against the
+// relation/facts text already in family.json (source S-numbers in comments) so the
+// four former BRANCHES trees, plus the prose-mined McGivney-Ireland lineage, render
+// as one connected graph instead of four islands.
+var EXTRA_EDGES = [
+  ['bryan-mcgivney-creenow', 'mcgivney_family-2', 'parent-child'],        // S120: Bryan = Peter Sr.'s confirmed father
+  ['john-mcgivney-derrylahan', 'mcgivney_family-4', 'parent-child'],      // S121: John = Patrick Sr.'s confirmed father
+  ['bridget-gibney-mcgivney', 'mcgivney_family-4', 'parent-child'],       // S121: Bridget Gibney = Patrick Sr.'s confirmed mother
+  ['john-mcgivney-derrylahan', 'bridget-gibney-mcgivney', 'spouse'],
+  ['patrick-mcgivney-b1782', 'andrew-mcgivney-b1801-malone', 'parent-child'],
+  ['nicholas-mcgivney-b1760', 'patrick-mcgivney-b1782', 'parent-child'],
+  ['andrew-mcgivney-b1801-malone', 'bernard-mcgivney-b1830-malone', 'parent-child'],
+  ['patrick-mcgivney-b1782', 'nicholas-mcgivney-b1820-malone', 'parent-child'],
+  ['bridget-lynch-malone', 'nicholas-mcgivney-b1820-malone', 'parent-child'],
+  ['patrick-mcgivney-b1782', 'bridget-lynch-malone', 'spouse'],
+  ['andrew-mcgivney-b1801-malone', 'catherine-mccabe-mcgivney', 'spouse'],
+  ['patrick-gibny-kilnaleck', 'bridget-gibney-mcgivney', 'parent-child', true],   // text says "Probable father"
+  ['patrick-mcgivney-b1782', 'bryan-mcgivney-creenow', 'parent-child', true],     // text says "hypothetically"
+  ['tpr-2', 'senator-john-j-relihan-jr', 'parent-child'],
+  ['tpr-3', 'senator-john-j-relihan-jr', 'parent-child'],
+  ['tpr-2', 'edward-a-relihan', 'parent-child'],
+  ['tpr-3', 'edward-a-relihan', 'parent-child'],
+  ['tpr-2', 'ann-relihan-lang', 'parent-child'],
+  ['tpr-3', 'ann-relihan-lang', 'parent-child'],
+  ['tpr-2', 'margaret-relihan-mellott', 'parent-child'],
+  ['tpr-3', 'margaret-relihan-mellott', 'parent-child'],
+  ['edward-a-relihan', 'sean-relihan', 'parent-child', true],             // text says "Probable son ... UNCONFIRMED"
+  ['mcgivney_family-1', 'tpr-cg0-2', 'spouse'],                           // Peter George McGivney m. Helen R. Relihan 1921 — bridges mcgivney_family <-> tpr
+  ['tpr-2', 'mcn-2', 'disproven-link'],                                   // "one man, two marriages" DISPROVEN Jul 2 2026 (S78/S79) — bridges tpr <-> mcn
+  ['mcgivney_family-2', 'mcgivney_family-4', 'disproven-link'],           // sibling hypothesis DISPROVEN Jul 5 2026 (S121)
+  ['grant-4', 'tpr-1', 'same-person'],                                   // Thomas P. Relihan — duplicate node, grant tree vs tpr tree
+  ['grant-8', 'tpr-2', 'same-person']                                    // John Relihan Sr. — duplicate node, grant tree vs tpr tree
+];
+
+var EDGE_STYLE = {
+  'parent-child':   { stroke: '#94a3b8', dash: null,    width: 1.4 },
+  'spouse':         { stroke: '#7e22ce', dash: '4,3',   width: 1.4 },
+  'disproven-link': { stroke: '#dc2626', dash: '2,3',   width: 2   },
+  'same-person':    { stroke: '#cbd5e1', dash: '1,3',   width: 1   }
+};
+var BRANCH_CLR = { kozak: '#15803d', rel: '#7e22ce', shom: '#0369a1', mcg: '#be185d', other: '#94a3b8' };
+function colorOf(n){ return n.prob ? '#d97706' : (BRANCH_CLR[n.branch] || BRANCH_CLR.other); }
+
+var lastNodes = null, zoomBehavior = null, sim = null;
+
+function fitGraph(nodes){
+  var svgEl = document.getElementById('graph-svg');
+  if (!svgEl || !nodes.length || !zoomBehavior) return;
+  var xs = nodes.map(function(n){ return n.x; }), ys = nodes.map(function(n){ return n.y; });
+  var minX = Math.min.apply(null, xs), maxX = Math.max.apply(null, xs);
+  var minY = Math.min.apply(null, ys), maxY = Math.max.apply(null, ys);
+  var w = svgEl.getBoundingClientRect().width || 1200, h = svgEl.getBoundingClientRect().height || 700;
+  var gw = Math.max(1, maxX - minX + 80), gh = Math.max(1, maxY - minY + 80);
+  var s = Math.min(w / gw, h / gh, 1.4);
+  var tx = w / 2 - s * (minX + maxX) / 2, ty = h / 2 - s * (minY + maxY) / 2;
+  d3.select('#graph-svg').call(zoomBehavior.transform, d3.zoomIdentity.translate(tx, ty).scale(s));
+}
+window.fitGraphOnShow = function(){ if (lastNodes) fitGraph(lastNodes); };
+
+function renderGraph(nodes, edges){
+  var svg = d3.select('#graph-svg');
+  var svgEl = svg.node();
+  var W = svgEl.getBoundingClientRect().width || 1200;
+  var H = svgEl.getBoundingClientRect().height || 700;
+  var SC = svg.append('g');
+  zoomBehavior = d3.zoom().scaleExtent([0.1, 5]).on('zoom', function(e){ SC.attr('transform', e.transform); });
+  svg.call(zoomBehavior);
+
+  var linkForce = d3.forceLink(edges).id(function(d){ return d.id; })
+    .distance(function(e){ return e.type === 'spouse' ? 46 : (e.type === 'same-person' ? 30 : 74); })
+    .strength(function(e){ return e.type === 'disproven-link' ? 0.15 : 0.5; });
+
+  sim = d3.forceSimulation(nodes)
+    .force('link', linkForce)
+    .force('charge', d3.forceManyBody().strength(-190))
+    .force('collide', d3.forceCollide(38))
+    .force('center', d3.forceCenter(W / 2, H / 2))
+    .stop();
+  for (var i = 0; i < 400; i++) sim.tick();
+
+  var linkSel = SC.append('g').selectAll('line').data(edges).enter().append('line')
+    .attr('x1', function(d){ return d.source.x; }).attr('y1', function(d){ return d.source.y; })
+    .attr('x2', function(d){ return d.target.x; }).attr('y2', function(d){ return d.target.y; })
+    .attr('stroke', function(d){ return EDGE_STYLE[d.type].stroke; })
+    .attr('stroke-width', function(d){ return EDGE_STYLE[d.type].width; })
+    .attr('stroke-dasharray', function(d){ return EDGE_STYLE[d.type].dash; })
+    .attr('opacity', function(d){ return d.prob ? 0.55 : 0.9; });
+
+  function tick(){
+    linkSel.attr('x1', function(d){ return d.source.x; }).attr('y1', function(d){ return d.source.y; })
+      .attr('x2', function(d){ return d.target.x; }).attr('y2', function(d){ return d.target.y; });
+    nodeG.attr('transform', function(d){ return 'translate(' + d.x + ',' + d.y + ')'; });
+  }
+
+  var nodeG = SC.append('g').selectAll('g').data(nodes).enter().append('g')
+    .attr('transform', function(d){ return 'translate(' + d.x + ',' + d.y + ')'; })
+    .style('cursor', 'pointer')
+    .call(d3.drag()
+      .on('start', function(e, d){ if (!e.active) sim.alphaTarget(0.1).restart(); d.fx = d.x; d.fy = d.y; })
+      .on('drag', function(e, d){ d.fx = e.x; d.fy = e.y; tick(); })
+      .on('end', function(e, d){ if (!e.active) sim.alphaTarget(0); }))
+    .on('click', function(e, d){ showGraphPanel(d); });
+
+  nodeG.append('circle').attr('r', 9)
+    .attr('fill', function(d){ return colorOf(d); })
+    .attr('fill-opacity', 0.18)
+    .attr('stroke', function(d){ return colorOf(d); })
+    .attr('stroke-width', 1.8)
+    .attr('stroke-dasharray', function(d){ return d.prob ? '3,2' : null; });
+
+  nodeG.append('text').attr('y', 20).attr('text-anchor', 'middle')
+    .attr('font-size', 8.5).attr('font-family', 'system-ui,sans-serif').attr('fill', '#334155')
+    .text(function(d){ return d.name.length > 22 ? d.name.slice(0, 21) + '…' : d.name; });
+
+  sim.on('tick', tick);
+  lastNodes = nodes;
+  fitGraph(nodes);
+}
+
+fetch('data/family.json').then(function(r){ return r.json(); }).then(function(data){
+  var personsById = data.persons;
+  var nodes = Object.keys(personsById).map(function(id){
+    var p = personsById[id];
+    return { id: id, name: p.name, branch: p.branch, prob: p.prob, kind: p.kind, relation: p.relation, note: p.note, facts: p.facts, confirm: p.confirm };
+  });
+  var nodeIndex = {};
+  nodes.forEach(function(n){ nodeIndex[n.id] = n; });
+
+  var edges = [];
+  function addEdge(s, t, type, prob){
+    if (!nodeIndex[s] || !nodeIndex[t]) return;
+    edges.push({ source: s, target: t, type: type, prob: !!prob });
+  }
+
+  // Group kind:'persons' entries by sourceTree/sourceKey to derive ahnentafel
+  // parent/child + spouse edges (father=2k, mother=2k+1, and father+mother are a couple).
+  var byTree = {};
+  Object.keys(personsById).forEach(function(id){
+    var p = personsById[id];
+    if (p.kind !== 'persons' || typeof p.sourceKey !== 'number') return;
+    byTree[p.sourceTree] = byTree[p.sourceTree] || {};
+    byTree[p.sourceTree][p.sourceKey] = id;
+  });
+  Object.keys(byTree).forEach(function(tree){
+    var slots = byTree[tree];
+    Object.keys(slots).forEach(function(ks){
+      var k = +ks, childId = slots[k];
+      var fatherK = 2 * k, motherK = 2 * k + 1;
+      var suppressed = SUPPRESS_PARENT[tree + ':' + k] || [];
+      var fatherId = suppressed.indexOf(fatherK) === -1 ? slots[fatherK] : null;
+      var motherId = suppressed.indexOf(motherK) === -1 ? slots[motherK] : null;
+      if (fatherId) addEdge(fatherId, childId, 'parent-child');
+      if (motherId) addEdge(motherId, childId, 'parent-child');
+      if (slots[fatherK] && slots[motherK]) addEdge(slots[fatherK], slots[motherK], 'spouse');
+    });
+  });
+
+  // childGroup entries -> parent-child edge back to their ahnentafel-slot parent.
+  Object.keys(personsById).forEach(function(id){
+    var p = personsById[id];
+    if (p.kind !== 'childGroup' || !p.childGroupInfo) return;
+    var parentId = byTree[p.sourceTree] && byTree[p.sourceTree][p.childGroupInfo.parentKey];
+    if (parentId) addEdge(parentId, id, 'parent-child');
+  });
+
+  EXTRA_EDGES.forEach(function(e){ addEdge(e[0], e[1], e[2], e[3]); });
+
+  var orphans = nodes.filter(function(n){
+    return !edges.some(function(e){ return e.source === n.id || e.target === n.id; });
+  });
+  document.getElementById('graph-status').textContent =
+    nodes.length + ' persons · ' + edges.length + ' edges' +
+    (orphans.length ? ' · ' + orphans.length + ' unconnected: ' + orphans.map(function(n){ return n.name; }).join(', ') : ' · fully connected');
+
+  renderGraph(nodes, edges);
+}).catch(function(err){
+  document.getElementById('graph-status').textContent = 'Failed to load data/family.json: ' + err;
+});
+
+})();
+</script>
 </div>
 
 <script>
