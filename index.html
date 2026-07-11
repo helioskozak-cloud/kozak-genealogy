@@ -2421,7 +2421,7 @@ function fitGraph(nodes){
   var minX = Math.min.apply(null, xs), maxX = Math.max.apply(null, xs);
   var minY = Math.min.apply(null, ys), maxY = Math.max.apply(null, ys);
   var w = svgEl.getBoundingClientRect().width || 1200, h = svgEl.getBoundingClientRect().height || 700;
-  var gw = Math.max(1, maxX - minX + 80), gh = Math.max(1, maxY - minY + 80);
+  var gw = Math.max(1, maxX - minX + 120), gh = Math.max(1, maxY - minY + 120);
   var s = Math.min(w / gw, h / gh, 1.4);
   var tx = w / 2 - s * (minX + maxX) / 2, ty = h / 2 - s * (minY + maxY) / 2;
   d3.select('#graph-svg').call(zoomBehavior.transform, d3.zoomIdentity.translate(tx, ty).scale(s));
@@ -2437,17 +2437,49 @@ function renderGraph(nodes, edges){
   zoomBehavior = d3.zoom().scaleExtent([0.1, 5]).on('zoom', function(e){ SC.attr('transform', e.transform); });
   svg.call(zoomBehavior);
 
+  // Nodes with zero edges (see `orphans` in the fetch callback below) have
+  // nothing pulling them toward the cluster -- only forceManyBody repulsion
+  // acts on them, and forceCenter is a rigid whole-graph translate rather than
+  // a per-node spring, so nothing brings a drifting orphan back. Over enough
+  // ticks they can end up hundreds/thousands of px from the connected
+  // cluster, which blows out fitGraph's bounding box and shrinks the entire
+  // graph to a speck in a sea of white space. Fix: run the physics sim only
+  // on connected nodes, then pin orphans at a fixed offset just outside the
+  // *actual* post-simulation cluster bounding box -- close enough that the
+  // auto-fit view stays tight, far enough to read as clearly set apart.
+  var connectedIds = {};
+  edges.forEach(function(e){ connectedIds[e.source] = true; connectedIds[e.target] = true; });
+  var simNodes = nodes.filter(function(n){ return connectedIds[n.id]; });
+  var orphanNodes = nodes.filter(function(n){ return !connectedIds[n.id]; });
+
   var linkForce = d3.forceLink(edges).id(function(d){ return d.id; })
-    .distance(function(e){ return e.type === 'spouse' ? 56 : (e.type === 'same-person' ? 36 : 90); })
+    .distance(function(e){ return e.type === 'spouse' ? 62 : (e.type === 'same-person' ? 38 : 100); })
     .strength(function(e){ return e.type === 'disproven-link' ? 0.15 : 0.5; });
 
-  sim = d3.forceSimulation(nodes)
+  // Settle the connected cluster on its own first (orphans excluded so they
+  // can't perturb the cluster's charge/collide balance), THEN fold the
+  // pinned orphans back in via sim.nodes() so the one canonical `sim`
+  // instance still drives their dragging/collision like every other card —
+  // splitting into two separate simulation objects would lose the alpha
+  // decay accumulated here and reintroduce a jump on the user's first drag.
+  sim = d3.forceSimulation(simNodes)
     .force('link', linkForce)
-    .force('charge', d3.forceManyBody().strength(-220))
-    .force('collide', d3.forceCollide(52))
+    .force('charge', d3.forceManyBody().strength(-300))
+    .force('collide', d3.forceCollide(58))
     .force('center', d3.forceCenter(W / 2, H / 2))
     .stop();
   for (var i = 0; i < 400; i++) sim.tick();
+
+  if (orphanNodes.length) {
+    var cxs = simNodes.map(function(n){ return n.x; }), cys = simNodes.map(function(n){ return n.y; });
+    var clusterMaxX = cxs.length ? Math.max.apply(null, cxs) : W / 2;
+    var clusterMinY = cys.length ? Math.min.apply(null, cys) : H / 2;
+    orphanNodes.forEach(function(n, idx){
+      n.x = n.fx = clusterMaxX + 160;
+      n.y = n.fy = clusterMinY + idx * 70;
+    });
+    sim.nodes(nodes);
+  }
 
   var linkSel = SC.append('g').selectAll('line').data(edges).enter().append('line')
     .attr('x1', function(d){ return d.source.x; }).attr('y1', function(d){ return d.source.y; })
