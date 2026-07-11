@@ -710,16 +710,18 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
 .plbl{font-weight:700;color:#94a3b8;min-width:52px;flex-shrink:0;font-size:.63rem;text-transform:uppercase;padding-top:2px}
 .px{position:absolute;top:10px;right:11px;cursor:pointer;color:#94a3b8;font-size:.95rem}
 .px:hover{color:#0f172a}
-#panel .cbar{display:block;margin:10px 0 4px;padding:8px 10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:7px}
+#panel .cbar,#gpanel .cbar{display:block;margin:10px 0 4px;padding:8px 10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:7px}
 .cbar-q{font-size:.7rem;font-weight:600;color:#475569;margin-bottom:6px;line-height:1.4}
 .cbar-btns{display:flex;gap:5px;flex-wrap:wrap}
-#panel .cbar-btn{font-size:.64rem;font-weight:700;padding:3px 9px;border-radius:5px;border:1.5px solid;cursor:pointer;transition:.1s}
-#panel .cbar-btn-y{background:#f0fdf4;border-color:#22c55e;color:#15803d}
-#panel .cbar-btn-y:hover,#panel .cbar-btn-y.active{background:#22c55e;color:#fff}
-#panel .cbar-btn-n{background:#fef2f2;border-color:#dc2626;color:#991b1b}
-#panel .cbar-btn-n:hover,#panel .cbar-btn-n.active{background:#dc2626;color:#fff}
-#panel .cbar-btn-u{background:#f1f5f9;border-color:#94a3b8;color:#475569}
-#panel .cbar-btn-u:hover,#panel .cbar-btn-u.active{background:#94a3b8;color:#fff}
+#panel .cbar-btn,#gpanel .cbar-btn{font-size:.64rem;font-weight:700;padding:3px 9px;border-radius:5px;border:1.5px solid;cursor:pointer;transition:.1s}
+#panel .cbar-btn-y,#gpanel .cbar-btn-y{background:#f0fdf4;border-color:#22c55e;color:#15803d}
+#panel .cbar-btn-y:hover,#panel .cbar-btn-y.active,#gpanel .cbar-btn-y:hover,#gpanel .cbar-btn-y.active{background:#22c55e;color:#fff}
+#panel .cbar-btn-n,#gpanel .cbar-btn-n{background:#fef2f2;border-color:#dc2626;color:#991b1b}
+#panel .cbar-btn-n:hover,#panel .cbar-btn-n.active,#gpanel .cbar-btn-n:hover,#gpanel .cbar-btn-n.active{background:#dc2626;color:#fff}
+#panel .cbar-btn-u,#gpanel .cbar-btn-u{background:#f1f5f9;border-color:#94a3b8;color:#475569}
+#panel .cbar-btn-u:hover,#panel .cbar-btn-u.active,#gpanel .cbar-btn-u:hover,#gpanel .cbar-btn-u.active{background:#94a3b8;color:#fff}
+#gpanel{position:fixed;top:56px;right:12px;width:284px;background:#fff;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;font-size:.76rem;display:none;box-shadow:0 4px 24px rgba(0,0,0,.12);z-index:200;max-height:calc(100vh - 80px);overflow-y:auto}
+#gtip{position:fixed;display:none;z-index:300;background:#fff;color:#334155;padding:7px 10px;border:1.5px solid #e2e8f0;border-radius:7px;font-size:.68rem;line-height:1.55;max-width:230px;box-shadow:0 4px 16px rgba(0,0,0,.14);pointer-events:none}
 .cbar-saved{font-size:.63rem;color:#94a3b8;font-style:italic;margin-top:4px}
 .cbar-input{width:100%;margin-top:5px;font-size:.71rem;padding:4px 8px;border:1px solid #cbd5e1;border-radius:5px}
 .desc-fam{padding:12px 16px 16px;background:#fdf4ff;border-top:2px solid #e9d5ff}
@@ -1096,14 +1098,21 @@ document.addEventListener('DOMContentLoaded',function(){
 
 // ═══════════════════════════════════════════════════════════════
 //  DETAIL PANEL
+//  renderDetailPanel() is the generalized core: it fills a panel's
+//  name/relation/facts/cbar from a person-shaped object into whatever
+//  DOM ids are passed in cfg. showPanel() (Pedigree tab, #panel) and
+//  showGraphPanel() (Graph tab, #gpanel) both call it, adding their
+//  own optional extra.sourcesHtml / extra.partsHtml sections.
 // ═══════════════════════════════════════════════════════════════
-function showPanel(person){
-  document.getElementById('pn').textContent=person.name;
-  document.getElementById('pr').textContent=person.relation+(person.prob?' ⚠ Probable':'');
+function renderDetailPanel(cfg,person,extra){
+  document.getElementById(cfg.name).textContent=person.name;
+  document.getElementById(cfg.rel).textContent=(person.relation||person.kind||'')+(person.prob?' ⚠ Probable':'');
   var html='';
   (person.facts||[]).forEach(function(f){
     html+='<div class="prow"><span class="plbl">'+f[0]+'</span><span>'+f[1]+'</span></div>';
   });
+  if(extra&&extra.sourcesHtml)html+=extra.sourcesHtml;
+  if(extra&&extra.partsHtml)html+=extra.partsHtml;
   if(person.confirm){
     var c=person.confirm; var e=cbGet()[c.id]||{}; var st=e.status||'';
     html+='<div class="cbar" id="cbar-'+c.id+'">'
@@ -1117,8 +1126,11 @@ function showPanel(person){
       +'<div class="cbar-saved" id="cbsaved-'+c.id+'">'+(e.note?'Saved: "'+e.note+'"':(st?'Saved '+e.saved:''))+'</div>'
       +'</div>';
   }
-  document.getElementById('pb').innerHTML=html;
-  document.getElementById('panel').style.display='block';
+  document.getElementById(cfg.body).innerHTML=html;
+  document.getElementById(cfg.panel).style.display='block';
+}
+function showPanel(person){
+  renderDetailPanel({panel:'panel',name:'pn',rel:'pr',body:'pb'},person);
 }
 document.getElementById('px').onclick=function(){document.getElementById('panel').style.display='none';};
 
@@ -2175,25 +2187,26 @@ if(window.visualViewport) window.visualViewport.addEventListener('resize', fitAl
 <!-- ════════════════════════════ UNIFIED GRAPH (BETA / NIGHT 4 WIP) ════════════════════════════ -->
 <div id="tab-graph" class="tab-panel">
 <div class="sec">
-  <div class="sec-title">Unified Graph <span class="badge bp">Beta — Night 4 WIP</span></div>
-  <div class="sec-sub">One connected node/edge graph built live from <code>data/family.json</code> — replaces the 4 separate ahnentafel pedigree trees on the Pedigree tab with a single force-directed layout covering every person record (persons + child-group entries + prose-mined people). Deliberately unstyled: card design and the two-tier hover/click pop-out are Night 5 work. Click a node for a bare-bones detail panel. Drag nodes to de-overlap; scroll/drag the canvas to zoom/pan.</div>
+  <div class="sec-title">Unified Graph <span class="badge bp">Beta — Night 5</span></div>
+  <div class="sec-sub">One connected node/edge graph built live from <code>data/family.json</code> — replaces the 4 separate ahnentafel pedigree trees on the Pedigree tab with a single force-directed layout covering every person record (persons + child-group entries + prose-mined people). Cards show name + birth year, colored/bordered by branch and confidence exactly like the Pedigree tab boxes. <strong>Hover</strong> a card for dates + confidence status; <strong>click</strong> for the full detail panel — all facts, linked sources, Research Log jump links, and the confirm/deny control. Drag nodes to de-overlap; scroll/drag the canvas to zoom/pan. Chronological mode is Night 6.</div>
   <div style="display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 14px;font-size:.72rem;color:#64748b;align-items:center">
     <span><span style="display:inline-block;width:20px;border-top:2px solid #94a3b8;vertical-align:middle;margin-right:5px"></span>parent / child</span>
     <span><span style="display:inline-block;width:20px;border-top:2px dashed #7e22ce;vertical-align:middle;margin-right:5px"></span>spouse</span>
     <span><span style="display:inline-block;width:20px;border-top:2px dashed #dc2626;vertical-align:middle;margin-right:5px"></span>disproven-link</span>
     <span><span style="display:inline-block;width:20px;border-top:2px dotted #cbd5e1;vertical-align:middle;margin-right:5px"></span>same-person (duplicate node across trees, not yet merged in the data)</span>
-    <span><span style="display:inline-block;width:9px;height:9px;border-radius:50%;border:1.8px dashed #d97706;vertical-align:middle;margin-right:5px"></span>probable / unconfirmed</span>
+    <span><span style="display:inline-block;width:14px;height:9px;border-radius:2px;border:1.6px dashed #d97706;vertical-align:middle;margin-right:5px"></span>probable / unconfirmed (dashed card border, matches Pedigree tab)</span>
   </div>
   <div id="graph-status" style="font-size:.78rem;color:#94a3b8;margin-bottom:8px">Loading data/family.json…</div>
   <svg id="graph-svg" style="width:100%;height:78vh;background:#f8f9fb;border:1px solid #e2e8f0;border-radius:8px;cursor:grab;display:block"></svg>
 </div>
 
-<div id="gpanel" style="position:fixed;top:56px;right:12px;width:284px;background:#fff;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;font-size:.76rem;display:none;box-shadow:0 4px 24px rgba(0,0,0,.12);z-index:200;max-height:calc(100vh - 80px);overflow-y:auto">
-  <div id="gpx" style="position:absolute;top:10px;right:11px;cursor:pointer;color:#94a3b8;font-size:.95rem">&#x2715;</div>
-  <div id="gpn" style="font-weight:700;font-size:.9rem;margin-bottom:3px;padding-right:22px;line-height:1.3"></div>
-  <div id="gpr" style="font-size:.66rem;color:#7e22ce;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:9px"></div>
+<div id="gpanel">
+  <div class="px" id="gpx">&#x2715;</div>
+  <div class="pn" id="gpn"></div>
+  <div class="pr" id="gpr"></div>
   <div id="gpb"></div>
 </div>
+<div id="gtip"></div>
 
 <script>
 (function(){
@@ -2202,17 +2215,147 @@ if(window.visualViewport) window.visualViewport.addEventListener('resize', fitAl
 //  trees with one connected node/edge graph read from family.json.
 // ═══════════════════════════════════════════════════════════════
 
-function showGraphPanel(node){
-  document.getElementById('gpn').textContent = node.name;
-  document.getElementById('gpr').textContent = (node.relation || node.kind || '') + (node.prob ? ' ⚠ Probable' : '');
-  var html = '';
-  (node.facts || []).forEach(function(f){
-    html += '<div class="prow"><span class="plbl">' + f[0] + '</span><span>' + f[1] + '</span></div>';
+// ── Card facts: birth year / dates / confidence status ──────────────────
+// data/family.json doesn't (yet) carry structured birth{year,...} per the
+// target schema in PRESENTATION_REDESIGN_PLAN.md §4 — Nights 1-3 preserved
+// free-text `note` ("b.~1930 · d.~1990 CT") and Born/Died `facts` rows
+// instead. These helpers extract a display year/date-range from whichever
+// is present so the compact card and hover tooltip have something to show.
+function birthYearOf(p){
+  var m = (p.note || '').match(/\bb\.?~?\s*(?:[A-Za-z]{3,9}\.?\s+\d{1,2}\s+)?([12]\d{3})/);
+  if (m) return m[1];
+  var born = null;
+  (p.facts || []).forEach(function(f){ if (/^born$/i.test(f[0]) && !born) born = f[1]; });
+  if (born) { m = born.match(/([12]\d{3})/); if (m) return m[1]; }
+  return null;
+}
+function datesOf(p){
+  var note = p.note || '';
+  var b = note.match(/\bb\.?~?\s*([^·]+?)(?:\s*·|$)/i);
+  var d = note.match(/\bd\.?~?\s*([^·]+?)(?:\s*·|$)/i);
+  var parts = [];
+  if (b) parts.push('b.' + b[1].trim());
+  if (d) parts.push('d.' + d[1].trim());
+  if (parts.length) return parts.join(' · ');
+  var born = null, died = null;
+  (p.facts || []).forEach(function(f){
+    if (/^born$/i.test(f[0]) && !born) born = f[1];
+    if (/^died$/i.test(f[0]) && !died) died = f[1];
   });
-  document.getElementById('gpb').innerHTML = html;
-  document.getElementById('gpanel').style.display = 'block';
+  if (born || died) return (born ? 'b.' + born : '') + (born && died ? ' · ' : '') + (died ? 'd.' + died : '');
+  return 'Dates not yet recorded';
+}
+// Confidence status: reuses the site's existing bc/bp/bt/bx badge classes
+// (defined in the confidence legend, Sources tab) rather than new colors —
+// `prob` is the only structured confidence signal on a person today; a
+// saved local confirm/deny answer (cbGet) overrides it when present.
+function personStatus(p){
+  var saved = p.confirm && cbGet()[p.confirm.id];
+  if (saved && saved.status === 'confirmed') return { cls: 'bc', label: '✓ Confirmed (user-verified)' };
+  if (saved && saved.status === 'denied') return { cls: 'bx', label: '✗ Marked wrong by user' };
+  if (saved && saved.status === 'unknown') return { cls: 'bt', label: '? Marked unknown by user' };
+  if (p.prob) return { cls: 'bp', label: '⚠ Probable — unconfirmed' };
+  return { cls: 'bc', label: '✓ Confirmed' };
+}
+// Maps a source row's free-text confidence ("Confirmed", "High", "Needed", …)
+// onto the same bc/bp/bt/br/be badge vocabulary used in the Sources tab
+// legend (index.html confidence legend, tab-sources) instead of inventing
+// new colors for the panel's inline source chips.
+function badgeClassFor(conf){
+  var c = (conf || '').toLowerCase();
+  if (c.indexOf('confirmed') !== -1) return 'bc';
+  if (c.indexOf('probable') !== -1 || c === 'high') return 'bp';
+  if (c.indexOf('tenuous') !== -1) return 'bt';
+  if (c.indexOf('research') !== -1) return 'br';
+  if (c.indexOf('explained') !== -1) return 'be';
+  return 'bt';
+}
+
+var SOURCES = {}, PARTS = {};
+function sourceRefsOf(node){
+  var text = (node.note || '') + ' ' + (node.facts || []).map(function(f){ return f[1]; }).join(' ');
+  var seen = {}, list = [], m, re = /S(\d{1,3})\b/g;
+  while ((m = re.exec(text))) {
+    var n = parseInt(m[1], 10);
+    var id = 'S' + (n < 100 ? ('0' + n).slice(-2) : String(n));
+    if (!seen[id] && SOURCES[id]) { seen[id] = true; list.push(id); }
+  }
+  return list;
+}
+// "linked sources[] rendered inline (not just cited by number)" — family.json
+// persons don't carry a structured sources[] array yet, so refs are recovered
+// from the S-numbers already embedded in facts/note text, then the full
+// source row (type, citation, date, confidence) is rendered inline instead
+// of leaving it as a bare "S32" citation.
+function sourcesHtmlFor(node){
+  var refs = sourceRefsOf(node);
+  if (!refs.length) return '';
+  var rows = refs.map(function(id){
+    var s = SOURCES[id];
+    return '<div class="prow" style="align-items:flex-start">'
+      + '<span class="plbl">' + id + '</span>'
+      + '<span><span class="badge ' + badgeClassFor(s.confidence) + '" style="margin-left:0;margin-right:5px">' + s.confidence + '</span>'
+      + s.type + ' — ' + s.citation + (s.date ? ' (' + s.date + ')' : '') + '</span></div>';
+  }).join('');
+  return '<div class="plbl" style="margin-top:10px;margin-bottom:2px">Sources</div>' + rows;
+}
+function partsHtmlFor(node){
+  var refs = node.partRefs || [];
+  if (!refs.length) return '';
+  var links = refs.map(function(n){
+    return '<a href="javascript:void(0)" onclick="jumpToPart(' + n + ')" '
+      + 'style="font-size:.68rem;font-weight:600;color:#1d4ed8;background:#eff6ff;border:1px solid #bfdbfe;'
+      + 'border-radius:5px;padding:2px 7px;margin:2px 4px 2px 0;display:inline-block;text-decoration:none">Part ' + n + ' →</a>';
+  }).join('');
+  return '<div class="plbl" style="margin-top:10px;margin-bottom:3px">Research Log</div><div>' + links + '</div>';
+}
+// Jump link target: the Overview tab's 43 Part sessions aren't individually
+// anchored yet (that wiring is Night 6's "rename Overview → Research Log"
+// per PRESENTATION_REDESIGN_PLAN.md §6) — this is a best-effort scroll-to-text
+// match against each session header's own "Part N" wording, so the link
+// already works today without waiting on the Night 6 rename/anchor pass.
+window.jumpToPart = function(n){
+  var overviewBtn = document.querySelector('.tab-btn[onclick*="switchTab(\'overview\'"]');
+  if (overviewBtn && typeof switchTab === 'function') switchTab('overview', overviewBtn);
+  var re = new RegExp('\\bPart\\s+' + n + '\\b');
+  var target = null;
+  document.querySelectorAll('#tab-overview div').forEach(function(el){
+    if (!target && el.children.length === 0 && re.test(el.textContent)) target = el;
+  });
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    target.style.outline = '3px solid #f59e0b';
+    target.style.outlineOffset = '3px';
+    setTimeout(function(){ target.style.outline = ''; target.style.outlineOffset = ''; }, 2200);
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
+
+function showGraphPanel(node){
+  renderDetailPanel(
+    { panel: 'gpanel', name: 'gpn', rel: 'gpr', body: 'gpb' },
+    node,
+    { sourcesHtml: sourcesHtmlFor(node), partsHtml: partsHtmlFor(node) }
+  );
 }
 document.getElementById('gpx').onclick = function(){ document.getElementById('gpanel').style.display = 'none'; };
+
+// ── Hover tooltip (tier 1): dates + one confidence-status line ──────────
+var gtip = document.getElementById('gtip');
+function showTip(e, d){
+  gtip.innerHTML = '<div style="font-weight:700;color:#0f172a;margin-bottom:2px">' + d.name + '</div>'
+    + '<div>' + datesOf(d) + '</div>'
+    + '<div style="margin-top:3px"><span class="badge ' + personStatus(d).cls + '" style="margin-left:0">' + personStatus(d).label + '</span></div>';
+  gtip.style.display = 'block';
+  positionTip(e);
+}
+function positionTip(e){
+  var x = e.clientX + 14, y = e.clientY + 14;
+  gtip.style.left = Math.min(x, window.innerWidth - 240) + 'px';
+  gtip.style.top = Math.min(y, window.innerHeight - 90) + 'px';
+}
+function hideTip(){ gtip.style.display = 'none'; }
 
 // mcgivney_family persons[4] (Patrick McGivney Sr.) and persons[5] (Mary Lynch) are
 // explicitly "SHOWN IN LAYOUT SLOT ONLY" in the source BRANCHES data (index.html,
@@ -2264,8 +2407,10 @@ var EDGE_STYLE = {
   'disproven-link': { stroke: '#dc2626', dash: '2,3',   width: 2   },
   'same-person':    { stroke: '#cbd5e1', dash: '1,3',   width: 1   }
 };
-var BRANCH_CLR = { kozak: '#15803d', rel: '#7e22ce', shom: '#0369a1', mcg: '#be185d', other: '#94a3b8' };
-function colorOf(n){ return n.prob ? '#d97706' : (BRANCH_CLR[n.branch] || BRANCH_CLR.other); }
+// Branch/confidence coloring reuses CLR + nodeClr() as-is (defined in the
+// Pedigree tab's script, index.html — the same lookup that colors the
+// .person boxes there) instead of a second branch-color table.
+var CARD_W = 92, CARD_H = 30;
 
 var lastNodes = null, zoomBehavior = null, sim = null;
 
@@ -2293,13 +2438,13 @@ function renderGraph(nodes, edges){
   svg.call(zoomBehavior);
 
   var linkForce = d3.forceLink(edges).id(function(d){ return d.id; })
-    .distance(function(e){ return e.type === 'spouse' ? 46 : (e.type === 'same-person' ? 30 : 74); })
+    .distance(function(e){ return e.type === 'spouse' ? 56 : (e.type === 'same-person' ? 36 : 90); })
     .strength(function(e){ return e.type === 'disproven-link' ? 0.15 : 0.5; });
 
   sim = d3.forceSimulation(nodes)
     .force('link', linkForce)
-    .force('charge', d3.forceManyBody().strength(-190))
-    .force('collide', d3.forceCollide(38))
+    .force('charge', d3.forceManyBody().strength(-220))
+    .force('collide', d3.forceCollide(52))
     .force('center', d3.forceCenter(W / 2, H / 2))
     .stop();
   for (var i = 0; i < 400; i++) sim.tick();
@@ -2325,18 +2470,34 @@ function renderGraph(nodes, edges){
       .on('start', function(e, d){ if (!e.active) sim.alphaTarget(0.1).restart(); d.fx = d.x; d.fy = d.y; })
       .on('drag', function(e, d){ d.fx = e.x; d.fy = e.y; tick(); })
       .on('end', function(e, d){ if (!e.active) sim.alphaTarget(0); }))
-    .on('click', function(e, d){ showGraphPanel(d); });
+    .on('click', function(e, d){ showGraphPanel(d); })
+    .on('mouseenter', showTip)
+    .on('mousemove', positionTip)
+    .on('mouseleave', hideTip);
 
-  nodeG.append('circle').attr('r', 9)
-    .attr('fill', function(d){ return colorOf(d); })
-    .attr('fill-opacity', 0.18)
-    .attr('stroke', function(d){ return colorOf(d); })
-    .attr('stroke-width', 1.8)
-    .attr('stroke-dasharray', function(d){ return d.prob ? '3,2' : null; });
+  // Compact card: name + birth year only, branch/confidence styling reused
+  // from nodeClr()/CLR (Pedigree tab) — same fill/stroke/text + dashed
+  // amber border for `prob` as the .person boxes there.
+  nodeG.append('rect')
+    .attr('x', -CARD_W / 2).attr('y', -CARD_H / 2).attr('width', CARD_W).attr('height', CARD_H)
+    .attr('rx', 5)
+    .attr('fill', function(d){ return nodeClr(d).fill; })
+    .attr('stroke', function(d){ return nodeClr(d).stroke; })
+    .attr('stroke-width', 1.6)
+    .attr('stroke-dasharray', function(d){ return d.prob ? '4,3' : null; });
 
-  nodeG.append('text').attr('y', 20).attr('text-anchor', 'middle')
-    .attr('font-size', 8.5).attr('font-family', 'system-ui,sans-serif').attr('fill', '#334155')
-    .text(function(d){ return d.name.length > 22 ? d.name.slice(0, 21) + '…' : d.name; });
+  nodeG.filter(function(d){ return !!d.prob; }).append('circle')
+    .attr('cx', CARD_W / 2 - 6).attr('cy', -CARD_H / 2 + 6).attr('r', 3.2).attr('fill', '#d97706');
+
+  nodeG.append('text').attr('y', -3).attr('text-anchor', 'middle')
+    .attr('font-size', 8).attr('font-weight', 700).attr('font-family', 'system-ui,sans-serif')
+    .attr('fill', function(d){ return nodeClr(d).text; })
+    .text(function(d){ return trunc(d.name, 16); });
+
+  nodeG.append('text').attr('y', 9).attr('text-anchor', 'middle')
+    .attr('font-size', 7.5).attr('font-family', 'system-ui,sans-serif')
+    .attr('fill', function(d){ return nodeClr(d).text; }).attr('opacity', 0.72)
+    .text(function(d){ var y = birthYearOf(d); return y ? 'b.' + y : 'b.?'; });
 
   sim.on('tick', tick);
   lastNodes = nodes;
@@ -2344,10 +2505,12 @@ function renderGraph(nodes, edges){
 }
 
 fetch('data/family.json').then(function(r){ return r.json(); }).then(function(data){
+  SOURCES = data.sources || {};
+  PARTS = data.parts || {};
   var personsById = data.persons;
   var nodes = Object.keys(personsById).map(function(id){
     var p = personsById[id];
-    return { id: id, name: p.name, branch: p.branch, prob: p.prob, kind: p.kind, relation: p.relation, note: p.note, facts: p.facts, confirm: p.confirm };
+    return { id: id, name: p.name, branch: p.branch, prob: p.prob, kind: p.kind, relation: p.relation, note: p.note, facts: p.facts, confirm: p.confirm, partRefs: p.partRefs };
   });
   var nodeIndex = {};
   nodes.forEach(function(n){ nodeIndex[n.id] = n; });
