@@ -203,7 +203,7 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
   <button class="tab-btn" onclick="switchTab('sources',this)">Sources</button>
   <button class="tab-btn" onclick="switchTab('queue',this)">Search Queue</button>
   <button class="tab-btn" onclick="switchTab('business',this)">Business &amp; Property</button>
-  <button class="tab-btn active" onclick="switchTab('graph',this);setTimeout(function(){if(typeof fitGraphOnShow==='function')fitGraphOnShow();},50)">Graph (Beta)</button>
+  <button class="tab-btn active" onclick="switchTab('graph',this);setTimeout(function(){if(typeof fitGraphOnShow==='function')fitGraphOnShow();},50)">Graph</button>
 </nav>
 
 <!-- ════════════════════════════ OVERVIEW ════════════════════════════ -->
@@ -2562,7 +2562,6 @@ function renderChronoGraph(nodes){
   var span = Math.max(1, maxYear - minYear);
   var yearKeys = Object.keys(buckets).filter(function(k){ return k !== UNKNOWN; }).map(Number).sort(function(a, b){ return a - b; });
   var hasUnknown = !!buckets[UNKNOWN];
-  var maxYearBucketSize = yearKeys.reduce(function(m, y){ return Math.max(m, buckets[y].length); }, 1);
 
   // World width grows with the number of distinct birth years so fitGraph's
   // uniform zoom-to-fit (reused as-is from the branch view) never has to
@@ -2570,50 +2569,73 @@ function renderChronoGraph(nodes){
   var WW = Math.max(W, 160 + yearKeys.length * 90);
   var xStart = hasUnknown ? 220 : 100;
   var xScale = d3.scaleLinear().domain([minYear, maxYear]).range([xStart, WW - 80]);
-  var baseline = H - 70;
+  var axisY = H - 70;
+
+  // fitGraph() does a uniform (aspect-preserving) zoom-to-fit, so if the
+  // node bounding box is much wider than it is tall relative to the canvas,
+  // the fit is width-bound and the real vertical space goes almost entirely
+  // unused (this was the "68 cards crammed in a thin band, most of the
+  // canvas empty" bug: with every card stacked directly above one shared
+  // baseline, the world bounding box was only ~180 units tall against a
+  // ~3500-unit-wide timeline). Fix: size the vertical layout band so the
+  // node bounding box's aspect ratio roughly matches the canvas's, then
+  // spread each year's card(s) across that whole band (deterministic
+  // per-year jitter, not stacked on one line) instead of hugging the axis.
+  var targetWorldH = Math.max(H, H * WW / W);
+  var topMargin = 50, bottomMargin = 110;
+  var jitterRange = Math.max(150, targetWorldH - topMargin - bottomMargin);
+  function jitterFor(seed, range){
+    var h = Math.sin(seed * 12.9898 + 78.233) * 43758.5453;
+    return (h - Math.floor(h)) * range;
+  }
 
   // Unknown-birth-year persons (~a third of this dataset — living family
   // members and undated collaterals) go in a grid to the left of the known
-  // timeline, capped at the same row count as the tallest single-year
-  // column. A single tall column here would dwarf the actual timeline and
-  // force fitGraph's uniform zoom-to-fit to shrink every card into
-  // illegibility just to fit one lane.
+  // timeline. Row count is derived from the same vertical band the dated
+  // timeline now uses (jitterRange), not a small fixed cap, so this lane
+  // reads as a tall column spanning the canvas rather than a small dense
+  // square hugging one corner.
   var unknownMinX = xStart;
   if (hasUnknown) {
     var unknownNodes = buckets[UNKNOWN];
-    var rowsPerCol = Math.max(6, maxYearBucketSize);
+    var rowsPerCol = Math.max(6, Math.floor(jitterRange / (CARD_H + 6)));
     unknownNodes.forEach(function(n, i){
       var col = Math.floor(i / rowsPerCol), row = i % rowsPerCol;
       n.x = 100 - col * (CARD_W + 10);
-      n.y = baseline - 20 - row * (CARD_H + 6);
+      n.y = topMargin + row * (CARD_H + 6);
     });
     unknownMinX = Math.min.apply(null, unknownNodes.map(function(n){ return n.x; }));
   }
   yearKeys.forEach(function(year){
     var x = xScale(year);
-    buckets[year].forEach(function(n, i){
+    var bucket = buckets[year];
+    var bucketH = (bucket.length - 1) * (CARD_H + 6);
+    var baseY = topMargin + jitterFor(year, Math.max(0, jitterRange - bucketH));
+    bucket.forEach(function(n, i){
       n.x = x;
-      n.y = baseline - 20 - i * (CARD_H + 6);
+      n.y = baseY + i * (CARD_H + 6);
     });
   });
 
-  // Timeline axis: baseline + tick marks/labels at a step scaled to the
-  // birth-year range so ~12-15 ticks show regardless of span.
+  // Timeline axis: fixed baseline near the bottom + tick marks/labels at a
+  // step scaled to the birth-year range so ~12-15 ticks show regardless of
+  // span. Cards themselves are jittered above this line (see jitterFor),
+  // not anchored to it, so the axis stays a clean reference line.
   var axisG = SC.append('g');
   axisG.append('line')
-    .attr('x1', unknownMinX - 40).attr('x2', WW - 40).attr('y1', baseline + 14).attr('y2', baseline + 14)
+    .attr('x1', unknownMinX - 40).attr('x2', WW - 40).attr('y1', axisY + 14).attr('y2', axisY + 14)
     .attr('stroke', '#cbd5e1').attr('stroke-width', 1.5);
   if (hasUnknown) {
-    axisG.append('text').attr('x', (unknownMinX + 100) / 2).attr('y', baseline + 32).attr('text-anchor', 'middle')
+    axisG.append('text').attr('x', (unknownMinX + 100) / 2).attr('y', axisY + 32).attr('text-anchor', 'middle')
       .attr('font-size', 9).attr('fill', '#94a3b8').attr('font-family', 'system-ui,sans-serif')
       .text('b. unknown');
   }
   var tickStep = Math.max(5, Math.ceil(span / 14 / 5) * 5);
   for (var ty = Math.ceil(minYear / tickStep) * tickStep; ty <= maxYear; ty += tickStep) {
     var tx = xScale(ty);
-    axisG.append('line').attr('x1', tx).attr('x2', tx).attr('y1', baseline + 10).attr('y2', baseline + 18)
+    axisG.append('line').attr('x1', tx).attr('x2', tx).attr('y1', axisY + 10).attr('y2', axisY + 18)
       .attr('stroke', '#94a3b8').attr('stroke-width', 1);
-    axisG.append('text').attr('x', tx).attr('y', baseline + 32).attr('text-anchor', 'middle')
+    axisG.append('text').attr('x', tx).attr('y', axisY + 32).attr('text-anchor', 'middle')
       .attr('font-size', 9).attr('fill', '#94a3b8').attr('font-family', 'system-ui,sans-serif')
       .text(ty);
   }
