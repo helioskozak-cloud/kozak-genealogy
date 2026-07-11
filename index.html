@@ -2446,8 +2446,18 @@ function renderBranchGraph(nodes, edges){
   // on connected nodes, then pin orphans at a fixed offset just outside the
   // *actual* post-simulation cluster bounding box -- close enough that the
   // auto-fit view stays tight, far enough to read as clearly set apart.
+  // d3.forceLink(edges) below mutates each edge's .source/.target in place
+  // from a plain id string to the resolved node object (a documented d3
+  // side effect) the first time it runs. On every render after the first,
+  // e.source/e.target are therefore already node objects here -- keying
+  // connectedIds off them directly coerces every edge to the same
+  // "[object Object]" string key, collapsing connectedIds to one bogus
+  // entry so every node reads as an orphan. Normalize to the id string
+  // either way so this classification is correct on every render, not
+  // just the first.
   var connectedIds = {};
-  edges.forEach(function(e){ connectedIds[e.source] = true; connectedIds[e.target] = true; });
+  function edgeEndpointId(v){ return (v && typeof v === 'object') ? v.id : v; }
+  edges.forEach(function(e){ connectedIds[edgeEndpointId(e.source)] = true; connectedIds[edgeEndpointId(e.target)] = true; });
   var simNodes = nodes.filter(function(n){ return connectedIds[n.id]; });
   var orphanNodes = nodes.filter(function(n){ return !connectedIds[n.id]; });
 
