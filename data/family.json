@@ -201,56 +201,6 @@
       "childGroupInfo": null,
       "partRefs": []
     },
-    "grant-4": {
-      "id": "grant-4",
-      "sourceTree": "grant",
-      "sourceKey": 4,
-      "kind": "persons",
-      "name": "Thomas P. Relihan",
-      "branch": "rel",
-      "relation": "Nancy's father — dates still probable",
-      "note": "b.~1930 · d.~1990 CT",
-      "prob": true,
-      "facts": [
-        [
-          "Born",
-          "~1930 CT"
-        ],
-        [
-          "Died",
-          "~1990 CT (US death index S35)"
-        ],
-        [
-          "Spouse",
-          "Dorothy Shomsky Relihan"
-        ],
-        [
-          "Children",
-          "Nancy Kozak; Tommy Jr.; Robert Relihan; Betsy Gross"
-        ],
-        [
-          "Parents",
-          "John Relihan Sr. + Ann Duley (confirmed S32)"
-        ],
-        [
-          "Siblings",
-          "Sen. John J. Relihan Jr. (CT State Sen. Dist.21, d.Dec 15 1966 Bridgeport CT · S79); Edward A. Relihan (b.Jun 24 1929, d.May 21 1989 Waterbury CT · S79); Ann Relihan Lang (d.Dec 22 2008); Margaret Relihan Mellott (d.Dec 4 2022)"
-        ],
-        [
-          "Needed",
-          "Exact dates — New Haven Register / CT Post obit ~1990"
-        ]
-      ],
-      "confirm": {
-        "id": "tp",
-        "q": "Do you know Thomas P. Relihan's exact birth or death year? (Records show b.~1930, d.~1990)"
-      },
-      "crossRef": null,
-      "childGroupInfo": null,
-      "partRefs": [
-        38
-      ]
-    },
     "grant-5": {
       "id": "grant-5",
       "sourceTree": "grant",
@@ -369,66 +319,6 @@
       "crossRef": null,
       "childGroupInfo": null,
       "partRefs": []
-    },
-    "grant-8": {
-      "id": "grant-8",
-      "sourceTree": "grant",
-      "sourceKey": 8,
-      "kind": "persons",
-      "name": "John Relihan Sr.",
-      "branch": "rel",
-      "relation": "Thomas P. Relihan's father — confirmed via S32",
-      "note": "Bridgeport CT · confirmed great-grandfather",
-      "prob": false,
-      "facts": [
-        [
-          "Confirmed",
-          "Ann Relihan Lang 2008 obit (S32): \"John and Ann Duley Relihan\""
-        ],
-        [
-          "Location",
-          "Bridgeport CT"
-        ],
-        [
-          "Children",
-          "Thomas P.; Sen. John J. Relihan Jr.; Edward A. Relihan (b.Jun 24 1929); Ann Relihan Lang (d.Dec 22 2008); Margaret Relihan Mellott (d.Dec 4 2022)"
-        ]
-      ],
-      "confirm": null,
-      "crossRef": null,
-      "childGroupInfo": null,
-      "partRefs": []
-    },
-    "grant-9": {
-      "id": "grant-9",
-      "sourceTree": "grant",
-      "sourceKey": 9,
-      "kind": "persons",
-      "name": "Ann Duley Relihan",
-      "branch": "rel",
-      "relation": "Thomas P. Relihan's mother — confirmed via S32",
-      "note": "\"Duley\" spelling confirmed · S32",
-      "prob": false,
-      "facts": [
-        [
-          "\"Duley\" confirmed",
-          "Ann Relihan Lang 2008 obituary (S32): \"John and Ann Duley Relihan\""
-        ],
-        [
-          "\"Dooley\" variant",
-          "Also seen in SortedByName for Edward A. Relihan — same person"
-        ],
-        [
-          "Source",
-          "S32"
-        ]
-      ],
-      "confirm": null,
-      "crossRef": null,
-      "childGroupInfo": null,
-      "partRefs": [
-        12
-      ]
     },
     "grant-10": {
       "id": "grant-10",
@@ -1682,6 +1572,10 @@
           "Dec 16 1990, Woodbridge CT (CT vital records · S79 upgrades S35)"
         ],
         [
+          "Parents",
+          "John Relihan Sr. + Ann Duley (confirmed S32)"
+        ],
+        [
           "Spouse",
           "Dorothy Shomsky Relihan (b.~1925 Bridgeport CT · m. Jun 6 1953 Bridgeport CT · d.Jun 16 1988 Woodbridge CT · S78;S79)"
         ],
@@ -1706,7 +1600,8 @@
       "childGroupInfo": null,
       "partRefs": [
         3,
-        6
+        6,
+        38
       ]
     },
     "tpr-2": {
@@ -1840,6 +1735,10 @@
         [
           "\"Duley\" confirmed",
           "Ann Relihan Lang 2008 obit (S32, S72): \"daughter of John and Ann Duley Relihan.\" The obit spells the maiden name DULEY, not Dooley. Both spellings seen in different sources (SortedByName says \"Anna Dooley\") but the primary source — daughter Ann Lang's obit — says \"Duley.\" Treat \"Duley\" as authoritative."
+        ],
+        [
+          "\"Dooley\" variant",
+          "Also seen in SortedByName for Edward A. Relihan — same person"
         ],
         [
           "Death CONFIRMED (S91)",
@@ -5181,7 +5080,6 @@
       "notes": "Index match only — no full obituary text found. Consistent with known facts: predeceased Ann Lang (d. Dec 2008), confirmed via S32. Full obituary requires New Haven Register or CT Post microfilm ~1990. Search \"Thomas Relihan\" Woodbridge CT.",
       "dataQuirk": null,
       "personRefs": [
-        "grant-4",
         "tpr-1"
       ],
       "url": null
@@ -5939,7 +5837,6 @@
         "mcn-3",
         "tpr-cg0-3",
         "mary-oconnell-relihan",
-        "grant-4",
         "tpr-1",
         "grant-5",
         "grant-cg0-1",
@@ -6743,7 +6640,6 @@
       "notes": "Key results: THOMAS RELIHAN d.Dec 16 1990 Woodbridge; DOROTHY RELIHAN d.Jun 16 1988 Woodbridge; MABEL RELIHAN d.Dec 12 1987 Bridgeport; JOHN RELIHAN d.May 23 1955 Bridgeport (Dooley-branch patriarch); JOHN RELIHAN d.Jul 31 1957 Bridgeport (probable McNamara-branch patriarch — full death index pull Jul 2 2026 identified this previously unattributed death); JOHN RELIHAN d.Dec 15 1966 Bridgeport (Senator John J. Relihan Jr.); EDWARD RELIHAN d.May 21 1989 WATERBURY (corrects prior Newington entry); MAURICE RELIHAN d.Aug 2 1921 Shelton CT (corroborates S53); CORINNE RELIHAN d.Apr 3 1998 New Haven (corroborates S69 wife predeceased). Total: 60 RELIHAN deaths in CT Death Index 1897-2001. Full 60-record enumeration (Jul 2 2026) identified McNamara patriarch candidate + confirmed no other Bridgeport Johns beyond these three. Mary Dolan Relihan (d.Jan 8 1911 Derby) appears as MARY RELIHAN, corroborating S54. Additional targeted queries (now S89): JAMES RELIHAN d.Sep 10 1946 DERBY = James T. Relihan Sr. (O'Connell branch patriarch); MARY A. RELIHAN d.Aug 23 1948 DERBY = Mary A. Relihan (Maurice's unmarried daughter); HELEN MCGIVNEY d.May 5 1955 SHELTON = Helen R. Relihan McGivney; PETER MCGIVNEY d.Mar 25 1973 DERBY = probable Peter George McGivney (b.1891).",
       "dataQuirk": null,
       "personRefs": [
-        "grant-4",
         "tpr-1",
         "grant-5",
         "mcn-3",
@@ -6850,7 +6746,6 @@
       ],
       "personRefs": [
         "tpr-2",
-        "grant-8",
         "mcn-2"
       ],
       "summary": "DISPROVEN: the 'one man, two marriages' hypothesis for John Relihan is disproven by (1) CT Marriage Index 1897-2001 shows the ONLY John Relihan CT marriage is John + Mabel McNamara Sep 15 1926 Bridgeport -- no John Relihan + Ann Dooley/Duley CT marriage exists; (2) Mabel McNamara Relihan lived until Dec 12 1987, spanning the entire 1927-1934 birth window of the Dooley-branch children, so she cannot be their mother. CONFIRMED: two different men named John (J.) Relihan in Bridgeport CT — (A) John Relihan Sr. (Dooley branch) + Ann Dooley/Duley -> Sen. John Jr., Edward, Thomas P., Ann Lang, Margaret Mellott; (B) John J. Relihan Sr. (McNamara branch) + Mabel McNamara -> Joan, Sally Kelly, Ann Louise Martini, John Jr. AZ. Both families sent daughters to Lauralton Hall, suggesting they knew each other as relatives (brothers or cousins) despite being distinct households.",
@@ -6958,8 +6853,7 @@
         "S91"
       ],
       "personRefs": [
-        "tpr-3",
-        "grant-9"
+        "tpr-3"
       ],
       "summary": "Ann Duley Relihan's death CONFIRMED: ANNA RELIHAN d.Feb 27 1970 WATERBURY CT — the only Anna/Anna Relihan in all CT records; survived her husband John Sr. by 13-15 years, both she and son Edward A. died in Waterbury, confirming the Dooley branch's relocation there after ~1950. A distinct Southwestern CT Relihan family identified, SEPARATE from the Maurice Relihan line: coastal Fairfield County towns (Greenwich, Fairfield, Stamford, Darien, Norwalk), 8+ deaths 1899-1991, 4+ marriages, centered on Dennis Relihan + Dorothy Dauscha (m.1927 Greenwich) as probable parents of James Relihan + Patricia Fogg (m.1966 Greenwich); this James may be the James Relihan d.Jan 22 1980 Stamford. Complete CT Relihan vital-records picture: 40 groom + 27 bride marriages + 57 deaths enumerated, revealing FOUR distinct CT Relihan families with no connection to each other beyond surname: (1) Maurice Relihan line (our research family); (2) Hartford cluster (11+ deaths 1900-1944, unrelated); (3) Southwestern CT cluster (identified this session); (4) Norfolk/North Canaan cluster (Litchfield County, unrelated); plus the already-resolved Winchester/Winsted James C. Relihan family."
     },
@@ -7236,7 +7130,7 @@
         "mcgivney_family-4",
         "tpr-4",
         "tpr-2",
-        "grant-4"
+        "tpr-1"
       ],
       "summary": "Formalized the 4 sub-chains connecting Bl. Michael J. McGivney to Nancy Relihan Kozak: Sub-chain A (Fr. McGivney to Peter McGivney Sr., then PROBABLE first-cousin link, later CONFIRMED Part 41); Sub-chain B (Peter McGivney Sr. -> Peter George McGivney -> m. Helen R. Relihan, CONFIRMED); Sub-chain C (Maurice Relihan's son John = John Relihan Sr. Dooley branch, PROBABLE, still open as of Part 43); Sub-chain D (John Relihan Sr. Dooley branch -> Nancy Relihan Kozak, CONFIRMED). At time of writing, Sub-chain A was still the open gap later resolved in Part 41."
     },
@@ -7301,7 +7195,7 @@
       ],
       "personRefs": [
         "tpr-5",
-        "grant-4",
+        "tpr-1",
         "mcn-3",
         "tpr-2",
         "mcn-2"

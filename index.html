@@ -2395,9 +2395,17 @@ var EXTRA_EDGES = [
   ['edward-a-relihan', 'sean-relihan', 'parent-child', true],             // text says "Probable son ... UNCONFIRMED"
   ['mcgivney_family-1', 'tpr-cg0-2', 'spouse'],                           // Peter George McGivney m. Helen R. Relihan 1921 — bridges mcgivney_family <-> tpr
   ['tpr-2', 'mcn-2', 'disproven-link'],                                   // "one man, two marriages" DISPROVEN Jul 2 2026 (S78/S79) — bridges tpr <-> mcn
-  ['mcgivney_family-2', 'mcgivney_family-4', 'disproven-link'],           // sibling hypothesis DISPROVEN Jul 5 2026 (S121)
-  ['grant-4', 'tpr-1', 'same-person'],                                   // Thomas P. Relihan — duplicate node, grant tree vs tpr tree
-  ['grant-8', 'tpr-2', 'same-person']                                    // John Relihan Sr. — duplicate node, grant tree vs tpr tree
+  ['mcgivney_family-2', 'mcgivney_family-4', 'disproven-link'],          // sibling hypothesis DISPROVEN Jul 5 2026 (S121)
+  // Thomas P. Relihan / John Relihan Sr. / Ann Duley Relihan were each duplicated
+  // across the grant tree and the dedicated tpr (Relihan) tree — merged Jul 11 2026
+  // into the tpr-* records (more complete data). Deleting grant-4/grant-8/grant-9
+  // drops their auto-derived ahnentafel edges within the grant tree, so those edges
+  // are restored explicitly here against the surviving tpr-1 node.
+  ['tpr-1', 'grant-2', 'parent-child'],                                  // Thomas P. Relihan -> Nancy Relihan Kozak (was grant-4 -> grant-2)
+  ['tpr-1', 'grant-5', 'spouse'],                                        // Thomas P. Relihan + Dorothy Shomsky Relihan (was grant-4 <-> grant-5)
+  ['tpr-1', 'grant-cg0-1', 'parent-child'],                              // Thomas P. Relihan -> Thomas Relihan Jr. (was grant-4 -> grant-cg0-1)
+  ['tpr-1', 'grant-cg0-2', 'parent-child'],                              // Thomas P. Relihan -> Robert Relihan (was grant-4 -> grant-cg0-2)
+  ['tpr-1', 'grant-cg0-3', 'parent-child']                               // Thomas P. Relihan -> Betsy Relihan Gross (was grant-4 -> grant-cg0-3)
 ];
 
 var EDGE_STYLE = {
