@@ -6652,6 +6652,133 @@
       "url": null
     }
   },
+  "businesses": {
+    "biz-relihan-landscape": {
+      "kind": "business",
+      "name": "Relihan Landscape Construction Co., Inc.",
+      "status": "confirmed",
+      "statusLabel": "Confirmed",
+      "subtitle": "CT Secretary of State · Source S11 · Incorporated Dec 7, 1988",
+      "personRefs": [
+        "grant-cg0-1",
+        "carla-guarino-relihan"
+      ],
+      "sourceRefs": [
+        "S11"
+      ],
+      "facts": [
+        ["President / Treasurer / Director", "Thomas P. Relihan Jr."],
+        ["Secretary / Director", "Carla Relihan (née Guarino)"],
+        ["Principal address", "924 Baldwin Rd, Woodbridge CT"],
+        ["Second address", "161 Home Acres Ave, Milford CT"],
+        ["Incorporated", "December 7, 1988"]
+      ],
+      "description": "Tommy Jr. and Carla Relihan (née Guarino) are confirmed children / in-law of Thomas P. Relihan Sr. + Dorothy Shomsky Relihan — placing this business in the Dooley/Duley branch.",
+      "noteBox": null,
+      "leadText": "→ Deed search 924 Baldwin Rd, Woodbridge CT · Milford CT address (161 Home Acres Ave) may open new records",
+      "group": null,
+      "groupTitle": null,
+      "groupStatus": null,
+      "groupStatusLabel": null,
+      "groupDescription": null
+    },
+    "biz-relihan-irwin": {
+      "kind": "business",
+      "name": "Relihan & Irwin — Law Firm",
+      "status": "tenuous",
+      "statusLabel": "Tenuous",
+      "subtitle": "State register / congressional directory · research lead only · not confirmed",
+      "personRefs": [
+        "senator-john-j-relihan-jr",
+        "donald-jay-irwin"
+      ],
+      "sourceRefs": [],
+      "facts": [
+        ["Location", "Bridgeport / Norwalk, CT"],
+        ["Known partner", "Donald J. Irwin"],
+        ["Relihan partner", "Identity unknown"],
+        ["Probable era", "~1950s–1960s (overlaps Sen. John J. Relihan Jr.)"],
+        ["Possible Relihan", "Senator John J. Relihan Jr. — unproven"]
+      ],
+      "description": null,
+      "noteBox": {
+        "title": "⚠ Family note — \"Relihan & Finn\":",
+        "text": "Family tradition refers to a firm called \"Relihan & Finn.\" No public record of this name has been found; all documentary sources say Irwin. If a separate \"Relihan & Finn\" partnership existed, the Finn partner would be a potential direct bridge to the McGivney-side Finn family (Rosanna McGivney Finn's descendants). Warrants a targeted CT bar records search."
+      },
+      "leadText": "→ CT bar records · \"Donald J. Irwin\" Connecticut · cross-check Walshe / Finn surnames",
+      "group": null,
+      "groupTitle": null,
+      "groupStatus": null,
+      "groupStatusLabel": null,
+      "groupDescription": null
+    },
+    "prop-924-baldwin-rd": {
+      "kind": "property",
+      "name": "924 Baldwin Rd",
+      "status": "confirmed",
+      "statusLabel": "Confirmed · S11",
+      "subtitle": null,
+      "personRefs": [
+        "grant-cg0-1",
+        "carla-guarino-relihan"
+      ],
+      "sourceRefs": [
+        "S11"
+      ],
+      "facts": [],
+      "description": "Relihan Landscape Construction principal address. Thomas P. Relihan Jr. + Carla Guarino Relihan.",
+      "noteBox": null,
+      "leadText": null,
+      "group": "baldwin-rd-cluster",
+      "groupTitle": "Baldwin Road Property Cluster — Woodbridge, CT",
+      "groupStatus": "probable",
+      "groupStatusLabel": "Research lead",
+      "groupDescription": "Three adjacent parcels on Baldwin Rd, Woodbridge CT are tied to the Kozak and Relihan families. Deed records may surface maiden names, mortgage holders, or new surname connections.",
+      "groupLeadText": "→ Woodbridge CT Assessor's Office · deed search all three parcels · building permits 930 Baldwin Rd"
+    },
+    "prop-930-baldwin-rd": {
+      "kind": "property",
+      "name": "930 Baldwin Rd",
+      "status": "probable",
+      "statusLabel": "Unconfirmed",
+      "subtitle": null,
+      "personRefs": [
+        "grant-3"
+      ],
+      "sourceRefs": [],
+      "facts": [],
+      "description": "Mark Kozak believed to have built or owned this property. Deed proof needed.",
+      "noteBox": null,
+      "leadText": null,
+      "group": "baldwin-rd-cluster",
+      "groupTitle": "Baldwin Road Property Cluster — Woodbridge, CT",
+      "groupStatus": "probable",
+      "groupStatusLabel": "Research lead",
+      "groupDescription": "Three adjacent parcels on Baldwin Rd, Woodbridge CT are tied to the Kozak and Relihan families. Deed records may surface maiden names, mortgage holders, or new surname connections.",
+      "groupLeadText": "→ Woodbridge CT Assessor's Office · deed search all three parcels · building permits 930 Baldwin Rd"
+    },
+    "prop-934-baldwin-rd": {
+      "kind": "property",
+      "name": "934 Baldwin Rd",
+      "status": "probable",
+      "statusLabel": "Appeal on record",
+      "subtitle": null,
+      "personRefs": [
+        "grant-cg0-1"
+      ],
+      "sourceRefs": [],
+      "facts": [],
+      "description": "Thomas P. Relihan Jr. filed a property assessment appeal for this address.",
+      "noteBox": null,
+      "leadText": null,
+      "group": "baldwin-rd-cluster",
+      "groupTitle": "Baldwin Road Property Cluster — Woodbridge, CT",
+      "groupStatus": "probable",
+      "groupStatusLabel": "Research lead",
+      "groupDescription": "Three adjacent parcels on Baldwin Rd, Woodbridge CT are tied to the Kozak and Relihan families. Deed records may surface maiden names, mortgage holders, or new surname connections.",
+      "groupLeadText": "→ Woodbridge CT Assessor's Office · deed search all three parcels · building permits 930 Baldwin Rd"
+    }
+  },
   "parts": {
     "1": {
       "number": 1,

@@ -157,6 +157,10 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
 .oq-card.p1{border-left-color:#dc2626;border-color:#fca5a5}
 .oq-card.p2{border-left-color:#d97706;border-color:#fde68a}
 .oq-card.p3{border-left-color:#ca8a04;border-color:#fef08a}
+.oq-card.bc{border-left-color:#059669;border-color:#6ee7b7}
+.oq-card.bp{border-left-color:#d97706;border-color:#fde68a}
+.oq-card.bt{border-left-color:#94a3b8;border-color:#cbd5e1}
+.oq-card.bx{border-left-color:#dc2626;border-color:#fca5a5}
 .oq-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;margin-bottom:8px;line-height:1.35}
 .oq-summary{font-size:.77rem;color:#374151;line-height:1.5;margin-bottom:6px}
 .oq-lbl{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#94a3b8;margin:7px 0 2px}
@@ -1094,6 +1098,7 @@ function renderDetailPanel(cfg,person,extra){
   if(extra&&extra.sourcesHtml)html+=extra.sourcesHtml;
   if(extra&&extra.partsHtml)html+=extra.partsHtml;
   if(extra&&extra.openQuestionsHtml)html+=extra.openQuestionsHtml;
+  if(extra&&extra.businessHtml)html+=extra.businessHtml;
   if(person.confirm){
     var c=person.confirm; var e=cbGet()[c.id]||{}; var st=e.status||'';
     html+='<div class="cbar" id="cbar-'+c.id+'">'
@@ -1727,66 +1732,194 @@ fetch('data/family.json').then(function(r){ return r.json(); }).then(function(da
 <div class="sec">
   <div class="sec-title">Business &amp; Property</div>
   <div class="sec-sub">Relihan-connected business entities and real property clusters. These are documentary research nodes — corporate filings, deed records, and directory listings may surface bridge surnames or confirm family relationships. None of these nodes appear on the pedigree chart.</div>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px;margin-top:22px">
-
-    <!-- CARD 1: Relihan Landscape Construction -->
-    <div style="background:#fff;border-radius:9px;border:1.5px solid #6ee7b7;border-left:5px solid #059669;padding:15px 16px">
-      <div style="font-family:'Playfair Display',serif;font-size:1.02rem;font-weight:700;margin-bottom:3px">Relihan Landscape Construction Co., Inc. <span class="badge bc">Confirmed</span></div>
-      <div style="font-size:.68rem;color:#64748b;margin-bottom:10px;text-transform:uppercase;letter-spacing:.07em;font-weight:600">CT Secretary of State · Source S11 · Incorporated Dec 7, 1988</div>
-      <table style="width:100%;font-size:.77rem;border-collapse:collapse">
-        <tr><td style="color:#64748b;padding:2px 0;white-space:nowrap;padding-right:12px">President / Treasurer / Director</td><td style="font-weight:600">Thomas P. Relihan Jr.</td></tr>
-        <tr><td style="color:#64748b;padding:2px 0;padding-right:12px">Secretary / Director</td><td style="font-weight:600">Carla Relihan <span style="font-weight:400;color:#64748b">(née Guarino)</span></td></tr>
-        <tr><td style="color:#64748b;padding:2px 0;padding-right:12px">Principal address</td><td>924 Baldwin Rd, Woodbridge CT</td></tr>
-        <tr><td style="color:#64748b;padding:2px 0;padding-right:12px">Second address</td><td>161 Home Acres Ave, Milford CT</td></tr>
-        <tr><td style="color:#64748b;padding:2px 0;padding-right:12px">Incorporated</td><td>December 7, 1988</td></tr>
-      </table>
-      <div style="margin-top:10px;font-size:.74rem;color:#475569;line-height:1.5">Tommy Jr. and Carla Relihan (née Guarino) are confirmed children / in-law of Thomas P. Relihan Sr. + Dorothy Shomsky Relihan — placing this business in the Dooley/Duley branch.</div>
-      <div style="margin-top:8px;font-size:.72rem;color:#059669;font-weight:600;padding:4px 8px;background:#ecfdf5;border-radius:5px">→ Deed search 924 Baldwin Rd, Woodbridge CT · Milford CT address (161 Home Acres Ave) may open new records</div>
-    </div>
-
-    <!-- CARD 2: Relihan & Irwin law firm -->
-    <div style="background:#fff;border-radius:9px;border:1.5px solid #fde68a;border-left:5px solid #d97706;padding:15px 16px">
-      <div style="font-family:'Playfair Display',serif;font-size:1.02rem;font-weight:700;margin-bottom:3px">Relihan &amp; Irwin — Law Firm <span class="badge bt">Tenuous</span></div>
-      <div style="font-size:.68rem;color:#64748b;margin-bottom:10px;text-transform:uppercase;letter-spacing:.07em;font-weight:600">State register / congressional directory · research lead only · not confirmed</div>
-      <table style="width:100%;font-size:.77rem;border-collapse:collapse">
-        <tr><td style="color:#64748b;padding:2px 0;white-space:nowrap;padding-right:12px">Location</td><td>Bridgeport / Norwalk, CT</td></tr>
-        <tr><td style="color:#64748b;padding:2px 0;padding-right:12px">Known partner</td><td style="font-weight:600">Donald J. Irwin</td></tr>
-        <tr><td style="color:#64748b;padding:2px 0;padding-right:12px">Relihan partner</td><td style="color:#dc2626;font-weight:600">Identity unknown</td></tr>
-        <tr><td style="color:#64748b;padding:2px 0;padding-right:12px">Probable era</td><td>~1950s–1960s (overlaps Sen. John J. Relihan Jr.)</td></tr>
-        <tr><td style="color:#64748b;padding:2px 0;padding-right:12px">Possible Relihan</td><td>Senator John J. Relihan Jr. — <span style="color:#d97706;font-weight:600">unproven</span></td></tr>
-      </table>
-      <div style="margin-top:10px;background:#fffbeb;border:1px solid #fde68a;border-radius:6px;padding:8px 10px;font-size:.74rem;color:#78350f;line-height:1.5">
-        <strong>⚠ Family note — "Relihan &amp; Finn":</strong> Family tradition refers to a firm called "Relihan &amp; Finn." No public record of this name has been found; all documentary sources say <em>Irwin</em>. If a separate "Relihan &amp; Finn" partnership existed, the Finn partner would be a potential direct bridge to the McGivney-side Finn family (Rosanna McGivney Finn's descendants). Warrants a targeted CT bar records search.
+  <div id="biz-controls" style="display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;margin:12px 0 14px">
+    <div>
+      <label style="display:block;font-size:.62rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px">Kind</label>
+      <div class="oq-toggle" id="biz-kind-toggle">
+        <button type="button" class="oq-toggle-btn active" data-kind="">All</button>
+        <button type="button" class="oq-toggle-btn" data-kind="business">Business</button>
+        <button type="button" class="oq-toggle-btn" data-kind="property">Property</button>
       </div>
-      <div style="margin-top:8px;font-size:.72rem;color:#d97706;font-weight:600;padding:4px 8px;background:#fffbeb;border-radius:5px">→ CT bar records · "Donald J. Irwin" Connecticut · cross-check Walshe / Finn surnames</div>
     </div>
-
+    <div id="biz-count" style="font-size:.72rem;color:#64748b;margin-left:auto;align-self:center;white-space:nowrap"></div>
   </div>
-
-  <!-- Baldwin Rd property cluster -->
-  <div style="background:#fff;border-radius:9px;border:1.5px solid #e2e8f0;padding:15px 16px;margin-top:16px">
-    <div style="font-family:'Playfair Display',serif;font-size:1.02rem;font-weight:700;margin-bottom:8px">Baldwin Road Property Cluster — Woodbridge, CT <span class="badge bp">Research lead</span></div>
-    <div style="font-size:.8rem;color:#475569;line-height:1.5;margin-bottom:12px">Three adjacent parcels on Baldwin Rd, Woodbridge CT are tied to the Kozak and Relihan families. Deed records may surface maiden names, mortgage holders, or new surname connections.</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px">
-      <div style="background:#f0fdf4;border:1.5px solid #6ee7b7;border-radius:7px;padding:11px 13px">
-        <div style="font-weight:700;font-size:.83rem;margin-bottom:5px">924 Baldwin Rd</div>
-        <div style="font-size:.74rem;color:#374151;line-height:1.5">Relihan Landscape Construction principal address. <strong>Thomas P. Relihan Jr. + Carla Guarino Relihan</strong>. <span class="badge bc">Confirmed · S11</span></div>
-      </div>
-      <div style="background:#fffbeb;border:1.5px solid #fde68a;border-radius:7px;padding:11px 13px">
-        <div style="font-weight:700;font-size:.83rem;margin-bottom:5px">930 Baldwin Rd</div>
-        <div style="font-size:.74rem;color:#374151;line-height:1.5"><strong>Mark Kozak</strong> believed to have built or owned this property. Deed proof needed. <span class="badge bp">Unconfirmed</span></div>
-      </div>
-      <div style="background:#fffbeb;border:1.5px solid #fde68a;border-radius:7px;padding:11px 13px">
-        <div style="font-weight:700;font-size:.83rem;margin-bottom:5px">934 Baldwin Rd</div>
-        <div style="font-size:.74rem;color:#374151;line-height:1.5"><strong>Thomas P. Relihan Jr.</strong> filed a property assessment appeal for this address. <span class="badge bp">Appeal on record</span></div>
-      </div>
-    </div>
-    <div style="margin-top:10px;font-size:.73rem;color:#3730a3;font-weight:500;padding:5px 8px;background:#eef2ff;border-radius:5px">→ Woodbridge CT Assessor's Office · deed search all three parcels · building permits 930 Baldwin Rd</div>
+  <div class="oq-grid" id="biz-grid" style="margin-top:8px">
+    <div style="text-align:center;color:#94a3b8;padding:16px;grid-column:1/-1">Loading business &amp; property records…</div>
   </div>
-
 </div>
 </div>
+
+<script>
+(function(){
+// Standalone data load for the Business & Property tab -- mirrors the fetch('data/family.json')
+// pattern the Sources/Open Questions tabs already use (its own independent fetch, not reaching
+// into the Graph tab's IIFE-scoped vars) so this tab renders correctly regardless of tab load order.
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+// Same status -> badge-class mapping as businessHtmlFor() in the Graph tab script (which reuses
+// badgeClassFor() there) -- duplicated here because this tab's script runs independently.
+var STATUS_CLASS = { confirmed: 'bc', probable: 'bp', tenuous: 'bt' };
+function statusClassOf(status){ return STATUS_CLASS[status] || 'bx'; }
+// Tint backgrounds for the small parcel cards inside a property cluster, matching the original
+// hand-written cards' green (confirmed) / amber (probable) tinting, generalized off status class
+// instead of being hand-picked per card.
+var TINT = {
+  bc: { bg: '#f0fdf4', bd: '#6ee7b7' },
+  bp: { bg: '#fffbeb', bd: '#fde68a' },
+  bt: { bg: '#f8fafc', bd: '#cbd5e1' },
+  bx: { bg: '#fef2f2', bd: '#fca5a5' }
+};
+
+var BUSINESSES = {}, PERSONS = {};
+var bizDataLoaded = false, currentKind = '';
+
+function personLinksHtml(personRefs){
+  if (!personRefs || !personRefs.length) return '';
+  return personRefs.map(function(pid){
+    var p = PERSONS[pid];
+    var label = p ? p.name : pid;
+    return '<a class="oq-pill" href="javascript:void(0)" onclick="jumpToPerson(\'' + pid.replace(/'/g, "\\'") + '\')">◂ View in Graph — ' + esc(label) + '</a>';
+  }).join('');
+}
+function sourceLinksHtml(sourceRefs){
+  if (!sourceRefs || !sourceRefs.length) return '';
+  return sourceRefs.map(function(sid){
+    return '<a class="oq-pill" href="javascript:void(0)" onclick="jumpToSource(\'' + sid.replace(/'/g, "\\'") + '\')">' + esc(sid) + '</a>';
+  }).join('');
+}
+function factsHtml(facts){
+  if (!facts || !facts.length) return '';
+  return facts.map(function(f){
+    return '<div class="prow"><span class="plbl">' + esc(f[0]) + '</span><span>' + esc(f[1]) + '</span></div>';
+  }).join('');
+}
+function linksRowHtml(rec){
+  var links = personLinksHtml(rec.personRefs) + sourceLinksHtml(rec.sourceRefs);
+  return links ? '<div class="oq-links">' + links + '</div>' : '';
+}
+
+function standaloneCardHtml(id, rec){
+  var cls = statusClassOf(rec.status);
+  var subtitle = rec.subtitle
+    ? '<div style="font-size:.68rem;color:#64748b;margin-bottom:10px;text-transform:uppercase;letter-spacing:.07em;font-weight:600">' + esc(rec.subtitle) + '</div>'
+    : '';
+  var desc = rec.description
+    ? '<div style="margin-top:10px;font-size:.74rem;color:#475569;line-height:1.5">' + esc(rec.description) + '</div>'
+    : '';
+  var noteBox = rec.noteBox
+    ? '<div style="margin-top:10px;background:#fffbeb;border:1px solid #fde68a;border-radius:6px;padding:8px 10px;font-size:.74rem;color:#78350f;line-height:1.5"><strong>' + esc(rec.noteBox.title) + '</strong> ' + esc(rec.noteBox.text) + '</div>'
+    : '';
+  var lead = rec.leadText
+    ? '<div style="margin-top:8px;font-size:.72rem;color:#059669;font-weight:600;padding:4px 8px;background:#ecfdf5;border-radius:5px">' + esc(rec.leadText) + '</div>'
+    : '';
+  return '<div class="oq-card ' + cls + '" id="biz-card-' + esc(id) + '">'
+    + '<div class="oq-title">' + esc(rec.name) + ' <span class="badge ' + cls + '">' + esc(rec.statusLabel || rec.status) + '</span></div>'
+    + subtitle
+    + factsHtml(rec.facts)
+    + desc
+    + noteBox
+    + lead
+    + linksRowHtml(rec)
+    + '</div>';
+}
+
+function groupBlockHtml(groupId, entries){
+  var first = entries[0].rec;
+  var gcls = statusClassOf(first.groupStatus);
+  var header = '<div style="font-family:\'Playfair Display\',serif;font-size:1.02rem;font-weight:700;margin-bottom:8px">'
+    + esc(first.groupTitle) + ' <span class="badge ' + gcls + '">' + esc(first.groupStatusLabel) + '</span></div>';
+  var desc = first.groupDescription
+    ? '<div style="font-size:.8rem;color:#475569;line-height:1.5;margin-bottom:12px">' + esc(first.groupDescription) + '</div>'
+    : '';
+  var cards = entries.map(function(entry){
+    var id = entry.id, rec = entry.rec;
+    var cls = statusClassOf(rec.status);
+    var tint = TINT[cls];
+    return '<div style="background:' + tint.bg + ';border:1.5px solid ' + tint.bd + ';border-radius:7px;padding:11px 13px" id="biz-card-' + esc(id) + '">'
+      + '<div style="font-weight:700;font-size:.83rem;margin-bottom:5px">' + esc(rec.name) + '</div>'
+      + (rec.description ? '<div style="font-size:.74rem;color:#374151;line-height:1.5">' + esc(rec.description) + ' <span class="badge ' + cls + '">' + esc(rec.statusLabel || rec.status) + '</span></div>' : '')
+      + linksRowHtml(rec)
+      + '</div>';
+  }).join('');
+  var lead = first.groupLeadText
+    ? '<div style="margin-top:10px;font-size:.73rem;color:#3730a3;font-weight:500;padding:5px 8px;background:#eef2ff;border-radius:5px">' + esc(first.groupLeadText) + '</div>'
+    : '';
+  return '<div style="background:#fff;border-radius:9px;border:1.5px solid #e2e8f0;padding:15px 16px;grid-column:1/-1" id="biz-group-' + esc(groupId) + '">'
+    + header + desc
+    + '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px">' + cards + '</div>'
+    + lead
+    + '</div>';
+}
+
+function render(){
+  var ids = Object.keys(BUSINESSES);
+  var shown = ids.filter(function(id){ return !currentKind || BUSINESSES[id].kind === currentKind; });
+
+  var standalone = [], groups = {};
+  shown.forEach(function(id){
+    var rec = BUSINESSES[id];
+    if (rec.group) {
+      groups[rec.group] = groups[rec.group] || [];
+      groups[rec.group].push({ id: id, rec: rec });
+    } else {
+      standalone.push(id);
+    }
+  });
+
+  var html = standalone.map(function(id){ return standaloneCardHtml(id, BUSINESSES[id]); }).join('')
+    + Object.keys(groups).map(function(gid){ return groupBlockHtml(gid, groups[gid]); }).join('');
+
+  var grid = document.getElementById('biz-grid');
+  grid.innerHTML = html || '<div style="text-align:center;color:#94a3b8;padding:16px;grid-column:1/-1">No ' + (currentKind || 'business or property') + ' records match.</div>';
+  document.getElementById('biz-count').textContent = 'Showing ' + shown.length + ' of ' + ids.length + ' business & property records';
+}
+
+function setKind(kind){
+  currentKind = kind || '';
+  document.querySelectorAll('#biz-kind-toggle .oq-toggle-btn').forEach(function(b){
+    b.classList.toggle('active', (b.dataset.kind || '') === currentKind);
+  });
+}
+document.querySelectorAll('#biz-kind-toggle .oq-toggle-btn').forEach(function(b){
+  b.addEventListener('click', function(){ setKind(b.dataset.kind); render(); });
+});
+
+// Jump link target: the direct generalization of jumpToSource/jumpToOpenQuestion, reused by the
+// Graph tab's businessHtmlFor() panel section. Switches to the Business & Property tab, resets the
+// Kind filter (so the target card is guaranteed visible), then scrolls to and highlights the card.
+window.jumpToBusiness = function(id, attempt){
+  var bizBtn = document.querySelector('.tab-btn[onclick*="switchTab(\'business\'"]');
+  if (bizBtn && typeof switchTab === 'function') switchTab('business', bizBtn);
+  if (!bizDataLoaded) {
+    if ((attempt || 0) < 30) setTimeout(function(){ jumpToBusiness(id, (attempt || 0) + 1); }, 100);
+    return;
+  }
+  setKind('');
+  render();
+  setTimeout(function(){
+    var el = document.getElementById('biz-card-' + id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    el.style.outline = '3px solid #f59e0b';
+    el.style.outlineOffset = '3px';
+    setTimeout(function(){ el.style.outline = ''; el.style.outlineOffset = ''; }, 2200);
+  }, 60);
+};
+
+fetch('data/family.json').then(function(r){ return r.json(); }).then(function(data){
+  PERSONS = data.persons || {};
+  BUSINESSES = data.businesses || {};
+  bizDataLoaded = true;
+  render();
+}).catch(function(err){
+  document.getElementById('biz-grid').innerHTML =
+    '<div style="text-align:center;color:#dc2626;padding:16px;grid-column:1/-1">Failed to load data/family.json: ' + esc(String(err)) + '</div>';
+});
+})();
+</script>
 
 <!-- ════════════════════════════ UNIFIED GRAPH (BETA / NIGHT 4 WIP) ════════════════════════════ -->
 <div id="tab-graph" class="tab-panel active">
@@ -1879,7 +2012,7 @@ function badgeClassFor(conf){
   return 'bt';
 }
 
-var SOURCES = {}, PARTS = {};
+var SOURCES = {}, PARTS = {}, BUSINESSES = {};
 function sourceRefsOf(node){
   var text = (node.note || '') + ' ' + (node.facts || []).map(function(f){ return f[1]; }).join(' ');
   var seen = {}, list = [], m, re = /S(\d{1,3})\b/g;
@@ -1936,6 +2069,27 @@ function openQuestionsHtmlFor(node){
   }).join('');
   return '<div class="plbl" style="margin-top:10px;margin-bottom:2px">Open Questions</div>' + rows;
 }
+// Generalizes sourcesHtmlFor/openQuestionsHtmlFor to the new businesses{} collection (Session 4) --
+// any business/property record whose personRefs includes this person links out to its card in the
+// Business & Property tab via jumpToBusiness (that tab's script, loaded below).
+function businessHtmlFor(node){
+  var ids = Object.keys(BUSINESSES).filter(function(id){
+    return (BUSINESSES[id].personRefs || []).indexOf(node.id) !== -1;
+  });
+  if (!ids.length) return '';
+  var rows = ids.map(function(id){
+    var b = BUSINESSES[id];
+    var kindLabel = b.kind === 'property' ? 'Property' : 'Business';
+    return '<div class="prow" style="align-items:flex-start">'
+      + '<span class="plbl">' + kindLabel + '</span>'
+      + '<span>' + b.name + ' <span class="badge ' + badgeClassFor(b.status) + '" style="margin-left:0">' + (b.statusLabel || b.status) + '</span><br>'
+      + '<a href="javascript:void(0)" onclick="jumpToBusiness(\'' + id.replace(/'/g, "\\'") + '\')" '
+      + 'style="font-size:.68rem;font-weight:600;color:#1d4ed8;background:#eff6ff;border:1px solid #bfdbfe;'
+      + 'border-radius:5px;padding:2px 7px;margin-top:4px;display:inline-block;text-decoration:none">Business &amp; Property →</a>'
+      + '</span></div>';
+  }).join('');
+  return '<div class="plbl" style="margin-top:10px;margin-bottom:2px">Business &amp; Property</div>' + rows;
+}
 // Jump link target: each Research Log (formerly "Overview") Part session
 // block carries a data-part="N" attribute (added Night 6, see the wrapper
 // divs above each "Session — ... Part N" header) so this jumps by exact
@@ -1991,7 +2145,7 @@ function showGraphPanel(node){
   renderDetailPanel(
     { panel: 'gpanel', name: 'gpn', rel: 'gpr', body: 'gpb' },
     node,
-    { sourcesHtml: sourcesHtmlFor(node), partsHtml: partsHtmlFor(node), openQuestionsHtml: openQuestionsHtmlFor(node) }
+    { sourcesHtml: sourcesHtmlFor(node), partsHtml: partsHtmlFor(node), openQuestionsHtml: openQuestionsHtmlFor(node), businessHtml: businessHtmlFor(node) }
   );
 }
 document.getElementById('gpx').onclick = function(){ document.getElementById('gpanel').style.display = 'none'; };
@@ -2387,6 +2541,7 @@ window.setGraphMode = function(mode){
 fetch('data/family.json').then(function(r){ return r.json(); }).then(function(data){
   SOURCES = data.sources || {};
   PARTS = data.parts || {};
+  BUSINESSES = data.businesses || {};
   var personsById = data.persons;
   var nodes = Object.keys(personsById).map(function(id){
     var p = personsById[id];
