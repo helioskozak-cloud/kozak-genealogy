@@ -198,6 +198,17 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
   .ftree-ancestors .pkids::before{left:8px;top:0;bottom:0;border-left:2px solid #cbd5e1;border-top:none}
   .ftree-ancestors .pkids>.pnode::before{left:-8px;top:0;width:0;height:8px;border-top:none;border-left:2px solid #cbd5e1}
 }
+
+/* ── Full Family (poster) view: one row per generation ── */
+.poster-row{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px solid #e2e8f0}
+.poster-row:last-child{border-bottom:none}
+.poster-row-label{flex-shrink:0;width:96px;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#94a3b8;padding-top:9px;position:sticky;left:0;background:#f8f9fb}
+.poster-row-cards{display:flex;flex-wrap:wrap;gap:10px;flex:1;align-items:flex-start}
+.poster-unit{display:flex;align-items:stretch;gap:4px}
+@media(max-width:640px){
+  .poster-row{flex-direction:column;gap:6px}
+  .poster-row-label{width:auto;padding-top:0}
+}
 </style>
 </head>
 <body>
@@ -2110,15 +2121,19 @@ fetch('data/family.json').then(function(r){ return r.json(); }).then(function(da
 <div id="tab-graph" class="tab-panel active">
 <div class="sec">
   <div class="sec-title">Family Tree</div>
-  <div class="sec-sub">Every person record (persons + child-group entries + prose-mined people) from <code>data/family.json</code>, browsable as a real ancestor/descendant tree instead of a node graph. The center card is the current focus person — <strong>parents and grandparents</strong> expand to the left, <strong>spouse and children</strong> expand to the right. <strong>Click any card's name</strong> to re-center the tree on that person; click the <strong>ⓘ</strong> icon for the full detail panel (facts, linked sources, Research Log jump links, confirm/deny). Anyone with no traced parent/child link at all appears in the "Not yet connected" list below, searchable, instead of being forced into the chart.</div>
+  <div class="sec-sub" id="tree-mode-desc">Every person record (persons + child-group entries + prose-mined people) from <code>data/family.json</code>. <strong>Full Family</strong> lays out everyone at once, generation by generation, top to bottom — the big-picture view. <strong>Focus View</strong> drills into one person's direct ancestors/descendants in detail. Either way: click a name to jump to that person in Focus View; click the <strong>ⓘ</strong> icon for the full detail panel (facts, linked sources, Research Log jump links, confirm/deny).</div>
   <div style="display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 14px;font-size:.72rem;color:#64748b;align-items:center" id="tree-legend"></div>
   <div style="display:flex;gap:8px;margin-bottom:14px;align-items:center;flex-wrap:wrap">
+    <button id="tree-mode-poster" onclick="treeSetMode('poster')" style="font-size:.74rem;font-weight:700;padding:7px 14px;border-radius:6px;border:1.5px solid #3b82f6;background:#3b82f6;color:#fff;cursor:pointer">Full Family</button>
+    <button id="tree-mode-focus" onclick="treeSetMode('focus')" style="font-size:.74rem;font-weight:700;padding:7px 14px;border-radius:6px;border:1.5px solid #cbd5e1;background:#fff;color:#475569;cursor:pointer">Focus View</button>
+    <span style="width:1px;height:20px;background:#e2e8f0;margin:0 4px"></span>
     <input id="tree-search" type="text" placeholder="Jump to a person by name…" style="font-size:.78rem;padding:7px 10px;border-radius:6px;border:1.5px solid #cbd5e1;width:260px" onkeydown="if(event.key==='Enter')treeSearchGo()">
     <button onclick="treeSearchGo()" style="font-size:.74rem;font-weight:700;padding:7px 14px;border-radius:6px;border:1.5px solid #3b82f6;background:#3b82f6;color:#fff;cursor:pointer">Go</button>
     <div id="tree-search-results" style="font-size:.72rem;color:#64748b"></div>
   </div>
   <div id="graph-status" style="font-size:.78rem;color:#94a3b8;margin-bottom:10px">Loading data/family.json…</div>
-  <div id="tree-container" style="width:100%;min-height:60vh;background:#f8f9fb;border:1px solid #e2e8f0;border-radius:8px;padding:28px;overflow:auto"></div>
+  <div id="poster-container" style="width:100%;min-height:60vh;background:#f8f9fb;border:1px solid #e2e8f0;border-radius:8px;padding:28px;overflow:auto"></div>
+  <div id="tree-container" style="width:100%;min-height:60vh;background:#f8f9fb;border:1px solid #e2e8f0;border-radius:8px;padding:28px;overflow:auto;display:none"></div>
   <div id="tree-unconnected-wrap" style="margin-top:20px"></div>
 </div>
 
@@ -3342,8 +3357,26 @@ function treeLegendHtml(){
   + '<span><span style="display:inline-block;width:22px;height:11px;border-radius:3px;border:1.6px dashed ' + CLR.prob.stroke + ';background:' + CLR.prob.fill + ';vertical-align:middle;margin-right:5px"></span>Probable — needs confirmation</span>';
 }
 
+var TREE_MODE = 'poster';
+
+window.treeSetMode = function(mode){
+  if (mode === TREE_MODE) return;
+  TREE_MODE = mode;
+  document.getElementById('tree-mode-poster').style.background = mode === 'poster' ? '#3b82f6' : '#fff';
+  document.getElementById('tree-mode-poster').style.color = mode === 'poster' ? '#fff' : '#475569';
+  document.getElementById('tree-mode-poster').style.borderColor = mode === 'poster' ? '#3b82f6' : '#cbd5e1';
+  document.getElementById('tree-mode-focus').style.background = mode === 'focus' ? '#3b82f6' : '#fff';
+  document.getElementById('tree-mode-focus').style.color = mode === 'focus' ? '#fff' : '#475569';
+  document.getElementById('tree-mode-focus').style.borderColor = mode === 'focus' ? '#3b82f6' : '#cbd5e1';
+  document.getElementById('poster-container').style.display = mode === 'poster' ? '' : 'none';
+  document.getElementById('tree-container').style.display = mode === 'focus' ? '' : 'none';
+  if (mode === 'poster' && !document.getElementById('poster-container').innerHTML) renderPosterView();
+  if (mode === 'focus' && !document.getElementById('tree-container').innerHTML) renderFamilyTree(TREE_BY_ID['grant-1'] ? 'grant-1' : TREE_NODES[0].id);
+};
+
 window.treeSetFocus = function(id){
   if (!TREE_BY_ID[id]) return;
+  treeSetMode('focus');
   renderFamilyTree(id);
   document.getElementById('tree-container').scrollIntoView({ block: 'nearest' });
 };
@@ -3364,6 +3397,60 @@ window.treeSearchGo = function(){
     return '<a href="javascript:void(0)" onclick="treeSetFocus(\'' + n.id.replace(/'/g, "\\'") + '\')" style="color:#3b82f6;margin-right:8px">' + esc(n.name) + '</a>';
   }).join('') + (matches.length > 8 ? ' …' : '');
 };
+
+// ── Full Family (poster) view: everyone, grouped by computed generation,
+// one row per generation, top (earliest known ancestors) to bottom. Reuses
+// computeGenerations verbatim (Sessions 1 of the abandoned Generational
+// Tree plan -- the union-find/condensation/Kahn's-algorithm math there was
+// independently verified correct against real data; only the *rendering*
+// of its output was the problem, an SVG/auto-fit canvas that shrank
+// everything into a small illegible cluster). This renders the same
+// generation numbers as plain flex rows instead -- no canvas, no
+// scale-to-fit step, so nothing to shrink.
+function unitsForRow(ids){
+  var idSet = {};
+  ids.forEach(function(id){ idSet[id] = true; });
+  var parent = {};
+  ids.forEach(function(id){ parent[id] = id; });
+  function find(x){ while (parent[x] !== x) { parent[x] = parent[parent[x]]; x = parent[x]; } return x; }
+  function union(a, b){ var ra = find(a), rb = find(b); if (ra !== rb) parent[rb] = ra; }
+  TREE_EDGES.forEach(function(e){
+    if (e.type === 'spouse' && idSet[e.source] && idSet[e.target]) union(e.source, e.target);
+  });
+  var groups = {};
+  ids.forEach(function(id){ var r = find(id); (groups[r] = groups[r] || []).push(id); });
+  return Object.keys(groups).map(function(r){ return groups[r]; });
+}
+function unitMinYear(u){
+  var years = u.map(function(id){ var y = birthYearOf(TREE_BY_ID[id]); return y ? +y : Infinity; });
+  return Math.min.apply(null, years);
+}
+function renderPosterView(){
+  document.getElementById('tree-legend').innerHTML = treeLegendHtml();
+  var genResult = computeGenerations(TREE_NODES, TREE_EDGES);
+  var generations = genResult.generations;
+  var rows = {};
+  var maxGen = -1;
+  TREE_NODES.forEach(function(n){
+    var g = generations[n.id];
+    if (g === null || g === undefined) return;
+    maxGen = Math.max(maxGen, g);
+    (rows[g] = rows[g] || []).push(n.id);
+  });
+  var html = '';
+  for (var g = 0; g <= maxGen; g++) {
+    var ids = rows[g];
+    if (!ids || !ids.length) continue;
+    var units = unitsForRow(ids).sort(function(u1, u2){ return unitMinYear(u1) - unitMinYear(u2); });
+    html += '<div class="poster-row">'
+      + '<div class="poster-row-label">Generation ' + g + '<div style="font-weight:400;text-transform:none;letter-spacing:0;margin-top:2px;color:#cbd5e1">' + ids.length + ' ' + (ids.length === 1 ? 'person' : 'people') + '</div></div>'
+      + '<div class="poster-row-cards">'
+      + units.map(function(u){ return '<div class="poster-unit">' + u.map(function(id){ return pcardHtml(id); }).join('') + '</div>'; }).join('')
+      + '</div></div>';
+  }
+  document.getElementById('poster-container').innerHTML = html || '<div style="color:#94a3b8;font-size:.8rem">No connected generations to show yet.</div>';
+  renderUnconnectedList();
+}
 
 function renderUnconnectedList(){
   var orphans = TREE_NODES.filter(function(n){
@@ -3450,7 +3537,7 @@ fetch('data/family.json').then(function(r){ return r.json(); }).then(function(da
   TREE_NODES = nodes;
   TREE_EDGES = edges;
   TREE_BY_ID = nodeIndex;
-  renderFamilyTree(nodeIndex['grant-1'] ? 'grant-1' : nodes[0].id);
+  renderPosterView();
 }).catch(function(err){
   document.getElementById('graph-status').textContent = 'Failed to load data/family.json: ' + err;
 });
