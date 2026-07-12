@@ -2088,17 +2088,19 @@ fetch('data/family.json').then(function(r){ return r.json(); }).then(function(da
 <div id="tab-graph" class="tab-panel active">
 <div class="sec">
   <div class="sec-title">Unified Graph</div>
-  <div class="sec-sub">One connected node/edge graph built live from <code>data/family.json</code> — every person record (persons + child-group entries + prose-mined people) on a single canvas. Cards show name + birth year, colored/bordered by branch and confidence exactly like the Pedigree tab boxes. <strong>Hover</strong> a card for dates + confidence status; <strong>click</strong> for the full detail panel — all facts, linked sources, Research Log jump links, and the confirm/deny control. <strong>Branch view</strong> is the force-directed layout grouped by family lines; <strong>Chronological view</strong> spreads every person along one timeline axis by birth year. Drag nodes to de-overlap; scroll/drag the canvas to zoom/pan.</div>
+  <div class="sec-sub">One connected node/edge graph built live from <code>data/family.json</code> — every person record (persons + child-group entries + prose-mined people) on a single canvas. Cards show name + birth year, colored/bordered by branch and confidence exactly like the Pedigree tab boxes. <strong>Hover</strong> a card for dates + confidence status; <strong>click</strong> for the full detail panel — all facts, linked sources, Research Log jump links, and the confirm/deny control. <strong>Branch view</strong> is the force-directed layout grouped by family lines; <strong>Chronological view</strong> spreads every person along one timeline axis by birth year; <strong>Generational view</strong> rows every person by computed generation (0 = earliest documented ancestors, at top), with anyone lacking a traced parent/child link in a separate "Generation unclear" lane. Drag nodes to de-overlap; scroll/drag the canvas to zoom/pan.</div>
   <div style="display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 14px;font-size:.72rem;color:#64748b;align-items:center">
     <span><span style="display:inline-block;width:20px;border-top:2px solid #94a3b8;vertical-align:middle;margin-right:5px"></span>parent / child</span>
     <span><span style="display:inline-block;width:20px;border-top:2px dashed #7e22ce;vertical-align:middle;margin-right:5px"></span>spouse</span>
     <span><span style="display:inline-block;width:20px;border-top:2px dashed #dc2626;vertical-align:middle;margin-right:5px"></span>disproven-link</span>
     <span><span style="display:inline-block;width:20px;border-top:2px dotted #cbd5e1;vertical-align:middle;margin-right:5px"></span>same-person (duplicate node across trees, not yet merged in the data)</span>
     <span><span style="display:inline-block;width:14px;height:9px;border-radius:2px;border:1.6px dashed #d97706;vertical-align:middle;margin-right:5px"></span>probable / unconfirmed (dashed card border, matches Pedigree tab)</span>
+    <span><span style="display:inline-block;width:14px;height:9px;border-radius:2px;border:1.6px dashed #94a3b8;vertical-align:middle;margin-right:5px"></span>Generation unclear — no traced parent/child link (Generational view only)</span>
   </div>
   <div style="display:flex;gap:8px;margin-bottom:10px">
     <button id="graph-mode-branch" onclick="setGraphMode('branch')" style="font-size:.74rem;font-weight:700;padding:6px 14px;border-radius:6px;border:1.5px solid #3b82f6;background:#3b82f6;color:#fff;cursor:pointer">Branch view</button>
     <button id="graph-mode-chrono" onclick="setGraphMode('chrono')" style="font-size:.74rem;font-weight:700;padding:6px 14px;border-radius:6px;border:1.5px solid #cbd5e1;background:#fff;color:#475569;cursor:pointer">Chronological view</button>
+    <button id="graph-mode-generational" onclick="setGraphMode('generational')" style="font-size:.74rem;font-weight:700;padding:6px 14px;border-radius:6px;border:1.5px solid #cbd5e1;background:#fff;color:#475569;cursor:pointer">Generational view</button>
   </div>
   <div id="graph-status" style="font-size:.78rem;color:#94a3b8;margin-bottom:8px">Loading data/family.json…</div>
   <svg id="graph-svg" style="width:100%;height:78vh;background:#f8f9fb;border:1px solid #e2e8f0;border-radius:8px;cursor:grab;display:block"></svg>
@@ -2687,6 +2689,7 @@ function renderGraph(nodes, edges){
   rawNodes = nodes; rawEdges = edges;
   clearGraphSvg();
   if (currentGraphMode === 'chrono') renderChronoGraph(nodes, edges);
+  else if (currentGraphMode === 'generational') renderGenerationalGraph(nodes, edges);
   else renderBranchGraph(nodes, edges);
 }
 
@@ -2695,7 +2698,8 @@ window.setGraphMode = function(mode){
   currentGraphMode = mode;
   var bBtn = document.getElementById('graph-mode-branch');
   var cBtn = document.getElementById('graph-mode-chrono');
-  [[bBtn, mode === 'branch'], [cBtn, mode === 'chrono']].forEach(function(pair){
+  var gBtn = document.getElementById('graph-mode-generational');
+  [[bBtn, mode === 'branch'], [cBtn, mode === 'chrono'], [gBtn, mode === 'generational']].forEach(function(pair){
     var btn = pair[0], active = pair[1];
     btn.style.background = active ? '#3b82f6' : '#fff';
     btn.style.color = active ? '#fff' : '#475569';
@@ -3074,6 +3078,150 @@ function computeGenerationalLayout(nodes, edges, generations){
   });
 
   return { positions: positions, rowNumbers: rowNumbers, unassignedIds: unassignedOrder };
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  GENERATIONAL VIEW — Session 3 (GENERATIONAL_TREE_PLAN.md §4d/§6):
+//  render function, following renderBranchGraph/renderChronoGraph's exact
+//  signature/pattern. Calls computeGenerations() then
+//  computeGenerationalLayout() (Sessions 1-2, unchanged) to get a static
+//  {x,y} per node, then draws cards/edges/labels from that. Card
+//  rect/text/badge/prob-dot rendering is copied verbatim from
+//  renderBranchGraph/renderChronoGraph's own block (both already duplicate
+//  it rather than share a helper -- this follows that existing precedent).
+// ═══════════════════════════════════════════════════════════════
+function renderGenerationalGraph(nodes, edges){
+  var svg = d3.select('#graph-svg');
+  var SC = svg.append('g');
+  zoomBehavior = d3.zoom().scaleExtent([0.1, 5]).on('zoom', function(e){ SC.attr('transform', e.transform); });
+  svg.call(zoomBehavior);
+
+  // d3.forceLink (renderBranchGraph) mutates edge.source/target in place from
+  // a plain id string to the resolved node object the first time it runs --
+  // and Branch view, the default, always renders before a user can switch
+  // here. Normalize to plain id strings into a local copy so
+  // computeGenerations/computeGenerationalLayout (which expect string ids)
+  // work correctly regardless of which views rendered before this one.
+  function endpointId(v){ return (v && typeof v === 'object') ? v.id : v; }
+  var normEdges = edges.map(function(e){
+    return { source: endpointId(e.source), target: endpointId(e.target), type: e.type, prob: e.prob };
+  });
+
+  var genResult = computeGenerations(nodes, normEdges);
+  var layout = computeGenerationalLayout(nodes, normEdges, genResult.generations);
+  var positions = layout.positions;
+  nodes.forEach(function(n){ var p = positions[n.id]; n.x = p.x; n.y = p.y; });
+
+  var nodesById = {};
+  nodes.forEach(function(n){ nodesById[n.id] = n; });
+
+  // Only parent-child/spouse/disproven-link are drawn (§4b/§4e) -- same-person
+  // is dead code today (no such edges exist, see §4e) and isn't a generational
+  // relationship anyway.
+  var drawEdges = normEdges.filter(function(e){
+    return e.type === 'parent-child' || e.type === 'spouse' || e.type === 'disproven-link';
+  });
+
+  var linkSel = SC.append('g').selectAll('line').data(drawEdges).enter().append('line')
+    .attr('x1', function(d){ return nodesById[d.source].x; })
+    .attr('y1', function(d){ return nodesById[d.source].y; })
+    .attr('x2', function(d){ return nodesById[d.target].x; })
+    .attr('y2', function(d){ return nodesById[d.target].y; })
+    .attr('stroke', function(d){ return EDGE_STYLE[d.type].stroke; })
+    .attr('stroke-width', function(d){ return EDGE_STYLE[d.type].width; })
+    .attr('stroke-dasharray', function(d){ return EDGE_STYLE[d.type].dash; })
+    .attr('opacity', function(d){ return d.prob ? 0.55 : 0.9; });
+
+  // Drag support: reposition just the small number of edges touching the
+  // dragged node (a cheap filter over ~79 edges) instead of a physics tick --
+  // there's no simulation here, positions are static from computeGenerationalLayout.
+  var linkElements = linkSel.nodes();
+  var edgesByNode = {};
+  nodes.forEach(function(n){ edgesByNode[n.id] = []; });
+  drawEdges.forEach(function(e, idx){
+    if (edgesByNode[e.source]) edgesByNode[e.source].push(linkElements[idx]);
+    if (edgesByNode[e.target]) edgesByNode[e.target].push(linkElements[idx]);
+  });
+
+  var nodeG = SC.append('g').selectAll('g').data(nodes).enter().append('g')
+    .attr('transform', function(d){ return 'translate(' + d.x + ',' + d.y + ')'; })
+    .style('cursor', 'pointer')
+    .call(d3.drag().on('drag', function(e, d){
+      d.x = e.x; d.y = e.y;
+      d3.select(this).attr('transform', 'translate(' + d.x + ',' + d.y + ')');
+      (edgesByNode[d.id] || []).forEach(function(lineEl){
+        var sel = d3.select(lineEl);
+        var dd = sel.datum();
+        sel.attr('x1', nodesById[dd.source].x).attr('y1', nodesById[dd.source].y)
+           .attr('x2', nodesById[dd.target].x).attr('y2', nodesById[dd.target].y);
+      });
+    }))
+    .on('click', function(e, d){ showGraphPanel(d); })
+    .on('mouseenter', showTip)
+    .on('mousemove', positionTip)
+    .on('mouseleave', hideTip);
+
+  // Compact card: name + birth year only, branch/confidence styling reused
+  // from nodeClr()/CLR (Pedigree tab) -- copied verbatim from
+  // renderBranchGraph/renderChronoGraph's own identical block.
+  nodeG.append('rect')
+    .attr('x', -CARD_W / 2).attr('y', -CARD_H / 2).attr('width', CARD_W).attr('height', CARD_H)
+    .attr('rx', 5)
+    .attr('fill', function(d){ return nodeClr(d).fill; })
+    .attr('stroke', function(d){ return nodeClr(d).stroke; })
+    .attr('stroke-width', 1.6)
+    .attr('stroke-dasharray', function(d){ return d.prob ? '4,3' : null; });
+
+  nodeG.filter(function(d){ return !!d.prob; }).append('circle')
+    .attr('cx', CARD_W / 2 - 6).attr('cy', -CARD_H / 2 + 6).attr('r', 3.2).attr('fill', '#d97706');
+
+  nodeG.append('text').attr('y', -3).attr('text-anchor', 'middle')
+    .attr('font-size', 8).attr('font-weight', 700).attr('font-family', 'system-ui,sans-serif')
+    .attr('fill', function(d){ return nodeClr(d).text; })
+    .text(function(d){ return trunc(d.name, 16); });
+
+  nodeG.append('text').attr('y', 9).attr('text-anchor', 'middle')
+    .attr('font-size', 7.5).attr('font-family', 'system-ui,sans-serif')
+    .attr('fill', function(d){ return nodeClr(d).text; }).attr('opacity', 0.72)
+    .text(function(d){ var y = birthYearOf(d); return y ? 'b.' + y : 'b.?'; });
+
+  // Row labels (one per generation, 0 = top/earliest) + the unassigned-lane
+  // label -- modeled on the Pedigree tab's gLbls idea and renderChronoGraph's
+  // existing "Unknown birth year" lane label, per §4d.
+  var rowMinX = {}, rowY = {};
+  nodes.forEach(function(n){
+    var p = positions[n.id];
+    if (p.row === 'unassigned') return;
+    if (rowMinX[p.row] === undefined || p.x < rowMinX[p.row]) rowMinX[p.row] = p.x;
+    rowY[p.row] = p.y;
+  });
+  var labelG = SC.append('g');
+  layout.rowNumbers.forEach(function(g){
+    labelG.append('text')
+      .attr('x', rowMinX[g] - CARD_W / 2 - 16)
+      .attr('y', rowY[g])
+      .attr('text-anchor', 'end')
+      .attr('dominant-baseline', 'middle')
+      .attr('font-size', 11).attr('font-weight', 700).attr('font-family', 'system-ui,sans-serif')
+      .attr('fill', '#475569')
+      .text('Generation ' + g);
+  });
+  if (layout.unassignedIds.length) {
+    var laneXs = layout.unassignedIds.map(function(id){ return positions[id].x; });
+    var laneYs = layout.unassignedIds.map(function(id){ return positions[id].y; });
+    var laneMinX = Math.min.apply(null, laneXs), laneMaxX = Math.max.apply(null, laneXs);
+    var laneMinY = Math.min.apply(null, laneYs);
+    labelG.append('text')
+      .attr('x', (laneMinX + laneMaxX) / 2)
+      .attr('y', laneMinY - 24)
+      .attr('text-anchor', 'middle')
+      .attr('font-size', 11).attr('font-weight', 700).attr('font-family', 'system-ui,sans-serif')
+      .attr('fill', '#94a3b8')
+      .text('Generation unclear — no traced parent/child link');
+  }
+
+  lastNodes = nodes;
+  fitGraph(nodes);
 }
 
 fetch('data/family.json').then(function(r){ return r.json(); }).then(function(data){
