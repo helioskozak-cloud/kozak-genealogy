@@ -2704,6 +2704,177 @@ window.setGraphMode = function(mode){
   if (rawNodes) renderGraph(rawNodes, rawEdges);
 };
 
+// ═══════════════════════════════════════════════════════════════
+//  GENERATIONAL VIEW — Session 1 (GENERATIONAL_TREE_PLAN.md §4a):
+//  pure generation-computation function. NOT wired into renderGraph/
+//  setGraphMode/any render path yet -- nothing calls this function
+//  today, so it has zero effect on what's rendered. It consumes the
+//  same nodes/edges arrays the fetch callback below already builds;
+//  it does not change how those arrays are built.
+//
+//  Algorithm (§4a):
+//   1. Union-find over `spouse` edges only -> one group per family unit.
+//   2. Condense `parent-child` edges onto groups, skipping self-loops.
+//   3. Cycle check on the condensed graph; if found, un-merge the
+//      specific spousal pair whose union created the cycle and log it.
+//      This is a safety net for a hypothetical future cousin-marriage
+//      or data error -- verified to NOT trigger on the current
+//      data/family.json (zero cycles), so this path is defensive code,
+//      not a live concern today.
+//   4. Kahn's-algorithm topological order over the condensed DAG,
+//      computing longest-path-from-root generation numbers.
+//   5. Every person inherits their group's generation. A group with
+//      no parent-child-derived generation at all (never touched by a
+//      condensed edge) gets explicit generation: null, not a guess.
+// ═══════════════════════════════════════════════════════════════
+function computeGenerations(nodes, edges){
+  var spouseEdges = edges.filter(function(e){ return e.type === 'spouse'; });
+  var parentChildEdges = edges.filter(function(e){ return e.type === 'parent-child'; });
+
+  // Step 1: union-find over spouse edges only (skipSet = spouseEdges indices
+  // to exclude -- used by the cycle-break retry loop below).
+  function runUnionFind(skipSet){
+    var parent = {}, rank = {};
+    nodes.forEach(function(n){ parent[n.id] = n.id; rank[n.id] = 0; });
+    function find(x){
+      while (parent[x] !== x) { parent[x] = parent[parent[x]]; x = parent[x]; }
+      return x;
+    }
+    function union(a, b){
+      var ra = find(a), rb = find(b);
+      if (ra === rb) return false;
+      if (rank[ra] < rank[rb]) { var t = ra; ra = rb; rb = t; }
+      parent[rb] = ra;
+      if (rank[ra] === rank[rb]) rank[ra]++;
+      return true;
+    }
+    var merges = [];
+    spouseEdges.forEach(function(e, i){
+      if (skipSet[i]) return;
+      if (union(e.source, e.target)) merges.push({ idx: i, a: e.source, b: e.target });
+    });
+    return { find: find, merges: merges };
+  }
+
+  // Step 2: condense parent-child edges onto groups, skip self-loops and dedupe.
+  function buildCondensed(find){
+    var seen = {}, condensed = [];
+    parentChildEdges.forEach(function(e){
+      var from = find(e.source), to = find(e.target);
+      if (from === to) return;
+      var key = from + '|' + to;
+      if (seen[key]) return;
+      seen[key] = true;
+      condensed.push({ from: from, to: to });
+    });
+    return condensed;
+  }
+
+  // Steps 3+4: Kahn's-algorithm topological order + longest-path layering,
+  // restricted to groups actually touched by a condensed edge. Also reports
+  // whether a cycle remains (nonzero in-degree left over after the queue drains).
+  function layerCondensed(condensed, allGroupIds){
+    var outAdj = {}, inDegree = {}, touched = {};
+    allGroupIds.forEach(function(g){ outAdj[g] = []; inDegree[g] = 0; });
+    condensed.forEach(function(e){
+      outAdj[e.from].push(e.to);
+      inDegree[e.to]++;
+      touched[e.from] = true;
+      touched[e.to] = true;
+    });
+    var remaining = {};
+    Object.keys(touched).forEach(function(g){ remaining[g] = inDegree[g]; });
+    var queue = Object.keys(touched).filter(function(g){ return remaining[g] === 0; });
+    var gen = {};
+    queue.forEach(function(g){ gen[g] = 0; });
+    var processed = 0;
+    for (var qi = 0; qi < queue.length; qi++){
+      var u = queue[qi];
+      processed++;
+      outAdj[u].forEach(function(v){
+        gen[v] = Math.max(gen[v] === undefined ? 0 : gen[v], gen[u] + 1);
+        remaining[v]--;
+        if (remaining[v] === 0) queue.push(v);
+      });
+    }
+    var touchedIds = Object.keys(touched);
+    var hasCycle = processed < touchedIds.length;
+    var cycleGroups = hasCycle ? touchedIds.filter(function(g){ return remaining[g] > 0; }) : [];
+    return { gen: gen, touched: touched, hasCycle: hasCycle, cycleGroups: cycleGroups };
+  }
+
+  function distinctGroupIds(find){
+    var seen = {}, ids = [];
+    nodes.forEach(function(n){
+      var g = find(n.id);
+      if (!seen[g]) { seen[g] = true; ids.push(g); }
+    });
+    return ids;
+  }
+
+  var skipSet = {};
+  var excludedSpousePairs = [];
+  var uf = runUnionFind(skipSet);
+  var groupIds = distinctGroupIds(uf.find);
+  var condensed = buildCondensed(uf.find);
+  var result = layerCondensed(condensed, groupIds);
+
+  // Cycle-break safety net (§4a step 3). Not expected to trigger on the
+  // current dataset (verified: zero cycles) -- this exists for a future
+  // cousin-marriage or data-entry error, per the plan's own risk note.
+  var attempts = 0, maxAttempts = spouseEdges.length + 1;
+  while (result.hasCycle && attempts < maxAttempts){
+    attempts++;
+    var candidates = uf.merges.filter(function(m){
+      var ga = uf.find(m.a), gb = uf.find(m.b);
+      return result.cycleGroups.indexOf(ga) !== -1 || result.cycleGroups.indexOf(gb) !== -1;
+    });
+    var fixed = false;
+    for (var i = 0; i < candidates.length; i++){
+      var trialSkip = {};
+      Object.keys(skipSet).forEach(function(k){ trialSkip[k] = true; });
+      trialSkip[candidates[i].idx] = true;
+      var trialUf = runUnionFind(trialSkip);
+      var trialGroupIds = distinctGroupIds(trialUf.find);
+      var trialCondensed = buildCondensed(trialUf.find);
+      var trialResult = layerCondensed(trialCondensed, trialGroupIds);
+      if (!trialResult.hasCycle){
+        skipSet[candidates[i].idx] = true;
+        var brokenEdge = spouseEdges[candidates[i].idx];
+        excludedSpousePairs.push({ source: brokenEdge.source, target: brokenEdge.target });
+        console.warn('[computeGenerations] cycle-break safety net triggered: un-merged spousal pair ' +
+          brokenEdge.source + ' <-> ' + brokenEdge.target + ' to break a cycle in the condensed ' +
+          'parent-child graph. Not expected on the current data/family.json (verified zero cycles) -- ' +
+          'if this fires in production, investigate whether it is a real cousin-marriage-style cycle ' +
+          'or a data error before trusting the resulting generation numbers.');
+        uf = trialUf; groupIds = trialGroupIds; condensed = trialCondensed; result = trialResult;
+        fixed = true;
+        break;
+      }
+    }
+    if (!fixed){
+      console.error('[computeGenerations] could not resolve a condensed-graph cycle by un-merging a ' +
+        'single spousal pair; groups involved: ' + result.cycleGroups.join(', ') + '. Generation numbers ' +
+        'for these groups will be left null rather than guessed.');
+      break;
+    }
+  }
+
+  // Step 5: every person inherits their group's generation, or explicit
+  // null if their group was never touched by a condensed parent-child edge.
+  var generations = {};
+  nodes.forEach(function(n){
+    var g = uf.find(n.id);
+    generations[n.id] = result.touched[g] ? result.gen[g] : null;
+  });
+
+  return {
+    generations: generations,
+    cycleDetected: attempts > 0,
+    excludedSpousePairs: excludedSpousePairs
+  };
+}
+
 fetch('data/family.json').then(function(r){ return r.json(); }).then(function(data){
   SOURCES = data.sources || {};
   PARTS = data.parts || {};
