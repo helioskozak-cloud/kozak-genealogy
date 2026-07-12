@@ -2875,6 +2875,207 @@ function computeGenerations(nodes, edges){
   };
 }
 
+// ═══════════════════════════════════════════════════════════════
+//  GENERATIONAL VIEW — Session 2 (GENERATIONAL_TREE_PLAN.md §4b/§4c/§4d):
+//  pure layout function, consumes Session 1's computeGenerations() output.
+//  NOT wired into renderGraph/setGraphMode/any render path yet -- zero
+//  effect on what's rendered today.
+//
+//  Algorithm (§4b):
+//   1. Row (Y) = generation number, one fixed-height row per generation;
+//      persons with generation:null go to a separate unassigned lane (§4d),
+//      not a numbered row.
+//   2. Same-row spouse pairs are grouped into one "unit" per row (a small
+//      union-find restricted to same-row spouse edges -- computeGenerations
+//      guarantees a spouse edge is always within one row, §4a). Units, not
+//      individual persons, are what steps 3-4 below reorder, so spousal
+//      adjacency (§4c) is structural from the first sweep instead of a
+//      forced insertion after the fact that would re-fragment an
+//      already-optimized row (tried that first: it INCREASED crossings on
+//      the real dataset, 30 -> 46 -- see commit message).
+//   3. Initial unit order per row: seeded left-to-right by birth year
+//      (min birth year of a unit's members) via the existing birthYearOf()
+//      helper (reused, not reimplemented); a unit's own members are
+//      birth-year-ordered internally too.
+//   4. 2-4 barycenter sweeps, alternating top-down/bottom-up, reordering
+//      each row's units by the mean column of their members' neighbors
+//      (parent-child + disproven-link edges -- the only edge types that
+//      ever span rows, §4b/§4e) in the adjacent row already updated by
+//      this pass, plus one final top-down settling pass. Because a
+//      spouse-pair unit's members are already column-adjacent, a shared
+//      child's neighbor score naturally averages to the pair's midpoint --
+//      the "center children under the pair's midpoint" rule in §4b/§4c
+//      falls out of the same mechanism, no separate step required.
+//   5. Unassigned lane: modeled directly on renderChronoGraph's existing
+//      "Unknown birth year" column/row grid code (index.html, the
+//      `rowsPerCol`/`col`/`row` pattern in the chrono unknown-lane block).
+// ═══════════════════════════════════════════════════════════════
+function computeGenerationalLayout(nodes, edges, generations){
+  var nodesById = {};
+  nodes.forEach(function(n){ nodesById[n.id] = n; });
+
+  var parentChildEdges = edges.filter(function(e){ return e.type === 'parent-child'; });
+  var spouseEdges = edges.filter(function(e){ return e.type === 'spouse'; });
+  var disprovenEdges = edges.filter(function(e){ return e.type === 'disproven-link'; });
+  // Only parent-child/disproven-link edges ever span rows (§4b/§4e) -- spouse
+  // edges are always within-row by construction (computeGenerations merges
+  // spouses into one group/row), so they never feed the cross-row barycenter.
+  var crossRowEdges = parentChildEdges.concat(disprovenEdges);
+
+  // ---- Step 1: bucket by row. generation:null -> separate unassigned lane.
+  var rowMembers = {};
+  var unassignedIds = [];
+  nodes.forEach(function(n){
+    var g = generations[n.id];
+    if (g === null || g === undefined) { unassignedIds.push(n.id); return; }
+    (rowMembers[g] = rowMembers[g] || []).push(n.id);
+  });
+  var rowNumbers = Object.keys(rowMembers).map(Number).sort(function(a, b){ return a - b; });
+
+  function byYear(id){
+    var y = birthYearOf(nodesById[id]);
+    return y ? +y : Infinity;
+  }
+
+  // ---- Step 2: group same-row spouse pairs into units; seed unit order by
+  // birth year (§4b initial seeding, applied at the unit level).
+  var unitsByRow = {};
+  rowNumbers.forEach(function(g){
+    var members = rowMembers[g];
+    var memberSet = {};
+    members.forEach(function(id){ memberSet[id] = true; });
+    var parent = {};
+    members.forEach(function(id){ parent[id] = id; });
+    function find(x){ while (parent[x] !== x) { parent[x] = parent[parent[x]]; x = parent[x]; } return x; }
+    function union(a, b){ var ra = find(a), rb = find(b); if (ra !== rb) parent[rb] = ra; }
+    spouseEdges.forEach(function(e){
+      if (memberSet[e.source] && memberSet[e.target]) union(e.source, e.target);
+    });
+    var groups = {};
+    members.forEach(function(id){
+      var r = find(id);
+      (groups[r] = groups[r] || []).push(id);
+    });
+    var units = Object.keys(groups).map(function(r){
+      var ids = groups[r].slice().sort(function(a, b){
+        var ba = byYear(a), bb = byYear(b);
+        if (ba !== bb) return ba - bb;
+        return a < b ? -1 : (a > b ? 1 : 0);
+      });
+      return { ids: ids };
+    });
+    units.sort(function(u1, u2){
+      var m1 = Math.min.apply(null, u1.ids.map(byYear));
+      var m2 = Math.min.apply(null, u2.ids.map(byYear));
+      if (m1 !== m2) return m1 - m2;
+      return u1.ids[0] < u2.ids[0] ? -1 : (u1.ids[0] > u2.ids[0] ? 1 : 0);
+    });
+    unitsByRow[g] = units;
+  });
+
+  var rows = {}, colOf = {};
+  function reindex(g){
+    var flat = [];
+    unitsByRow[g].forEach(function(u){ u.ids.forEach(function(id){ flat.push(id); }); });
+    rows[g] = flat;
+    flat.forEach(function(id, i){ colOf[id] = i; });
+  }
+  rowNumbers.forEach(reindex);
+
+  var neighborsOf = {};
+  nodes.forEach(function(n){ neighborsOf[n.id] = []; });
+  crossRowEdges.forEach(function(e){
+    if (!neighborsOf[e.source] || !neighborsOf[e.target]) return;
+    neighborsOf[e.source].push(e.target);
+    neighborsOf[e.target].push(e.source);
+  });
+
+  // A unit's score is the mean column of every member's cross-row neighbors
+  // in the reference row. A unit with no cross-row neighbor at all keeps its
+  // current relative position (stable -- doesn't get yanked around by
+  // unrelated rows settling).
+  function unitScore(u, refSet){
+    var cols = [];
+    u.ids.forEach(function(id){
+      neighborsOf[id].forEach(function(nb){ if (refSet[nb]) cols.push(colOf[nb]); });
+    });
+    if (cols.length) return cols.reduce(function(a, b){ return a + b; }, 0) / cols.length;
+    var cur = u.ids.map(function(id){ return colOf[id]; });
+    return cur.reduce(function(a, b){ return a + b; }, 0) / cur.length;
+  }
+
+  function barycenterReorder(g, referenceRowNumber){
+    var refIds = rows[referenceRowNumber];
+    if (!refIds) return;
+    var refSet = {};
+    refIds.forEach(function(id){ refSet[id] = true; });
+    var scored = unitsByRow[g].map(function(u, i){ return { u: u, score: unitScore(u, refSet), orig: i }; });
+    scored.sort(function(a, b){ return (a.score - b.score) || (a.orig - b.orig); });
+    unitsByRow[g] = scored.map(function(s){ return s.u; });
+    reindex(g);
+  }
+
+  // ---- Step 3: 2-4 alternating barycenter sweeps (§4b), reordering units.
+  var SWEEP_COUNT = 4;
+  for (var pass = 0; pass < SWEEP_COUNT; pass++){
+    if (pass % 2 === 0){
+      for (var i = 1; i < rowNumbers.length; i++){
+        var gDown = rowNumbers[i];
+        if (unitsByRow[gDown].length > 1) barycenterReorder(gDown, rowNumbers[i - 1]);
+      }
+    } else {
+      for (var j = rowNumbers.length - 2; j >= 0; j--){
+        var gUp = rowNumbers[j];
+        if (unitsByRow[gUp].length > 1) barycenterReorder(gUp, rowNumbers[j + 1]);
+      }
+    }
+  }
+  // Final top-down settling pass against each row's now-fully-finalized
+  // parent row -- this is where a couple's children (now scored against
+  // their already-adjacent parents) end up centered under the pair's
+  // midpoint (§4c), with no separate spousal-adjacency step needed since
+  // adjacency was structural from step 2 onward.
+  rowNumbers.forEach(function(g, idx){
+    if (idx > 0 && unitsByRow[g].length > 1) barycenterReorder(g, rowNumbers[idx - 1]);
+  });
+
+  // ---- Coordinates. Row height stays constant -- reuses CARD_H + 6, the
+  // same margin renderChronoGraph already uses for its vertical card
+  // spacing. Row width grows with row population via column index; no new
+  // vertical-scaling logic needed, fitGraph's existing uniform zoom-to-fit
+  // (§4d) handles variable-width rows exactly like it already does for
+  // Chronological view's variable-width timeline.
+  var ROW_H = CARD_H + 6, COL_W = CARD_W + 10;
+  var topMargin = 60;
+  var positions = {};
+  rowNumbers.forEach(function(g){
+    var y = topMargin + g * ROW_H;
+    rows[g].forEach(function(id, i){
+      positions[id] = { x: i * COL_W, y: y, row: g, col: i };
+    });
+  });
+
+  // ---- Step 4: unassigned-generation lane (§4d), modeled directly on
+  // renderChronoGraph's existing "Unknown birth year" lane grid: a
+  // deterministic column/row grid, positioned clear of the numbered rows'
+  // x>=0 span (that lane sits left of its dated timeline the same way).
+  var unassignedOrder = unassignedIds.slice().sort(function(a, b){ return a < b ? -1 : (a > b ? 1 : 0); });
+  var laneVerticalSpan = Math.max(150, rowNumbers.length * ROW_H);
+  var rowsPerCol = Math.max(6, Math.floor(laneVerticalSpan / (CARD_H + 6)));
+  var laneBaseX = -260;
+  unassignedOrder.forEach(function(id, i){
+    var col = Math.floor(i / rowsPerCol), row = i % rowsPerCol;
+    positions[id] = {
+      x: laneBaseX - col * (CARD_W + 10),
+      y: topMargin + row * (CARD_H + 6),
+      row: 'unassigned',
+      col: col
+    };
+  });
+
+  return { positions: positions, rowNumbers: rowNumbers, unassignedIds: unassignedOrder };
+}
+
 fetch('data/family.json').then(function(r){ return r.json(); }).then(function(data){
   SOURCES = data.sources || {};
   PARTS = data.parts || {};
