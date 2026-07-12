@@ -222,6 +222,29 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
     <p style="font-size:.8rem;color:#7f1d1d;line-height:1.55">Patrick McGivney Sr. (Fr. McGivney's father) was from <strong>County Cavan</strong> (Drumkilly, Crosserlough Parish) — NOT County Cork as this site previously stated. His wife Mary Lynch was also from County Cavan (Castlerahan Parish). This removes the main geographic obstacle to Nancy Kozak's hypothesis and means both Connecticut McGivney families share the same Irish county of origin.</p>
   </div>
 
+  <div id="rlog-controls" style="background:#fff;border:1.5px solid #cbd5e1;border-radius:9px;padding:12px 14px;margin:18px 0;display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end">
+    <div>
+      <label for="rlog-search" style="display:block;font-size:.62rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px">Search</label>
+      <input id="rlog-search" type="text" placeholder="Search title &amp; summary…" style="font-size:.76rem;padding:5px 7px;border:1px solid #cbd5e1;border-radius:5px;min-width:220px">
+    </div>
+    <div>
+      <label for="rlog-filter-person" style="display:block;font-size:.62rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px">Person</label>
+      <select id="rlog-filter-person" style="font-size:.76rem;padding:5px 7px;border:1px solid #cbd5e1;border-radius:5px;min-width:230px;max-width:100%">
+        <option value="">All persons</option>
+      </select>
+    </div>
+    <div>
+      <label for="rlog-sort" style="display:block;font-size:.62rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px">Sort</label>
+      <select id="rlog-sort" style="font-size:.76rem;padding:5px 7px;border:1px solid #cbd5e1;border-radius:5px;min-width:190px">
+        <option value="partDesc">Part number (newest first)</option>
+        <option value="dateAsc">Session date (oldest first)</option>
+      </select>
+    </div>
+    <button id="rlog-filter-reset" type="button" style="font-size:.7rem;font-weight:600;color:#475569;background:#f1f5f9;border:1px solid #cbd5e1;border-radius:5px;padding:6px 11px;cursor:pointer">Reset filters</button>
+    <div id="rlog-count" style="font-size:.72rem;color:#64748b;margin-left:auto;align-self:center;white-space:nowrap"></div>
+  </div>
+  <div id="rlog-sorted-container"></div>
+
   <div data-part="2" style="background:#f0fdf4;border:2px solid #22c55e;border-radius:9px;padding:14px 16px;margin:18px 0">
     <div style="font-size:.75rem;font-weight:700;color:#15803d;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Session — Jul 2 2026 Part 2 (Pedigree Tables · Branch Merge)</div>
     <p style="font-size:.8rem;color:#14532d;line-height:1.55;margin-bottom:6px"><strong>Pedigree Tables added to index.html</strong> (replacing tree.html D3 chart per user instruction). Four tables: (1) Grant's direct ancestor chain; (2) John Relihan Sr. — all children, Dooley/Duley + McNamara branches merged; (3) Maurice Relihan's children showing all CT branches at one level; (4) McGivney family. Amber-dashed rows = probable; merged rows clearly flagged.</p>
@@ -668,6 +691,146 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
   </div>
 </div>
 </div>
+
+<script>
+(function(){
+// Standalone data load for the Research Log search/person-filter/sort controls --
+// mirrors the fetch('data/family.json') pattern the Sources/Open Questions/Business
+// tabs already use (own independent fetch, not reaching into the Graph tab's
+// IIFE-scoped vars) so this renders correctly regardless of tab load order.
+//
+// This is a presentation-layer filter/reorder over the EXISTING 43 data-part="N"
+// DOM blocks (Night 6) -- it never edits their prose content. Filtering just
+// toggles element.style.display in place. Reordering (session-date-ascending)
+// physically moves the tracked elements via appendChild, which is why each
+// tracked element gets a permanent DOM comment "anchor" inserted immediately
+// before it at collection time: restoring to the default order re-inserts each
+// element right after its own anchor, which never moves, so the original
+// document position (including elements nested in the two-column grid boxes
+// that surround many Part blocks) is always exactly reconstructible regardless
+// of how many times sort mode is toggled back and forth.
+
+var PARTS_GROUPS = {}, PERSONS = {}, PART_ITEMS = [], dataLoaded = false;
+
+function collectPartItems(){
+  var els = document.querySelectorAll('#tab-overview [data-part]');
+  els.forEach(function(el){
+    var anchor = document.createComment('rlog-anchor');
+    el.parentNode.insertBefore(anchor, el);
+    PART_ITEMS.push({ el: el, number: parseInt(el.getAttribute('data-part'), 10), anchor: anchor });
+  });
+}
+collectPartItems();
+
+function restoreOriginalOrder(){
+  PART_ITEMS.forEach(function(item){
+    item.anchor.parentNode.insertBefore(item.el, item.anchor.nextSibling);
+  });
+}
+
+// Groups the raw parts{} entries by their shared "number" field -- a few Part
+// numbers (e.g. addenda) have more than one family.json entry for the same
+// data-part DOM block, so title/date come from the entry whose own key equals
+// the number (the "primary" entry), while search text and personRefs are the
+// union of every entry sharing that number, so search/filter never misses text
+// that only lives in an addendum entry.
+function buildGroups(parts){
+  var groups = {};
+  Object.keys(parts).forEach(function(key){
+    var p = parts[key];
+    if (!groups[p.number]) groups[p.number] = { number: p.number, title: null, date: null, text: '', personRefs: {} };
+  });
+  Object.keys(parts).forEach(function(key){
+    var p = parts[key];
+    if (key === String(p.number)) { groups[p.number].title = p.title; groups[p.number].date = p.date; }
+  });
+  Object.keys(parts).forEach(function(key){
+    var p = parts[key];
+    var g = groups[p.number];
+    g.text += ' ' + (p.title || '') + ' ' + (p.summary || '');
+    if (g.date == null) g.date = p.date;
+    (p.personRefs || []).forEach(function(pid){ g.personRefs[pid] = true; });
+  });
+  return groups;
+}
+
+function matchesFilters(number, searchTerm, personId){
+  var g = PARTS_GROUPS[number];
+  if (!g) return true;
+  if (searchTerm && g.text.toLowerCase().indexOf(searchTerm) === -1) return false;
+  if (personId && !g.personRefs[personId]) return false;
+  return true;
+}
+
+function render(){
+  var searchTerm = document.getElementById('rlog-search').value.trim().toLowerCase();
+  var personId = document.getElementById('rlog-filter-person').value;
+  var sortMode = document.getElementById('rlog-sort').value;
+
+  if (sortMode === 'dateAsc') {
+    var sorted = PART_ITEMS.slice().sort(function(a, b){
+      var da = (PARTS_GROUPS[a.number] && PARTS_GROUPS[a.number].date) || '';
+      var db = (PARTS_GROUPS[b.number] && PARTS_GROUPS[b.number].date) || '';
+      if (da < db) return -1;
+      if (da > db) return 1;
+      return 0;
+    });
+    var container = document.getElementById('rlog-sorted-container');
+    sorted.forEach(function(item){ container.appendChild(item.el); });
+  } else {
+    restoreOriginalOrder();
+  }
+
+  var shown = 0;
+  PART_ITEMS.forEach(function(item){
+    var match = matchesFilters(item.number, searchTerm, personId);
+    item.el.style.display = match ? '' : 'none';
+    if (match) shown++;
+  });
+  document.getElementById('rlog-count').textContent = 'Showing ' + shown + ' of ' + PART_ITEMS.length + ' Research Log entries';
+}
+
+// Reset hook called by jumpToPart (Graph tab script, defined later in the document)
+// so a deep-link into a specific Part is never hidden behind a stale search/person
+// filter -- the exact same "clear filters before jumping" discipline jumpToSource
+// already uses for the Sources tab.
+window.__resetResearchLogFilters = function(){
+  if (!dataLoaded) return;
+  document.getElementById('rlog-search').value = '';
+  document.getElementById('rlog-filter-person').value = '';
+  render();
+};
+
+fetch('data/family.json').then(function(r){ return r.json(); }).then(function(data){
+  PERSONS = data.persons || {};
+  PARTS_GROUPS = buildGroups(data.parts || {});
+
+  var personSel = document.getElementById('rlog-filter-person');
+  Object.keys(PERSONS).map(function(id){ return { id: id, name: PERSONS[id].name }; })
+    .sort(function(a, b){ return a.name.localeCompare(b.name); })
+    .forEach(function(p){
+      var opt = document.createElement('option');
+      opt.value = p.id; opt.textContent = p.name;
+      personSel.appendChild(opt);
+    });
+
+  document.getElementById('rlog-search').addEventListener('input', render);
+  personSel.addEventListener('change', render);
+  document.getElementById('rlog-sort').addEventListener('change', render);
+  document.getElementById('rlog-filter-reset').addEventListener('click', function(){
+    document.getElementById('rlog-search').value = '';
+    personSel.value = '';
+    document.getElementById('rlog-sort').value = 'partDesc';
+    render();
+  });
+
+  dataLoaded = true;
+  render();
+}).catch(function(err){
+  document.getElementById('rlog-count').textContent = 'Failed to load data/family.json: ' + err;
+});
+})();
+</script>
 
 <!-- ════════════════════════════ PEDIGREE ════════════════════════════ -->
 <div id="tab-pedigree" class="tab-panel">
@@ -2097,6 +2260,9 @@ function businessHtmlFor(node){
 window.jumpToPart = function(n){
   var overviewBtn = document.querySelector('.tab-btn[onclick*="switchTab(\'overview\'"]');
   if (overviewBtn && typeof switchTab === 'function') switchTab('overview', overviewBtn);
+  // Clear any active Research Log search/person filter first -- same "clear filters
+  // so the target is guaranteed visible" discipline jumpToSource uses for Sources.
+  if (typeof window.__resetResearchLogFilters === 'function') window.__resetResearchLogFilters();
   var target = document.querySelector('#tab-overview [data-part="' + n + '"]');
   if (target) {
     target.scrollIntoView({ behavior: 'smooth', block: 'center' });
