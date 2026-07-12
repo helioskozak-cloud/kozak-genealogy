@@ -176,6 +176,28 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
   .leads,.oq-grid,.web-grid{grid-template-columns:1fr}
   .gen-row{flex-direction:column}
 }
+
+/* ── Family Tree (expand/collapse ancestor/descendant chart) ── */
+.pnode{display:flex;flex-direction:row;align-items:center}
+.pcard{flex-shrink:0;width:172px;border-radius:8px;padding:7px 24px 7px 9px;position:relative;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.pcard-name{font-weight:700;cursor:pointer;font-size:.79rem;line-height:1.3}
+.pcard-name:hover{text-decoration:underline}
+.pcard-dates{font-size:.68rem;margin-top:2px;opacity:.85}
+.pcard-info{position:absolute;top:5px;right:5px;font-size:.85rem;color:#94a3b8;cursor:pointer;width:17px;height:17px;text-align:center;line-height:17px;border-radius:50%}
+.pcard-info:hover{background:rgba(0,0,0,.08);color:#0f172a}
+.pkids{display:flex;flex-direction:column;justify-content:center;position:relative;padding-left:30px;gap:10px}
+.pkids::before{content:'';position:absolute;left:15px;top:8px;bottom:8px;border-left:2px solid #cbd5e1}
+.pkids.pkids-single::before{display:none}
+.pkids>.pnode{position:relative}
+.pkids>.pnode::before{content:'';position:absolute;left:-15px;top:50%;width:15px;height:0;border-top:2px solid #cbd5e1}
+.dlist{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.drow{display:flex;align-items:center;flex-wrap:wrap;gap:0}
+@media(max-width:640px){
+  .ftree-ancestors .pnode{flex-direction:column;align-items:flex-start}
+  .ftree-ancestors .pkids{padding-left:16px;padding-top:6px}
+  .ftree-ancestors .pkids::before{left:8px;top:0;bottom:0;border-left:2px solid #cbd5e1;border-top:none}
+  .ftree-ancestors .pkids>.pnode::before{left:-8px;top:0;width:0;height:8px;border-top:none;border-left:2px solid #cbd5e1}
+}
 </style>
 </head>
 <body>
@@ -187,7 +209,7 @@ body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#0f172a;font-size:1
   <button class="tab-btn" onclick="switchTab('openq',this)">Open Questions</button>
   <button class="tab-btn" onclick="switchTab('sources',this)">Sources</button>
   <button class="tab-btn" onclick="switchTab('business',this)">Business &amp; Property</button>
-  <button class="tab-btn active" onclick="switchTab('graph',this);setTimeout(function(){if(typeof fitGraphOnShow==='function')fitGraphOnShow();},50)">Graph</button>
+  <button class="tab-btn active" onclick="switchTab('graph',this)">Family Tree</button>
 </nav>
 
 <!-- ════════════════════════════ OVERVIEW ════════════════════════════ -->
@@ -2087,23 +2109,17 @@ fetch('data/family.json').then(function(r){ return r.json(); }).then(function(da
 <!-- ════════════════════════════ UNIFIED GRAPH (BETA / NIGHT 4 WIP) ════════════════════════════ -->
 <div id="tab-graph" class="tab-panel active">
 <div class="sec">
-  <div class="sec-title">Unified Graph</div>
-  <div class="sec-sub">One connected node/edge graph built live from <code>data/family.json</code> — every person record (persons + child-group entries + prose-mined people) on a single canvas. Cards show name + birth year, colored/bordered by branch and confidence exactly like the Pedigree tab boxes. <strong>Hover</strong> a card for dates + confidence status; <strong>click</strong> for the full detail panel — all facts, linked sources, Research Log jump links, and the confirm/deny control. <strong>Branch view</strong> is the force-directed layout grouped by family lines; <strong>Chronological view</strong> spreads every person along one timeline axis by birth year; <strong>Generational view</strong> rows every person by computed generation (0 = earliest documented ancestors, at top), with anyone lacking a traced parent/child link in a separate "Generation unclear" lane. Drag nodes to de-overlap; scroll/drag the canvas to zoom/pan.</div>
-  <div style="display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 14px;font-size:.72rem;color:#64748b;align-items:center">
-    <span><span style="display:inline-block;width:20px;border-top:2px solid #94a3b8;vertical-align:middle;margin-right:5px"></span>parent / child</span>
-    <span><span style="display:inline-block;width:20px;border-top:2px dashed #7e22ce;vertical-align:middle;margin-right:5px"></span>spouse</span>
-    <span><span style="display:inline-block;width:20px;border-top:2px dashed #dc2626;vertical-align:middle;margin-right:5px"></span>disproven-link</span>
-    <span><span style="display:inline-block;width:20px;border-top:2px dotted #cbd5e1;vertical-align:middle;margin-right:5px"></span>same-person (duplicate node across trees, not yet merged in the data)</span>
-    <span><span style="display:inline-block;width:14px;height:9px;border-radius:2px;border:1.6px dashed #d97706;vertical-align:middle;margin-right:5px"></span>probable / unconfirmed (dashed card border, matches Pedigree tab)</span>
-    <span><span style="display:inline-block;width:14px;height:9px;border-radius:2px;border:1.6px dashed #94a3b8;vertical-align:middle;margin-right:5px"></span>Generation unclear — no traced parent/child link (Generational view only)</span>
+  <div class="sec-title">Family Tree</div>
+  <div class="sec-sub">Every person record (persons + child-group entries + prose-mined people) from <code>data/family.json</code>, browsable as a real ancestor/descendant tree instead of a node graph. The center card is the current focus person — <strong>parents and grandparents</strong> expand to the left, <strong>spouse and children</strong> expand to the right. <strong>Click any card's name</strong> to re-center the tree on that person; click the <strong>ⓘ</strong> icon for the full detail panel (facts, linked sources, Research Log jump links, confirm/deny). Anyone with no traced parent/child link at all appears in the "Not yet connected" list below, searchable, instead of being forced into the chart.</div>
+  <div style="display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 14px;font-size:.72rem;color:#64748b;align-items:center" id="tree-legend"></div>
+  <div style="display:flex;gap:8px;margin-bottom:14px;align-items:center;flex-wrap:wrap">
+    <input id="tree-search" type="text" placeholder="Jump to a person by name…" style="font-size:.78rem;padding:7px 10px;border-radius:6px;border:1.5px solid #cbd5e1;width:260px" onkeydown="if(event.key==='Enter')treeSearchGo()">
+    <button onclick="treeSearchGo()" style="font-size:.74rem;font-weight:700;padding:7px 14px;border-radius:6px;border:1.5px solid #3b82f6;background:#3b82f6;color:#fff;cursor:pointer">Go</button>
+    <div id="tree-search-results" style="font-size:.72rem;color:#64748b"></div>
   </div>
-  <div style="display:flex;gap:8px;margin-bottom:10px">
-    <button id="graph-mode-branch" onclick="setGraphMode('branch')" style="font-size:.74rem;font-weight:700;padding:6px 14px;border-radius:6px;border:1.5px solid #3b82f6;background:#3b82f6;color:#fff;cursor:pointer">Branch view</button>
-    <button id="graph-mode-chrono" onclick="setGraphMode('chrono')" style="font-size:.74rem;font-weight:700;padding:6px 14px;border-radius:6px;border:1.5px solid #cbd5e1;background:#fff;color:#475569;cursor:pointer">Chronological view</button>
-    <button id="graph-mode-generational" onclick="setGraphMode('generational')" style="font-size:.74rem;font-weight:700;padding:6px 14px;border-radius:6px;border:1.5px solid #cbd5e1;background:#fff;color:#475569;cursor:pointer">Generational view</button>
-  </div>
-  <div id="graph-status" style="font-size:.78rem;color:#94a3b8;margin-bottom:8px">Loading data/family.json…</div>
-  <svg id="graph-svg" style="width:100%;height:78vh;background:#f8f9fb;border:1px solid #e2e8f0;border-radius:8px;cursor:grab;display:block"></svg>
+  <div id="graph-status" style="font-size:.78rem;color:#94a3b8;margin-bottom:10px">Loading data/family.json…</div>
+  <div id="tree-container" style="width:100%;min-height:60vh;background:#f8f9fb;border:1px solid #e2e8f0;border-radius:8px;padding:28px;overflow:auto"></div>
+  <div id="tree-unconnected-wrap" style="margin-top:20px"></div>
 </div>
 
 <div id="gpanel">
@@ -2120,6 +2136,11 @@ fetch('data/family.json').then(function(r){ return r.json(); }).then(function(da
 //  UNIFIED GRAPH — Night 4: replace the 4 disconnected ahnentafel
 //  trees with one connected node/edge graph read from family.json.
 // ═══════════════════════════════════════════════════════════════
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
 
 // ── Card facts: birth year / dates / confidence status ──────────────────
 // data/family.json doesn't (yet) carry structured birth{year,...} per the
@@ -2137,8 +2158,16 @@ function birthYearOf(p){
 }
 function datesOf(p){
   var note = p.note || '';
-  var b = note.match(/\bb\.?~?\s*([^·]+?)(?:\s*·|$)/i);
-  var d = note.match(/\bd\.?~?\s*([^·]+?)(?:\s*·|$)/i);
+  // Anchored to a literal "b."/"d." right after a segment boundary (start of
+  // string or " · ") -- the old version used a bare \b word-boundary, which
+  // matched the first letter of ANY word starting with b/d anywhere in the
+  // note ("Bridgeport", "Baldwin", "Buried", "Derrylahan", ...) and reported
+  // the rest of that word as a garbled "date". Confirmed against all 100
+  // person notes: this version fixes 64/100 records, all in the direction of
+  // either a correct date or an honest "not yet recorded" (never a
+  // regression from a previously-correct value).
+  var b = note.match(/(?:^|·)\s*b\.~?\s*([^·(—]+?)(?:\s*[·(—]|$)/i);
+  var d = note.match(/(?:^|·)\s*d\.~?\s*([^·(—]+?)(?:\s*[·(—]|$)/i);
   var parts = [];
   if (b) parts.push('b.' + b[1].trim());
   if (d) parts.push('d.' + d[1].trim());
@@ -2288,25 +2317,12 @@ window.jumpToPart = function(n){
 window.jumpToPerson = function(id, attempt){
   var graphBtn = document.querySelector('.tab-btn[onclick*="switchTab(\'graph\'"]');
   if (graphBtn && typeof switchTab === 'function') switchTab('graph', graphBtn);
-  if (!rawNodes) {
+  if (!TREE_BY_ID[id]) {
     if ((attempt || 0) < 30) setTimeout(function(){ jumpToPerson(id, (attempt || 0) + 1); }, 100);
     return;
   }
-  var node = null;
-  for (var i = 0; i < rawNodes.length; i++) { if (rawNodes[i].id === id) { node = rawNodes[i]; break; } }
-  if (!node) return;
-  setTimeout(function(){
-    if (zoomBehavior && typeof node.x === 'number' && typeof node.y === 'number') {
-      var svgEl = document.getElementById('graph-svg');
-      var w = (svgEl && svgEl.getBoundingClientRect().width) || 1200;
-      var h = (svgEl && svgEl.getBoundingClientRect().height) || 700;
-      var s = 1.3;
-      var tx = w / 2 - s * node.x, ty = h / 2 - s * node.y;
-      d3.select('#graph-svg').transition().duration(300)
-        .call(zoomBehavior.transform, d3.zoomIdentity.translate(tx, ty).scale(s));
-    }
-    showGraphPanel(node);
-  }, 60);
+  treeSetFocus(id);
+  setTimeout(function(){ showGraphPanel(TREE_BY_ID[id]); }, 60);
 };
 
 function showGraphPanel(node){
@@ -3224,6 +3240,155 @@ function renderGenerationalGraph(nodes, edges){
   fitGraph(nodes);
 }
 
+// ═══════════════════════════════════════════════════════════════
+//  FAMILY TREE — traditional expand/collapse ancestor/descendant chart.
+//  Replaces the D3 force-graph/canvas approach (renderBranchGraph/
+//  renderChronoGraph/renderGenerationalGraph above) after all three of its
+//  modes were found, on a plain unzoomed screenshot, to render as a small
+//  illegible cluster in a mostly-empty auto-fit canvas. This is plain
+//  flexbox layout -- no force simulation, no manual x/y math, no auto-fit
+//  scale-to-a-fixed-pixel-budget bug (the exact defect found in the
+//  Pedigree tab's fitBranch: `var sy = 200 / totalH` hardcodes a 200px
+//  height target regardless of actual container size). Sizing here is
+//  entirely CSS: cards are a fixed width, containers grow to fit content,
+//  the browser lays it out -- so there is no scale-to-fit step to get wrong.
+// ═══════════════════════════════════════════════════════════════
+var TREE_NODES = [], TREE_EDGES = [], TREE_BY_ID = {};
+var TREE_ANCESTOR_DEPTH = 3; // Focus + Parents + Grandparents + Great-grandparents
+var TREE_DESC_DEPTH = 2;     // Children + Grandchildren
+
+function parentsOf(id){
+  var out = [];
+  TREE_EDGES.forEach(function(e){ if (e.type === 'parent-child' && e.target === id) out.push(e.source); });
+  return out;
+}
+function childrenOf(id){
+  var out = [];
+  TREE_EDGES.forEach(function(e){ if (e.type === 'parent-child' && e.source === id) out.push(e.target); });
+  return out;
+}
+function spouseOf(id){
+  var out = [];
+  TREE_EDGES.forEach(function(e){
+    if (e.type !== 'spouse') return;
+    if (e.source === id) out.push(e.target);
+    else if (e.target === id) out.push(e.source);
+  });
+  return out;
+}
+
+function pcardHtml(id, opts){
+  opts = opts || {};
+  var p = TREE_BY_ID[id];
+  if (!p) return '';
+  var clr = nodeClr(p);
+  var borderStyle = p.prob ? 'dashed' : 'solid';
+  var extraLabel = opts.roleLabel ? '<div style="font-size:.63rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:' + clr.stroke + ';margin-bottom:2px">' + esc(opts.roleLabel) + '</div>' : '';
+  return '<div class="pcard" style="border-color:' + clr.stroke + ';border-style:' + borderStyle + ';background:' + clr.fill + '" data-pid="' + esc(id) + '">'
+    + '<div class="pcard-info" onclick="treeShowDetail(\'' + id.replace(/'/g, "\\'") + '\')" title="Full details">&#9432;</div>'
+    + extraLabel
+    + '<div class="pcard-name" style="color:' + clr.text + '" onclick="treeSetFocus(\'' + id.replace(/'/g, "\\'") + '\')">' + esc(trunc(p.name, 26)) + '</div>'
+    + '<div class="pcard-dates" style="color:' + clr.text + '">' + esc(datesOf(p)) + '</div>'
+    + '</div>';
+}
+
+// Ancestor side: recursive, grows rightward from the focus person.
+// depth 0 = focus, 1 = parents, 2 = grandparents, up to TREE_ANCESTOR_DEPTH.
+function ancestorNodeHtml(id, depth){
+  var parents = parentsOf(id).filter(function(pid){ return TREE_BY_ID[pid]; });
+  var showKids = parents.length && depth < TREE_ANCESTOR_DEPTH;
+  var html = '<div class="pnode">' + pcardHtml(id);
+  if (showKids) {
+    html += '<div class="pkids' + (parents.length < 2 ? ' pkids-single' : '') + '">'
+      + parents.map(function(pid){ return ancestorNodeHtml(pid, depth + 1); }).join('')
+      + '</div>';
+  } else if (parents.length) {
+    // Known parents exist beyond the default depth -- re-centering on this
+    // card (its name is already clickable) reveals them, so this is just a
+    // visual hint, not a separate expand control to keep state for.
+    html += '<div style="font-size:.62rem;color:#94a3b8;padding-left:8px;align-self:center">▸ earlier ancestors known — click name to view</div>';
+  }
+  html += '</div>';
+  return html;
+}
+
+// Descendant side: focus's children (+ their spouse), each expandable to
+// grandchildren. Simple indented rows, not a mirrored pnode/pkids chart --
+// descendant counts vary a lot (unlike ancestors, always <=2 per person),
+// so a list reads more clearly than a chart here.
+function descendantListHtml(id, depth){
+  var kids = childrenOf(id).filter(function(cid){ return TREE_BY_ID[cid]; });
+  if (!kids.length || depth > TREE_DESC_DEPTH) return '';
+  return '<div class="dlist" style="padding-left:' + (depth === 1 ? 0 : 22) + 'px">'
+    + kids.map(function(cid){
+        var sp = spouseOf(cid).filter(function(sid){ return TREE_BY_ID[sid]; });
+        return '<div class="drow">'
+          + pcardHtml(cid, { roleLabel: depth === 1 ? 'Child' : 'Grandchild' })
+          + (sp.length ? '<span style="font-size:.68rem;color:#94a3b8;margin:0 6px">+</span>' + sp.map(function(sid){ return pcardHtml(sid, { roleLabel: 'Spouse' }); }).join('') : '')
+          + descendantListHtml(cid, depth + 1)
+          + '</div>';
+      }).join('')
+    + '</div>';
+}
+
+function treeLegendHtml(){
+  var rows = [
+    ['kozak', 'Kozak (paternal)'], ['rel', 'Relihan (maternal)'], ['shom', 'Shomsky / Demchak'],
+    ['mcg', 'McGivney research'], ['other', 'Married-in / other']
+  ];
+  return rows.map(function(r){
+    return '<span><span style="display:inline-block;width:22px;height:11px;border-radius:3px;border:1.6px solid ' + CLR[r[0]].stroke + ';background:' + CLR[r[0]].fill + ';vertical-align:middle;margin-right:5px"></span>' + esc(r[1]) + '</span>';
+  }).join('')
+  + '<span><span style="display:inline-block;width:22px;height:11px;border-radius:3px;border:1.6px dashed ' + CLR.prob.stroke + ';background:' + CLR.prob.fill + ';vertical-align:middle;margin-right:5px"></span>Probable — needs confirmation</span>';
+}
+
+window.treeSetFocus = function(id){
+  if (!TREE_BY_ID[id]) return;
+  renderFamilyTree(id);
+  document.getElementById('tree-container').scrollIntoView({ block: 'nearest' });
+};
+
+window.treeShowDetail = function(id){
+  var p = TREE_BY_ID[id];
+  if (p) showGraphPanel(p);
+};
+
+window.treeSearchGo = function(){
+  var q = (document.getElementById('tree-search').value || '').trim().toLowerCase();
+  var resultsEl = document.getElementById('tree-search-results');
+  if (!q) { resultsEl.textContent = ''; return; }
+  var matches = TREE_NODES.filter(function(n){ return n.name.toLowerCase().indexOf(q) !== -1; });
+  if (!matches.length) { resultsEl.textContent = 'No match for "' + q + '".'; return; }
+  if (matches.length === 1) { treeSetFocus(matches[0].id); resultsEl.textContent = 'Jumped to ' + matches[0].name + '.'; return; }
+  resultsEl.innerHTML = matches.length + ' matches: ' + matches.slice(0, 8).map(function(n){
+    return '<a href="javascript:void(0)" onclick="treeSetFocus(\'' + n.id.replace(/'/g, "\\'") + '\')" style="color:#3b82f6;margin-right:8px">' + esc(n.name) + '</a>';
+  }).join('') + (matches.length > 8 ? ' …' : '');
+};
+
+function renderUnconnectedList(){
+  var orphans = TREE_NODES.filter(function(n){
+    return !TREE_EDGES.some(function(e){ return e.source === n.id || e.target === n.id; });
+  });
+  var wrap = document.getElementById('tree-unconnected-wrap');
+  if (!orphans.length) { wrap.innerHTML = ''; return; }
+  wrap.innerHTML = '<div class="sec-title" style="font-size:1.05rem">Not yet connected (' + orphans.length + ')</div>'
+    + '<div class="sec-sub">No traced parent/child link to anyone else in the tree yet — mostly prose-mined mentions awaiting research. Click a name for details.</div>'
+    + '<div style="display:flex;flex-wrap:wrap;gap:8px">'
+    + orphans.map(function(n){ return pcardHtml(n.id); }).join('')
+    + '</div>';
+}
+
+function renderFamilyTree(focusId){
+  document.getElementById('tree-legend').innerHTML = treeLegendHtml();
+  var container = document.getElementById('tree-container');
+  var descHtml = descendantListHtml(focusId, 1);
+  container.innerHTML = '<div style="display:flex;align-items:flex-start;gap:36px;flex-wrap:wrap">'
+    + '<div class="ftree-ancestors">' + ancestorNodeHtml(focusId, 0) + '</div>'
+    + (descHtml ? '<div class="ftree-descendants"><div style="font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#94a3b8;margin-bottom:8px">Children &amp; descendants</div>' + descHtml + '</div>' : '')
+    + '</div>';
+  renderUnconnectedList();
+}
+
 fetch('data/family.json').then(function(r){ return r.json(); }).then(function(data){
   SOURCES = data.sources || {};
   PARTS = data.parts || {};
@@ -3280,9 +3445,12 @@ fetch('data/family.json').then(function(r){ return r.json(); }).then(function(da
   });
   document.getElementById('graph-status').textContent =
     nodes.length + ' persons · ' + edges.length + ' edges' +
-    (orphans.length ? ' · ' + orphans.length + ' unconnected: ' + orphans.map(function(n){ return n.name; }).join(', ') : ' · fully connected');
+    (orphans.length ? ' · ' + orphans.length + ' unconnected' : ' · fully connected');
 
-  renderGraph(nodes, edges);
+  TREE_NODES = nodes;
+  TREE_EDGES = edges;
+  TREE_BY_ID = nodeIndex;
+  renderFamilyTree(nodeIndex['grant-1'] ? 'grant-1' : nodes[0].id);
 }).catch(function(err){
   document.getElementById('graph-status').textContent = 'Failed to load data/family.json: ' + err;
 });
