@@ -125,6 +125,94 @@ Spalding were swept into it by association.
 
 ---
 
+### S127 — Nova Scotia Historical Vital Statistics: the Skerrys are really there — **TIER 1**
+
+**Evidence Tier: Tier 1** (government vital registration index, with free images)
+**Source:** Nova Scotia Archives, Historical Vital Statistics —
+`archives.novascotia.ca/vital-statistics/`. The old `novascotiagenealogy.com`
+host now 301-redirects here. **The search form is a plain GET** and is
+machine-queryable without a login:
+`/vital-statistics/results/?Last=Skerry&LastS=0&County=Kings&B=birth&M=marriage&D=death`
+
+**The record that matters:**
+
+> **Clarence Edmund Skerry — birth — Lakeville, Kings County, Nova Scotia,
+> 1872. Registration Book 1816, Page 170, Number 449.**
+> (`archives.novascotia.ca/vital-statistics/birth/?ID=70638`)
+
+That is an **exact full-name match** to Susan Skerry Appel's father — the
+"C. Edmund Skerry" of S124 and the "Clarence E. Skerry" of S125 — in Nova
+Scotia.
+
+**The Lakeville / Billtown, Kings County Skerry cluster**, from the same index:
+
+| Record | Place | Date |
+|---|---|---|
+| Aubray E Skerry — birth | Billtown | 1867 |
+| Frederick Leander Skerry — birth | Lakeville | 1869 |
+| Fred Leander Skerry — death | Billtown | 1870 |
+| **Clarence Edmund Skerry — birth** | **Lakeville** | **1872** |
+| **Clarence E. Skerry & Lucy A. Bentley — marriage** | Kings County | **1895** |
+| Ronald Burns Skerry — birth | Lakeville | 1913 |
+| Claire Laurie Skerry — birth | Lakeville | 1920 |
+| Aubrey Eaton Skerry — death | Lakeville | 1936 |
+| Dora Helen Skerry — death | Lakeville | 1957 |
+
+Aubray E (b. 1867) and Aubrey Eaton (d. 1936) are the same man; he, Frederick
+Leander and Clarence Edmund look like a sibling set.
+
+Skerrys appear in Nova Scotia records as early as an **1814 Halifax County
+marriage** (Albert Vickers & Elizabeth Skerry), and in at least four distinct
+clusters: Kings, Lunenburg (New Ross), Halifax, and Cumberland.
+
+---
+
+## Verdict so far — read this before claiming the lore is proved
+
+### The Nova Scotia leg: **strongly supported**
+
+A Skerry family was demonstrably established in Nova Scotia across the whole
+19th century, and a man with the father's exact full name was born into the
+Kings County cluster. Combined with S126 (51% of Canada's Skerrys in NS in
+1911), the Nova Scotia → New England shape of the story is real.
+
+### The identification: **PROBABLE, NOT CONFIRMED** — three reasons to hold back
+
+1. **Age.** Born 1872, he would be **49 when Jane was born (1921) and 54 when
+   Susan was born (1926)**. Possible, not typical.
+2. **A different wife.** *Clarence E. Skerry married **Lucy A. Bentley** in
+   Kings County in **1895***. The Vermont daughters' mother is **Marion Anna
+   Cook**. That needs either a first-wife-died-and-remarried explanation, or it
+   means these are two different men.
+3. **The index has a hole exactly where it would hide a namesake.** Nova
+   Scotia civil birth registration **lapsed between 1877 and 1908**. A
+   *Clarence Edmund Skerry born in the 1890s* — a son or nephew named for the
+   1872 man, which is precisely this family's habit — **would not appear in
+   this index at all.** The absence of a second candidate is not evidence there
+   wasn't one.
+
+**What would settle it:** the US census for Clarence E. Skerry in Vermont
+(1910/1920/1930/1940). Those give his **birth year, birthplace, and year of
+immigration** in his own household. A stated birthplace of "Canada" or "Nova
+Scotia" plus a birth year near 1872 confirms it; a birth year in the 1890s
+means we have the wrong man and should look for his father instead.
+
+### The Galway leg: **now in some tension with the evidence**
+
+S126 says the Skerry surname is Galway-Irish. But **Kings County, Nova Scotia
+is Annapolis Valley Planter country — predominantly New England-descended and
+Protestant**, not the Irish-Catholic settlement pattern. The Skerrys who look
+Irish-Catholic in this index are the **Halifax County** ones (John, Johannah,
+Joanna, 1869) — a *different* cluster from ours.
+
+So the honest position is: **Nova Scotia yes, Galway not yet — and our
+particular Skerrys are in the part of Nova Scotia that argues against an
+Irish-Catholic origin.** It is entirely possible the family came to Kings
+County from New England rather than from Ireland. Do not write the Galway
+claim into the site until a record supports it.
+
+---
+
 ## What this settles
 
 **Three of the four surnames are now placed, with a documented relationship
