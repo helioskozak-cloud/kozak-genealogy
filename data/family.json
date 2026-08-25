@@ -1,6 +1,6 @@
 {
  "meta": {
-  "schemaVersion": 7,
+  "schemaVersion": 8,
   "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined Overview-tab Parts 43-22. Night 3 finished prose-mining Parts 21 down through 1 (including two un-numbered pre-numbering sessions and a duplicate 'Part 2' pedigree-tables box, recorded under disambiguating keys '1-addendum-jul1', '2-pinned-pedigree', '2-addendum-jul2' rather than silently merged or dropped), added 10 new persons named only in prose (Malone NY McGivney generations: Bridget Lynch, Nicholas McGivney b.~1820, Catherine McCabe, Patrick Gibny of Kilnaleck; Dooley-branch Relihan siblings: Sen. John J. Relihan Jr., Edward A. Relihan, Ann Relihan Lang, Margaret Relihan Mellott; plus Rose McBride and Sean Relihan as open-identity/probable-descendant records), and folded the Missing Links tab's 17 cards and the Search Queue tab's ~24 groups into person-linked openQuestions[] arrays (id/title/status/priority/origin/summary/exactSearches/sourceRefs) instead of leaving them as separate unstructured HTML-only content. All 43 Parts (1-43) now have a parts{} entry with sourceRefs/personRefs/summary. All 123 sources (S01-S123) are referenced somewhere in the file (as a sources{} entry plus at least one cross-reference in parts{}, a person's facts, or an openQuestions[] entry). index.html's live rendering is untouched. || 2026-08-25: added the Appel/Skerry/Cook/Spalding in-law line — Parts 44-51, sources S124-S143, and 15 person records (Elizabeth Anna Appel and her ancestry back to Clarence Edmund Skerry of Lakeville, Kings County, Nova Scotia). This research had previously been written ONLY into index.html as hand-authored session blocks, so it never reached this file — which is the source the Sources tab, the person records and the part index all render from. Derived is not source. || 2026-08-25 (b): relationships made EXPLICIT. Every person now carries `parents` (ids) and `sameAs` (the same human in another tree). They were previously implied by ahnentafel position, which had James Relihan -- annotated 'Maurice Relihan's father' -- rendering as Ann Duley's father. Also upserted the branch persons that existed only in index.html's inline BRANCHES copy and had never reached this file (grant-4, 8, 9 among them).",
   "personRecordCount": 68,
   "crossRefCount": 4,
@@ -5555,13 +5555,18 @@
     [
      "What is NOT shown",
      "The index gives no age, no spouse and no children. Nothing here proves he is Helen's father."
+    ],
+    [
+     "NOT in Divine Providence",
+     "A full Ustas* sweep of Divine Providence Cemetery returns only M. G. Ustaszewska. Frank is not buried there — a small point against them being a couple in that parish, or simply an untranscribed grave."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
    "partRefs": [
-    52
+    52,
+    54
    ],
    "parents": [],
    "sameAs": null
@@ -5571,30 +5576,43 @@
    "sourceTree": "ctdeath",
    "sourceKey": null,
    "kind": "prose",
-   "name": "Mary Ustaszewski",
+   "name": "M. G. (Mary) Ustaszewska",
    "branch": "kozak",
    "relation": "CANDIDATE mother of Helen Ustaseski Kozak",
-   "note": "d.Sep 6 1937 Norwich CT — candidate, not confirmed",
+   "note": "b.Aug 15 1883 · d.Sep 6 1937 · buried Divine Providence Cemetery, Norwich CT",
    "prob": true,
    "facts": [
     [
-     "Death",
-     "6 September 1937, Norwich CT (S146)"
+     "Born",
+     "15 August 1883 (headstone, S154)"
     ],
     [
-     "Spelling",
-     "Ustaszewski → Ustaseski is an ordinary Polish anglicisation, and the family used both. A USTAS* sweep finds six people in the state: Joseph Ustaszewski (Bridgeport 1917), Mary Ustaszewski (NORWICH 1937), John Ustaski (Bridgeport 1939), Stanley Ustaseski (New Haven 1943), Frank Ustaseski (NORWICH 1956), Mary Ustash (Shelton 1975)."
+     "Died",
+     "6 September 1937, aged 54 — EXACT date match to 'MARY USTASZEWSKI, 1937-09-06, NORWICH' in the CT death index (S146)"
     ],
     [
-     "Timing",
-     "Helen was born 25 Sep 1924. A mother dying in 1937 would leave her at 13 — consistent, and testable against a 1937 Norwich obituary."
+     "Buried",
+     "Divine Providence Cemetery, Norwich CT — the KOZAK FAMILY'S OWN PARISH cemetery. John J. Kozak was a lifetime member of Divine Providence PNCC and was buried there (S152)."
+    ],
+    [
+     "Why this matters",
+     "A rare surname, the right town, and the same small parish the Kozaks belonged to. Helen Ustaseski was born 1924; a mother dying in 1937 leaves her at 13."
+    ],
+    [
+     "Still NOT proven",
+     "The memorial is a bare headstone transcription — initials only, no spouse, no children, no family links. Nothing on it names Helen."
+    ],
+    [
+     "Age check",
+     "Born 1883 she would be 41 at Helen's birth in 1924 — possible, at the upper end."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
    "partRefs": [
-    52
+    52,
+    54
    ],
    "parents": [],
    "sameAs": null
@@ -5843,6 +5861,39 @@
    "childGroupInfo": null,
    "partRefs": [
     53
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "stanley-ustaseski": {
+   "id": "stanley-ustaseski",
+   "sourceTree": "ctdeath",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Stanley Ustaseski",
+   "branch": "kozak",
+   "relation": "Ustaseski — relationship to Helen unknown",
+   "note": "1885 – Sep 25 1943 · New Haven CT",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1885 – 25 September 1943 (S155)"
+    ],
+    [
+     "Buried",
+     "Saint Bernard Cemetery, New Haven, New Haven County CT"
+    ],
+    [
+     "Why recorded",
+     "USTASESKI is so rare — two deaths in Connecticut in a century — that any bearer is probably kin. But he is in NEW HAVEN, not Norwich, and nothing links him to Helen."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    54
    ],
    "parents": [],
    "sameAs": null
@@ -8532,6 +8583,44 @@
     "grant-7"
    ],
    "url": "https://www.cavanaghfuneralhome.com/obituaries/Helen-Kozak?obId=25166430"
+  },
+  "S154": {
+   "num": 154,
+   "person": "M. G. Ustaszewska; and the ABSENCE of any Kozak",
+   "relatedPerson": "Helen Ustaseski Kozak; Nicholas, Anna and John J. Kozak",
+   "clue": "One Ustaszewska found in the Kozak parish cemetery — and ZERO Kozaks",
+   "type": "Cemetery transcription + Tier 1 negative",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — Divine Providence Cemetery, Norwich CT (cemetery 2146742; 682 memorials, 90% photographed)",
+   "date": "1883-1937",
+   "confidenceClass": "cp",
+   "confidence": "Probable",
+   "notes": "FOUND: M. G. Ustaszewska, b.15 Aug 1883, d.6 Sep 1937 — exact death-date match to the CT death index candidate for Helen's mother, buried in the Kozaks' own parish cemetery. NOT FOUND, and this is the surprise: ZERO Kozak memorials in Divine Providence Cemetery, and zero anywhere in New London County. John J. Kozak's 2020 obituary states he was buried there. The search demonstrably works — a blank surname returns the cemetery alphabetically and Kowalski returns one — so the Kozak plot is simply untranscribed. Nicholas (d.1950) and Anna (d.1981) cannot be reached this way.",
+   "dataQuirk": null,
+   "personRefs": [
+    "mary-ustaszewski",
+    "grant-7",
+    "grant-12",
+    "grant-13",
+    "grant-6"
+   ],
+   "url": "https://www.findagrave.com/memorial/203286143/m-g-ustaszewska"
+  },
+  "S155": {
+   "num": 155,
+   "person": "Stanley Ustaseski",
+   "relatedPerson": "Helen Ustaseski Kozak (relationship unknown)",
+   "clue": "The only other Ustaseski memorial in existence",
+   "type": "Cemetery transcription",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — Saint Bernard Cemetery, New Haven CT",
+   "date": "1885-1943",
+   "confidenceClass": "cp",
+   "confidence": "Probable",
+   "notes": "1885 – 25 Sep 1943, St Bernard Cemetery, New Haven. Matches the CT death index entry (STANLEY, 1943-09-25, NEW HAVEN) and adds a birth year. New Haven not Norwich, and nothing connects him to Helen — recorded because the surname is rare enough that he is probably kin.",
+   "dataQuirk": null,
+   "personRefs": [
+    "stanley-ustaseski"
+   ],
+   "url": null
   }
  },
  "businesses": {
@@ -9533,6 +9622,24 @@
     "grant-7"
    ],
    "summary": "Find a Grave had returned HTTP 403 to every automated fetch across six previous sessions and was written off. Driven through a real browser it works, and it broke the line open in one sitting. CLARENCE EDMOND SKERRY was born 21 Sep 1877 in CHICAGO, Illinois, son of David and Pauline Skerry, and married Marion C. Cook at Cavendish VT on 15 Dec 1919 — so he is NOT the 1872 Lakeville, Nova Scotia man of S127, and the Galway-to-Nova-Scotia corridor collapses for this family. SPALDING is placed and traced: Marion's mother was Adelaide (SPAULDING) Cook, daughter of Charles Elliot Spaulding and Amantha Putnam Spaulding of Cavendish — exactly where Part 48 predicted it would be. And the Canada in the family story is real but misattributed: Merrill Alonzo Cook was born at Iron Hill, QUÉBEC in 1855, which is why the family turns up at Canaan VT on the Québec border. Separately, S34 is retracted: the Helen Kozak whose 2016 obituary it cited is Helen Pauline Kozak nee Tantaros of Pennsylvania, wife of Victor — a false match on coincident dates. Helen Ustaseski Kozak's death date is unknown again."
+  },
+  "54": {
+   "number": 54,
+   "date": "2026-08-25",
+   "title": "Divine Providence Cemetery worked: Helen's probable mother found in the Kozaks' own parish — but not one Kozak grave is transcribed",
+   "sourceRefs": [
+    "S154",
+    "S155"
+   ],
+   "personRefs": [
+    "mary-ustaszewski",
+    "frank-ustaseski",
+    "stanley-ustaseski",
+    "grant-7",
+    "grant-12",
+    "grant-13"
+   ],
+   "summary": "Divine Providence Cemetery, Norwich — the Kozak family's Polish National Catholic parish, where John J. Kozak was buried in 2020 — is on Find a Grave with 682 memorials at 90% photographed. One real find and one hard negative. FOUND: M. G. Ustaszewska, b.15 Aug 1883 d.6 Sep 1937, an exact death-date match to the candidate for Helen Ustaseski's mother, in the Kozaks' own parish. Rare surname, right town, same small congregation — a meaningful strengthening, though still not proof: the memorial is a bare headstone transcription with no spouse, children or family links. NOT FOUND: any Kozak at all, here or anywhere in New London County, despite John's obituary placing his burial here. The search works, so the Kozak plot is untranscribed, and Nicholas (d.1950) and Anna (d.1981) are not reachable this way. Frank Ustaseski (d.1956) is not in the cemetery either."
   }
  }
 }
