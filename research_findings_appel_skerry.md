@@ -583,6 +583,75 @@ centuries after the migrations the lore describes, and in the United States.
 
 ---
 
+## Batch 5, second half — COOK: placed in two places at once
+
+### Where I drew the line
+
+Cook is one of the commonest surnames in the English-speaking world, so a
+surname sweep would return thousands of irrelevant people. **I pursued a Cook
+only if they had a demonstrable link to one of three things:**
+
+1. **Marion Anna Cook**, b. 1890 d. 1978, of Cavendish/Brattleboro VT — the
+   only Cook actually in this family;
+2. the **Cavendish / Windsor County, Vermont** locality, where she is placed;
+3. **Kings County, Nova Scotia** — because that is where the Skerrys are, and a
+   Skerry–Cook marriage there would rewrite the story.
+
+Everything else was left alone. No generic Cook was followed.
+
+### S140 — Cooks are in Kings County, Nova Scotia too — **complicates Batch 4**
+
+**Evidence Tier: Tier 1** (government index, exact match, Kings County filter)
+
+Batch 4 concluded that Cook and Spalding were both Cavendish, Vermont families.
+**For Spalding that holds** — it is essentially absent from Nova Scotia (S133,
+S137). **For Cook it does not.** Kings County has a substantial Cook presence:
+
+| Record | Place | Date |
+|---|---|---|
+| Sarah Ann Cook | Burlington, Kings Co. | 1846 |
+| William Thomas Cook | Cornwallis, Kings Co. | 1866 |
+| Margaret Cook | West Cornwallis, Kings Co. | 1866 |
+| George Melborn Cook | Harbourville, Kings Co. | 1868 |
+| Charles Cook | Aylesford, Kings Co. | 1869 |
+| **Charlotte Lamont Cook** | **Billtown, Kings Co.** | **1870** |
+| Lilly May Cook | Canning, Kings Co. | 1871 |
+
+…and more beyond page 1. **Charlotte Lamont Cook was born in Billtown in 1870**
+— the same small community where **Aubray E Skerry was born in 1867** and where
+**James Richard Skerry died in 1920**. Cooks and Skerrys were neighbours.
+
+**So Cook cannot be confidently assigned to Vermont.** It is well attested in
+both Cavendish VT and Kings County NS, and Marion Anna Cook's own ancestry could
+run to either. My Batch 4 table put Cook in the Vermont column; **that was
+overconfident and is corrected here.**
+
+### One thing this does settle
+
+Running the Kings County Skerry marriages against it: Craven–Skerry (1884),
+**Skerry–Bentley (1895)**, Baroni–Skerry (1917), Salter–Skerry (1920),
+Skerry–Redden (1929), Skerry–Parrish (1934), Skerry–Murphy (1936),
+Steeves–Skerry (1942).
+
+**There is no Skerry–Cook marriage in Nova Scotia.** So Clarence Edmund Skerry
+did **not** marry Marion Anna Cook there — that marriage happened in the United
+States, almost certainly Vermont around 1920, which is consistent with S134 and
+with Jane's birth at Brattleboro in Oct 1921.
+
+The open question is narrower than it looks: not *where they married* (Vermont),
+but *where Marion's own family came from* (Vermont or Nova Scotia).
+
+### Cook: not resolved
+
+Marion Anna Cook's parents were not identified. She does not appear in indexed
+public trees under that name, the Cavendish town genealogy page returns empty,
+and the printed *Families of Cavendish* is not online. **The "M. A. Cook" of
+Cavendish in 1886 (S135) remains the best lead and is still only a lead** — the
+initials are suggestive, four years before her birth in the right town, and
+nothing more than that.
+
+---
+
 ## Two records for Helios to open — five minutes, and they may settle the project
 
 Both are free images on the Nova Scotia Archives site. The index gives only
