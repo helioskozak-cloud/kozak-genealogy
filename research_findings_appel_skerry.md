@@ -782,6 +782,77 @@ All three are free. None is reachable by automation from here.
 
 ---
 
+---
+
+## S143 — The 1767&ndash;1838 census settles the Planter question: **NOT Planters**
+
+**Evidence Tier: Tier 1** (government census, assessment and poll tax returns)
+**Source:** Nova Scotia Archives, *Census Returns, Assessment and Poll Tax
+Records 1767&ndash;1838* &mdash; `archives.novascotia.ca/census/results/?Search=`
+
+This is the database that can see the Planter era directly, and it was not
+tried in any earlier batch.
+
+**Every Skerry in Nova Scotia before 1838 &mdash; all seven of them:**
+
+| Name | Place | Year |
+|---|---|---|
+| J Skerry Sr. | Dartmouth, **Halifax County** | 1838 |
+| J Skerry Jr. | Dartmouth, **Halifax County** | 1838 |
+| John Skerry | Halifax, **Halifax County** | 1838 |
+| William Skerry | Halifax, **Halifax County** | 1838 |
+| James Skerry | Jeddore, **Halifax County** | 1838 |
+| (one further Halifax entry) | **Halifax County** | 1838 |
+| Rev. Alex Skerry | Sydney, Cape Breton County | 1838 |
+
+**Zero in Kings County. Zero before 1838.** Scarry, Scurry, Skerrey, Spalding
+and Spaulding all return **nothing at all**.
+
+### The control test &mdash; without which the above proves nothing
+
+An absence only means something if the database covers the place. It does:
+
+| Surname | Total records | Kings County on page 1 | Earliest years seen |
+|---|---|---|---|
+| **Eaton** (noted Planter family) | 123 | 13 | 1775, 1785, **1786**, 1791 |
+| **Bentley** | 23 | 13 | **1786**, 1791, 1794, 1795 |
+| **Borden** | 23 | 15 | **1786**, 1791, 1792, 1794, 1795 |
+
+**Cornwallis Township, Kings County is thoroughly covered from 1786 onward.**
+The Planter families who farmed there are all present, repeatedly, across four
+decades of returns. The Skerrys are not in any of them.
+
+### What this does to the two hypotheses
+
+**The Salem/Planter hypothesis (S136) is substantially undermined.** If the
+Skerrys had come to Kings County with the New England Planters in the 1760s,
+they would appear in Cornwallis returns from 1786 beside the Eatons and
+Bordens. **They do not appear in Kings County at all until 1867** &mdash; eighty
+years later.
+
+**The Irish hypothesis is correspondingly strengthened.** Every pre-1838 Skerry
+is in **Halifax County**, the province's port and the ordinary landing place for
+Irish arrivals; the earliest Skerry record of any kind is a **Halifax marriage
+in 1814** (S141); and the Halifax cluster is unmistakably Irish Catholic (S132).
+
+**A detail that makes the story cohere.** **Bentley** &mdash; the family Clarence
+E. Skerry married into in Kings County in 1895 (S130) &mdash; **is one of the
+established Cornwallis Planter families, present from 1786.** So the 1895
+marriage reads as a later-arriving family marrying into the old Planter stock of
+the valley, not as two Planter families intermarrying.
+
+**Revised picture, replacing the one in Part 48:**
+
+> Ireland (county unproven; **Cork better attested than Galway**, S142)
+> &rarr; **Halifax, by 1814** &rarr; out to **Kings County** during the
+> 19th century &rarr; **Vermont**, c.1900.
+
+**Still not proven:** no document yet ties Clarence Edmund Skerry's Lakeville
+line to the Halifax Skerrys, and none places any of them in Ireland. This
+removes a rival explanation rather than supplying the missing link.
+
+---
+
 ## Two records for Helios to open — five minutes, and they may settle the project
 
 Both are free images on the Nova Scotia Archives site. The index gives only
