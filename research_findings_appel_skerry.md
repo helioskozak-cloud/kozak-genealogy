@@ -228,6 +228,44 @@ needs. **Re-fetch when the rate limit clears.**
 
 ---
 
+### S130 — Clarence E. Skerry & Lucy A. Bentley marriage, 1895 — **TIER 1, IMAGE NOT YET READ**
+
+**Evidence Tier: Tier 1** (government marriage registration)
+**Source:** Nova Scotia Archives —
+`archives.novascotia.ca/vital-statistics/marriage/?ID=91885`
+**Registration: Year 1895, book 1826, page 271, number 104, Kings County.**
+
+Found while confirming the Batch 1 caution. Recorded here because a Nova
+Scotia marriage registration of this period normally states, **for both
+parties: age, residence, occupation, birthplace, and the names of both
+parents.** That is exactly the evidence the central question needs.
+
+**The index does not transcribe any of it** — only the names, year, county and
+book/page/number above. The image is **free to view** but requires a person to
+open it. See "Two records for Helios to open" below.
+
+---
+
+## Two records for Helios to open — five minutes, and they may settle the project
+
+Both are free images on the Nova Scotia Archives site. The index gives only
+names and a book/page reference; everything genealogically useful is on the
+scan, and automated fetching cannot read it.
+
+| # | Record | URL | What it should give |
+|---|---|---|---|
+| 1 | **Clarence Edmund Skerry, birth, Lakeville, Kings Co., 1872**<br>book 1816, p.170, no.449 | `archives.novascotia.ca/vital-statistics/birth/?ID=70638` | **His parents' names** — the next generation back, and the first step toward Ireland or away from it |
+| 2 | **Clarence E. Skerry & Lucy A. Bentley, marriage, Kings Co., 1895**<br>book 1826, p.271, no.104 | `archives.novascotia.ca/vital-statistics/marriage/?ID=91885` | **His stated AGE, residence, occupation, BIRTHPLACE, and both parents** |
+
+**Why #2 may matter more than #1.** The whole identification currently hangs on
+whether the 1872 Clarence is Susan's father or a different man of the same name
+(see the three cautions below). His **stated age in 1895** cross-checks the 1872
+birth directly, and his **stated birthplace** either keeps the line in Nova
+Scotia or sends it somewhere else entirely. If his parents' birthplaces are
+given as Ireland, the lore is close to proved in a single document.
+
+---
+
 ## Verdict so far — read this before claiming the lore is proved
 
 ### The Nova Scotia leg: **strongly supported**
