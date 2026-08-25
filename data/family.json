@@ -1,7 +1,7 @@
 {
  "meta": {
-  "schemaVersion": 4,
-  "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined Overview-tab Parts 43-22. Night 3 finished prose-mining Parts 21 down through 1 (including two un-numbered pre-numbering sessions and a duplicate 'Part 2' pedigree-tables box, recorded under disambiguating keys '1-addendum-jul1', '2-pinned-pedigree', '2-addendum-jul2' rather than silently merged or dropped), added 10 new persons named only in prose (Malone NY McGivney generations: Bridget Lynch, Nicholas McGivney b.~1820, Catherine McCabe, Patrick Gibny of Kilnaleck; Dooley-branch Relihan siblings: Sen. John J. Relihan Jr., Edward A. Relihan, Ann Relihan Lang, Margaret Relihan Mellott; plus Rose McBride and Sean Relihan as open-identity/probable-descendant records), and folded the Missing Links tab's 17 cards and the Search Queue tab's ~24 groups into person-linked openQuestions[] arrays (id/title/status/priority/origin/summary/exactSearches/sourceRefs) instead of leaving them as separate unstructured HTML-only content. All 43 Parts (1-43) now have a parts{} entry with sourceRefs/personRefs/summary. All 123 sources (S01-S123) are referenced somewhere in the file (as a sources{} entry plus at least one cross-reference in parts{}, a person's facts, or an openQuestions[] entry). index.html's live rendering is untouched. || 2026-08-25: added the Appel/Skerry/Cook/Spalding in-law line — Parts 44-51, sources S124-S143, and 15 person records (Elizabeth Anna Appel and her ancestry back to Clarence Edmund Skerry of Lakeville, Kings County, Nova Scotia). This research had previously been written ONLY into index.html as hand-authored session blocks, so it never reached this file — which is the source the Sources tab, the person records and the part index all render from. Derived is not source.",
+  "schemaVersion": 5,
+  "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined Overview-tab Parts 43-22. Night 3 finished prose-mining Parts 21 down through 1 (including two un-numbered pre-numbering sessions and a duplicate 'Part 2' pedigree-tables box, recorded under disambiguating keys '1-addendum-jul1', '2-pinned-pedigree', '2-addendum-jul2' rather than silently merged or dropped), added 10 new persons named only in prose (Malone NY McGivney generations: Bridget Lynch, Nicholas McGivney b.~1820, Catherine McCabe, Patrick Gibny of Kilnaleck; Dooley-branch Relihan siblings: Sen. John J. Relihan Jr., Edward A. Relihan, Ann Relihan Lang, Margaret Relihan Mellott; plus Rose McBride and Sean Relihan as open-identity/probable-descendant records), and folded the Missing Links tab's 17 cards and the Search Queue tab's ~24 groups into person-linked openQuestions[] arrays (id/title/status/priority/origin/summary/exactSearches/sourceRefs) instead of leaving them as separate unstructured HTML-only content. All 43 Parts (1-43) now have a parts{} entry with sourceRefs/personRefs/summary. All 123 sources (S01-S123) are referenced somewhere in the file (as a sources{} entry plus at least one cross-reference in parts{}, a person's facts, or an openQuestions[] entry). index.html's live rendering is untouched. || 2026-08-25: added the Appel/Skerry/Cook/Spalding in-law line — Parts 44-51, sources S124-S143, and 15 person records (Elizabeth Anna Appel and her ancestry back to Clarence Edmund Skerry of Lakeville, Kings County, Nova Scotia). This research had previously been written ONLY into index.html as hand-authored session blocks, so it never reached this file — which is the source the Sources tab, the person records and the part index all render from. Derived is not source. || 2026-08-25 (b): relationships made EXPLICIT. Every person now carries `parents` (ids) and `sameAs` (the same human in another tree). They were previously implied by ahnentafel position, which had James Relihan -- annotated 'Maurice Relihan's father' -- rendering as Ann Duley's father. Also upserted the branch persons that existed only in index.html's inline BRANCHES copy and had never reached this file (grant-4, 8, 9 among them).",
   "personRecordCount": 68,
   "crossRefCount": 4,
   "sourceRecordCount": 123,
@@ -147,7 +147,12 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [
+    "grant-2",
+    "grant-3"
+   ],
+   "sameAs": null
   },
   "grant-2": {
    "id": "grant-2",
@@ -174,7 +179,12 @@
    "childGroupInfo": null,
    "partRefs": [
     3
-   ]
+   ],
+   "parents": [
+    "grant-4",
+    "grant-5"
+   ],
+   "sameAs": null
   },
   "grant-3": {
    "id": "grant-3",
@@ -199,7 +209,12 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [
+    "grant-6",
+    "grant-7"
+   ],
+   "sameAs": null
   },
   "grant-5": {
    "id": "grant-5",
@@ -232,7 +247,12 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [
+    "grant-10",
+    "grant-11"
+   ],
+   "sameAs": null
   },
   "grant-6": {
    "id": "grant-6",
@@ -281,7 +301,12 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [
+    "grant-12",
+    "grant-13"
+   ],
+   "sameAs": null
   },
   "grant-7": {
    "id": "grant-7",
@@ -318,7 +343,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "grant-10": {
    "id": "grant-10",
@@ -347,7 +374,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "grant-11": {
    "id": "grant-11",
@@ -427,7 +456,9 @@
       "S41"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "grant-12": {
    "id": "grant-12",
@@ -477,7 +508,9 @@
       "S38"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "grant-13": {
    "id": "grant-13",
@@ -502,7 +535,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "grant-cg0-1": {
    "id": "grant-cg0-1",
@@ -551,7 +586,12 @@
       "S11"
      ]
     }
-   ]
+   ],
+   "parents": [
+    "grant-4",
+    "grant-5"
+   ],
+   "sameAs": null
   },
   "grant-cg0-2": {
    "id": "grant-cg0-2",
@@ -583,7 +623,12 @@
    },
    "partRefs": [
     4
-   ]
+   ],
+   "parents": [
+    "grant-4",
+    "grant-5"
+   ],
+   "sameAs": null
   },
   "grant-cg0-3": {
    "id": "grant-cg0-3",
@@ -615,7 +660,12 @@
    },
    "partRefs": [
     4
-   ]
+   ],
+   "parents": [
+    "grant-4",
+    "grant-5"
+   ],
+   "sameAs": null
   },
   "grant-cg1-1": {
    "id": "grant-cg1-1",
@@ -636,7 +686,12 @@
     "groupIndex": 1,
     "childIndex": 1
    },
-   "partRefs": []
+   "partRefs": [],
+   "parents": [
+    "grant-6",
+    "grant-7"
+   ],
+   "sameAs": null
   },
   "grant-cg1-2": {
    "id": "grant-cg1-2",
@@ -677,7 +732,12 @@
      "summary": "Confirmed via John William Kozak's obituary: Elizabeth Anna Appel's parents William Appel + Susan (both predeceased by Aug 2024), and her siblings Edmund, Bill, Sarah Appel Gardner (KY), Lisa Holmes Appel, Suzanne Brown Appel. All four follow-up obituary searches for the siblings are 'Not started.'",
      "sourceRefs": []
     }
-   ]
+   ],
+   "parents": [
+    "grant-6",
+    "grant-7"
+   ],
+   "sameAs": "david-john-kozak"
   },
   "grant-cg1-3": {
    "id": "grant-cg1-3",
@@ -698,7 +758,12 @@
     "groupIndex": 1,
     "childIndex": 3
    },
-   "partRefs": []
+   "partRefs": [],
+   "parents": [
+    "grant-6",
+    "grant-7"
+   ],
+   "sameAs": null
   },
   "grant-cg1-4": {
    "id": "grant-cg1-4",
@@ -724,7 +789,12 @@
     "groupIndex": 1,
     "childIndex": 4
    },
-   "partRefs": []
+   "partRefs": [],
+   "parents": [
+    "grant-6",
+    "grant-7"
+   ],
+   "sameAs": null
   },
   "mcgivney_family-1": {
    "id": "mcgivney_family-1",
@@ -795,7 +865,12 @@
       "S89"
      ]
     }
-   ]
+   ],
+   "parents": [
+    "mcgivney_family-2",
+    "mcgivney_family-3"
+   ],
+   "sameAs": null
   },
   "mcgivney_family-2": {
    "id": "mcgivney_family-2",
@@ -889,7 +964,12 @@
       "S121"
      ]
     }
-   ]
+   ],
+   "parents": [
+    "mcgivney_family-4",
+    "mcgivney_family-5"
+   ],
+   "sameAs": null
   },
   "mcgivney_family-3": {
    "id": "mcgivney_family-3",
@@ -937,7 +1017,12 @@
    "partRefs": [
     13,
     26
-   ]
+   ],
+   "parents": [
+    "mcgivney_family-6",
+    "mcgivney_family-7"
+   ],
+   "sameAs": null
   },
   "mcgivney_family-4": {
    "id": "mcgivney_family-4",
@@ -1065,7 +1150,9 @@
       "S90"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "mcgivney_family-5": {
    "id": "mcgivney_family-5",
@@ -1108,7 +1195,9 @@
    "childGroupInfo": null,
    "partRefs": [
     25
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "mcgivney_family-6": {
    "id": "mcgivney_family-6",
@@ -1141,7 +1230,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "mcgivney_family-7": {
    "id": "mcgivney_family-7",
@@ -1170,7 +1261,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "mcgivney_family-cg0-0": {
    "id": "mcgivney_family-cg0-0",
@@ -1215,7 +1308,9 @@
    "partRefs": [
     25,
     41
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "mcgivney_family-cg0-1": {
    "id": "mcgivney_family-cg0-1",
@@ -1273,7 +1368,9 @@
       "S59"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "mcgivney_family-cg0-2": {
    "id": "mcgivney_family-cg0-2",
@@ -1366,7 +1463,9 @@
       "S76"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "mcgivney_family-cg0-3": {
    "id": "mcgivney_family-cg0-3",
@@ -1434,7 +1533,9 @@
      "summary": "Living granddaughter of Margaret McGivney Dwyer, b.~1946 Waterbury CT, at the 2020 beatification. Could confirm Mr. Dwyer's first name and whether she has heard of the Derby CT McGivney family or the unnamed 4th McGivney sister.",
      "sourceRefs": []
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "mcgivney_family-cg0-4": {
    "id": "mcgivney_family-cg0-4",
@@ -1470,7 +1571,9 @@
    },
    "partRefs": [
     1
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "mcgivney_family-cg0-5": {
    "id": "mcgivney_family-cg0-5",
@@ -1506,7 +1609,9 @@
    },
    "partRefs": [
     1
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "mcgivney_family-cg0-6": {
    "id": "mcgivney_family-cg0-6",
@@ -1550,7 +1655,9 @@
      ],
      "sourceRefs": []
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "tpr-1": {
    "id": "tpr-1",
@@ -1602,7 +1709,12 @@
     3,
     6,
     38
-   ]
+   ],
+   "parents": [
+    "tpr-2",
+    "tpr-3"
+   ],
+   "sameAs": "grant-4"
   },
   "tpr-2": {
    "id": "tpr-2",
@@ -1719,7 +1831,12 @@
       "S69"
      ]
     }
-   ]
+   ],
+   "parents": [
+    "tpr-4",
+    "tpr-5"
+   ],
+   "sameAs": "grant-8"
   },
   "tpr-3": {
    "id": "tpr-3",
@@ -1779,7 +1896,9 @@
       "S79"
      ]
     }
-   ]
+   ],
+   "sameAs": "grant-9",
+   "parents": []
   },
   "tpr-4": {
    "id": "tpr-4",
@@ -1876,7 +1995,12 @@
       "S69"
      ]
     }
-   ]
+   ],
+   "parents": [
+    "tpr-6",
+    "tpr-7"
+   ],
+   "sameAs": null
   },
   "tpr-5": {
    "id": "tpr-5",
@@ -1911,7 +2035,9 @@
    "childGroupInfo": null,
    "partRefs": [
     38
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "tpr-6": {
    "id": "tpr-6",
@@ -1944,7 +2070,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "tpr-7": {
    "id": "tpr-7",
@@ -1977,7 +2105,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "tpr-cg0-0": {
    "id": "tpr-cg0-0",
@@ -2011,7 +2141,9 @@
     "groupIndex": 0,
     "childIndex": 0
    },
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "tpr-cg0-2": {
    "id": "tpr-cg0-2",
@@ -2076,7 +2208,9 @@
       "S89"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "tpr-cg0-3": {
    "id": "tpr-cg0-3",
@@ -2122,7 +2256,9 @@
     36,
     37,
     43
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "mcn-1": {
    "id": "mcn-1",
@@ -2159,7 +2295,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "mcn-2": {
    "id": "mcn-2",
@@ -2221,7 +2359,9 @@
       "S79"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "mcn-3": {
    "id": "mcn-3",
@@ -2253,7 +2393,9 @@
    "partRefs": [
     8,
     38
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "mcn-cg0-1": {
    "id": "mcn-cg0-1",
@@ -2317,7 +2459,9 @@
      "summary": "All 5 of Sally's children's spouses (Peter T., Sean G., Mark J. Kelly, Mara Kelly Marsh) and John D. Kelly's own marriage record to Sally remain 'Not started.'",
      "sourceRefs": []
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "mcn-cg0-2": {
    "id": "mcn-cg0-2",
@@ -2399,7 +2543,9 @@
       "S26"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "mcn-cg0-3": {
    "id": "mcn-cg0-3",
@@ -2455,7 +2601,9 @@
       "S82"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "bryan-mcgivney-creenow": {
    "id": "bryan-mcgivney-creenow",
@@ -2519,7 +2667,9 @@
     35,
     40,
     41
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "john-mcgivney-derrylahan": {
    "id": "john-mcgivney-derrylahan",
@@ -2572,7 +2722,9 @@
     34,
     35,
     41
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "bridget-gibney-mcgivney": {
    "id": "bridget-gibney-mcgivney",
@@ -2613,7 +2765,9 @@
     22,
     24,
     41
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "patrick-mcgivney-b1782": {
    "id": "patrick-mcgivney-b1782",
@@ -2663,7 +2817,9 @@
     22,
     23,
     30
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "nicholas-mcgivney-b1760": {
    "id": "nicholas-mcgivney-b1760",
@@ -2694,7 +2850,9 @@
    "childGroupInfo": null,
    "partRefs": [
     22
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "andrew-mcgivney-b1801-malone": {
    "id": "andrew-mcgivney-b1801-malone",
@@ -2741,7 +2899,9 @@
     23,
     30,
     31
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "bernard-mcgivney-b1830-malone": {
    "id": "bernard-mcgivney-b1830-malone",
@@ -2780,7 +2940,9 @@
    "childGroupInfo": null,
    "partRefs": [
     23
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "ellen-mcgivney-drumbee": {
    "id": "ellen-mcgivney-drumbee",
@@ -2816,7 +2978,9 @@
    "partRefs": [
     24,
     34
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "bridget-lynch-malone": {
    "id": "bridget-lynch-malone",
@@ -2847,7 +3011,9 @@
    "childGroupInfo": null,
    "partRefs": [
     21
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "nicholas-mcgivney-b1820-malone": {
    "id": "nicholas-mcgivney-b1820-malone",
@@ -2882,7 +3048,9 @@
    "childGroupInfo": null,
    "partRefs": [
     21
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "catherine-mccabe-mcgivney": {
    "id": "catherine-mccabe-mcgivney",
@@ -2921,7 +3089,9 @@
    "childGroupInfo": null,
    "partRefs": [
     21
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "patrick-gibny-kilnaleck": {
    "id": "patrick-gibny-kilnaleck",
@@ -2964,7 +3134,9 @@
    "childGroupInfo": null,
    "partRefs": [
     17
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "rose-mcbride": {
    "id": "rose-mcbride",
@@ -3018,7 +3190,9 @@
       "S85"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "senator-john-j-relihan-jr": {
    "id": "senator-john-j-relihan-jr",
@@ -3140,7 +3314,9 @@
       "S66"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "edward-a-relihan": {
    "id": "edward-a-relihan",
@@ -3221,7 +3397,9 @@
       "S87"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "ann-relihan-lang": {
    "id": "ann-relihan-lang",
@@ -3308,7 +3486,9 @@
       "S86"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "margaret-relihan-mellott": {
    "id": "margaret-relihan-mellott",
@@ -3380,7 +3560,9 @@
       "S86"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "sean-relihan": {
    "id": "sean-relihan",
@@ -3433,7 +3615,9 @@
       "S87"
      ]
     }
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "james-m-relihan": {
    "id": "james-m-relihan",
@@ -3484,7 +3668,9 @@
    "partRefs": [
     2,
     4
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "joseph-r-relihan": {
    "id": "joseph-r-relihan",
@@ -3536,7 +3722,9 @@
     4,
     36,
     37
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "mary-oconnell-relihan": {
    "id": "mary-oconnell-relihan",
@@ -3564,7 +3752,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "john-wl-walshe": {
    "id": "john-wl-walshe",
@@ -3592,7 +3782,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "g-thomas-burns": {
    "id": "g-thomas-burns",
@@ -3628,7 +3820,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "alfred-j-finn-md": {
    "id": "alfred-j-finn-md",
@@ -3656,7 +3850,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "patrick-relihan-az": {
    "id": "patrick-relihan-az",
@@ -3680,7 +3876,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "denise-mellott-barnes": {
    "id": "denise-mellott-barnes",
@@ -3708,7 +3906,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "john-william-kozak": {
    "id": "john-william-kozak",
@@ -3746,7 +3946,12 @@
    "childGroupInfo": null,
    "partRefs": [
     44
-   ]
+   ],
+   "parents": [
+    "david-john-kozak",
+    "elizabeth-anna-appel"
+   ],
+   "sameAs": null
   },
   "ronald-g-shomsky": {
    "id": "ronald-g-shomsky",
@@ -3782,7 +3987,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "george-m-demchak-jr": {
    "id": "george-m-demchak-jr",
@@ -3814,7 +4021,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "patricia-finn-moriarty": {
    "id": "patricia-finn-moriarty",
@@ -3850,7 +4059,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "margaret-ransom": {
    "id": "margaret-ransom",
@@ -3874,7 +4085,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "jessica-horton-kozak": {
    "id": "jessica-horton-kozak",
@@ -3902,7 +4115,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "hilary-kozak-willis": {
    "id": "hilary-kozak-willis",
@@ -3926,7 +4141,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "malcolm-willis": {
    "id": "malcolm-willis",
@@ -3954,7 +4171,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "lee-kozak-courtemanche": {
    "id": "lee-kozak-courtemanche",
@@ -3974,7 +4193,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "michael-little": {
    "id": "michael-little",
@@ -3994,7 +4215,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "mark-p-moriarty": {
    "id": "mark-p-moriarty",
@@ -4030,7 +4253,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "sister-louise-finn-cnd": {
    "id": "sister-louise-finn-cnd",
@@ -4058,7 +4283,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "alfred-j-finn-jr": {
    "id": "alfred-j-finn-jr",
@@ -4086,7 +4313,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "michael-g-demchak": {
    "id": "michael-g-demchak",
@@ -4122,7 +4351,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "mary-figula-demchak": {
    "id": "mary-figula-demchak",
@@ -4154,7 +4385,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "ann-demchak-vayser": {
    "id": "ann-demchak-vayser",
@@ -4186,7 +4419,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "stephen-karaffa": {
    "id": "stephen-karaffa",
@@ -4214,7 +4449,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "robert-m-shomsky": {
    "id": "robert-m-shomsky",
@@ -4242,7 +4479,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "william-h-willis-jr": {
    "id": "william-h-willis-jr",
@@ -4278,7 +4517,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "gregory-t-willis": {
    "id": "gregory-t-willis",
@@ -4306,7 +4547,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "lois-cross-willis": {
    "id": "lois-cross-willis",
@@ -4330,7 +4573,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "taylor-willis-mclaughlin": {
    "id": "taylor-willis-mclaughlin",
@@ -4354,7 +4599,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "thomas-francis-mcgivney": {
    "id": "thomas-francis-mcgivney",
@@ -4378,7 +4625,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "donald-jay-irwin": {
    "id": "donald-jay-irwin",
@@ -4410,7 +4659,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "vincent-e-finn": {
    "id": "vincent-e-finn",
@@ -4438,7 +4689,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "jean-p-schmidt-relihan": {
    "id": "jean-p-schmidt-relihan",
@@ -4474,7 +4727,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "carla-guarino-relihan": {
    "id": "carla-guarino-relihan",
@@ -4498,7 +4753,9 @@
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": []
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   },
   "elizabeth-anna-appel": {
    "id": "elizabeth-anna-appel",
@@ -4534,7 +4791,12 @@
    "partRefs": [
     44,
     46
-   ]
+   ],
+   "parents": [
+    "william-herr-appel",
+    "susan-skerry-appel"
+   ],
+   "sameAs": null
   },
   "david-john-kozak": {
    "id": "david-john-kozak",
@@ -4565,7 +4827,12 @@
    "childGroupInfo": null,
    "partRefs": [
     44
-   ]
+   ],
+   "parents": [
+    "grant-6",
+    "grant-7"
+   ],
+   "sameAs": "grant-cg1-2"
   },
   "collin-appel-kozak": {
    "id": "collin-appel-kozak",
@@ -4592,7 +4859,12 @@
    "childGroupInfo": null,
    "partRefs": [
     44
-   ]
+   ],
+   "parents": [
+    "david-john-kozak",
+    "elizabeth-anna-appel"
+   ],
+   "sameAs": null
   },
   "william-herr-appel": {
    "id": "william-herr-appel",
@@ -4629,7 +4901,9 @@
     44,
     46,
     49
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "susan-skerry-appel": {
    "id": "susan-skerry-appel",
@@ -4672,7 +4946,12 @@
    "childGroupInfo": null,
    "partRefs": [
     44
-   ]
+   ],
+   "parents": [
+    "clarence-edmund-skerry",
+    "marion-anna-cook-skerry"
+   ],
+   "sameAs": null
   },
   "clarence-edmund-skerry": {
    "id": "clarence-edmund-skerry",
@@ -4718,7 +4997,9 @@
     47,
     50,
     51
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "marion-anna-cook-skerry": {
    "id": "marion-anna-cook-skerry",
@@ -4762,7 +5043,9 @@
    "partRefs": [
     48,
     49
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "jane-skerry-shumway": {
    "id": "jane-skerry-shumway",
@@ -4798,7 +5081,12 @@
    "partRefs": [
     44,
     47
-   ]
+   ],
+   "parents": [
+    "clarence-edmund-skerry",
+    "marion-anna-cook-skerry"
+   ],
+   "sameAs": null
   },
   "prudence-skerry-mitchell": {
    "id": "prudence-skerry-mitchell",
@@ -4825,7 +5113,12 @@
    "childGroupInfo": null,
    "partRefs": [
     46
-   ]
+   ],
+   "parents": [
+    "clarence-edmund-skerry",
+    "marion-anna-cook-skerry"
+   ],
+   "sameAs": null
   },
   "lucy-bentley-skerry": {
    "id": "lucy-bentley-skerry",
@@ -4857,7 +5150,9 @@
    "partRefs": [
     47,
     51
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "sarah-appel-gardner": {
    "id": "sarah-appel-gardner",
@@ -4884,7 +5179,12 @@
    "childGroupInfo": null,
    "partRefs": [
     46
-   ]
+   ],
+   "parents": [
+    "william-herr-appel",
+    "susan-skerry-appel"
+   ],
+   "sameAs": null
   },
   "thomas-g-gardner": {
    "id": "thomas-g-gardner",
@@ -4919,7 +5219,9 @@
    "childGroupInfo": null,
    "partRefs": [
     46
-   ]
+   ],
+   "parents": [],
+   "sameAs": null
   },
   "edmund-skerry-appel": {
    "id": "edmund-skerry-appel",
@@ -4951,7 +5253,12 @@
    "partRefs": [
     44,
     46
-   ]
+   ],
+   "parents": [
+    "william-herr-appel",
+    "susan-skerry-appel"
+   ],
+   "sameAs": null
   },
   "william-herr-appel-jr": {
    "id": "william-herr-appel-jr",
@@ -4983,7 +5290,200 @@
    "partRefs": [
     44,
     46
-   ]
+   ],
+   "parents": [
+    "william-herr-appel",
+    "susan-skerry-appel"
+   ],
+   "sameAs": null
+  },
+  "grant-4": {
+   "id": "grant-4",
+   "sourceTree": "grant",
+   "sourceKey": 4,
+   "kind": "persons",
+   "name": "Thomas P. Relihan",
+   "branch": "rel",
+   "relation": "Nancy's father — dates still probable",
+   "note": "b.~1930 · d.~1990 CT",
+   "prob": true,
+   "facts": [
+    [
+     "Born",
+     "~1930 CT"
+    ],
+    [
+     "Died",
+     "~1990 CT (US death index S35)"
+    ],
+    [
+     "Spouse",
+     "Dorothy Shomsky Relihan"
+    ],
+    [
+     "Children",
+     "Nancy Kozak; Tommy Jr.; Robert Relihan; Betsy Gross"
+    ],
+    [
+     "Parents",
+     "John Relihan Sr. + Ann Duley (confirmed S32)"
+    ],
+    [
+     "Siblings",
+     "Sen. John J. Relihan Jr. (CT State Sen. Dist.21, d.Dec 15 1966 Bridgeport CT · S79); Edward A. Relihan (b.Jun 24 1929, d.May 21 1989 Waterbury CT · S79); Ann Relihan Lang (d.Dec 22 2008); Margaret Relihan Mellott (d.Dec 4 2022)"
+    ],
+    [
+     "Needed",
+     "Exact dates — New Haven Register / CT Post obit ~1990"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [],
+   "parents": [
+    "tpr-2",
+    "tpr-3"
+   ],
+   "sameAs": "tpr-1"
+  },
+  "grant-8": {
+   "id": "grant-8",
+   "sourceTree": "grant",
+   "sourceKey": 8,
+   "kind": "persons",
+   "name": "John Relihan Sr.",
+   "branch": "rel",
+   "relation": "Thomas P. Relihan's father — confirmed via S32",
+   "note": "Bridgeport CT · confirmed great-grandfather",
+   "prob": false,
+   "facts": [
+    [
+     "Confirmed",
+     "Ann Relihan Lang 2008 obit (S32): \"John and Ann Duley Relihan\""
+    ],
+    [
+     "Location",
+     "Bridgeport CT"
+    ],
+    [
+     "Children",
+     "Thomas P.; Sen. John J. Relihan Jr.; Edward A. Relihan (b.Jun 24 1929); Ann Relihan Lang (d.Dec 22 2008); Margaret Relihan Mellott (d.Dec 4 2022)"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [],
+   "parents": [
+    "tpr-4",
+    "tpr-5"
+   ],
+   "sameAs": "tpr-2"
+  },
+  "grant-9": {
+   "id": "grant-9",
+   "sourceTree": "grant",
+   "sourceKey": 9,
+   "kind": "persons",
+   "name": "Ann Duley Relihan",
+   "branch": "rel",
+   "relation": "Thomas P. Relihan's mother — confirmed via S32",
+   "note": "\"Duley\" spelling confirmed · S32",
+   "prob": false,
+   "facts": [
+    [
+     "\"Duley\" confirmed",
+     "Ann Relihan Lang 2008 obituary (S32): \"John and Ann Duley Relihan\""
+    ],
+    [
+     "\"Dooley\" variant",
+     "Also seen in SortedByName for Edward A. Relihan — same person"
+    ],
+    [
+     "Source",
+     "S32"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [],
+   "sameAs": "tpr-3",
+   "parents": []
+  },
+  "grant-cg0-4": {
+   "id": "grant-cg0-4",
+   "sourceTree": "grant",
+   "sourceKey": null,
+   "kind": "childGroup",
+   "name": "Betsy Relihan Gross",
+   "branch": "rel",
+   "relation": null,
+   "note": "née Relihan · m. Jay Gross · California",
+   "prob": false,
+   "facts": [
+    [
+     "Spouse",
+     "Jay Gross · California"
+    ],
+    [
+     "Note",
+     "Provided Ancestry census images S49–S55, S68"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": "Thomas P. Relihan's Children",
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
+  },
+  "grant-cg1-5": {
+   "id": "grant-cg1-5",
+   "sourceTree": "grant",
+   "sourceKey": null,
+   "kind": "childGroup",
+   "name": "Marion Kozak Little",
+   "branch": "kozak",
+   "relation": null,
+   "note": "d.1982 · children in MA",
+   "prob": false,
+   "facts": [
+    [
+     "Children",
+     "Lee Courtemanche (MA) · Michael Little (MA)"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": "John J. Kozak's Children",
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
+  },
+  "mcgivney_family-cg0-7": {
+   "id": "mcgivney_family-cg0-7",
+   "sourceTree": "mcgivney_family",
+   "sourceKey": null,
+   "kind": "childGroup",
+   "name": "Unnamed Sister McGivney",
+   "branch": "mcg",
+   "relation": null,
+   "note": "4th surviving sister · name unconfirmed",
+   "prob": false,
+   "facts": [
+    [
+     "Note",
+     "4th surviving sister, name unconfirmed. Lead: \"Anna A. McGivney\" obit Naugatuck Daily News Feb 29 1944"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": "Patrick McGivney Sr.'s 7 Children (Waterbury CT) — which line connects to Relihan?",
+   "partRefs": [],
+   "parents": [],
+   "sameAs": null
   }
  },
  "sources": {
