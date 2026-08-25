@@ -349,6 +349,99 @@ That is not the same as confirmation, and the site should keep saying Probable.
 
 ---
 
+## Batch 4 — SPALDING: placed in Vermont, excluded from the corridor
+
+### S133 — Every Spalding in Nova Scotia — **TIER 1 NEGATIVE**
+
+**Evidence Tier: Tier 1** (complete government index sweep, three spelling
+variants, all counties, all events, all pages)
+**Source:** Nova Scotia Archives, `/vital-statistics/results/`
+
+Searched **Spalding**, **Spaulding** and **Spaldin** across births, marriages
+and deaths, 1864–1974. **Eight records exist in the entire province:**
+
+| Record | Place | Date |
+|---|---|---|
+| George Spalding & Frances M. Bland — marriage | Halifax County | 1921 |
+| George Spalding — death | Halifax | 1936 |
+| Kenneth Douglas Spalding & Anna Margaret Lee — marriage | Halifax | 1943 |
+| Edward Albert Spalding & Mildred Zwarum — marriage | Glace Bay, Cape Breton | 1944 |
+| Frances Mary Spalding — death | Halifax | 1954 |
+| Andrew Eugene Spaulding & Bessie Hines Smith — marriage | Digby County | 1901 |
+| John Spaulding — death | East Indian Road, Hants County | 1941 |
+
+**Zero in Kings County**, where our Skerrys are. **Nothing earlier than 1901**,
+which is far too late to be part of a 19th-century migration. Eight records in
+110 years is not a family presence; it is background noise.
+
+**Conclusion: Spalding has no Nova Scotia leg. It is not part of the corridor.**
+
+### S134 — Marion Anna Cook, and where Spalding actually comes from
+
+**Evidence Tier: Tier 3** (aggregated tree index, via search; the Geneanet
+page itself returns HTTP 403 and could not be read directly)
+
+**Marion Anna Cook — b. 1890, d. 1978 — associated with Cavendish AND
+Brattleboro, Vermont; married C. Skerry.**
+
+Two things follow immediately.
+
+1. **The ages now work.** Marion b. 1890 was **31 at Jane's birth (1921) and 36
+   at Susan's (1926)** — entirely ordinary. It is only Clarence who is old for
+   the marriage, which is exactly what a second marriage looks like.
+2. **Marion is the Cavendish connection, not Clarence.** Jane is buried at
+   Hillcrest Cemetery, **Proctorsville** — a village of **Cavendish** — and
+   Susan's memorial was held in Cavendish. That burial ground comes down the
+   **Cook** side, not the Skerry side.
+
+### S135 — Spaulding are founding settlers of Cavendish — **the likely attachment**
+
+**Evidence Tier: Tier 3** (published county history)
+**Source:** *History of Windsor County, Vermont* (1891), Cavendish chapter and
+Old Families section, via genealogytrails.com
+
+- **William Spaulding, Jesse Spaulding and William Spaulding Jr. are named among
+  the original settlers of Cavendish** in the 1780s. Jesse Spaulding served as
+  a lister in the town's first slate of officers. The Spauldings are a founding
+  Cavendish family, not incomers.
+- **"M. A. Cook" appears in Cavendish in 1886** as a charter member and Vice
+  Grand of the Odd Fellows lodge. Those initials, in that town, four years
+  before Marion Anna Cook's birth, are very likely her father or a close
+  relative.
+- **"Skerry" appears ZERO times** in either the Cavendish chapter or the Old
+  Families section of the whole county history — consistent with the Skerrys
+  arriving later and into **Brattleboro (Windham County)**, not Cavendish.
+- Also noted: *Families of Cavendish: The Early Settlers of the Black River
+  Valley* by Linda Margaret Farr Welch (1995–98) covers the Spaulding family in
+  volume 2. **A deferred lead** — it is a printed book, not online.
+
+### Verdict on Spalding
+
+**Spalding is a Vermont line, and it enters through the COOK side in Cavendish
+— not through Skerry, and not through Nova Scotia.**
+
+The picture is coherent and the geography separates cleanly:
+
+| Surname | Where it lives | Corridor? |
+|---|---|---|
+| **Skerry** | Kings Co., **Nova Scotia** → Brattleboro VT | **Yes — the corridor line** |
+| **Cook** | **Cavendish**, Windsor Co., Vermont | No |
+| **Spalding** | **Cavendish**, Windsor Co., Vermont — founding family, 1780s | **No** |
+| **Appel / Herr** | Married in 1960; separate line entirely | No |
+
+**This is a real answer to the lore, and it is a correction to it.** The story
+bundled four surnames into one migration. Only **Skerry** travelled that route.
+**Spalding and Cook are old New England families from the Black River valley in
+Windsor County**, who joined the line when Clarence Edmund Skerry married Marion
+Anna Cook around 1920 — in Vermont, a century after the Spauldings had settled
+there. Appel joined in 1960. The four names are real and all belong to the
+family; the single shared migration is not.
+
+**Still open:** the specific Cook–Spaulding marriage that brings Spalding in.
+Marion Anna Cook's mother remains the most likely candidate.
+
+---
+
 ## Two records for Helios to open — five minutes, and they may settle the project
 
 Both are free images on the Nova Scotia Archives site. The index gives only
