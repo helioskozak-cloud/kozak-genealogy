@@ -146,13 +146,29 @@ const el = id => document.getElementById(id);
    One human can appear in more than one research tree — Thomas P. Relihan
    is both grant-4 and tpr-1. `sameAs` links them; canon() picks whichever
    record carries more, so a click never lands on the thin copy. */
-function canon(id){
-  const a = P[id]; if(!a) return id;
-  const b = a.sameAs && P[a.sameAs];
-  if(!b) return id;
-  const score = p => (p.facts||[]).length*2 + (p.parents||[]).length + (p.note?1:0);
-  return score(b) > score(a) ? a.sameAs : id;
+let CANON = {};
+const score = p => (p.facts||[]).length*2 + (p.parents||[]).length + (p.note?1:0);
+/* Union-find, computed once. A pairwise "is my twin richer than me?" test is
+   not enough: two records pointing at each other can both answer no, and a
+   one-way link can leave the target unresolved — either way the same human
+   renders twice. Grouping first, then electing one representative per group,
+   is deterministic and handles chains of any length. */
+function buildCanon(){
+  const par = {};
+  const find = x => (par[x] = (par[x] ?? x) === x ? x : find(par[x]));
+  for(const id of Object.keys(P)) par[id] = id;
+  for(const [id,p] of Object.entries(P))
+    if(p.sameAs && P[p.sameAs]){ const a=find(id), b=find(p.sameAs); if(a!==b) par[a]=b; }
+  const best = {};
+  for(const id of Object.keys(P)){
+    const r = find(id), cur = best[r];
+    if(!cur || score(P[id]) > score(P[cur]) ||
+      (score(P[id]) === score(P[cur]) && id < cur)) best[r] = id;
+  }
+  CANON = {};
+  for(const id of Object.keys(P)) CANON[id] = best[find(id)];
 }
+const canon = id => CANON[id] || id;
 const nameOf = id => (P[canon(id)]||{}).name || "Unknown";
 let ALL = [];
 const branchOf = id => ((P[canon(id)]||{}).branch) || "none";
@@ -394,6 +410,7 @@ document.addEventListener("click",e=>{
 
 fetch("data/family.json?_="+Date.now()).then(r=>r.json()).then(d=>{
   D=d; P=d.persons;
+  buildCanon();
   ALL = Object.keys(P).filter(id=>canon(id)===id);
   buildKids();
   el("boot").remove();

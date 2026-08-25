@@ -1,6 +1,6 @@
 {
  "meta": {
-  "schemaVersion": 5,
+  "schemaVersion": 6,
   "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined Overview-tab Parts 43-22. Night 3 finished prose-mining Parts 21 down through 1 (including two un-numbered pre-numbering sessions and a duplicate 'Part 2' pedigree-tables box, recorded under disambiguating keys '1-addendum-jul1', '2-pinned-pedigree', '2-addendum-jul2' rather than silently merged or dropped), added 10 new persons named only in prose (Malone NY McGivney generations: Bridget Lynch, Nicholas McGivney b.~1820, Catherine McCabe, Patrick Gibny of Kilnaleck; Dooley-branch Relihan siblings: Sen. John J. Relihan Jr., Edward A. Relihan, Ann Relihan Lang, Margaret Relihan Mellott; plus Rose McBride and Sean Relihan as open-identity/probable-descendant records), and folded the Missing Links tab's 17 cards and the Search Queue tab's ~24 groups into person-linked openQuestions[] arrays (id/title/status/priority/origin/summary/exactSearches/sourceRefs) instead of leaving them as separate unstructured HTML-only content. All 43 Parts (1-43) now have a parts{} entry with sourceRefs/personRefs/summary. All 123 sources (S01-S123) are referenced somewhere in the file (as a sources{} entry plus at least one cross-reference in parts{}, a person's facts, or an openQuestions[] entry). index.html's live rendering is untouched. || 2026-08-25: added the Appel/Skerry/Cook/Spalding in-law line — Parts 44-51, sources S124-S143, and 15 person records (Elizabeth Anna Appel and her ancestry back to Clarence Edmund Skerry of Lakeville, Kings County, Nova Scotia). This research had previously been written ONLY into index.html as hand-authored session blocks, so it never reached this file — which is the source the Sources tab, the person records and the part index all render from. Derived is not source. || 2026-08-25 (b): relationships made EXPLICIT. Every person now carries `parents` (ids) and `sameAs` (the same human in another tree). They were previously implied by ahnentafel position, which had James Relihan -- annotated 'Maurice Relihan's father' -- rendering as Ann Duley's father. Also upserted the branch persons that existed only in index.html's inline BRANCHES copy and had never reached this file (grant-4, 8, 9 among them).",
   "personRecordCount": 68,
   "crossRefCount": 4,
@@ -369,12 +369,18 @@
     [
      "Open q.",
      "Birth/death dates and parents not yet found"
+    ],
+    [
+     "Death — CANDIDATE",
+     "MICHAEL SHOMSKY, 8 January 1989, SHELTON CT (S147). Consistent with a Bridgeport-area great-grandfather, but SHOMSKY returns 12 Connecticut deaths and the index gives no age — this is a lead, not an identification."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": [],
+   "partRefs": [
+    52
+   ],
    "parents": [],
    "sameAs": null
   },
@@ -482,12 +488,18 @@
     [
      "Community",
      "Polish immigrant community, Divine Providence PNCC, Norwich CT"
+    ],
+    [
+     "Death confirmed",
+     "NICHOLAS KOZAK, 8 March 1950, NORWICH CT — exact date match to the death already recorded for him, and it fixes the PLACE as Norwich (S144)."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": [],
+   "partRefs": [
+    52
+   ],
    "openQuestions": [
     {
      "id": "sq-kozak-ustaseski",
@@ -530,12 +542,18 @@
     [
      "Open q.",
      "Exact birth/death dates and parents unknown; maiden name spelling to confirm"
+    ],
+    [
+     "Death — PROBABLE",
+     "ANNA KOZAK, 14 November 1981, NORWICH CT (S145). Her dates were previously unknown. She would appear in a death index under her MARRIED name, which is why a Byczkowska search returns nothing."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": [],
+   "partRefs": [
+    52
+   ],
    "parents": [],
    "sameAs": null
   },
@@ -1657,7 +1675,7 @@
     }
    ],
    "parents": [],
-   "sameAs": null
+   "sameAs": "mcgivney_family-cg0-7"
   },
   "tpr-1": {
    "id": "tpr-1",
@@ -5437,7 +5455,7 @@
    "childGroupInfo": "Thomas P. Relihan's Children",
    "partRefs": [],
    "parents": [],
-   "sameAs": null
+   "sameAs": "grant-cg0-3"
   },
   "grant-cg1-5": {
    "id": "grant-cg1-5",
@@ -5460,7 +5478,7 @@
    "childGroupInfo": "John J. Kozak's Children",
    "partRefs": [],
    "parents": [],
-   "sameAs": null
+   "sameAs": "grant-cg1-4"
   },
   "mcgivney_family-cg0-7": {
    "id": "mcgivney_family-cg0-7",
@@ -5482,6 +5500,72 @@
    "crossRef": null,
    "childGroupInfo": "Patrick McGivney Sr.'s 7 Children (Waterbury CT) — which line connects to Relihan?",
    "partRefs": [],
+   "parents": [],
+   "sameAs": null
+  },
+  "frank-ustaseski": {
+   "id": "frank-ustaseski",
+   "sourceTree": "ctdeath",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Frank Ustaseski",
+   "branch": "kozak",
+   "relation": "CANDIDATE father of Helen Ustaseski Kozak",
+   "note": "d.Feb 12 1956 Norwich CT — candidate, not confirmed",
+   "prob": true,
+   "facts": [
+    [
+     "Death",
+     "12 February 1956, Norwich CT (S146)"
+    ],
+    [
+     "Why a candidate",
+     "USTASESKI returns only TWO deaths in Connecticut in the whole century 1897-2001. One is his, in NORWICH — the city Helen Ustaseski Kozak's family came from. A surname that rare, in that town, is a strong lead."
+    ],
+    [
+     "What is NOT shown",
+     "The index gives no age, no spouse and no children. Nothing here proves he is Helen's father."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    52
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "mary-ustaszewski": {
+   "id": "mary-ustaszewski",
+   "sourceTree": "ctdeath",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Mary Ustaszewski",
+   "branch": "kozak",
+   "relation": "CANDIDATE mother of Helen Ustaseski Kozak",
+   "note": "d.Sep 6 1937 Norwich CT — candidate, not confirmed",
+   "prob": true,
+   "facts": [
+    [
+     "Death",
+     "6 September 1937, Norwich CT (S146)"
+    ],
+    [
+     "Spelling",
+     "Ustaszewski → Ustaseski is an ordinary Polish anglicisation, and the family used both. A USTAS* sweep finds six people in the state: Joseph Ustaszewski (Bridgeport 1917), Mary Ustaszewski (NORWICH 1937), John Ustaski (Bridgeport 1939), Stanley Ustaseski (New Haven 1943), Frank Ustaseski (NORWICH 1956), Mary Ustash (Shelton 1975)."
+    ],
+    [
+     "Timing",
+     "Helen was born 25 Sep 1924. A mother dying in 1937 would leave her at 13 — consistent, and testable against a 1937 Norwich obituary."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    52
+   ],
    "parents": [],
    "sameAs": null
   }
@@ -7987,6 +8071,77 @@
     "lucy-bentley-skerry"
    ],
    "url": null
+  },
+  "S144": {
+   "num": 144,
+   "person": "Nicholas Kozak",
+   "relatedPerson": "Anna Byczkowska Kozak; the Norwich Kozak cluster",
+   "clue": "Confirms his 8 Mar 1950 death and establishes Norwich as the place",
+   "type": "Death index (state vital records)",
+   "citation": "CT Vital Records Index of Deaths 1897-2001, data.ct.gov/resource/psf6-3vsu.json",
+   "date": "1950-03-08",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "The only Kozak death in Connecticut in 1949-1951 besides Joseph (Newtown, 1949). Exact date match to the date already held for Grant's great-great-grandfather, and it pins the family to NORWICH. Around him a Norwich Kozak cluster: John 1941, Frank 1948, Michael 1955, Maria 1970, Jennie 1984, Fedor 1991, Frank 2001 — unproven as kin, but a small city and a distinctive surname.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-12"
+   ],
+   "url": "https://data.ct.gov/resource/psf6-3vsu.json"
+  },
+  "S145": {
+   "num": 145,
+   "person": "Anna Byczkowska Kozak",
+   "relatedPerson": "Nicholas Kozak (d.1950 Norwich)",
+   "clue": "Probable death record — previously her dates were entirely unknown",
+   "type": "Death index (state vital records)",
+   "citation": "CT Vital Records Index of Deaths 1897-2001, data.ct.gov/resource/psf6-3vsu.json",
+   "date": "1981-11-14",
+   "confidenceClass": "cp",
+   "confidence": "Probable",
+   "notes": "ANNA KOZAK, Norwich CT. Searching BYCZKOWSKA returns zero, as expected: a married woman appears under her husband's surname. Nicholas died in Norwich in 1950, so a widow of the same surname dying in the same small city is a strong candidate — but the index gives no age and no spouse, so it CANNOT confirm identity. Norwich has other Kozaks. Verify against a Norwich obituary or the Cavanagh funeral home.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-13"
+   ],
+   "url": "https://data.ct.gov/resource/psf6-3vsu.json"
+  },
+  "S146": {
+   "num": 146,
+   "person": "Frank Ustaseski + Mary Ustaszewski",
+   "relatedPerson": "Helen Ustaseski Kozak (b.1924)",
+   "clue": "The only Ustaseski deaths in Norwich — candidates for Helen's parents",
+   "type": "Death index (state vital records)",
+   "citation": "CT Vital Records Index of Deaths 1897-2001, data.ct.gov/resource/psf6-3vsu.json",
+   "date": "1937 / 1956",
+   "confidenceClass": "cp",
+   "confidence": "Probable",
+   "notes": "USTASESKI yields just two deaths statewide in 104 years. Widening to USTAS* gives six, of which exactly two are in NORWICH: Mary Ustaszewski (1937) and Frank Ustaseski (1956). Helen Ustaseski Kozak b.25 Sep 1924 and her funeral was handled in Norwich. A rare surname concentrated in one small city is a strong lead and nothing more — the index carries no ages, spouses or parents. Next step: Norwich Bulletin obituaries, 1937 and 1956.",
+   "dataQuirk": null,
+   "personRefs": [
+    "frank-ustaseski",
+    "mary-ustaszewski",
+    "grant-7"
+   ],
+   "url": "https://data.ct.gov/resource/psf6-3vsu.json"
+  },
+  "S147": {
+   "num": 147,
+   "person": "Michael Shomsky; George and Helen Demchak",
+   "relatedPerson": "Dorothy Shomsky Relihan; Mary Demchak Shomsky",
+   "clue": "Candidate deaths for the Shomsky and Demchak great-grandparents",
+   "type": "Death index (state vital records)",
+   "citation": "CT Vital Records Index of Deaths 1897-2001, data.ct.gov/resource/psf6-3vsu.json",
+   "date": "1966-1989",
+   "confidenceClass": "cp",
+   "confidence": "Probable",
+   "notes": "MICHAEL SHOMSKY d.8 Jan 1989 Shelton CT is the only Michael among 12 Connecticut Shomsky deaths, all clustered in Bridgeport/Shelton/Stratford — the right family's geography. On the Demchak side, GEORGE DEMCHAK d.24 Jan 1977 Bridgeport and HELEN DEMCHAK d.23 Jan 1966 (or 22 May 1972) Bridgeport are candidates for the parents of Mary Demchak Shomsky, given S44 names George M. Demchak Sr. + Helen Kosch Demchak. Two Helens muddy it. All candidates; none confirmed.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-10",
+    "grant-11"
+   ],
+   "url": "https://data.ct.gov/resource/psf6-3vsu.json"
   }
  },
  "businesses": {
@@ -8940,6 +9095,27 @@
     "lucy-bentley-skerry"
    ],
    "summary": "A database no earlier session had tried, and the one that can see the Planter era directly. Every Skerry before 1838 is in Halifax County and all are dated 1838; zero in Kings County. The control matters more than the result: Kings County is thoroughly covered, with Eaton, Bentley and Borden all present in Cornwallis Township returns from 1786. Had the Skerrys arrived with the Planters they would be there too. They do not appear in Kings County until 1867. This undermines the Salem hypothesis and strengthens the Irish one — and Bentley, the family Clarence married into in 1895, is itself one of those Planter families."
+  },
+  "52": {
+   "number": 52,
+   "date": "2026-08-25",
+   "title": "Grant's own lines worked for the first time: Nicholas Kozak's death confirmed at Norwich, Anna Byczkowska located, and candidate parents found for Helen Ustaseski",
+   "sourceRefs": [
+    "S144",
+    "S145",
+    "S146",
+    "S147"
+   ],
+   "personRefs": [
+    "grant-12",
+    "grant-13",
+    "grant-7",
+    "frank-ustaseski",
+    "mary-ustaszewski",
+    "grant-10",
+    "grant-11"
+   ],
+   "summary": "Seven overnight batches went into an in-law line while Grant's own paternal ancestry sat at three generations with Ustaseski appearing three times in the whole dataset and Byczkowska once. This session worked the Connecticut death index against his actual surnames. CONFIRMED: Nicholas Kozak d.8 Mar 1950 NORWICH — exact date match, and it fixes the family's town. PROBABLE: Anna Kozak d.14 Nov 1981 Norwich, almost certainly Anna Byczkowska under her married name, whose dates were previously blank. CANDIDATES: Frank Ustaseski (Norwich 1956) and Mary Ustaszewski (Norwich 1937) as Helen's parents — USTASESKI returns only two deaths in the entire state across a century, both in Norwich. Also candidate deaths for Michael Shomsky and the Demchak great-grandparents. The index gives name, date and city only, so it can confirm a known death and produce strong leads, but it cannot prove a relationship."
   }
  }
 }
