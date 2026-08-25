@@ -652,6 +652,136 @@ nothing more than that.
 
 ---
 
+# Batch 6 — THE VERDICT ON THE FAMILY LORE
+
+The lore: *Spalding, Cook, Skerry and Appel — some of whom came from west
+Ireland (Galway), through Nova Scotia, to the United States.*
+
+It has to be judged in pieces, because the pieces have different answers.
+
+### A methodological caveat that governs everything below
+
+**Nova Scotia civil registration began in 1864.** Comparing "first appearance"
+across counties is therefore mostly an artifact of when the registers open, not
+of when families arrived. Before 1864 the surviving records are heavily skewed
+toward **Halifax County marriage bonds** — so an early Halifax record and no
+early Kings record may reflect *what survives*, not *where people were*. I have
+tried not to lean on that asymmetry, and flag it wherever it could mislead.
+
+### S141 — The earliest Skerry in Nova Scotia: Halifax, 1814
+
+**Evidence Tier: Tier 1** (marriage register)
+
+> **Albert Vickers and Elizabeth Skerry, Halifax County, 11 April 1814.**
+
+Searching every Skerry marriage before 1864 returns **exactly this one record**.
+It is the earliest documented Skerry presence in the province, and it is in
+**Halifax** — the principal port of arrival, and the Irish destination — not in
+Kings County.
+
+This matters because **New England Planters came directly into Horton,
+Cornwallis and Aylesford townships in the 1760s; they did not arrive via
+Halifax.** Under the caveat above this is suggestive rather than decisive, but
+it points away from the Planter story for the Skerrys as a whole.
+
+### S142 — Two of the three Skerry clusters have Irish associations
+
+**Evidence Tier: Tier 1** (distribution) + Tier 3 (settlement history)
+
+Complete exact-match sweep, **128 Skerry records**, by county:
+
+| County | Records | Share | Character |
+|---|---|---|---|
+| **Halifax** | 63 | 49% | Osmund Joseph, Johannah, Michael, James Joseph, Agnes Fidelis, Agnes Loretta, Frances Johanna — **unmistakably Irish Catholic** |
+| **Lunenburg** (New Ross) | 32 | 25% | **New Ross was founded in 1816 by Capt. William Ross, a native of County CORK, Ireland**, with 172 disbanded soldiers of the Nova Scotia Fencibles, and is named for the **Irish town of New Ross** |
+| **Kings** (ours) | 17 | 13% | Aubrey Eaton, Leslie Alton, Charles Victor, Dora Helen — Protestant / Planter naming |
+| Queens, Cumberland, Shelburne, Colchester, Pictou, Hants | 13 | 10% | scattered |
+
+**Three-quarters of Nova Scotia's Skerrys sit in two places with documented
+Irish connections.** Ours are the minority cluster, in Planter country.
+
+**This shifts the balance back toward Ireland — and it undercuts my own Batch 4
+reasoning.** In Batch 4 I argued from Kings County's Planter character that the
+Salem-English origin fitted better. That argument is weaker than it looked: an
+Irish family landing at Halifax and moving out to farm the Annapolis Valley is
+an entirely ordinary thing to do, and would produce exactly the Kings County
+presence we see. Protestant-looking given names two or three generations later
+prove much less than I implied.
+
+---
+
+## VERDICT — leg by leg
+
+### 1. Nova Scotia → United States: **SUPPORTED**
+
+**Clarence Edmund Skerry was born at Lakeville, Kings County, Nova Scotia in
+1872** (S127, Tier 1). **No Clarence and no Lucy Skerry death is registered in
+Nova Scotia across the entire released range 1864–1974** (S131, Tier 1) — they
+left. Susan Skerry was born at **Canaan, Vermont**, a town on the Quebec border,
+in 1926.
+
+*Caveat:* the identification of the 1872 Clarence with Susan's father remains
+**Probable, not Confirmed** — see the three cautions above. The leg is supported
+on the strength of the whole pattern, not on one proven link.
+
+### 2. Ireland → Nova Scotia: **UNRESOLVED — evidence genuinely on both sides**
+
+**For:** Skerry is recorded as a **Galway** surname (S126). Nova Scotia held
+**51% of all Canadian Skerrys in 1911**. The earliest documented Skerry in the
+province is a **Halifax** marriage in 1814 (S141). **Halifax and New Ross — 74%
+of all Skerry records — are both Irish-associated settlements** (S142).
+
+**Against, for our branch specifically:** our Skerrys are in **Kings County**,
+Planter country; their naming is Protestant/English; and **Henry Skerry of
+Salem, an English emigrant from Great Yarmouth in 1637** (S136), offers a
+documented alternative origin for a New England Skerry population.
+
+**Neither is proved.** No document links Clarence Edmund Skerry's line either to
+an Irish arrival or to Henry Skerry of Salem.
+
+### 3. Galway specifically: **NOT ESTABLISHED**
+
+**No record places any Nova Scotia Skerry in Galway.** The Galway attribution
+rests entirely on a surname-origin reference (S126, Tier 3), which describes
+where the name *comes from*, not where these people came from. The Irish
+associations actually documented here point at **County Cork** (Capt. William
+Ross and New Ross) — and Cork, with Wexford and Waterford, is where the large
+Irish flows into Atlantic Canada came from. **If any Irish county belongs in
+this family's story on present evidence, Cork is better supported than Galway.**
+
+### 4. The lore's central claim — that these four surnames shared one migration: **CONTRADICTED**
+
+This is the clearest result of the whole project.
+
+| Surname | Verdict |
+|---|---|
+| **Skerry** | The only corridor line. Nova Scotia → Vermont **supported**; origin unresolved |
+| **Cook** | **Unplaced** — attested in both Cavendish VT and Kings County NS, where Cooks and Skerrys were neighbours in Billtown |
+| **Spalding** | **Vermont.** A Cavendish founding family from the 1780s. 2 records in all of Nova Scotia, none in Kings County, none before 1901 |
+| **Appel / Herr** | **Continental European.** Dutch/German and Swiss-Palatine Mennonite. 1 Appel and 0 Herrs in 110 years of Nova Scotia records. **Married into the family in 1960** |
+
+**Overall: the lore is half right, and right about the interesting half.**
+There genuinely is a Nova Scotia migration in this family, and it is real,
+documented, and previously unknown to the project. But it belongs to **one**
+surname, not four. Spalding and Cook were in New England before it; Appel
+arrived a century and a half after it. And the Irish county named — Galway — is
+the one piece with no documentary support at all.
+
+### What would settle the open question
+
+1. **The 1871 and 1881 Canadian censuses** record **religion and ethnic origin**
+   for every person. A Lakeville or Billtown Skerry household returning
+   "Irish / Roman Catholic" versus "English / Baptist" decides Ireland-vs-Salem
+   in a single line. **Could not be reached this batch** — see tooling below.
+2. **The two free Nova Scotia record images** already queued for Helios. The
+   1895 marriage should state Clarence's birthplace and both parents.
+3. **The US census for Clarence in Vermont** — birthplace and year of
+   immigration.
+
+All three are free. None is reachable by automation from here.
+
+---
+
 ## Two records for Helios to open — five minutes, and they may settle the project
 
 Both are free images on the Nova Scotia Archives site. The index gives only
