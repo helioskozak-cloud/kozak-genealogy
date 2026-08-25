@@ -167,6 +167,67 @@ clusters: Kings, Lunenburg (New Ross), Halifax, and Cumberland.
 
 ---
 
+## Batch 2 — the Appel sibling generation
+
+### S128 — Thomas G. Gardner, obituary — **CONFIRMED**
+
+Sarah Appel's husband. A deceased in-law is often the best available door into
+a living generation, and this one names the whole sibling set with locations.
+
+**Evidence Tier: Tier 2** (funeral home obituary)
+**Source:** Dignity Memorial, Keene NH —
+`dignitymemorial.com/obituaries/keene-nh/thomas-gardner-5615272`
+Also carried by the Keene Sentinel and the Louisville Courier-Journal, Jul 2013.
+
+**Thomas G. Gardner** — b. **Feb 5 1952, Louisville, Kentucky**; d. **Jul 26
+2013, while visiting family in Keene, New Hampshire**.
+
+- **Parents: Dr. Hoyt D. Gardner and Rose A. (Brakmeier) Gardner** — a new
+  generation on the Gardner side, and the origin of the "Hoyt" in his son's name.
+- Wife: **Sarah Appel Gardner**.
+- Children: **William Hoyt Gardner** and **Gracelyn Cook Gardner**.
+- **Mother-in-law: "Susan S. Appel of Keene"** — independently confirms Susan
+  living in Keene NH in Jul 2013.
+- Sister-in-law: **Elizabeth Appel (Dave), W. Hartford CT**.
+- Brothers-in-law: **Edmund Appel (Lisa), Keene NH**; **William H. Appel Jr.
+  (Suzanne), Windsor ME**.
+- Atherton High School; University of Louisville; latterly Baptist East
+  Wellness Center. Memorial at Beargrass Christian Church, Aug 13 2013.
+
+**Confidence: Confirmed.** The sibling set and locations match S124 exactly,
+recorded five years earlier and by a different funeral home in a different
+state — genuinely independent corroboration.
+
+**Two things it establishes by what it does NOT say:**
+
+1. **No father-in-law is named.** Susan appears alone as "mother-in-law."
+   Consistent with **William Herr Appel Sr. having died in 1999** (S124), and
+   the third independent source to imply it.
+2. **The middle-name pattern holds for a third generation.** **Gracelyn *Cook*
+   Gardner** carries Marion Anna Cook's surname — great-grandmother to
+   great-granddaughter. **William *Hoyt* Gardner** carries his own paternal
+   grandfather's name. This family encodes its ancestry in middle names
+   reliably enough to be used as a research instrument, not just an observation.
+
+---
+
+### S129 — Prudence Skerry Mitchell — **PARTIAL**
+
+**Evidence Tier: Tier 2** (obituary, read only via search summary — the full
+text is behind a rate limit, see the tooling table in the brief)
+**Source:** Keene Sentinel, obituary of **William Mitchell** —
+`keenesentinel.com/news/obituaries/william-mitchell/article_1f4822c0-aa73-11e1-8a4d-0019bb2963f4.html`
+
+- **Prudence Skerry** married **William Mitchell on May 17 1949**.
+- **Prudence died May 2003.**
+
+The third of Clarence Edmund Skerry's and Marion Anna Cook's daughters, after
+Jane (b. 1921) and Susan (b. 1926). **Not yet read in full** — the full text may
+name the parents' birthplaces, which is exactly what the corridor question
+needs. **Re-fetch when the rate limit clears.**
+
+---
+
 ## Verdict so far — read this before claiming the lore is proved
 
 ### The Nova Scotia leg: **strongly supported**
