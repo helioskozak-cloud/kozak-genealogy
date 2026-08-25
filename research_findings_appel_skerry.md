@@ -916,13 +916,25 @@ with **Skerry** as the surname most likely to carry it.
 
 ## Data-quality note on an existing source
 
-**S123 cites a "CT Death Index API (data.ct.gov)".** Checked 2026-08-24: the
-Socrata catalog for data.ct.gov no longer exposes any person-level death index.
-`ie5j-mz6w` ("Connecticut Resident Deaths, 1999-2013") is **aggregate counts by
-year/cause/age band**, not individual records, and there is no other candidate
-dataset. Either that dataset was withdrawn, or S123's citation is wrong about
-its source. **S123's underlying claim should be re-verified from another
-source before it is relied on again.**
+**RETRACTED — I WAS WRONG.** On 2026-08-24 I recorded here that the CT Death
+Index cited by source S123 did not exist, on the strength of a Socrata catalog
+keyword search that returned no person-level death dataset. **That was a false
+claim and it is withdrawn.** The dataset is real and queryable:
+
+> **`data.ct.gov/resource/psf6-3vsu.json`** — *Connecticut Vital Records —
+> Index of Deaths, 1897-2001*. Columns: `firstname`, `lastname`, `date`, `city`.
+
+**S123's citation was correct.** My catalog search simply missed it — the title
+is "Index of Deaths", which my keyword did not match, and I treated an
+unsuccessful search as evidence of absence instead of as an unsuccessful search.
+That is exactly the error this project's own rules warn against, committed by
+me while writing those rules down.
+
+**It is a good free tool and was put to use immediately:** no William Appel died
+in Connecticut in 1999, which is consistent with William Herr Appel Sr. dying in
+New Hampshire or Georgia rather than CT. Four Skerry deaths appear in CT
+1897–2001 (Joseph, Waterbury 1898; Kate, Thompson 1900; Rose, Old Saybrook 1978;
+Frederick, Meriden 1984) — none of them ours.
 
 ---
 
