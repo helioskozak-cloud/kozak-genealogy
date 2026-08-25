@@ -498,6 +498,91 @@ are free at Library and Archives Canada.
 
 ---
 
+## Batch 5 — APPEL: Continental European, and not the Galway line
+
+### Methodology correction — earlier sweeps used the wrong match mode
+
+The Nova Scotia search's `LastS` parameter selects the match mode. Its values
+are not obvious: **`LastS=<>` is EXACT**, `<` is starts-with, `>` is ends-with,
+and an unrecognised value (I had been passing `LastS=0`) silently falls back to
+**contains**.
+
+So **S131 and S133 were run in contains mode.** Re-checked:
+
+- **S131 (Skerry deaths) stands.** Every name returned was exactly "Skerry";
+  the substring net caught nothing extra. The finding — no Clarence and no Lucy
+  Skerry death in Nova Scotia 1864–1974 — is unaffected.
+- **S133 (Spalding) needs a number corrected.** In contains mode it caught
+  Appelby, Chappell and Cappelle-type noise. **Exact "Spalding" returns 2
+  records** (George Spalding d.1936 Halifax; Frances Mary Spalding d.1954
+  Halifax), with Spaulding a separate handful. **The conclusion is unchanged
+  and in fact strengthened**: still zero in Kings County, still nothing before
+  1901, and the true count is smaller than reported, not larger.
+
+Corrected here rather than quietly — the numbers in S133 were overstated.
+
+### S137 — Appel and Herr in Nova Scotia — **TIER 1 NEGATIVE, exact match**
+
+**Evidence Tier: Tier 1** (government index, exact-match sweep, all events,
+1864–1974)
+
+| Surname (exact) | Records in the whole of Nova Scotia |
+|---|---|
+| **Appel** | **1** — Enrique Appel, Halifax, 1950-12-24 |
+| **Herr** | **0** |
+| Skerry | 75+ |
+| Spalding | 2 |
+
+**One Appel in 110 years, in 1950, with a Spanish given name.** No plausible
+connection to this family. **Herr does not occur at all.**
+
+Against Skerry's 75+ records spanning the whole period and four regional
+clusters, this is not a close call. **Neither Appel nor Herr has any Nova
+Scotia presence whatsoever.**
+
+### S138 — Herr is Swiss/Palatine German Mennonite
+
+**Evidence Tier: Tier 3** (secondary/reference)
+
+The Pennsylvania Herr line descends from **Hans Herr, b. Zurich, Switzerland
+17 Sep 1639**, a Swiss Brethren (Mennonite) bishop who fled the Palatinate and
+settled **Lancaster County, Pennsylvania about 1718** — the first Mennonite
+bishop to emigrate to America. The Hans Herr House (1719) is the oldest
+dwelling in Lancaster County.
+
+**Herr is about as distinctively Pennsylvania-German as a surname gets.** That
+William *Herr* Appel carries it as a middle name — in a family that uses middle
+names to record ancestry, demonstrated across three generations now — points
+his mother's line squarely at Swiss/Palatine Mennonite Pennsylvania.
+
+### S139 — Appel is Dutch / Low German
+
+**Evidence Tier: Tier 3** (surname reference works)
+
+**Appel** means "apple" — a metonymic occupational name for an apple grower or
+fruit seller, or a topographic name for someone by an orchard. Recorded in
+Germany from the early 16th century. Held most widely in **Germany**
+(~19,800 bearers; Hesse, Bavaria, Baden-Württemberg), then the **United States**
+and Brazil. Found among Dutch, German and Ashkenazi Jewish communities.
+**Not an Irish name, and not an anglicisation of one.**
+
+### Verdict on Appel — this settles a quarter of the lore
+
+> **The Appel line is Continental European — Dutch/German on the Appel side,
+> Swiss/Palatine German Mennonite on the Herr side. It has no Nova Scotia
+> footprint at all. It cannot be the Galway line, and it did not travel the
+> corridor.**
+
+Three independent things agree: the surname's own origin, the distinctively
+Pennsylvania-German *Herr* middle name, and a Tier 1 exact-match sweep finding
+**one** Appel and **zero** Herrs in 110 years of Nova Scotia records.
+
+And chronologically it was never available to the story anyway: **Appel entered
+this family in 1960**, when William Herr Appel married Susan Skerry — two
+centuries after the migrations the lore describes, and in the United States.
+
+---
+
 ## Two records for Helios to open — five minutes, and they may settle the project
 
 Both are free images on the Nova Scotia Archives site. The index gives only
