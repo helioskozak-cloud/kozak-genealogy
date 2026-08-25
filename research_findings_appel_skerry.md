@@ -246,6 +246,109 @@ open it. See "Two records for Helios to open" below.
 
 ---
 
+## Batch 3 — resolving the identification: **STILL PROBABLE**
+
+The question: is the Clarence Edmund Skerry born 1872 at Lakeville, Kings
+County NS (S127) the same man as the Clarence E. Skerry who fathered Jane
+(b. 1921 Brattleboro VT) and Susan (b. 1926 Canaan VT) with Marion Anna Cook?
+
+**Not resolved. Held at Probable.** What follows is why, and what moved.
+
+### S131 — Every Skerry death registered in Nova Scotia, 1864–1974 — **TIER 1 NEGATIVE**
+
+**Evidence Tier: Tier 1** (complete government death index sweep, all counties,
+all pages — 75 unique registrations)
+**Source:** Nova Scotia Archives, `/vital-statistics/results/?Last=Skerry&D=death`
+
+> **There is no Clarence Skerry death registered in Nova Scotia in the entire
+> released range, 1864–1974. There is no Lucy Skerry death either.**
+
+This is a real finding, not an empty search. Nova Scotia releases deaths to
+1974; a man born there in 1872 who stayed would almost certainly have died
+inside that window and been registered. **He is not there.**
+
+It does not prove he went to Vermont — he could have died anywhere else in
+Canada or the US — but it removes the most obvious way the hypothesis could
+have been falsified, and it is consistent with the family leaving the province.
+
+**And Lucy is absent too.** If Clarence and Lucy A. Bentley married in Kings
+County in 1895 and both are missing from eighty years of Nova Scotia death
+registers, the natural reading is that **they left together**. That in turn
+makes the remarriage story coherent: emigrate as a couple, Lucy dies outside
+Nova Scotia, Clarence remarries Marion Anna Cook and starts a second family in
+Vermont in his late forties. Coherent is not proved — but the second caution
+from Batch 1 is now weaker than it looked.
+
+### S132 — The Nova Scotia Skerrys are not one family — **bears on Galway**
+
+Reading all 75 death registrations together, the surname resolves into distinct
+regional clusters with markedly different naming traditions:
+
+| Cluster | Names | Reads as |
+|---|---|---|
+| **Kings Co. — Lakeville / Billtown (OURS)** | Aubrey Eaton, Leslie Alton, Dora Helen, Charles Victor, Emma May, James Richard, Clare | Protestant, New England Planter |
+| **Halifax Co.** | Johannah, Joanna, Michael, James Joseph, John P., Agnes Fidelis, Agnes Loretta, Frances Johanna, Margaret Matilda | **Strongly Irish Catholic** |
+| **Lunenburg Co. — New Ross** | Joseph **Dimock**, Franklin Murray, William Winston, William Arnold | Planter / Baptist (Dimock is a well-known Nova Scotia Baptist name) |
+
+**This sharpens the Batch 1 caution considerably.** The Skerrys who look Irish
+Catholic are the **Halifax** ones. **Ours are not in that cluster** — they are
+in the Annapolis Valley Planter cluster, and their naming matches it.
+
+So the two halves of the lore now point in different directions:
+
+- **Nova Scotia — supported**, and increasingly firmly.
+- **Galway — actively unsupported for OUR branch.** The surname is Galway-Irish
+  in origin (S126) and there plainly *are* Irish-Catholic Skerrys in Nova
+  Scotia, but they are a different regional cluster. Our line may connect to
+  them several generations further back, or may not connect at all.
+
+### S125 upgraded — Jane Shumway's obituary read in full
+
+The full text (reformer.com, fetchable where the Keene Sentinel is not)
+confirms "the daughter of Clarence E. and Marion Anna (Cook) Skerry" and adds
+her nurse training at Franklin County Hospital, Greenfield MA; work in
+Greenfield and Troy NY; children Pamela Shumway-Bilak, Jean Hamilton, Loren
+Shaw and Ned Shumway; and eleven grandchildren.
+
+**It gives no birthplace, origin or nationality for either parent.** Neither
+does Susan's. The obituary route to the corridor is now exhausted.
+
+### Why it could not be resolved tonight
+
+The decisive record is the **US federal census for Clarence E. Skerry in
+Vermont** — it states birth year, birthplace and year of immigration in his own
+household. Every free route to a name-searchable census failed:
+
+| Route | Result |
+|---|---|
+| `1950census.archives.gov` | API returns nothing; the site is a JS app with no reachable JSON endpoint. Empty body on every path. |
+| Chronicling America / loc.gov | Reachable (`www.loc.gov/collections/chronicling-america/?q=…&fo=json`, needs `-L` and a User-Agent — the old `chroniclingamerica.loc.gov` host now 308-redirects). 22 hits for "Skerry", none Vermont, none this family. |
+| FamilySearch | Census indexes require a login. |
+| Find a Grave | HTTP 403 on every path. |
+| Obituaries | Clarence and Marion both died before the online archive era. No obituary for either. |
+
+**This is a tooling limit, not an absence of evidence.** The record exists and
+is free at the National Archives — it just needs a human or a logged-in
+session.
+
+### Verdict
+
+**PROBABLE — unchanged in confidence, but better supported and better bounded.**
+
+Of the three Batch 1 cautions:
+
+1. **The age gap** — still open. Fathering children at 49 and 54 is unusual.
+2. **The Lucy Bentley marriage** — **weakened as an objection.** Neither Lucy
+   nor Clarence died in Nova Scotia, so a couple who emigrated and a later
+   remarriage is the natural reading.
+3. **The 1877–1908 registration gap** — still open, and still the strongest
+   reason for caution. A namesake born in the 1890s remains invisible.
+
+Nothing found tonight contradicts the identification, and one objection eased.
+That is not the same as confirmation, and the site should keep saying Probable.
+
+---
+
 ## Two records for Helios to open — five minutes, and they may settle the project
 
 Both are free images on the Nova Scotia Archives site. The index gives only
