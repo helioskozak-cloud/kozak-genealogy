@@ -1,6 +1,6 @@
 {
  "meta": {
-  "schemaVersion": 8,
+  "schemaVersion": 9,
   "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined Overview-tab Parts 43-22. Night 3 finished prose-mining Parts 21 down through 1 (including two un-numbered pre-numbering sessions and a duplicate 'Part 2' pedigree-tables box, recorded under disambiguating keys '1-addendum-jul1', '2-pinned-pedigree', '2-addendum-jul2' rather than silently merged or dropped), added 10 new persons named only in prose (Malone NY McGivney generations: Bridget Lynch, Nicholas McGivney b.~1820, Catherine McCabe, Patrick Gibny of Kilnaleck; Dooley-branch Relihan siblings: Sen. John J. Relihan Jr., Edward A. Relihan, Ann Relihan Lang, Margaret Relihan Mellott; plus Rose McBride and Sean Relihan as open-identity/probable-descendant records), and folded the Missing Links tab's 17 cards and the Search Queue tab's ~24 groups into person-linked openQuestions[] arrays (id/title/status/priority/origin/summary/exactSearches/sourceRefs) instead of leaving them as separate unstructured HTML-only content. All 43 Parts (1-43) now have a parts{} entry with sourceRefs/personRefs/summary. All 123 sources (S01-S123) are referenced somewhere in the file (as a sources{} entry plus at least one cross-reference in parts{}, a person's facts, or an openQuestions[] entry). index.html's live rendering is untouched. || 2026-08-25: added the Appel/Skerry/Cook/Spalding in-law line — Parts 44-51, sources S124-S143, and 15 person records (Elizabeth Anna Appel and her ancestry back to Clarence Edmund Skerry of Lakeville, Kings County, Nova Scotia). This research had previously been written ONLY into index.html as hand-authored session blocks, so it never reached this file — which is the source the Sources tab, the person records and the part index all render from. Derived is not source. || 2026-08-25 (b): relationships made EXPLICIT. Every person now carries `parents` (ids) and `sameAs` (the same human in another tree). They were previously implied by ahnentafel position, which had James Relihan -- annotated 'Maurice Relihan's father' -- rendering as Ann Duley's father. Also upserted the branch persons that existed only in index.html's inline BRANCHES copy and had never reached this file (grant-4, 8, 9 among them).",
   "personRecordCount": 68,
   "crossRefCount": 4,
@@ -8621,6 +8621,45 @@
     "stanley-ustaseski"
    ],
    "url": null
+  },
+  "S156": {
+   "num": 156,
+   "person": "Norwich Bulletin archives — coverage assessment",
+   "relatedPerson": "Nicholas Kozak, Anna Byczkowska Kozak, Helen Ustaseski Kozak, Frank Ustaseski, M. G. Ustaszewska",
+   "clue": "Every free digitised run of the paper stops in 1930 — before all four target deaths",
+   "type": "Archive coverage assessment (Tier 1 negative)",
+   "citation": "Chronicling America LCCN sn82014086; Otis Library microfilm digitised to Internet Archive, collection 'norwichbulletinmicrofilmotislibrary' (311 volumes)",
+   "date": "2026-08-25",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "TWO free digitised runs exist and NEITHER reaches the targets. (1) Chronicling America holds the Norwich Bulletin for roughly 1909-1922 only; its loc.gov item pages now sit behind a Cloudflare challenge returning 403 to curl AND to headless Chromium, and its full-text index returns zero Norwich Bulletin hits even when searched for the paper's own name. (2) Otis Library digitised its microfilm to the Internet Archive: 311 volumes spanning 1773-1930, freely downloadable as OCR text (_djvu.txt, 9-16MB a volume). COVERAGE ENDS 1930. Mary Ustaszewska (d.1937), Nicholas Kozak (d.1950), Frank Ustaseski (d.1956) and Anna Kozak (d.1981) are all outside it. A further gap 1923-1926 also excludes John J. Kozak's birth (Jan 1924) and Jennie Kozak's (May 1925). Roughly half the volumes carry no OCR layer or are stubs. The obituaries exist on Otis Library microfilm in Norwich; reaching them needs a person, or a GenealogyBank/NewspaperArchive subscription.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-12",
+    "grant-13",
+    "grant-7",
+    "frank-ustaseski",
+    "mary-ustaszewski"
+   ],
+   "url": "https://archive.org/details/norwichbulletinmicrofilmotislibrary"
+  },
+  "S157": {
+   "num": 157,
+   "person": "Norwich Bulletin 1920-1921, full-text sweep",
+   "relatedPerson": "Nicholas Kozak + Anna Byczkowska; the Ustaseski family",
+   "clue": "~46 million characters of OCR searched: no Ustaseski, no Byczkowska, and the only two Kozak hits are other families",
+   "type": "Newspaper OCR sweep (Tier 1 negative)",
+   "citation": "Internet Archive, Otis Library Norwich Bulletin volumes, Jan 1920 - Dec 1921",
+   "date": "1920-1921",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Ten volumes requested, six carried usable OCR, ~46 million characters searched for Kozak / Kozack / Ustasz / Ustase / Byczk. ZERO hits for Ustaszewski, Ustaseski or Byczkowska. TWO Kozak hits, both other families: a baptism notice for 'Anna, daughter of Michael and Pauline ... Kozack', and a school honour roll listing a 'Sophie Kozak'. Neither is Nicholas and Anna. This is the window a marriage notice for them would most likely fall in, and they are not in it — though note the OCR on 1920s microfilm is poor (the baptism line reads 'Ohearcks Witowiez', 'Maznsz Kozack'), so a miss is quite possible.",
+   "dataQuirk": "OCR quality on this microfilm is low; absence here is weaker evidence than usual.",
+   "personRefs": [
+    "grant-12",
+    "grant-13"
+   ],
+   "url": "https://archive.org/details/norwichbulletinmicrofilmotislibrary"
   }
  },
  "businesses": {
@@ -9640,6 +9679,23 @@
     "grant-13"
    ],
    "summary": "Divine Providence Cemetery, Norwich — the Kozak family's Polish National Catholic parish, where John J. Kozak was buried in 2020 — is on Find a Grave with 682 memorials at 90% photographed. One real find and one hard negative. FOUND: M. G. Ustaszewska, b.15 Aug 1883 d.6 Sep 1937, an exact death-date match to the candidate for Helen Ustaseski's mother, in the Kozaks' own parish. Rare surname, right town, same small congregation — a meaningful strengthening, though still not proof: the memorial is a bare headstone transcription with no spouse, children or family links. NOT FOUND: any Kozak at all, here or anywhere in New London County, despite John's obituary placing his burial here. The search works, so the Kozak plot is untranscribed, and Nicholas (d.1950) and Anna (d.1981) are not reachable this way. Frank Ustaseski (d.1956) is not in the cemetery either."
+  },
+  "55": {
+   "number": 55,
+   "date": "2026-08-25",
+   "title": "Norwich Bulletin archives worked end to end: every free digitised run stops in 1930, before all four target deaths",
+   "sourceRefs": [
+    "S156",
+    "S157"
+   ],
+   "personRefs": [
+    "grant-12",
+    "grant-13",
+    "grant-7",
+    "frank-ustaseski",
+    "mary-ustaszewski"
+   ],
+   "summary": "Asked to try the Norwich Bulletin archives. Two free digitised runs exist. Chronicling America has roughly 1909-1922 but its pages are now behind a Cloudflare challenge that defeats both curl and headless Chromium, and its full-text index returns no Norwich Bulletin hits at all. Otis Library digitised its microfilm to the Internet Archive — 311 volumes, 1773-1930, with freely downloadable OCR — which is a genuinely useful find, and the route future sessions should use. But it ENDS IN 1930. Mary Ustaszewska (1937), Nicholas Kozak (1950), Frank Ustaseski (1956) and Anna Kozak (1981) are all beyond it, and a further 1923-1926 gap excludes John's and Jennie's births. Ten 1920-1921 volumes were searched anyway, about 46 million characters, on the theory that Nicholas and Anna's marriage notice would fall there: no Ustaseski, no Byczkowska, and the only two Kozak hits are other Norwich families. The obituaries do exist — on microfilm at Otis Library, 261 Main Street, Norwich — but reaching them needs a person or a paid newspaper subscription."
   }
  }
 }
