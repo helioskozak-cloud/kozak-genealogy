@@ -442,6 +442,62 @@ Marion Anna Cook's mother remains the most likely candidate.
 
 ---
 
+### S136 — Henry Skerry of Salem, 1637 — **a serious rival to the Galway story**
+
+Found while chasing the Cook–Spaulding link. Out of Batch 4's scope, recorded
+because it bears directly on the central question.
+
+**Evidence Tier: Tier 2** (well-documented colonial emigrant, multiple
+independent secondary treatments including WikiTree and Savage's *Genealogical
+Dictionary*; a 1684 Salem deposition is cited for his age)
+
+> **Henry Skerry Sr. emigrated from Great Yarmouth, Norfolk, ENGLAND in April
+> 1637**, aged about 31, with his wife Elizabeth, his son Henry, and an
+> apprentice named Edmund Towne. A **cordwainer**, later **constable**. Made a
+> freeman of **Salem, Massachusetts** in March 1638. Died **30 Dec 1691 in
+> Salem, Essex County**, aged about 89.
+
+**Why this matters enormously.** There is a documented **English** Skerry family
+in New England from 1637 — and **Kings County, Nova Scotia was settled by New
+England Planters in the 1760s**, farmers from Massachusetts and Connecticut who
+took up the former Acadian lands. That is the standard route by which a
+Massachusetts family ends up in Lakeville and Billtown.
+
+Every independent observation lines up with it:
+
+| Observation | Fits Galway-Irish? | Fits Salem-English-Planter? |
+|---|---|---|
+| Our cluster is in **Kings County** (Planter country) | poorly | **exactly** |
+| Naming: Aubrey Eaton, Leslie Alton, Charles Victor, Dora Helen | poorly | **exactly** |
+| No Catholic markers in our cluster (S132) | poorly | **exactly** |
+| Irish-Catholic Skerrys are in **Halifax**, a separate cluster (S132) | — | consistent |
+| Surname is Galway-Irish *in origin* (S126) | yes | neutral — the name can be both |
+
+**Revised rival hypothesis, now the stronger of the two:**
+
+> Great Yarmouth, Norfolk **England** → **Salem, Massachusetts** 1637 → Kings
+> County, **Nova Scotia** with the Planter migration c.1760s → back to
+> **Vermont** c.1900 with Clarence Edmund Skerry.
+
+That keeps the Nova Scotia leg of the family story — which is well supported —
+and **replaces Galway with England, running the migration in the opposite
+direction**: not Ireland to the New World via Canada, but England to New England
+first, then north to Canada, then back south again.
+
+**WHAT IS NOT SHOWN, and it is the whole thing.** *Nothing yet connects Clarence
+Edmund Skerry (b. 1872 Lakeville) to Henry Skerry of Salem.* The case is
+circumstantial — surname rarity, plus geography, religion and naming all
+pointing the same way. It is a **hypothesis with better supporting context than
+the Galway one**, not a proven descent. Both remain open.
+
+**How to settle it — for Batch 6.** The **1871 and 1881 Canadian censuses**
+record **religion and ethnic origin** for every person. A Lakeville Skerry
+household returning "Irish / Roman Catholic" versus "English / Baptist or
+Anglican" decides between these two stories in a single line, and both censuses
+are free at Library and Archives Canada.
+
+---
+
 ## Two records for Helios to open — five minutes, and they may settle the project
 
 Both are free images on the Nova Scotia Archives site. The index gives only
