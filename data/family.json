@@ -1,6 +1,6 @@
 {
  "meta": {
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined Overview-tab Parts 43-22. Night 3 finished prose-mining Parts 21 down through 1 (including two un-numbered pre-numbering sessions and a duplicate 'Part 2' pedigree-tables box, recorded under disambiguating keys '1-addendum-jul1', '2-pinned-pedigree', '2-addendum-jul2' rather than silently merged or dropped), added 10 new persons named only in prose (Malone NY McGivney generations: Bridget Lynch, Nicholas McGivney b.~1820, Catherine McCabe, Patrick Gibny of Kilnaleck; Dooley-branch Relihan siblings: Sen. John J. Relihan Jr., Edward A. Relihan, Ann Relihan Lang, Margaret Relihan Mellott; plus Rose McBride and Sean Relihan as open-identity/probable-descendant records), and folded the Missing Links tab's 17 cards and the Search Queue tab's ~24 groups into person-linked openQuestions[] arrays (id/title/status/priority/origin/summary/exactSearches/sourceRefs) instead of leaving them as separate unstructured HTML-only content. All 43 Parts (1-43) now have a parts{} entry with sourceRefs/personRefs/summary. All 123 sources (S01-S123) are referenced somewhere in the file (as a sources{} entry plus at least one cross-reference in parts{}, a person's facts, or an openQuestions[] entry). index.html's live rendering is untouched. || 2026-08-25: added the Appel/Skerry/Cook/Spalding in-law line — Parts 44-51, sources S124-S143, and 15 person records (Elizabeth Anna Appel and her ancestry back to Clarence Edmund Skerry of Lakeville, Kings County, Nova Scotia). This research had previously been written ONLY into index.html as hand-authored session blocks, so it never reached this file — which is the source the Sources tab, the person records and the part index all render from. Derived is not source. || 2026-08-25 (b): relationships made EXPLICIT. Every person now carries `parents` (ids) and `sameAs` (the same human in another tree). They were previously implied by ahnentafel position, which had James Relihan -- annotated 'Maurice Relihan's father' -- rendering as Ann Duley's father. Also upserted the branch persons that existed only in index.html's inline BRANCHES copy and had never reached this file (grant-4, 8, 9 among them).",
   "personRecordCount": 68,
   "crossRefCount": 4,
@@ -315,35 +315,41 @@
    "kind": "persons",
    "name": "Helen Ustaseski Kozak",
    "branch": "kozak",
-   "relation": "Mark's mother — confirmed",
-   "note": "b.Sep 25 1924 · d.Aug 6 2016",
-   "prob": false,
+   "relation": "Mark's mother",
+   "note": "b.Sep 25 1924 · death date UNKNOWN (S34 retracted, see S153)",
+   "prob": true,
    "facts": [
     [
      "Born",
-     "Sep 25 1924"
+     "25 Sep 1924"
     ],
     [
      "Died",
-     "Aug 6 2016 · Norwich CT"
+     "UNKNOWN. She predeceased John J. Kozak, who died 6 Sep 2020 — that is all that is established (S152)."
+    ],
+    [
+     "RETRACTED",
+     "S34 gave 'd.Aug 6 2016 Norwich CT' from a Cavanagh Funeral Home listing. That funeral home is in PENNSYLVANIA and the deceased was Helen Pauline Kozak nee Tantaros, wife of Victor. A false match on coincident dates — see S153."
     ],
     [
      "Married",
-     "Nov 1955"
+     "John J. Kozak, November 1955"
     ],
     [
-     "Source",
-     "S34 — Cavanagh Funeral Home Norwich CT (obId 25166430)"
+     "Lived",
+     "Golden Street, Greeneville, Norwich CT — she was John's neighbour there (S152)"
     ],
     [
-     "Open q.",
-     "Parents still unknown — call Cavanagh FH to confirm parents' names"
+     "Parents",
+     "Unknown. Candidates Frank Ustaseski (d.1956 Norwich) and Mary Ustaszewski (d.1937 Norwich) — see S146."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": [],
+   "partRefs": [
+    53
+   ],
    "parents": [],
    "sameAs": null
   },
@@ -4976,35 +4982,43 @@
    "sourceTree": "appel",
    "sourceKey": null,
    "kind": "prose",
-   "name": "Clarence Edmund Skerry",
+   "name": "Clarence Edmond Skerry",
    "branch": "other",
    "relation": "Susan Skerry Appel's father; Grant's cousins' great-grandfather",
-   "note": "PROBABLY b.1872 Lakeville, Kings County, NOVA SCOTIA",
-   "prob": true,
+   "note": "b.Sep 21 1877 Chicago IL · d.Feb 2 1936 Canaan VT",
+   "prob": false,
    "facts": [
     [
-     "Birth",
-     "PROBABLE: 1872, Lakeville, Kings County, Nova Scotia (S127, Tier 1, reg. book 1816 p.170 no.449)"
+     "Born",
+     "21 September 1877, CHICAGO, Cook County, Illinois (S148)"
     ],
     [
-     "Spouses",
-     "Lucy A. Bentley (m.1895 Kings County NS, S130); Marion Anna Cook (m. c.1920 Vermont)"
+     "Died",
+     "2 February 1936, Canaan, Essex County, Vermont, aged 58"
     ],
     [
-     "Children (with Marion)",
-     "Jane (b.1921 Brattleboro VT); Prudence; Susan (b.1926 Canaan VT)"
+     "Parents",
+     "David and Pauline Skerry"
     ],
     [
-     "Why only PROBABLE",
-     "Born 1872 he would be 49 at Jane's birth and 54 at Susan's; he married Lucy Bentley in 1895; and NS birth registration lapsed 1877-1908, so a 1890s namesake would be invisible."
+     "Married",
+     "Marion C. Cook, 15 December 1919, Cavendish, Vermont"
     ],
     [
-     "What would settle it",
-     "US census for Clarence E. Skerry in Vermont — birth year, birthplace, year of immigration."
+     "Children",
+     "Jane (b.1921), Prudence, Susan (b.1926)"
     ],
     [
-     "Not in NS deaths",
-     "No Clarence Skerry death registered in Nova Scotia 1864-1974 (S131) — he left the province."
+     "Burial",
+     "Hillcrest Cemetery, Proctorsville (Cavendish), Vermont"
+    ],
+    [
+     "CORRECTION",
+     "He is NOT the Clarence Edmund Skerry born 1872 at Lakeville, Kings County, Nova Scotia (S127). Different man, five years apart, different continent of birth. Born in September 1877 he falls inside the 1877-1908 gap in Nova Scotia birth registration -- which is exactly the reason S127 was never upgraded past Probable."
+    ],
+    [
+     "Ages now ordinary",
+     "Born 1877 he was 44 at Jane's birth and 49 at Susan's, not 49 and 54."
     ]
    ],
    "confirm": null,
@@ -5014,9 +5028,13 @@
     45,
     47,
     50,
-    51
+    51,
+    53
    ],
-   "parents": [],
+   "parents": [
+    "david-skerry",
+    "pauline-skerry"
+   ],
    "sameAs": null
   },
   "marion-anna-cook-skerry": {
@@ -5024,35 +5042,43 @@
    "sourceTree": "appel",
    "sourceKey": null,
    "kind": "prose",
-   "name": "Marion Anna (Cook) Skerry",
+   "name": "Marian C. (Cook) Skerry",
    "branch": "other",
    "relation": "Susan Skerry Appel's mother",
-   "note": "b.1890 · d.1978 · Cavendish and Brattleboro, Vermont",
+   "note": "b.Aug 6 1890 Proctorsville VT · d.Nov 21 1978 Brattleboro VT",
    "prob": false,
    "facts": [
     [
-     "Spouse",
-     "Clarence Edmund Skerry"
+     "Born",
+     "6 August 1890, Proctorsville, Windsor County, Vermont (S149)"
     ],
     [
-     "Children",
-     "Jane (b.1921); Prudence; Susan (b.1926)"
-    ],
-    [
-     "Significance",
-     "She is the CAVENDISH connection — Hillcrest Cemetery, Proctorsville comes down the Cook side, not the Skerry side."
-    ],
-    [
-     "Ages work",
-     "31 at Jane's birth, 36 at Susan's — ordinary. Only Clarence is old for the marriage."
+     "Died",
+     "21 November 1978, at home in Brattleboro, Vermont, aged 88"
     ],
     [
      "Parents",
-     "UNIDENTIFIED. 'M. A. Cook' of Cavendish, 1886, is the best lead and only a lead."
+     "Merrill and Adelaide (SPAULDING) Cook"
     ],
     [
-     "Cook is unplaced",
-     "Attested in BOTH Cavendish VT and Kings County NS, where Cooks and Skerrys were Billtown neighbours (S140)."
+     "Married",
+     "Clarence Edmund Skerry, 15 December 1919, Cavendish, Vermont"
+    ],
+    [
+     "Daughters",
+     "Susan Appel (Atlanta GA), Prudence Mitchell (Chesterfield NH), Jane Shumway"
+    ],
+    [
+     "Member",
+     "All Souls Unitarian-Universalist, Brattleboro; Brattleboro Women's Club; Cavendish chapter, Daughters of the American Revolution; Proctorsville Rebekah Lodge"
+    ],
+    [
+     "DAR",
+     "DAR membership implies a documented Revolutionary-era ancestor — a traceable line, and a lead worth following."
+    ],
+    [
+     "Burial",
+     "Hillcrest Cemetery, Proctorsville, Vermont"
     ]
    ],
    "confirm": null,
@@ -5060,9 +5086,13 @@
    "childGroupInfo": null,
    "partRefs": [
     48,
-    49
+    49,
+    53
    ],
-   "parents": [],
+   "parents": [
+    "merrill-alonzo-cook",
+    "addie-spaulding-cook"
+   ],
    "sameAs": null
   },
   "jane-skerry-shumway": {
@@ -5565,6 +5595,254 @@
    "childGroupInfo": null,
    "partRefs": [
     52
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "david-skerry": {
+   "id": "david-skerry",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "David Skerry",
+   "branch": "other",
+   "relation": "Clarence Edmond Skerry's father",
+   "note": "named on his son's memorial; no dates yet",
+   "prob": true,
+   "facts": [
+    [
+     "Known from",
+     "Clarence Edmond Skerry's Find a Grave memorial: 'the son of David and Pauline Skerry' (S148)"
+    ],
+    [
+     "Open",
+     "Where the Skerrys were before Chicago in 1877 is now the whole question. Nothing yet places them in Nova Scotia, Ireland or anywhere else."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    53
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "pauline-skerry": {
+   "id": "pauline-skerry",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Pauline Skerry",
+   "branch": "other",
+   "relation": "Clarence Edmond Skerry's mother",
+   "note": "named on her son's memorial; maiden name unknown",
+   "prob": true,
+   "facts": [
+    [
+     "Known from",
+     "Clarence Edmond Skerry's memorial (S148)"
+    ],
+    [
+     "Open",
+     "Maiden name unknown. She is the next thing worth finding on this line."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    53
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "merrill-alonzo-cook": {
+   "id": "merrill-alonzo-cook",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Merrill Alonzo Cook",
+   "branch": "other",
+   "relation": "Marian C. Cook Skerry's father",
+   "note": "b.Feb 9 1855 Iron Hill, Québec, CANADA · d.Jun 16 1945 Windsor Co. VT",
+   "prob": false,
+   "facts": [
+    [
+     "Born",
+     "9 February 1855, Iron Hill, Estrie (Eastern Townships), QUÉBEC, Canada (S151)"
+    ],
+    [
+     "Died",
+     "16 June 1945, Windsor County, Vermont, aged 90"
+    ],
+    [
+     "Spouse",
+     "Addie C. (Spaulding) Cook"
+    ],
+    [
+     "Sibling",
+     "Harris Cook"
+    ],
+    [
+     "Parent",
+     "Pemlia Shufelt Cook (1815-1899)"
+    ],
+    [
+     "THE CANADA IN THE STORY",
+     "The family lore said Canada, and it was right — but through COOK from QUÉBEC, not through Skerry from Nova Scotia. Canaan VT, where Susan was born, sits on the Québec border."
+    ],
+    [
+     "Burial",
+     "Hillcrest Cemetery, Proctorsville, Vermont"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    53
+   ],
+   "parents": [
+    "pemlia-shufelt-cook"
+   ],
+   "sameAs": null
+  },
+  "addie-spaulding-cook": {
+   "id": "addie-spaulding-cook",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Adelaide “Addie” C. (Spaulding) Cook",
+   "branch": "other",
+   "relation": "Marian C. Cook Skerry's mother — the SPALDING connection",
+   "note": "b.Jan 20 1858 Cavendish VT · d.Jun 12 1934",
+   "prob": false,
+   "facts": [
+    [
+     "Born",
+     "20 January 1858, Cavendish, Windsor County, Vermont (S150)"
+    ],
+    [
+     "Died",
+     "12 June 1934"
+    ],
+    [
+     "Spouse",
+     "Merrill Alonzo Cook"
+    ],
+    [
+     "Parents",
+     "Charles Elliot Spaulding (1833-1890) and Amantha Putnam Spaulding (1837-1926)"
+    ],
+    [
+     "SPALDING IS PLACED",
+     "This is where the fourth surname of the lore enters, exactly where Part 48 predicted: through Marion Cook's MOTHER, in Cavendish, Vermont. Not through Nova Scotia, and not through any migration corridor."
+    ],
+    [
+     "Burial",
+     "Hillcrest Cemetery, Proctorsville, Vermont"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    53
+   ],
+   "parents": [
+    "charles-elliot-spaulding",
+    "amantha-putnam-spaulding"
+   ],
+   "sameAs": null
+  },
+  "charles-elliot-spaulding": {
+   "id": "charles-elliot-spaulding",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Charles Elliot Spaulding",
+   "branch": "other",
+   "relation": "Addie Spaulding Cook's father",
+   "note": "1833-1890 · Cavendish VT",
+   "prob": false,
+   "facts": [
+    [
+     "Dates",
+     "1833-1890 (S150)"
+    ],
+    [
+     "Note",
+     "The Spauldings are a founding Cavendish family, present in the town from the 1780s (S135)."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    53
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "amantha-putnam-spaulding": {
+   "id": "amantha-putnam-spaulding",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Amantha (Putnam) Spaulding",
+   "branch": "other",
+   "relation": "Addie Spaulding Cook's mother",
+   "note": "1837-1926 · Cavendish VT",
+   "prob": false,
+   "facts": [
+    [
+     "Dates",
+     "1837-1926 (S150)"
+    ],
+    [
+     "Surname",
+     "PUTNAM — a further line, not yet worked."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    53
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "pemlia-shufelt-cook": {
+   "id": "pemlia-shufelt-cook",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Pemlia (Shufelt) Cook",
+   "branch": "other",
+   "relation": "Merrill Alonzo Cook's mother",
+   "note": "1815-1899",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1815-1899 (S151)"
+    ],
+    [
+     "Surname",
+     "SHUFELT — a further line, not yet worked."
+    ],
+    [
+     "Note",
+     "Listed as Merrill's only recorded parent; his father is not on the memorial."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    53
    ],
    "parents": [],
    "sameAs": null
@@ -6144,9 +6422,9 @@
    "type": "Funeral home listing (JS-gated — full text not retrieved)",
    "citation": "Cavanagh Funeral Home, Norwich CT (cavanaghfuneralhome.com/obituaries/Helen-Kozak?obId=25166430)",
    "date": "b. Sep 25, 1924 · d. Aug 6, 2016",
-   "confidenceClass": "cp",
-   "confidence": "Probable",
-   "notes": "Funeral home is Norwich CT — consistent with the Kozak family. No other Helen Kozak from Norwich CT found in records. Full obit text is JS-gated; call Cavanagh Funeral Home to confirm maiden name Ustaseski and identify her parents and siblings.",
+   "confidenceClass": "ci",
+   "confidence": "Disproven",
+   "notes": "RETRACTED — see S153. This is a different Helen Kozak entirely.",
    "dataQuirk": null,
    "personRefs": [
     "grant-7"
@@ -7798,9 +8076,9 @@
    "type": "Birth registration",
    "citation": "Nova Scotia Archives, Historical Vital Statistics — reg. book 1816 p.170 no.449",
    "date": "1872",
-   "confidenceClass": "cp",
-   "confidence": "Probable",
-   "notes": "Lakeville, Kings County NS. Held at PROBABLE not Confirmed: age gap (49 at Jane's birth, 54 at Susan's), an 1895 marriage to Lucy A. Bentley, and the 1877-1908 gap in NS birth registration which would hide a namesake. Index does not transcribe parents — the free image needs a human.",
+   "confidenceClass": "ci",
+   "confidence": "Disproven",
+   "notes": "SUPERSEDED by S148. The Clarence Edmond Skerry who married Marion Cook was born 21 Sep 1877 in CHICAGO, Illinois, to David and Pauline Skerry. The 1872 Lakeville, Kings County NS birth is a different man. Held at Probable throughout precisely because of the 1877-1908 gap in Nova Scotia registration — the gap turned out to be irrelevant: he was never Nova Scotian.",
    "dataQuirk": null,
    "personRefs": [
     "clarence-edmund-skerry"
@@ -8142,6 +8420,118 @@
     "grant-11"
    ],
    "url": "https://data.ct.gov/resource/psf6-3vsu.json"
+  },
+  "S148": {
+   "num": 148,
+   "person": "Clarence Edmond Skerry",
+   "relatedPerson": "David and Pauline Skerry; Marion C. Cook",
+   "clue": "Born CHICAGO 1877, not Nova Scotia — and names his parents",
+   "type": "Cemetery memorial (cites VT death record, VT marriage record and wife's obituary)",
+   "citation": "Find a Grave (reachable only through a real browser; every plain fetch returns HTTP 403) memorial 237043089, Hillcrest Cemetery, Proctorsville VT",
+   "date": "1877-1936",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "b.21 Sep 1877 Chicago, Cook Co. Illinois; d.2 Feb 1936 Canaan, Essex Co. Vermont, aged 58; son of David and Pauline Skerry; m. Marion C. Cook 15 Dec 1919 Cavendish VT; survived by his wife and daughters Susan Appel, Prudence Mitchell and Jane Shumway of Brattleboro. DECISIVE: this rules out the 1872 Lakeville, Nova Scotia birth (S127) as the same man.",
+   "dataQuirk": null,
+   "personRefs": [
+    "clarence-edmund-skerry",
+    "david-skerry",
+    "pauline-skerry"
+   ],
+   "url": "https://www.findagrave.com/memorial/237043089/clarence-edmond-skerry"
+  },
+  "S149": {
+   "num": 149,
+   "person": "Marian C. (Cook) Skerry",
+   "relatedPerson": "Merrill and Adelaide (Spaulding) Cook",
+   "clue": "Names her parents — placing SPALDING on the Cook side",
+   "type": "Cemetery memorial (obituary text)",
+   "citation": "Find a Grave (reachable only through a real browser; every plain fetch returns HTTP 403) memorial 237042943, Hillcrest Cemetery, Proctorsville VT",
+   "date": "1890-1978",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "b.6 Aug 1890 Proctorsville VT; d.21 Nov 1978 Brattleboro VT aged 88; daughter of Merrill and Adelaide (Spaulding) Cook; m. Clarence Edmund Skerry 15 Dec 1919 Cavendish VT. Member of the Cavendish chapter of the DAR, which implies a documented Revolutionary ancestor.",
+   "dataQuirk": null,
+   "personRefs": [
+    "marion-anna-cook-skerry",
+    "merrill-alonzo-cook",
+    "addie-spaulding-cook"
+   ],
+   "url": "https://www.findagrave.com/memorial/237042943/marian-c-skerry"
+  },
+  "S150": {
+   "num": 150,
+   "person": "Adelaide “Addie” C. (Spaulding) Cook",
+   "relatedPerson": "Charles Elliot Spaulding + Amantha Putnam Spaulding",
+   "clue": "Two more Spaulding generations",
+   "type": "Cemetery memorial",
+   "citation": "Find a Grave (reachable only through a real browser; every plain fetch returns HTTP 403) memorial 94874428",
+   "date": "1858-1934",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "b.20 Jan 1858 Cavendish VT; d.12 Jun 1934; wife of Merrill A. Cook; parents Charles Elliot Spaulding (1833-1890) and Amantha Putnam Spaulding (1837-1926). SPALDING is now placed and traced two generations beyond the point of entry.",
+   "dataQuirk": null,
+   "personRefs": [
+    "addie-spaulding-cook",
+    "charles-elliot-spaulding",
+    "amantha-putnam-spaulding"
+   ],
+   "url": "https://www.findagrave.com/memorial/94874428/addie-c-cook"
+  },
+  "S151": {
+   "num": 151,
+   "person": "Merrill Alonzo Cook",
+   "relatedPerson": "Pemlia Shufelt Cook; Addie Spaulding Cook",
+   "clue": "Born in QUÉBEC — the real Canadian leg of the family story",
+   "type": "Cemetery memorial",
+   "citation": "Find a Grave (reachable only through a real browser; every plain fetch returns HTTP 403) memorial 94874689",
+   "date": "1855-1945",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "b.9 Feb 1855 Iron Hill, Estrie, QUÉBEC, Canada; d.16 Jun 1945 Windsor Co. VT aged 90; parent Pemlia Shufelt Cook (1815-1899); sibling Harris Cook. The lore's Canada is real, but it is Québec via COOK, not Nova Scotia via Skerry.",
+   "dataQuirk": null,
+   "personRefs": [
+    "merrill-alonzo-cook",
+    "pemlia-shufelt-cook"
+   ],
+   "url": "https://www.findagrave.com/memorial/94874689/merrill-alonzo-cook"
+  },
+  "S152": {
+   "num": 152,
+   "person": "John J. Kozak",
+   "relatedPerson": "Anna (Byczkowska) and Nicholas Kozak; Helen Ustaseski",
+   "clue": "Confirms his parents and places the Ustaseski family on Golden Street",
+   "type": "Obituary",
+   "citation": "Dignity Memorial / Norwich Bulletin, Norwich CT",
+   "date": "2020-09-06",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "b.7 Jan 1924 in the Greeneville section of Norwich 'to Anna (Byczkowska) and Nicholas Kozak'. Married 'his Golden Street neighbor, Helen Ustaseski' in November 1955 — which places the USTASESKI household on Golden Street, Greeneville. Predeceased by his wife (no date given) and by sisters Jennie Kozak and Marion Little. Burial Divine Providence Cemetery, Norwich.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-6",
+    "grant-7",
+    "grant-12",
+    "grant-13"
+   ],
+   "url": null
+  },
+  "S153": {
+   "num": 153,
+   "person": "Helen Kozak (nee Tantaros) — NOT Helen Ustaseski Kozak",
+   "relatedPerson": "retraction of S34",
+   "clue": "S34 was a false match on coincident dates",
+   "type": "Retraction",
+   "citation": "cavanaghfuneralhome.com/obituaries/Helen-Kozak?obId=25166430, read in full",
+   "date": "2016-08-06",
+   "confidenceClass": "ci",
+   "confidence": "Disproven",
+   "notes": "S34 recorded this as Helen Ustaseski Kozak and asserted 'Funeral home is Norwich CT'. It is not: Cavanagh Funeral Home is in Norwood/Media, PENNSYLVANIA (610 area codes). The deceased is HELEN PAULINE KOZAK NEE TANTAROS of Lester PA, the only daughter in a Greek immigrant family with five brothers, wife of the late VICTOR M. Kozak, buried Chester Rural Cemetery PA. Only the birth and death dates coincide. Helen Ustaseski Kozak's death date is therefore UNKNOWN again; all that is established is that she predeceased John, who died 6 Sep 2020.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-7"
+   ],
+   "url": "https://www.cavanaghfuneralhome.com/obituaries/Helen-Kozak?obId=25166430"
   }
  },
  "businesses": {
@@ -9116,6 +9506,33 @@
     "grant-11"
    ],
    "summary": "Seven overnight batches went into an in-law line while Grant's own paternal ancestry sat at three generations with Ustaseski appearing three times in the whole dataset and Byczkowska once. This session worked the Connecticut death index against his actual surnames. CONFIRMED: Nicholas Kozak d.8 Mar 1950 NORWICH — exact date match, and it fixes the family's town. PROBABLE: Anna Kozak d.14 Nov 1981 Norwich, almost certainly Anna Byczkowska under her married name, whose dates were previously blank. CANDIDATES: Frank Ustaseski (Norwich 1956) and Mary Ustaszewski (Norwich 1937) as Helen's parents — USTASESKI returns only two deaths in the entire state across a century, both in Norwich. Also candidate deaths for Michael Shomsky and the Demchak great-grandparents. The index gives name, date and city only, so it can confirm a known death and produce strong leads, but it cannot prove a relationship."
+  },
+  "53": {
+   "number": 53,
+   "date": "2026-08-25",
+   "title": "Find a Grave opened through a real browser: Clarence Skerry was born in CHICAGO not Nova Scotia, SPALDING placed on the Cook side, the Canada in the lore is QUÉBEC — and two of my own sources retracted",
+   "sourceRefs": [
+    "S148",
+    "S149",
+    "S150",
+    "S151",
+    "S152",
+    "S153"
+   ],
+   "personRefs": [
+    "clarence-edmund-skerry",
+    "marion-anna-cook-skerry",
+    "david-skerry",
+    "pauline-skerry",
+    "merrill-alonzo-cook",
+    "addie-spaulding-cook",
+    "charles-elliot-spaulding",
+    "amantha-putnam-spaulding",
+    "pemlia-shufelt-cook",
+    "grant-6",
+    "grant-7"
+   ],
+   "summary": "Find a Grave had returned HTTP 403 to every automated fetch across six previous sessions and was written off. Driven through a real browser it works, and it broke the line open in one sitting. CLARENCE EDMOND SKERRY was born 21 Sep 1877 in CHICAGO, Illinois, son of David and Pauline Skerry, and married Marion C. Cook at Cavendish VT on 15 Dec 1919 — so he is NOT the 1872 Lakeville, Nova Scotia man of S127, and the Galway-to-Nova-Scotia corridor collapses for this family. SPALDING is placed and traced: Marion's mother was Adelaide (SPAULDING) Cook, daughter of Charles Elliot Spaulding and Amantha Putnam Spaulding of Cavendish — exactly where Part 48 predicted it would be. And the Canada in the family story is real but misattributed: Merrill Alonzo Cook was born at Iron Hill, QUÉBEC in 1855, which is why the family turns up at Canaan VT on the Québec border. Separately, S34 is retracted: the Helen Kozak whose 2016 obituary it cited is Helen Pauline Kozak nee Tantaros of Pennsylvania, wife of Victor — a false match on coincident dates. Helen Ustaseski Kozak's death date is unknown again."
   }
  }
 }
