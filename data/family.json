@@ -1,6 +1,6 @@
 {
  "meta": {
-  "schemaVersion": 9,
+  "schemaVersion": 10,
   "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined Overview-tab Parts 43-22. Night 3 finished prose-mining Parts 21 down through 1 (including two un-numbered pre-numbering sessions and a duplicate 'Part 2' pedigree-tables box, recorded under disambiguating keys '1-addendum-jul1', '2-pinned-pedigree', '2-addendum-jul2' rather than silently merged or dropped), added 10 new persons named only in prose (Malone NY McGivney generations: Bridget Lynch, Nicholas McGivney b.~1820, Catherine McCabe, Patrick Gibny of Kilnaleck; Dooley-branch Relihan siblings: Sen. John J. Relihan Jr., Edward A. Relihan, Ann Relihan Lang, Margaret Relihan Mellott; plus Rose McBride and Sean Relihan as open-identity/probable-descendant records), and folded the Missing Links tab's 17 cards and the Search Queue tab's ~24 groups into person-linked openQuestions[] arrays (id/title/status/priority/origin/summary/exactSearches/sourceRefs) instead of leaving them as separate unstructured HTML-only content. All 43 Parts (1-43) now have a parts{} entry with sourceRefs/personRefs/summary. All 123 sources (S01-S123) are referenced somewhere in the file (as a sources{} entry plus at least one cross-reference in parts{}, a person's facts, or an openQuestions[] entry). index.html's live rendering is untouched. || 2026-08-25: added the Appel/Skerry/Cook/Spalding in-law line — Parts 44-51, sources S124-S143, and 15 person records (Elizabeth Anna Appel and her ancestry back to Clarence Edmund Skerry of Lakeville, Kings County, Nova Scotia). This research had previously been written ONLY into index.html as hand-authored session blocks, so it never reached this file — which is the source the Sources tab, the person records and the part index all render from. Derived is not source. || 2026-08-25 (b): relationships made EXPLICIT. Every person now carries `parents` (ids) and `sameAs` (the same human in another tree). They were previously implied by ahnentafel position, which had James Relihan -- annotated 'Maurice Relihan's father' -- rendering as Ann Duley's father. Also upserted the branch persons that existed only in index.html's inline BRANCHES copy and had never reached this file (grant-4, 8, 9 among them).",
   "personRecordCount": 68,
   "crossRefCount": 4,
@@ -5079,6 +5079,18 @@
     [
      "Burial",
      "Hillcrest Cemetery, Proctorsville, Vermont"
+    ],
+    [
+     "DAR MEMBER #84679",
+     "Marion A Cook Skerry, admitted on ancestor A107735, William Spalding (S159). The Cavendish-chapter membership in the family story is real and is now documented — her national number puts the application around 1911, when she was 21."
+    ],
+    [
+     "Her application is thin",
+     "It names five generations but leaves every birth and death place blank. Her sister Adelaide's later application (S160) is the one with the detail."
+    ],
+    [
+     "She has a sister",
+     "Adelaide (Spaulding) Cook Brittain, DAR #360312, on the same patriot."
     ]
    ],
    "confirm": null,
@@ -5087,7 +5099,8 @@
    "partRefs": [
     48,
     49,
-    53
+    53,
+    56
    ],
    "parents": [
     "merrill-alonzo-cook",
@@ -5713,13 +5726,26 @@
     [
      "Burial",
      "Hillcrest Cemetery, Proctorsville, Vermont"
+    ],
+    [
+     "Died",
+     "16 June 1945, Proctorsville, Vermont (S160) — aged 90"
+    ],
+    [
+     "Married",
+     "Addie Spaulding, 12 February 1881"
+    ],
+    [
+     "Birthplace corroborated",
+     "Adelaide's application records his birth at 'West Broone Canada', which is West Brome, Québec — the next village to Iron Hill, the birthplace already on file. Two independent records placing him in the same corner of Brome County in the Eastern Townships. The Canadian thread in the family story is Québec, and it is his."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
    "partRefs": [
-    53
+    53,
+    56
    ],
    "parents": [
     "pemlia-shufelt-cook"
@@ -5734,16 +5760,12 @@
    "name": "Adelaide “Addie” C. (Spaulding) Cook",
    "branch": "other",
    "relation": "Marian C. Cook Skerry's mother — the SPALDING connection",
-   "note": "b.Jan 20 1858 Cavendish VT · d.Jun 12 1934",
+   "note": "b.Jan 20 1858 Cavendish VT · d.Jun 12 1934 Proctorsville VT",
    "prob": false,
    "facts": [
     [
      "Born",
      "20 January 1858, Cavendish, Windsor County, Vermont (S150)"
-    ],
-    [
-     "Died",
-     "12 June 1934"
     ],
     [
      "Spouse",
@@ -5760,13 +5782,26 @@
     [
      "Burial",
      "Hillcrest Cemetery, Proctorsville, Vermont"
+    ],
+    [
+     "Died",
+     "12 June 1934, Proctorsville, Vermont (S160) — place is new"
+    ],
+    [
+     "Married",
+     "Merrill Alonzo Cook, 12 February 1881 (S159, S160)"
+    ],
+    [
+     "SHE IS THE PATRIOT LINE",
+     "Both of her daughters — Marion and Adelaide — joined the DAR through her, on William Spalding, ancestor #A107735. The Spaulding descent runs Addie ← Charles Elliot ← Nathaniel ← John ← William the Corporal."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
    "partRefs": [
-    53
+    53,
+    56
    ],
    "parents": [
     "charles-elliot-spaulding",
@@ -5782,25 +5817,41 @@
    "name": "Charles Elliot Spaulding",
    "branch": "other",
    "relation": "Addie Spaulding Cook's father",
-   "note": "1833-1890 · Cavendish VT",
+   "note": "b.Jul 24 1833 Cavendish VT · d.Mar 26 1890 Cavendish VT",
    "prob": false,
    "facts": [
     [
-     "Dates",
-     "1833-1890 (S150)"
+     "Born",
+     "24 July 1833, Cavendish, Vermont (S160) — exact date, was only '1833' before"
+    ],
+    [
+     "Died",
+     "26 March 1890, Cavendish, Vermont (S159, S160)"
+    ],
+    [
+     "Married",
+     "Amantha Putnam, 25 March 1856"
+    ],
+    [
+     "Parents",
+     "Nathaniel Spaulding (1801-1879) and Anna Swift (1802-1880) — established by the DAR lineage papers, S159 and S160"
     ],
     [
      "Note",
-     "The Spauldings are a founding Cavendish family, present in the town from the 1780s (S135)."
+     "The Spauldings are a founding Cavendish family, present in the town from the 1780s (S135). We now know why: his great-grandfather William settled there after the Revolution."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
    "partRefs": [
-    53
+    53,
+    56
    ],
-   "parents": [],
+   "parents": [
+    "nathaniel-spaulding",
+    "anna-swift-spaulding"
+   ],
    "sameAs": null
   },
   "amantha-putnam-spaulding": {
@@ -5811,23 +5862,36 @@
    "name": "Amantha (Putnam) Spaulding",
    "branch": "other",
    "relation": "Addie Spaulding Cook's mother",
-   "note": "1837-1926 · Cavendish VT",
+   "note": "b.Sep 9 1837 Springfield VT · d.May 30 1926 Proctorsville VT",
    "prob": false,
    "facts": [
     [
-     "Dates",
-     "1837-1926 (S150)"
+     "Born",
+     "9 September 1837, Springfield, Vermont (S160) — exact date and place, new"
     ],
     [
-     "Surname",
-     "PUTNAM — a further line, not yet worked."
+     "Died",
+     "30 May 1926, Proctorsville, Vermont (S160)"
+    ],
+    [
+     "Married",
+     "Charles Elliot Spaulding, 25 March 1856"
+    ],
+    [
+     "Outlived him by 36 years",
+     "Widowed in 1890 at 52, she died in Proctorsville in 1926 — the same village her daughter Addie and son-in-law Merrill died in. She had moved in with, or near, the next generation."
+    ],
+    [
+     "Open",
+     "PUTNAM parentage is not carried on either DAR application."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
    "partRefs": [
-    53
+    53,
+    56
    ],
    "parents": [],
    "sameAs": null
@@ -5896,6 +5960,294 @@
     54
    ],
    "parents": [],
+   "sameAs": null
+  },
+  "william-spalding": {
+   "id": "william-spalding",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "William Spalding",
+   "branch": "other",
+   "relation": "Revolutionary War patriot — Elizabeth Anna Appel's 5th-great-grandfather, and Collin Appel Kozak's 6th",
+   "note": "b.Sep 11 1737 Westford MA · d.Jun 28 1805 Cavendish VT · Corporal, Massachusetts",
+   "prob": false,
+   "facts": [
+    [
+     "THE PATRIOT",
+     "DAR Ancestor #A107735. Corporal, MASSACHUSETTS line, under Capt. Asa Lawrance, Col. Jonathan Reed. Service proved from Massachusetts Soldiers and Sailors of the Revolutionary War, vol. 14, pp. 677-678 (S158)."
+    ],
+    [
+     "Where he sits",
+     "Elizabeth Anna Appel ← Susan Skerry Appel ← Marion Cook Skerry ← Addie Spaulding Cook ← Charles Elliot Spaulding ← Nathaniel ← John ← William. He is not Grant's own blood ancestor — he comes in through David Kozak's wife — but he is direct ancestry for their son."
+    ],
+    [
+     "Born",
+     "11 September 1737, Westford, Middlesex County, Massachusetts (S158)"
+    ],
+    [
+     "Died",
+     "28 June 1805, Cavendish, Windsor County, Vermont (S158)"
+    ],
+    [
+     "Residence",
+     "Westford, Middlesex County, Massachusetts (S158)"
+    ],
+    [
+     "Wife",
+     "Esther Dutton, married 29 November 1759 (S159, S160)"
+    ],
+    [
+     "This closes Part 48's open question",
+     "Part 48 found a William Spaulding among the original 1780s settlers of Cavendish in the 1891 History of Windsor County, and could not tell whether he was kin. He is the same man, and he is direct ancestry: a Westford Massachusetts soldier who moved north to Cavendish after the war and died there."
+    ],
+    [
+     "Why the surname shifts",
+     "DAR assigns one standard spelling per patriot, so he is filed as SPALDING while his descendants appear as SPAULDING. Marion's 1911 application spells him Spalding; her sister's spells him Spaulding. Same man, same ancestor number."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    56
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "esther-dutton-spalding": {
+   "id": "esther-dutton-spalding",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Esther (Dutton) Spalding",
+   "branch": "other",
+   "relation": "William Spalding's wife",
+   "note": "b.Sep 22 1738 · d.Jan 13 1813 · m. Nov 29 1759",
+   "prob": false,
+   "facts": [
+    [
+     "Born",
+     "22 September 1738; place not stated on either application (S159, S160)"
+    ],
+    [
+     "Died",
+     "13 January 1813; place not stated (S159, S160)"
+    ],
+    [
+     "Married",
+     "William Spalding, 29 November 1759"
+    ],
+    [
+     "A discrepancy, recorded not resolved",
+     "Marion's 1911 application calls her William's 1st wife; her sister's 1946 application calls her his 2nd. The DAR ancestor record lists her as his only recorded spouse. John Spaulding was born 29 December 1760, thirteen months after the marriage, so she is his mother either way."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    56
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "john-spaulding": {
+   "id": "john-spaulding",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "John Spaulding",
+   "branch": "other",
+   "relation": "the patriot's son — carried the family from Westford to Cavendish",
+   "note": "b.Dec 29 1760 Westford MA · d.Oct 27 1859 Cavendish VT · aged 98",
+   "prob": false,
+   "facts": [
+    [
+     "Born",
+     "29 December 1760, Westford, Massachusetts (S160)"
+    ],
+    [
+     "Died",
+     "27 October 1859, Cavendish, Vermont — aged 98 (S159, S160)"
+    ],
+    [
+     "Wife",
+     "Eunice Jones, his 2nd wife, married about 1796 (S160)"
+    ],
+    [
+     "Both applications agree",
+     "The 1760 birth and 1859 death appear identically on two applications filed 35 years apart. A 98-year life is unusual enough to be worth flagging, but it is what both documents say."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    56
+   ],
+   "parents": [
+    "william-spalding",
+    "esther-dutton-spalding"
+   ],
+   "sameAs": null
+  },
+  "eunice-jones-spaulding": {
+   "id": "eunice-jones-spaulding",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Eunice (Jones) Spaulding",
+   "branch": "other",
+   "relation": "John Spaulding's second wife",
+   "note": "b.? Cavendish VT · d.Jul 28 1813 Cavendish VT",
+   "prob": true,
+   "facts": [
+    [
+     "Born",
+     "Date not given on either application. Adelaide's names Cavendish VT as the birthplace (S160)."
+    ],
+    [
+     "Died",
+     "28 July 1813, Cavendish, Vermont (S160)"
+    ],
+    [
+     "Married",
+     "John Spaulding about 1796, as his second wife (S160)"
+    ],
+    [
+     "Open",
+     "Her Jones parentage is not carried on either application — it stops at her. A Cavendish or Windsor County Jones family is the next thread."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    56
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "nathaniel-spaulding": {
+   "id": "nathaniel-spaulding",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Nathaniel Spaulding",
+   "branch": "other",
+   "relation": "Charles Elliot Spaulding's father",
+   "note": "b.Oct 7 1801 Cavendish VT · d.Jan 1 1879 Springfield VT",
+   "prob": false,
+   "facts": [
+    [
+     "Born",
+     "7 October 1801, Cavendish, Vermont (S160)"
+    ],
+    [
+     "Died",
+     "1 January 1879, Springfield, Vermont (S159, S160)"
+    ],
+    [
+     "Wife",
+     "Anna Swift, married 4 January 1826 (S159, S160)"
+    ],
+    [
+     "The move to Springfield",
+     "Born in Cavendish, died in Springfield — the same short hop his son's wife Amantha Putnam made in reverse. The two towns are six miles apart and the family moved between them for three generations."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    56
+   ],
+   "parents": [
+    "john-spaulding",
+    "eunice-jones-spaulding"
+   ],
+   "sameAs": null
+  },
+  "anna-swift-spaulding": {
+   "id": "anna-swift-spaulding",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Anna (Swift) Spaulding",
+   "branch": "other",
+   "relation": "Nathaniel Spaulding's wife — SWIFT is a new surname in this tree",
+   "note": "b.Oct 14 1802 Cavendish VT · d.Dec 13 1880 Springfield VT",
+   "prob": true,
+   "facts": [
+    [
+     "Born",
+     "14 October 1802, Cavendish, Vermont (S160)"
+    ],
+    [
+     "Died",
+     "13 December 1880, Springfield, Vermont (S159, S160)"
+    ],
+    [
+     "Married",
+     "Nathaniel Spaulding, 4 January 1826"
+    ],
+    [
+     "New surname",
+     "SWIFT joins Spaulding, Cook, Putnam, Shufelt, Jones and Dutton as Vermont/Massachusetts surnames entering through Elizabeth Appel's mother's side. Her parentage is not carried on either application."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    56
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "adelaide-cook-brittain": {
+   "id": "adelaide-cook-brittain",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Adelaide (Spaulding) Cook Brittain",
+   "branch": "other",
+   "relation": "Marion Cook Skerry's SISTER — a new sibling, found through her own DAR membership",
+   "note": "DAR member #360312 · daughter of Merrill Alonzo Cook and Addie Spaulding",
+   "prob": true,
+   "facts": [
+    [
+     "Who she is",
+     "DAR National #360312, admitted on ancestor A107735 — the same patriot as Marion. Her lineage papers open with Merrill Alonzo Cook and Addie Spaulding as her parents, which makes her Marion's sister (S160)."
+    ],
+    [
+     "Named for her mother",
+     "Addie Spaulding Cook was christened Adelaide. The daughter carries both her mother's given name and her mother's maiden name."
+    ],
+    [
+     "Married",
+     "a Brittain — first name not recorded in the database."
+    ],
+    [
+     "Why her application is the better document",
+     "Marion's 1911 application left every birth and death PLACE blank. Adelaide's, filed around 1946, fills nearly all of them in. Everything we now know about where these people lived comes from the sister's paperwork."
+    ],
+    [
+     "Open",
+     "Her birth date, her husband's name, and whether there were further siblings. Hillcrest Cemetery in Proctorsville is the place to look."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    56
+   ],
+   "parents": [
+    "merrill-alonzo-cook",
+    "addie-spaulding-cook"
+   ],
    "sameAs": null
   }
  },
@@ -8660,6 +9012,98 @@
     "grant-13"
    ],
    "url": "https://archive.org/details/norwichbulletinmicrofilmotislibrary"
+  },
+  "S158": {
+   "num": 158,
+   "person": "William Spalding (1737-1805) — Revolutionary War patriot",
+   "relatedPerson": "Marion Cook Skerry; the whole Spaulding line",
+   "clue": "Corporal, Massachusetts — born Westford MA, DIED IN CAVENDISH VERMONT",
+   "type": "Lineage-society ancestor record (Tier 2 — a compiled record verified against submitted proofs)",
+   "citation": "DAR Genealogical Research System (services.dar.org/Public/DAR_Research/) — free and public — Ancestor Database, record A107735",
+   "date": "1737-1805",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "SPALDING, WILLIAM. Ancestor #A107735. Service MASSACHUSETTS, rank CORPORAL, under Capt. Asa Lawrance, Col. Jonathan Reed. Born 11 September 1737 at Westford, Middlesex County, Massachusetts; died 28 June 1805 at Cavendish, Windsor County, Vermont. Residence Westford. Spouse Esther Dutton. Service proved from Massachusetts Soldiers and Sailors of the Revolutionary War, vol. 14, pp. 677-678 — a published Tier 1 compilation that can be checked independently and for free. This is the man Part 48 found among the original 1780s settlers of Cavendish in the 1891 History of Windsor County without being able to place him.",
+   "dataQuirk": null,
+   "personRefs": [
+    "william-spalding",
+    "esther-dutton-spalding",
+    "marion-anna-cook-skerry"
+   ],
+   "url": "https://services.dar.org/Public/DAR_Research/search_adb/?action=full&p_id=A107735"
+  },
+  "S159": {
+   "num": 159,
+   "person": "Marion A Cook Skerry — DAR application lineage",
+   "relatedPerson": "Elizabeth Anna Appel's great-grandmother",
+   "clue": "Five generations from Marion to the patriot, in one document",
+   "type": "Lineage-society application record (Tier 2)",
+   "citation": "DAR Genealogical Research System (services.dar.org/Public/DAR_Research/) — free and public — Descendants Database, National #84679, ancestor A107735",
+   "date": "c.1911",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Marion A Cook Skerry, DAR National #84679, admitted on William Spalding A107735. The record carries her line: Merrill A Cook + Addie Spaulding (m. 12 Feb 1881) ← Chas Spaulding (1833 - 26 Mar 1890) + Amantha Putnam (b. 9 Sep 1837), m. 25 Mar 1856 ← Nathaniel Spaulding (7 Oct 1801 - 1 Jan 1879) + Anna Swift (14 Oct 1802 - 13 Dec 1880), m. 4 Jan 1826 ← John Spaulding (29 Dec 1760 - 27 Oct 1859) + 2nd wife Eunice Jones (d. 28 Jul 1813) ← William Spalding (11 Sep 1737 - 28 Jun 1805) + Esther Dutton (22 Sep 1738 - 13 Jan 1813), m. 29 Nov 1759. The membership in the family story is confirmed. Note the application leaves EVERY place blank.",
+   "dataQuirk": "Places are blank throughout this application; the places come from S160.",
+   "personRefs": [
+    "william-spalding",
+    "esther-dutton-spalding",
+    "john-spaulding",
+    "eunice-jones-spaulding",
+    "nathaniel-spaulding",
+    "anna-swift-spaulding",
+    "charles-elliot-spaulding",
+    "amantha-putnam-spaulding",
+    "addie-spaulding-cook",
+    "marion-anna-cook-skerry"
+   ],
+   "url": "https://services.dar.org/Public/DAR_Research/search_descendants/?action=list&MyPrimary_Seqn=1026640&MyLineageCount=1&Control_Min_Seqn=1026640"
+  },
+  "S160": {
+   "num": 160,
+   "person": "Adelaide (Spaulding) Cook Brittain — DAR application lineage",
+   "relatedPerson": "Marion Cook Skerry's sister; the same five generations, with places",
+   "clue": "A SECOND application on the same patriot, filed ~35 years later, agreeing on every date and adding the places",
+   "type": "Lineage-society application record (Tier 2) — independent corroboration",
+   "citation": "DAR Genealogical Research System (services.dar.org/Public/DAR_Research/) — free and public — Descendants Database, National #360312, ancestor A107735",
+   "date": "c.1946",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Adelaide Spaulding Cook Brittain, DAR National #360312, on the same ancestor A107735. Her papers open with Merrill Alonzo Cook and Addie Spaulding as her parents, so she is Marion's SISTER — a previously unknown sibling. Her application repeats Marion's five generations with every date identical, and fills in the places Marion left blank: Merrill b. West Broome Canada, d. Proctorsville VT 16 Jun 1945; Addie b. Cavendish VT, d. Proctorsville VT 12 Jun 1934; Charles Elliot Spaulding b. Cavendish 24 Jul 1833 d. Cavendish; Amantha Putnam b. Springfield VT, d. Proctorsville VT 30 May 1926; Nathaniel b. Cavendish, d. Springfield; Anna Swift b. Cavendish, d. Springfield; John Spaulding b. WESTFORD MA, d. Cavendish; Eunice Jones b. and d. Cavendish; William Spalding b. Westford MA, d. Cavendish. TWO applications, filed 35 years apart, verified separately by DAR staff, agreeing date for date. That is the strongest corroboration this line has.",
+   "dataQuirk": "The two applications disagree on one point only: whether Esther Dutton was William's 1st or 2nd wife.",
+   "personRefs": [
+    "william-spalding",
+    "esther-dutton-spalding",
+    "john-spaulding",
+    "eunice-jones-spaulding",
+    "nathaniel-spaulding",
+    "anna-swift-spaulding",
+    "charles-elliot-spaulding",
+    "amantha-putnam-spaulding",
+    "addie-spaulding-cook",
+    "marion-anna-cook-skerry",
+    "adelaide-cook-brittain",
+    "merrill-alonzo-cook"
+   ],
+   "url": "https://services.dar.org/Public/DAR_Research/search_descendants/?action=list&MyPrimary_Seqn=727554&MyLineageCount=1&Control_Min_Seqn=727554"
+  },
+  "S161": {
+   "num": 161,
+   "person": "The Skerry surname in the DAR databases",
+   "relatedPerson": "David Skerry and Pauline Skerry — Clarence's parents, still unplaced",
+   "clue": "Every documented Skerry line in DAR is SALEM, MASSACHUSETTS — not Nova Scotia, not Ireland",
+   "type": "Surname survey across a national database (Tier 3 — suggestive, no link established)",
+   "citation": "DAR Genealogical Research System (services.dar.org/Public/DAR_Research/) — free and public — Descendants Database, surname Skerry",
+   "date": "2026-08-25",
+   "confidenceClass": "cp",
+   "confidence": "Possible",
+   "notes": "A Skerry sweep returns roughly twenty rows and they cluster hard on Salem, Essex County, Massachusetts: Samuel Skerry bp. 7 Dec 1747 MA; Samuel Skerry b. 18 Jan 1772 MA; Samuel Henry Skerry b. 13 Jun 1806 MA; Samuel Russell Skerry b. 16 Jul 1833 MA; Ebenezer Ward Skerry b. 16 Apr 1840 MA; Amory Thompson Skerry b. 16 Nov 1863 MA; Deborah Skerry, wife of John Felt (1725-1785). Felt, Ward, Chever and Thompson are all Salem names. NOTHING here connects to David and Pauline Skerry of Chicago, and no claim is made that it does — but with the Nova Scotia story disproven (S127), an old New England Skerry family is a better hypothesis for where Clarence's father came from than anything else on the table. For Batch B to test, not to assume.",
+   "dataQuirk": null,
+   "personRefs": [
+    "david-skerry",
+    "pauline-skerry",
+    "clarence-edmund-skerry"
+   ],
+   "url": null
   }
  },
  "businesses": {
@@ -9696,6 +10140,35 @@
     "mary-ustaszewski"
    ],
    "summary": "Asked to try the Norwich Bulletin archives. Two free digitised runs exist. Chronicling America has roughly 1909-1922 but its pages are now behind a Cloudflare challenge that defeats both curl and headless Chromium, and its full-text index returns no Norwich Bulletin hits at all. Otis Library digitised its microfilm to the Internet Archive — 311 volumes, 1773-1930, with freely downloadable OCR — which is a genuinely useful find, and the route future sessions should use. But it ENDS IN 1930. Mary Ustaszewska (1937), Nicholas Kozak (1950), Frank Ustaseski (1956) and Anna Kozak (1981) are all beyond it, and a further 1923-1926 gap excludes John's and Jennie's births. Ten 1920-1921 volumes were searched anyway, about 46 million characters, on the theory that Nicholas and Anna's marriage notice would fall there: no Ustaseski, no Byczkowska, and the only two Kozak hits are other Norwich families. The obituaries do exist — on microfilm at Otis Library, 261 Main Street, Norwich — but reaching them needs a person or a paid newspaper subscription."
+  },
+  "56": {
+   "number": 56,
+   "date": "2026-08-25",
+   "title": "The DAR pays out: a Revolutionary War patriot, four new generations, and a sister nobody knew about",
+   "sourceRefs": [
+    "S158",
+    "S159",
+    "S160",
+    "S161"
+   ],
+   "personRefs": [
+    "william-spalding",
+    "esther-dutton-spalding",
+    "john-spaulding",
+    "eunice-jones-spaulding",
+    "nathaniel-spaulding",
+    "anna-swift-spaulding",
+    "charles-elliot-spaulding",
+    "amantha-putnam-spaulding",
+    "addie-spaulding-cook",
+    "marion-anna-cook-skerry",
+    "adelaide-cook-brittain",
+    "merrill-alonzo-cook",
+    "david-skerry",
+    "pauline-skerry",
+    "clarence-edmund-skerry"
+   ],
+   "summary": "The brief called the DAR the best value-per-effort item in the queue and it was. Marion C. (Cook) Skerry is in the database as MARION A COOK SKERRY, National #84679, admitted on ancestor A107735 — the Cavendish-chapter membership in the family story is real and documented.\n\nA107735 is WILLIAM SPALDING: born 11 September 1737 in Westford, Middlesex County, Massachusetts, a CORPORAL in the Massachusetts line under Capt. Asa Lawrance and Col. Jonathan Reed, died 28 June 1805 in CAVENDISH, VERMONT. Part 48 had already found a William Spaulding among the original 1780s settlers of Cavendish in the 1891 History of Windsor County and could not tell whether he was kin. He is the same man, and he is direct ancestry. That is two independent sources, found a week apart, closing on each other.\n\nThe application record carries the full chain and it adds FOUR generations above Charles Elliot Spaulding, where the line previously stopped: Nathaniel Spaulding (1801-1879) and Anna Swift (1802-1880); John Spaulding (1760 Westford MA - 1859 Cavendish VT, aged 98) and his second wife Eunice Jones (d. 1813); and William with Esther Dutton (1738-1813), married 29 November 1759. SWIFT, JONES and DUTTON are three new surnames.\n\nAnd a person: the search turned up a SECOND member on the same patriot, ADELAIDE (SPAULDING) COOK BRITTAIN, National #360312, whose papers name Merrill Alonzo Cook and Addie Spaulding as her parents. She is Marion's sister, named for her mother, and she was not in this tree at all.\n\nHer application is also the better document. Marion's, filed around 1911, left every birth and death PLACE blank. Adelaide's, filed around 1946, fills them in — which is where the exact dates now attached to Charles Elliot Spaulding (b. 24 Jul 1833), Amantha Putnam (b. 9 Sep 1837 Springfield VT, d. 30 May 1926 Proctorsville), Addie's death place and Merrill's death (16 Jun 1945 Proctorsville) all come from. Two applications filed 35 years apart, each verified separately by DAR staff, agreeing date for date on five generations. They disagree on exactly one thing: whether Esther Dutton was William's first wife or his second.\n\nMerrill's birthplace is corroborated too — Adelaide's papers say 'West Broone Canada', which is West Brome, Québec, the next village to Iron Hill. The Canada in the family story is Québec, through Cook, and it is now attested twice.\n\nOne lead handed on rather than followed: every documented Skerry line in the DAR database is a SALEM, MASSACHUSETTS family — Felt, Ward, Chever, Thompson intermarriages, going back to the 1740s. Nothing connects it to David and Pauline Skerry of Chicago and nothing here claims it does. But with Nova Scotia disproven, an old Essex County family is a better hypothesis than anything else on the table, and Batch B should test it."
   }
  }
 }
