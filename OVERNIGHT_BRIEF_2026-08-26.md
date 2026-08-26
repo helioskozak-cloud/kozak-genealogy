@@ -596,3 +596,84 @@ crossings 1895-1954**.
    broken until a control test says otherwise.**
 
 `castlegarden.org` is DOWN (000) — but it only covers 1820-1892, so no loss.
+
+### Batch F — 2026-08-26 — IN PROGRESS — checkpoint 1
+Starting S190 / Part 61. **This branch has paid out more than any other tonight.**
+
+The whole cluster is buried in **Saint John the Baptist Orthodox Cemetery,
+Stratford CT — Find a Grave cemetery 103638**, and the memorials are richly
+linked. Everything below is Tier 2, from linked memorials + gravestone dates.
+
+**BOTH S147 CANDIDATES CONFIRMED, and the two-Helens problem is SOLVED:**
+- **Michael Shomsky 1910–1989** (memorial 257043199) — in the family plot,
+  matching the CT index MICHAEL SHOMSKY d.8 Jan 1989 Shelton. **Birth year 1910
+  is new** (he had no dates at all).
+- **George Michael Demchak Sr., 20 Sep 1891 – 24 Jan 1977** (146176965) —
+  matches the index candidate exactly.
+- **Mrs Helen Kosch Demchak, 12 May 1894 – 23 Jan 1966** (77119929) — so it is
+  the **1966** Helen, not the 1972 one. The 1972 entry is **Helen Semanchik
+  Demchak (1889–1972)**, wife of Joseph Demchak Sr. (1889–1966) — a different
+  Demchak couple in the SAME cemetery. That is precisely why the index could not
+  separate them, and the gravestones do.
+- George Sr. and Helen Kosch **married 1914**.
+
+**CORRECTIONS to people already in the tree:**
+- **Dorothy Shomsky Relihan is 1931–1988**, not "b.~1925, d. before 2003"
+  (memorial 257231670).
+- **Thomas P Relihan is 1930–1990, m. 1953** (memorial 257231700).
+- **Mary Demchak Shomsky: b. 11 Jul 1915 Bridgeport, d. 1 Jul 2003 Bridgeport.**
+
+**Mary's 2003 obituary names Grant himself** — "seven great grandchildren …
+Grant and Hillary Kozak" — and his mother "Nancy Kozak" among the grandchildren,
+which independently confirms the whole descent Shomsky→Relihan→Kozak.
+
+**Michael Shomsky is NOT linked as a spouse on Mary's memorial** — same shape as
+Merrill Cook's missing father in Batch C. Chasing his parents next; a
+**Catharina "Kattie" Mlynarczyk Shomsky (1879–1962)** and a **William Shomsky
+(d. 7 Aug 1914)** sit in the same plot and are candidates.
+
+### Batch F — 2026-08-26 — **DONE** — pushed `6e2c853`
+**197 sources · 64 parts · 171 people · zero dangling refs.** S190–S197, Part 61.
+
+**Both S147 candidates CONFIRMED. The two-Helens ambiguity is CLOSED.**
+- George Michael Demchak Sr. **20 Sep 1891 (Hungary) – 24 Jan 1977** — index
+  match to the day.
+- Michael Shomsky **1909/1910–1989** — Dorothy's memorial states "Father:
+  Michael Shomsky (1909-1989)". Stone says 1910, bio says 1909; both recorded.
+- Mary's mother is **Helen KOSCH Demchak (12 May 1894 – 23 Jan 1966)**. The 1972
+  entry is **Helen SEMANCHIK Demchak (1889–1972)**, wife of Joseph Demchak Sr.,
+  same cemetery. **S147's ambiguity is resolved — do not reopen it.**
+
+**Date corrections to existing people:** Dorothy Shomsky Relihan **26 Nov 1931 –
+16 Jun 1988** (was "~1925 / before 2003"); Thomas P. Relihan **16 Sep 1930 –
+16 Dec 1990**, m.1953, father **John J. Relihan (1889-1955)** — cross-confirms
+the Dooley-branch patriarch from S79.
+
+**Named ancestral village (first on this side):** Basilius "Wasko" Somszky,
+**b. 22 Jul 1876 KYJOV, okres Stará Ľubovňa, Prešov, SLOVAKIA**, d. Bridgeport
+1914, m. Catharina Mlynarczyk 1899; his parents **Johannes Somszky + Susanna
+Petrik**. **Recorded at Possible and NOT attached** — nothing links him to
+Michael, and three other Shomskys of that generation are equally unlinked.
+
+#### Handoffs
+**F → the strongest lead left on the maternal side.** A **Bridgeport marriage
+record** for Michael Shomsky and Mary Demchak (c.1930, since Dorothy was born
+Nov 1931) would (a) prove Michael's parentage if it names his father, and (b)
+resolve the **"Mrs. Mary Werner"** anomaly (S197) — Helen Kosch's 1966 obituary
+calls Mary by that name, Michael is not linked as her spouse, and Mary's 2003
+obituary names no husband at all. A second marriage would explain all three.
+**Do not assert the remarriage without the record.**
+
+**F → Slovakia.** Kyjov, Stará Ľubovňa is a real, small, named village. If the
+Somszky link is ever proven, Slovak parish registers (many are free via the
+Slovak state archives) become reachable. Not before.
+
+**F → Relihan.** S195 handed the Relihan line a free cross-check. That branch has
+never had a dedicated batch and now has two anchored generations.
+
+#### Tooling
+Nothing new broke. Confirmed again that **cemetery-id-scoped Find a Grave
+searches work** where location-filtered ones lie (Batch D), and that `fgfam3.py`
+group extraction is what makes these memorials usable — **Beatrice Shomsky sits
+perfectly in the sibling age series and is actually a WIFE**; a flat scrape would
+have made her a sibling and put a whole false generation into the tree.
