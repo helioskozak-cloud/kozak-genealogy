@@ -1,6 +1,6 @@
 {
  "meta": {
-  "schemaVersion": 14,
+  "schemaVersion": 15,
   "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined Overview-tab Parts 43-22. Night 3 finished prose-mining Parts 21 down through 1 (including two un-numbered pre-numbering sessions and a duplicate 'Part 2' pedigree-tables box, recorded under disambiguating keys '1-addendum-jul1', '2-pinned-pedigree', '2-addendum-jul2' rather than silently merged or dropped), added 10 new persons named only in prose (Malone NY McGivney generations: Bridget Lynch, Nicholas McGivney b.~1820, Catherine McCabe, Patrick Gibny of Kilnaleck; Dooley-branch Relihan siblings: Sen. John J. Relihan Jr., Edward A. Relihan, Ann Relihan Lang, Margaret Relihan Mellott; plus Rose McBride and Sean Relihan as open-identity/probable-descendant records), and folded the Missing Links tab's 17 cards and the Search Queue tab's ~24 groups into person-linked openQuestions[] arrays (id/title/status/priority/origin/summary/exactSearches/sourceRefs) instead of leaving them as separate unstructured HTML-only content. All 43 Parts (1-43) now have a parts{} entry with sourceRefs/personRefs/summary. All 123 sources (S01-S123) are referenced somewhere in the file (as a sources{} entry plus at least one cross-reference in parts{}, a person's facts, or an openQuestions[] entry). index.html's live rendering is untouched. || 2026-08-25: added the Appel/Skerry/Cook/Spalding in-law line — Parts 44-51, sources S124-S143, and 15 person records (Elizabeth Anna Appel and her ancestry back to Clarence Edmund Skerry of Lakeville, Kings County, Nova Scotia). This research had previously been written ONLY into index.html as hand-authored session blocks, so it never reached this file — which is the source the Sources tab, the person records and the part index all render from. Derived is not source. || 2026-08-25 (b): relationships made EXPLICIT. Every person now carries `parents` (ids) and `sameAs` (the same human in another tree). They were previously implied by ahnentafel position, which had James Relihan -- annotated 'Maurice Relihan's father' -- rendering as Ann Duley's father. Also upserted the branch persons that existed only in index.html's inline BRANCHES copy and had never reached this file (grant-4, 8, 9 among them).",
   "personRecordCount": 68,
   "crossRefCount": 4,
@@ -221,10 +221,10 @@
    "sourceTree": "grant",
    "sourceKey": 5,
    "kind": "persons",
-   "name": "Dorothy Shomsky Relihan",
+   "name": "Dorothy M. (Shomsky) Relihan",
    "branch": "shom",
    "relation": "Nancy's mother",
-   "note": "b.~1925 Bridgeport · d.before 2003",
+   "note": "b.Nov 26 1931 CT · d.Jun 16 1988 Woodbridge CT · aged 56",
    "prob": false,
    "facts": [
     [
@@ -242,12 +242,34 @@
     [
      "Siblings",
      "Ronald G. Shomsky (d.May 29 2014); Robert M. Shomsky (d.Apr 15 2011); Richard \"Skip\" Shomsky (predeceased)"
+    ],
+    [
+     "DATES CORRECTED",
+     "b. 26 November 1931, Connecticut; d. 16 June 1988 at Woodbridge, NEW HAVEN County, aged 56. She was previously recorded as 'b.~1925, d. before 2003'; she was born six years later than that and died fifteen years before her mother (S195)."
+    ],
+    [
+     "Buried",
+     "Northwest Cemetery, Woodbridge CT. Inscription: 'Wife-Mother'."
+    ],
+    [
+     "Her memorial names her father",
+     "'Father: Michael Shomsky (1909-1989)' — the line that confirms the S147 candidate (S194)."
+    ],
+    [
+     "Married",
+     "Thomas P. Relihan in 1953 (S195)"
+    ],
+    [
+     "Cross-check",
+     "Matches the CT death index entry DOROTHY RELIHAN, 16 June 1988, Woodbridge, already pulled in S79."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": [],
+   "partRefs": [
+    61
+   ],
    "parents": [
     "grant-10",
     "grant-11"
@@ -366,31 +388,40 @@
    "name": "Michael Shomsky",
    "branch": "shom",
    "relation": "Dorothy Shomsky's father",
-   "note": "Bridgeport CT · great-grandfather",
-   "prob": true,
+   "note": "b.1909/1910 · d.1989 · Bridgeport/Shelton CT · Saint John the Baptist Orthodox Cemetery, Stratford CT (Find a Grave cemetery 103638)",
+   "prob": false,
    "facts": [
     [
-     "Location",
-     "Bridgeport CT"
+     "CONFIRMED as Dorothy's father",
+     "Dorothy Shomsky Relihan's memorial states plainly 'Father: Michael Shomsky (1909-1989)' (S194). He was a candidate with no dates at all before tonight."
     ],
     [
-     "Spouse",
-     "Mary Demchak Shomsky"
+     "Born",
+     "1909 or 1910 — his gravestone reads 1910, his daughter's memorial bio says 1909. Recorded as both rather than picked between (S194)."
     ],
     [
-     "Open q.",
-     "Birth/death dates and parents not yet found"
+     "Died",
+     "1989. The CT death index has MICHAEL SHOMSKY, 8 January 1989, SHELTON — the only Michael among twelve Connecticut Shomsky deaths, and the year now matches a confirmed father. The S147 candidate stands up (S194)."
     ],
     [
-     "Death — CANDIDATE",
-     "MICHAEL SHOMSKY, 8 January 1989, SHELTON CT (S147). Consistent with a Bridgeport-area great-grandfather, but SHOMSKY returns 12 Connecticut deaths and the index gives no age — this is a lead, not an identification."
+     "Buried",
+     "Saint John the Baptist Orthodox Cemetery, Stratford CT (Find a Grave cemetery 103638) — the family plot"
+    ],
+    [
+     "His parents are NOT established",
+     "Basilius 'Wasko' Somszky (1876-1914) of Kyjov, Slovakia and Catharina Mlynarczyk, married 1899, are a good fit and are NOT linked to him. See S196 — recorded as Possible and deliberately not attached."
+    ],
+    [
+     "A loose thread",
+     "He is not linked as Mary's spouse on her memorial, and her mother's 1966 obituary calls her 'Mrs. Mary Werner'. See S197."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
    "partRefs": [
-    52
+    52,
+    61
    ],
    "parents": [],
    "sameAs": null
@@ -400,45 +431,47 @@
    "sourceTree": "grant",
    "sourceKey": 11,
    "kind": "persons",
-   "name": "Mary Demchak Shomsky",
+   "name": "Mary (Demchak) Shomsky",
    "branch": "shom",
    "relation": "Dorothy Shomsky's mother",
-   "note": "b.~1915 · d.Jul 1 2003",
+   "note": "b.Jul 11 1915 Bridgeport CT · d.Jul 1 2003 Bridgeport CT",
    "prob": false,
    "facts": [
     [
      "Born",
-     "~1915 Bridgeport CT"
+     "11 July 1915, Bridgeport, Fairfield County, Connecticut (S190) — was '~1915'"
     ],
     [
      "Died",
-     "Jul 1 2003 · Bridgeport Hospital (age ~87)"
+     "1 July 2003, Bridgeport Hospital, aged 87 (S190)"
     ],
     [
-     "Career",
-     "Inspector, Remington Arms, 35+ years"
+     "Parents",
+     "George Michael Demchak Sr. (1891-1977) and Helen (Kosch) Demchak (1894-1966), both born in the Carpatho-Rusyn lands of Austria-Hungary (S191, S192)"
     ],
     [
-     "Church",
-     "St. John the Baptist Carpatho Russian Orthodox Church, Bridgeport"
+     "Work",
+     "Retired inspector, Remington Arms, over 35 years"
     ],
     [
      "Children",
-     "Dorothy Relihan (predeceased); Ronald G. Shomsky (d.May 29 2014); Robert M. Shomsky (d.Apr 15 2011); Richard \"Skip\" Shomsky (predeceased)"
+     "Dorothy M. Shomsky Relihan (1931-1988), Robert Michael Shomsky (1935-2011) and Ronald George Shomsky (1939-2014)"
     ],
     [
-     "Her parents",
-     "George M. Demchak Sr. + Helen Kosch (Carpatho-Rusyn immigrant community)"
+     "HER OBITUARY NAMES GRANT",
+     "Among seven great-grandchildren it lists 'Grant and Hillary Kozak', and among eight grandchildren 'Nancy Kozak' — which independently confirms the whole descent from this Bridgeport Carpatho-Rusyn family down to the owner of this site (S190)."
     ],
     [
-     "Source",
-     "S21, S24"
+     "Four siblings",
+     "Helen Karaffa (1918-1979), Anna Vayser (1921-2012), Michael George Demchak (1924-2019) and George Michael Demchak Jr. (1928-2010)"
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": [],
+   "partRefs": [
+    61
+   ],
    "openQuestions": [
     {
      "id": "sq-shomsky-demchak",
@@ -474,7 +507,10 @@
      ]
     }
    ],
-   "parents": [],
+   "parents": [
+    "george-demchak-sr",
+    "helen-kosch-demchak"
+   ],
    "sameAs": null
   },
   "grant-12": {
@@ -5413,7 +5449,7 @@
    "name": "Thomas P. Relihan",
    "branch": "rel",
    "relation": "Nancy's father — dates still probable",
-   "note": "b.~1930 · d.~1990 CT",
+   "note": "b.Sep 16 1930 Bridgeport CT · d.Dec 16 1990 Woodbridge CT",
    "prob": true,
    "facts": [
     [
@@ -5443,12 +5479,22 @@
     [
      "Needed",
      "Exact dates — New Haven Register / CT Post obit ~1990"
+    ],
+    [
+     "DATES CONFIRMED AND SHARPENED",
+     "b. 16 September 1930, Bridgeport; d. 16 December 1990, Woodbridge, aged 60 — was '~1930 / ~1990'. Buried Northwest Cemetery, Woodbridge, inscription 'Husband-Father'. Married Dorothy Shomsky 1953 (S195)."
+    ],
+    [
+     "His father",
+     "His memorial states 'Father: John J. Relihan (1889-1955)', which matches the JOHN RELIHAN d. 23 May 1955 Bridgeport already identified in S79 as the Dooley-branch patriarch. A useful cross-confirmation into the Relihan side, which is not this batch's scope."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
-   "partRefs": [],
+   "partRefs": [
+    61
+   ],
    "parents": [
     "tpr-2",
     "tpr-3"
@@ -7314,6 +7360,308 @@
    "parents": [
     "silas-cook",
     "polly-allen-cook"
+   ],
+   "sameAs": null
+  },
+  "george-demchak-sr": {
+   "id": "george-demchak-sr",
+   "sourceTree": "kozak",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "George Michael Demchak Sr.",
+   "branch": "kozak",
+   "relation": "Grant's great-great-grandfather — Mary Demchak Shomsky's father",
+   "note": "b.Sep 20 1891 Hungary · d.Jan 24 1977 Bridgeport CT",
+   "prob": false,
+   "facts": [
+    [
+     "Born",
+     "20 September 1891, HUNGARY — i.e. the Kingdom of Hungary within Austria-Hungary, the Carpatho-Rusyn lands (S191)"
+    ],
+    [
+     "Died",
+     "24 January 1977, Bridgeport, Fairfield County, Connecticut, aged 85 — Saint John the Baptist Orthodox Cemetery, Stratford CT (Find a Grave cemetery 103638)"
+    ],
+    [
+     "Married",
+     "Helen Kosch, 1914 (S191, S192)"
+    ],
+    [
+     "Address",
+     "388 Kent Avenue, Bridgeport, as of 1966 (S192)"
+    ],
+    [
+     "Parish",
+     "St. John the Baptist Carpatho-Russian Greek Catholic Church, Bridgeport — the family's church across four generations"
+    ],
+    [
+     "Five children",
+     "Mary (1915), Helen Karaffa (1918), Anna Vayser (1921), Michael George (1924) and George Michael Jr. (1928) — linked from both parents' memorials (S191)"
+    ],
+    [
+     "CONFIRMS the S147 candidate",
+     "GEORGE DEMCHAK d. 24 January 1977 Bridgeport in the CT death index is him — exact date match against the gravestone."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    61
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "helen-kosch-demchak": {
+   "id": "helen-kosch-demchak",
+   "sourceTree": "kozak",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Helen (Kosch) Demchak",
+   "branch": "kozak",
+   "relation": "Grant's great-great-grandmother — Mary Demchak Shomsky's mother",
+   "note": "b.May 12 1894 Hungary/Czechoslovakia · d.Jan 23 1966 Bridgeport CT",
+   "prob": false,
+   "facts": [
+    [
+     "Born",
+     "12 May 1894. Find a Grave records HUNGARY; her own 1966 obituary says CZECHOSLOVAKIA. Both are right — the Carpatho-Rusyn region she came from was in the Kingdom of Hungary before 1918 and in Czechoslovakia after it. Same ground, two states (S192)."
+    ],
+    [
+     "Died",
+     "23 January 1966 at home, 388 Kent Avenue, Bridgeport, aged 71 (S192)"
+    ],
+    [
+     "Married",
+     "George Michael Demchak Sr., 1914"
+    ],
+    [
+     "Her obituary survives in full",
+     "The Bridgeport Telegram of Tuesday 25 January 1966 is transcribed on her memorial — funeral at the Adzima funeral home, 591 Arctic Street, requiem at St. John the Baptist Carpatho-Russian Greek Catholic church with Rev. John Markovich, burial St. John's cemetery Stratford, panachida the night before. She belonged to the St. Nicholas society, Branch 522 of the Greek Catholic Union (S192)."
+    ],
+    [
+     "RESOLVES THE TWO-HELENS PROBLEM",
+     "S147 could not choose between a Helen Demchak dying 23 Jan 1966 and one dying 22 May 1972. It is the 1966 one. The 1972 woman is Helen SEMANCHIK Demchak, a different man's wife, buried in the same cemetery (S193)."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    61
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "helen-semanchik-demchak": {
+   "id": "helen-semanchik-demchak",
+   "sourceTree": "kozak",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Helen (Semanchik) Demchak",
+   "branch": "kozak",
+   "relation": "NOT Grant's ancestor — the other Helen Demchak, recorded to keep them apart",
+   "note": "1889–1972 · wife of Joseph Demchak Sr. · same cemetery",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1889 – 1972 (S193)"
+    ],
+    [
+     "Husband",
+     "Joseph Demchak Sr. (1889–1966)"
+    ],
+    [
+     "Why she is in this tree at all",
+     "She is the reason S147 could not resolve Mary's mother. Two Helen Demchaks, both married to Demchaks, both buried in Saint John the Baptist Orthodox Cemetery, Stratford CT (Find a Grave cemetery 103638). Her 1972 death is the index entry that muddied the identification. She is NOT kin so far as anything shows, and is recorded purely so nobody has to solve this twice."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    61
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "basilius-somszky": {
+   "id": "basilius-somszky",
+   "sourceTree": "kozak",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Basilius “Wasko” Somszky (William Shomsky)",
+   "branch": "kozak",
+   "relation": "POSSIBLE great-great-grandfather — Michael Shomsky's likely father, NOT established",
+   "note": "b.Jul 22 1876 Kyjov, Stará Ľubovňa, Slovakia · d.Aug 7 1914 Bridgeport CT",
+   "prob": true,
+   "facts": [
+    [
+     "Born",
+     "22 July 1876 at KYJOV, okres Stará Ľubovňa, Prešovský kraj, SLOVAKIA — a named Carpatho-Rusyn village in the far north-east, which fits the family's Carpatho-Russian parish exactly (S196)"
+    ],
+    [
+     "Died",
+     "7 August 1914, Bridgeport, aged 38. Buried Saint Michael's Cemetery, Section 8, Lot 266, Grave 1 — with a second memorial in Saint John the Baptist Orthodox Cemetery, Stratford CT (Find a Grave cemetery 103638)"
+    ],
+    [
+     "Married",
+     "Catharina 'Kattie' Mlynar(czyk), 1899"
+    ],
+    [
+     "HIS parents",
+     "'William's parents were Johannes Somszky and Susanna (Mary) Petrik' — from his memorial bio (S196)."
+    ],
+    [
+     "WHY HE IS ONLY POSSIBLE",
+     "No memorial links him to Michael Shomsky. Read S196 before using this: the fit is good and it is still an inference."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    61
+   ],
+   "parents": [
+    "johannes-somszky",
+    "susanna-petrik"
+   ],
+   "sameAs": null
+  },
+  "catharina-mlynarczyk-shomsky": {
+   "id": "catharina-mlynarczyk-shomsky",
+   "sourceTree": "kozak",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Catharina “Kattie” (Mlynarczyk) Shomsky",
+   "branch": "kozak",
+   "relation": "POSSIBLE great-great-grandmother — Michael Shomsky's likely mother, NOT established",
+   "note": "b.Sep 28 1879 · d.Oct 18 1962 · Saint John the Baptist Orthodox Cemetery, Stratford CT (Find a Grave cemetery 103638)",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "28 September 1879 – 18 October 1962 (S196)"
+    ],
+    [
+     "Married",
+     "Basilius 'Wasko' Somszky, 1899"
+    ],
+    [
+     "Linked child",
+     "Only ONE is linked on Find a Grave: Catherine 'Kate' Shomsky Brackett (1907–1985). The other Shomskys of that generation in the cemetery are unlinked."
+    ],
+    [
+     "Duplicate memorial",
+     "'Katherine Shomsky, d. 18 Oct 1962' in the same cemetery is the same woman recorded twice."
+    ],
+    [
+     "Status",
+     "Possible only — see S196."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    61
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "johannes-somszky": {
+   "id": "johannes-somszky",
+   "sourceTree": "kozak",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Johannes Somszky",
+   "branch": "kozak",
+   "relation": "Basilius Somszky's father — from a bio line only",
+   "note": "Kyjov, Stará Ľubovňa, Slovakia · dates unknown",
+   "prob": false,
+   "facts": [
+    [
+     "Known from",
+     "One line on Basilius Somszky's memorial: 'William's parents were Johannes Somszky and Susanna (Mary) Petrik' (S196). No dates, no linked memorial, no record cited."
+    ],
+    [
+     "Confidence",
+     "Possible. Tier 3 — an unsourced contributor note, and it hangs off an identification (Basilius as Michael's father) that is itself unproven."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    61
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "susanna-petrik": {
+   "id": "susanna-petrik",
+   "sourceTree": "kozak",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Susanna (Mary) Petrik",
+   "branch": "kozak",
+   "relation": "Basilius Somszky's mother — from a bio line only",
+   "note": "Kyjov, Stará Ľubovňa, Slovakia · dates unknown",
+   "prob": false,
+   "facts": [
+    [
+     "Known from",
+     "The same bio line on Basilius Somszky's memorial (S196)."
+    ],
+    [
+     "New surname",
+     "PETRIK."
+    ],
+    [
+     "Confidence",
+     "Possible — Tier 3, and doubly conditional. See S196."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    61
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "helen-demchak-karaffa": {
+   "id": "helen-demchak-karaffa",
+   "sourceTree": "kozak",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Helen (Demchak) Karaffa",
+   "branch": "kozak",
+   "relation": "Mary Demchak Shomsky's sister — Grant's great-great-aunt",
+   "note": "1918–1979 · Bridgeport CT",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1918–1979 (S191)"
+    ],
+    [
+     "Note",
+     "Mother of Archpriest Stephen Karaffa (S45). Her married name appears as 'Karatla' in the 1966 obituary — a newspaper typo."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    61
+   ],
+   "parents": [
+    "george-demchak-sr",
+    "helen-kosch-demchak"
    ],
    "sameAs": null
   }
@@ -10716,6 +11064,174 @@
     "grant-7"
    ],
    "url": "https://data.ct.gov/resource/psf6-3vsu.json"
+  },
+  "S190": {
+   "num": 190,
+   "person": "Mary (Demchak) Shomsky — memorial and full obituary",
+   "relatedPerson": "Grant's great-grandmother",
+   "clue": "Exact dates, both parents, all three children — and the obituary names Grant himself",
+   "type": "Cemetery transcription with linked family and a transcribed obituary (Tier 2)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) memorial 176548396, Saint John the Baptist Orthodox Cemetery, Stratford CT (Find a Grave cemetery 103638)",
+   "date": "1915-2003",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "b. 11 July 1915 Bridgeport; d. 1 July 2003 Bridgeport Hospital, aged 87. Parents linked as George Michael Demchak Sr. (1891-1977) and Mrs Helen Kosch Demchak (1894-1966). Siblings linked: Helen Demchak Karaffa (1918-1979), Anna Demchak Vayser (1921-2012), Michael George Demchak (1924-2019), George Michael Demchak Jr. (1928-2010). Children linked: Dorothy M Shomsky Relihan (1931-1988), Robert Michael Shomsky (1935-2011), Ronald George Shomsky (1939-2014). The transcribed obituary adds that she was a retired Remington Arms inspector of 35+ years and a member of St. John the Baptist Carpatho Russian Orthodox Church, and it lists among eight grandchildren 'Nancy Kozak' and among seven great-grandchildren 'Grant and Hillary Kozak'. That is the owner of this site named in his own great-grandmother's obituary, and it confirms the Shomsky-Relihan-Kozak descent without needing any inference. NOTE: there is NO spouse linked on her memorial and no husband named in the obituary.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-11",
+    "grant-5",
+    "grant-2",
+    "grant-1",
+    "george-demchak-sr",
+    "helen-kosch-demchak",
+    "helen-demchak-karaffa",
+    "ann-demchak-vayser",
+    "michael-g-demchak",
+    "george-m-demchak-jr",
+    "robert-m-shomsky",
+    "ronald-g-shomsky"
+   ],
+   "url": "https://www.findagrave.com/memorial/176548396/mary-shomsky"
+  },
+  "S191": {
+   "num": 191,
+   "person": "George Michael Demchak Sr. — confirmed, and he was an immigrant",
+   "relatedPerson": "Mary Demchak Shomsky's father",
+   "clue": "Born in HUNGARY 1891; the S147 candidate matches to the day",
+   "type": "Cemetery transcription with linked family (Tier 2)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) memorial 146176965, Saint John the Baptist Orthodox Cemetery, Stratford CT (Find a Grave cemetery 103638)",
+   "date": "1891-1977",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "b. 20 September 1891 in HUNGARY; d. 24 January 1977 at Bridgeport, aged 85. That is an exact date match to GEORGE DEMCHAK, 24 January 1977, Bridgeport in the CT death index, so the S147 candidate is confirmed. His memorial links Helen Kosch as spouse, married 1914, and all five children. 'Hungary' means the Kingdom of Hungary within Austria-Hungary — the Carpatho-Rusyn lands that the family's Carpatho-Russian parish in Bridgeport was founded by and for.",
+   "dataQuirk": null,
+   "personRefs": [
+    "george-demchak-sr",
+    "helen-kosch-demchak",
+    "grant-11"
+   ],
+   "url": "https://www.findagrave.com/memorial/146176965/george-michael-demchak"
+  },
+  "S192": {
+   "num": 192,
+   "person": "Helen (Kosch) Demchak — confirmed, with her 1966 newspaper obituary",
+   "relatedPerson": "Mary Demchak Shomsky's mother",
+   "clue": "The Bridgeport Telegram of 25 January 1966, transcribed in full",
+   "type": "Cemetery transcription plus a transcribed contemporary newspaper obituary (Tier 2)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) memorial 77119929, quoting the Bridgeport Telegram, Tuesday 25 January 1966",
+   "date": "1894-1966",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "b. 12 May 1894; d. 23 January 1966 at her home, 388 Kent Avenue, Bridgeport, aged 71 — an exact match to HELEN DEMCHAK, 23 January 1966, Bridgeport in the CT death index. The obituary: funeral from the Adzima funeral home, 591 Arctic Street, requiem at St. John the Baptist Carpatho-Russian Greek Catholic church under Rev. John Markovich, burial St. John's cemetery Stratford, panachida the previous evening; member of the St. Nicholas society, Branch 522, Greek Catholic Union. It names as survivors her husband, two sons Michael (Bridgeport) and George Jr. (Stratford), three daughters, ten grandchildren and six great-grandchildren. A BIRTHPLACE DISCREPANCY WORTH UNDERSTANDING RATHER THAN RESOLVING: the memorial field says HUNGARY, the obituary says CZECHOSLOVAKIA. Both are correct. The Carpatho-Rusyn region she came from lay in the Kingdom of Hungary until 1918 and in Czechoslovakia afterwards; she was born under one state and buried under the memory of the other.",
+   "dataQuirk": "Birthplace given as Hungary on the memorial and Czechoslovakia in the obituary — the same ground under two states.",
+   "personRefs": [
+    "helen-kosch-demchak",
+    "george-demchak-sr",
+    "grant-11",
+    "helen-demchak-karaffa",
+    "ann-demchak-vayser",
+    "michael-g-demchak",
+    "george-m-demchak-jr"
+   ],
+   "url": "https://www.findagrave.com/memorial/77119929/helen-demchak"
+  },
+  "S193": {
+   "num": 193,
+   "person": "The other Helen Demchak — why S147 could not choose",
+   "relatedPerson": "Helen Kosch Demchak; the CT death index ambiguity",
+   "clue": "Two Helen Demchaks, both Demchak wives, both in the same cemetery",
+   "type": "Cemetery transcription (Tier 2, disambiguation)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — Saint John the Baptist Orthodox Cemetery, Stratford CT (Find a Grave cemetery 103638), surname Demchak, full sweep",
+   "date": "1889-1972",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "S147 offered two candidates for Mary's mother: a Helen Demchak dying 23 January 1966 and one dying 22 May 1972, both at Bridgeport. The cemetery separates them. HELEN SEMANCHIK DEMCHAK, 1889-1972, is the wife of JOSEPH DEMCHAK SR. (1889-1966) and is a different woman entirely. Mary's mother is Mrs Helen KOSCH Demchak, 1894-1966. Both lie in Saint John the Baptist Orthodox Cemetery, Stratford CT (Find a Grave cemetery 103638), which is exactly why a name-and-city index could not tell them apart and why the gravestones could. The Demchak sweep of that cemetery returns fourteen memorials in all, including a duplicate pair for Michael George Demchak (1924-2019).",
+   "dataQuirk": null,
+   "personRefs": [
+    "helen-semanchik-demchak",
+    "helen-kosch-demchak",
+    "grant-11"
+   ],
+   "url": "https://www.findagrave.com/cemetery/103638/memorial-search?lastname=Demchak"
+  },
+  "S194": {
+   "num": 194,
+   "person": "Michael Shomsky — CONFIRMED as Dorothy's father",
+   "relatedPerson": "Grant's great-grandfather",
+   "clue": "His daughter's memorial says so in as many words",
+   "type": "Cemetery transcription plus a memorial biography (Tier 2)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) memorials 257043199 (Michael) and 257231670 (Dorothy); with the CT death index",
+   "date": "1909/1910-1989",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Dorothy M Shomsky Relihan's memorial carries the line 'Father: Michael Shomsky (1909-1989)'. A Michael Shomsky, 1910-1989, is buried in Saint John the Baptist Orthodox Cemetery, Stratford CT (Find a Grave cemetery 103638) with the rest of the family. Before tonight he was a name with no dates and a Probable flag. The CT death index entry MICHAEL SHOMSKY, 8 January 1989, SHELTON — the only Michael among twelve Connecticut Shomsky deaths, all of them clustered in Bridgeport, Shelton and Stratford — now has a confirmed year to match, so the S147 candidate stands. ONE UNRESOLVED WRINKLE: the gravestone reads 1910 and the bio says 1909. Both are recorded; neither is preferred. His own memorial has no family section at all — no parents, no spouse, no children.",
+   "dataQuirk": "Birth year 1910 on the stone vs 1909 in his daughter's memorial bio.",
+   "personRefs": [
+    "grant-10",
+    "grant-5",
+    "grant-11"
+   ],
+   "url": "https://www.findagrave.com/memorial/257043199/michael-shomsky"
+  },
+  "S195": {
+   "num": 195,
+   "person": "Dorothy Shomsky Relihan and Thomas P. Relihan — dates corrected",
+   "relatedPerson": "Grant's grandparents",
+   "clue": "Dorothy was born in 1931, not about 1925, and died in 1988",
+   "type": "Cemetery transcription (Tier 2), cross-checked against the state index",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) memorials 257231670 and 257231700, Northwest Cemetery, Woodbridge CT; with the CT death index (S79)",
+   "date": "1930-1990",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "DOROTHY M SHOMSKY RELIHAN: b. 26 November 1931, Connecticut; d. 16 June 1988 at Woodbridge, New Haven County, aged 56. She was carried as 'b.~1925, d. before 2003' — six years out on the birth, and she in fact died fifteen years before her own mother. THOMAS P RELIHAN: b. 16 September 1930, Bridgeport; d. 16 December 1990, Woodbridge, aged 60; married Dorothy in 1953. Both buried at Northwest Cemetery, Woodbridge, inscribed 'Wife-Mother' and 'Husband-Father'. Both match the entries already pulled in S79 (DOROTHY RELIHAN 16 Jun 1988 Woodbridge; THOMAS RELIHAN 16 Dec 1990 Woodbridge). Thomas's memorial adds 'Father: John J. Relihan (1889-1955)', matching the JOHN RELIHAN who died 23 May 1955 at Bridgeport and was identified in S79 as the Dooley-branch patriarch — a free cross-confirmation into the Relihan line, which is outside this batch's scope.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-5",
+    "grant-4",
+    "grant-2"
+   ],
+   "url": "https://www.findagrave.com/memorial/257231670/dorothy_m-relihan"
+  },
+  "S196": {
+   "num": 196,
+   "person": "Basilius Somszky of Kyjov, Slovakia — a strong LEAD on Michael's parents",
+   "relatedPerson": "Michael Shomsky's possible father, and a named ancestral village",
+   "clue": "A Carpatho-Rusyn village in Prešov region, and one more generation — but no link to Michael",
+   "type": "Cemetery transcription and memorial bio (TIER 3 for the connection, Tier 2 for the man himself)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) memorial 139966019, Saint Michael's Cemetery, Bridgeport; and Saint John the Baptist Orthodox Cemetery, Stratford CT (Find a Grave cemetery 103638)",
+   "date": "1876-1914",
+   "confidenceClass": "cp",
+   "confidence": "Possible",
+   "notes": "BASILIUS 'WASKO' SOMSZKY, also recorded as William Shomsky: b. 22 July 1876 at KYJOV, okres Stará Ľubovňa, Prešovský kraj, SLOVAKIA; d. 7 August 1914 at Bridgeport, aged 38; buried Saint Michael's Cemetery, Section 8, Lot 266, Grave 1, with a duplicate memorial in Saint John the Baptist Orthodox Cemetery, Stratford CT (Find a Grave cemetery 103638). He married Catharina 'Kattie' Mlynar(czyk) (1879-1962) in 1899. His bio states 'William's parents were Johannes Somszky and Susanna (Mary) Petrik'. WHY THIS MATTERS: Kyjov in the Stará Ľubovňa district is a Carpatho-Rusyn village, which is precisely the origin the family's Bridgeport parish serves, and it is a NAMED ANCESTRAL VILLAGE — the first on this side of the tree. WHY IT IS ONLY POSSIBLE: nothing links Basilius to Michael Shomsky. The argument is that a marriage in 1899, a father dying in 1914, and a son born 1909/1910 fit; that the surname is rare; and that they share a cemetery. AGAINST IT: three other Shomskys of the same generation in that cemetery — John (1903-1982), Edward (1905-1996) and Frank (1912-1995) — are ALSO unlinked to Basilius, so the contributors simply have not done this family's links, and the pattern proves nothing about Michael specifically. A trap avoided along the way: Beatrice Shomsky (1908-1979) looks like a sibling by date and is actually John's WIFE. Filed as a direction to search, exactly like Silas Cook in S175, and NOT attached to the tree.",
+   "dataQuirk": "A good fit on dates, surname and cemetery, with no documentary link. Do not attach without one.",
+   "personRefs": [
+    "basilius-somszky",
+    "catharina-mlynarczyk-shomsky",
+    "johannes-somszky",
+    "susanna-petrik",
+    "grant-10"
+   ],
+   "url": "https://www.findagrave.com/memorial/139966019/basilius-somszky_(william_shomsky)"
+  },
+  "S197": {
+   "num": 197,
+   "person": "“Mrs. Mary Werner” — an anomaly recorded, not explained",
+   "relatedPerson": "Mary Demchak Shomsky and Michael Shomsky",
+   "clue": "In 1966 her own mother's obituary calls her Mrs. Mary WERNER, not Mrs. Shomsky",
+   "type": "Contemporary newspaper obituary (Tier 2 observation)",
+   "citation": "Bridgeport Telegram, 25 January 1966, transcribed on Find a Grave (browser-rendered; plain fetches return HTTP 403) memorial 77119929",
+   "date": "1966",
+   "confidenceClass": "cp",
+   "confidence": "Possible",
+   "notes": "Helen Kosch Demchak's 1966 obituary lists her three daughters as 'Mrs. Mary Werner and Mrs. Helen Karatla of Bridgeport and Mrs. Ann Vayser of Stratford'. 'Karatla' is plainly a typesetting error for Karaffa. But WERNER is not obviously a garble of Shomsky, and the woman is unambiguously Mary, the eldest daughter. Two other things point the same way: Michael Shomsky is NOT linked as a spouse on Mary's memorial, and her own 2003 obituary names two sons and no husband at all, living or late. The straightforward reading is that Mary and Michael's marriage ended and she remarried a Werner, which would also explain why she is buried as Mary Demchak Shomsky under her first married name. THAT IS A READING, NOT A FINDING. It could equally be a newspaper error. It is recorded because it is the kind of detail that quietly explains several absences at once, and because a Bridgeport marriage record would settle it.",
+   "dataQuirk": "One word in one newspaper. Do not build on it without a marriage record.",
+   "personRefs": [
+    "grant-11",
+    "grant-10",
+    "helen-kosch-demchak",
+    "helen-demchak-karaffa"
+   ],
+   "url": "https://www.findagrave.com/memorial/77119929/helen-demchak"
   }
  },
  "businesses": {
@@ -11876,6 +12392,38 @@
     "grant-6"
    ],
    "summary": "Two negatives and one genuinely useful piece of ground cleared. Neither Nicholas Kozak's arrival nor Anna Byczkowska's can be found, and that is a normal outcome for immigration research on a common surname without a ship or a year.\n\nBut the route itself is now open, which it was not before. This project had written off the Ellis Island search; the reason is that the working form is not at libertyellisfoundation.org at all but at www.statueofliberty.org/arrival-search/, and it is free. It reaches well beyond Ellis Island — New York lists back to 1820, Philadelphia, Baltimore, Detroit, and the St Albans, Vermont CANADIAN BORDER CROSSINGS. Three of its behaviours are traps and are documented in S184: the matching is fuzzy, the residence field does not really filter, and the birth-year range silently deletes every record that has no birth year.\n\nNICHOLAS. Mikolaj Kozak returns eleven arrivals and Nikolaj Kozak four. Every single one that states an origin comes from GALICIA or Austria — Torki, Zabnice, Korostowick, Starzawa, Pcim, Kuleszy. Not one from Wilno. No arrival can be matched to a man born 22 September 1893, and none of the fifteen is being adopted.\n\nThat points at something worth writing down. Kozak is overwhelmingly a southern-Polish and Ukrainian surname and Wilno is several hundred miles north, which makes a Kozak family from Vilnius genuinely unusual. There is an alternative reading of 'Wilno': WILNO, ONTARIO, in Renfrew County, the oldest Polish settlement in Canada, founded by Kashubians in 1858 and named after the city. A man born there in 1893 would be a Canadian-born Pole crossing a land border — and the St Albans Vermont crossings keep turning up in these very results, which would explain the absence of any ship. This is a HYPOTHESIS AND NOTHING MORE. It is recorded at Possible, deliberately not attached to the tree, and it is written down because it predicts something a later batch can check: a Kozak household in Renfrew County in the 1891 or 1901 Canadian census.\n\nANNA. No Anna Byczkowska in the passenger indexes: eleven Byczkowskas, thirty-seven Byczkowskis, no Anna. One cluster is noted with no claim attached — four Byczkowskas arriving together on 21 August 1900 from Sereje, now Seirijai in southern Lithuania, which is at least the right corner of Europe.\n\nThe most useful result of the batch is a negative that actually says something. There are ZERO Byczkowski or Byczkowska deaths in Connecticut across the entire 1897-2001 index. The near-spellings that exist — two Byckowskis and nine Buczkowskis — are in Stratford, Bridgeport, Waterbury, New Britain, Hartford, Stafford, New Haven and Branford, and NOT ONE is in Norwich or anywhere in New London County. Find a Grave agrees: 224 Byczkowska memorials worldwide, none in Connecticut. So Anna's birth family were not Norwich people. Her son John married the girl from his own street; Anna did not. She arrived in Norwich from somewhere else, and the search for her origins should stop looking at Norwich.\n\nAnna's own death remains the 14 November 1981 Norwich entry, still Probable, still unconfirmed for exactly the reasons S145 gave. As with Helen in Batch D, the Divine Providence headstone would settle Nicholas and Anna in a single photograph."
+  },
+  "61": {
+   "number": 61,
+   "date": "2026-08-26",
+   "title": "The Shomsky and Demchak line opens up: both candidates confirmed, the two Helens separated, and a named village in Slovakia",
+   "sourceRefs": [
+    "S190",
+    "S191",
+    "S192",
+    "S193",
+    "S194",
+    "S195",
+    "S196",
+    "S197"
+   ],
+   "personRefs": [
+    "grant-10",
+    "grant-11",
+    "grant-5",
+    "grant-4",
+    "george-demchak-sr",
+    "helen-kosch-demchak",
+    "helen-semanchik-demchak",
+    "basilius-somszky",
+    "catharina-mlynarczyk-shomsky",
+    "johannes-somszky",
+    "susanna-petrik",
+    "helen-demchak-karaffa",
+    "grant-2",
+    "grant-1"
+   ],
+   "summary": "The least-worked branch on the site turned out to be the best documented, because the whole family is buried together in Saint John the Baptist Orthodox Cemetery at Stratford and the memorials are properly linked to each other.\n\nBOTH OF S147'S CANDIDATES ARE CONFIRMED. GEORGE MICHAEL DEMCHAK SR., 20 September 1891 – 24 January 1977, matches the index entry to the day. MICHAEL SHOMSKY is confirmed by his daughter's memorial, which states in as many words 'Father: Michael Shomsky (1909-1989)' — he had no dates at all before tonight, and the Shelton 1989 index entry now has a confirmed year to sit against.\n\nAND THE TWO HELENS ARE SEPARATED. Mary's mother is Mrs HELEN KOSCH DEMCHAK, 12 May 1894 – 23 January 1966. The 1972 death that muddied S147 belongs to HELEN SEMANCHIK DEMCHAK (1889-1972), wife of Joseph Demchak Sr. Two Helen Demchaks, both Demchak wives, both in the same cemetery — which is exactly why an index of names and cities could not tell them apart, and why the gravestones could.\n\nHELEN KOSCH'S OWN OBITUARY SURVIVES, transcribed from the Bridgeport Telegram of 25 January 1966: dead at home at 388 Kent Avenue, buried from the Adzima funeral home to St. John the Baptist Carpatho-Russian Greek Catholic church under Rev. John Markovich, a member of the St. Nicholas society, Branch 522 of the Greek Catholic Union. She and George were both born abroad — the memorials say Hungary, the obituary says Czechoslovakia, and both are right, because the Carpatho-Rusyn country they came from was Hungarian before 1918 and Czechoslovak after.\n\nTWO PEOPLE ALREADY IN THE TREE HAD THEIR DATES WRONG. Dorothy Shomsky Relihan was born 26 November 1931, not about 1925, and died 16 June 1988 at Woodbridge aged 56 — fifteen years before her own mother, not merely 'before 2003'. Thomas P. Relihan was born 16 September 1930 at Bridgeport and died 16 December 1990; they married in 1953. His memorial also names his father as John J. Relihan (1889-1955), matching the man S79 identified as the Dooley-branch patriarch — a free cross-confirmation into a line this batch was not even working.\n\nA NAMED VILLAGE, AND A CAUTION. Basilius 'Wasko' Somszky, otherwise William Shomsky, was born 22 July 1876 at KYJOV in the Stará Ľubovňa district of Prešov region, SLOVAKIA, married Catharina Mlynarczyk in 1899, and died at Bridgeport in 1914. His memorial names HIS parents as Johannes Somszky and Susanna Petrik. The dates fit Michael Shomsky as their son almost too neatly. But nothing links them, and three other Shomskys of that generation in the same cemetery are equally unlinked, which shows only that nobody has done this family's Find a Grave links. It is recorded at Possible and deliberately NOT attached, on the same footing as Silas Cook in Batch C. One near-miss is worth reporting: Beatrice Shomsky (1908-1979) sits perfectly in the sibling age series and is actually John Shomsky's WIFE — checked rather than assumed.\n\nONE ANOMALY, RECORDED AND NOT EXPLAINED. Helen Kosch's 1966 obituary calls her eldest daughter 'Mrs. Mary WERNER'. 'Karatla' in the same sentence is obviously a typo for Karaffa, but Werner is not a garble of Shomsky. Michael is not linked as Mary's spouse on her memorial, and Mary's own 2003 obituary names two sons and no husband at all. A second marriage would explain all three at once. It would also be exactly the kind of thing this project has been burned by assuming, so it goes in as an observation with a Bridgeport marriage record named as what would settle it.\n\nLast, the detail that ties the branch to the person paying for it: Mary Demchak Shomsky's 2003 obituary lists 'Nancy Kozak' among her grandchildren and 'Grant and Hillary Kozak' among her great-grandchildren. The owner of this site is named in his own great-grandmother's obituary, and the descent from a Carpatho-Rusyn immigrant family in Bridgeport down to him needs no inference at all."
   }
  }
 }
