@@ -1,6 +1,6 @@
 {
  "meta": {
-  "schemaVersion": 12,
+  "schemaVersion": 13,
   "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined Overview-tab Parts 43-22. Night 3 finished prose-mining Parts 21 down through 1 (including two un-numbered pre-numbering sessions and a duplicate 'Part 2' pedigree-tables box, recorded under disambiguating keys '1-addendum-jul1', '2-pinned-pedigree', '2-addendum-jul2' rather than silently merged or dropped), added 10 new persons named only in prose (Malone NY McGivney generations: Bridget Lynch, Nicholas McGivney b.~1820, Catherine McCabe, Patrick Gibny of Kilnaleck; Dooley-branch Relihan siblings: Sen. John J. Relihan Jr., Edward A. Relihan, Ann Relihan Lang, Margaret Relihan Mellott; plus Rose McBride and Sean Relihan as open-identity/probable-descendant records), and folded the Missing Links tab's 17 cards and the Search Queue tab's ~24 groups into person-linked openQuestions[] arrays (id/title/status/priority/origin/summary/exactSearches/sourceRefs) instead of leaving them as separate unstructured HTML-only content. All 43 Parts (1-43) now have a parts{} entry with sourceRefs/personRefs/summary. All 123 sources (S01-S123) are referenced somewhere in the file (as a sources{} entry plus at least one cross-reference in parts{}, a person's facts, or an openQuestions[] entry). index.html's live rendering is untouched. || 2026-08-25: added the Appel/Skerry/Cook/Spalding in-law line — Parts 44-51, sources S124-S143, and 15 person records (Elizabeth Anna Appel and her ancestry back to Clarence Edmund Skerry of Lakeville, Kings County, Nova Scotia). This research had previously been written ONLY into index.html as hand-authored session blocks, so it never reached this file — which is the source the Sources tab, the person records and the part index all render from. Derived is not source. || 2026-08-25 (b): relationships made EXPLICIT. Every person now carries `parents` (ids) and `sameAs` (the same human in another tree). They were previously implied by ahnentafel position, which had James Relihan -- annotated 'Maurice Relihan's father' -- rendering as Ann Duley's father. Also upserted the branch persons that existed only in index.html's inline BRANCHES copy and had never reached this file (grant-4, 8, 9 among them).",
   "personRecordCount": 68,
   "crossRefCount": 4,
@@ -316,39 +316,44 @@
    "name": "Helen Ustaseski Kozak",
    "branch": "kozak",
    "relation": "Mark's mother",
-   "note": "b.Sep 25 1924 · death date UNKNOWN (S34 retracted, see S153)",
+   "note": "b.Sep 25 1924 · d. UNKNOWN — before Feb 2009 · 103 Golden St. neighbourhood, Norwich",
    "prob": true,
    "facts": [
     [
      "Born",
-     "25 Sep 1924"
-    ],
-    [
-     "Died",
-     "UNKNOWN. She predeceased John J. Kozak, who died 6 Sep 2020 — that is all that is established (S152)."
-    ],
-    [
-     "RETRACTED",
-     "S34 gave 'd.Aug 6 2016 Norwich CT' from a Cavanagh Funeral Home listing. That funeral home is in PENNSYLVANIA and the deceased was Helen Pauline Kozak nee Tantaros, wife of Victor. A false match on coincident dates — see S153."
+     "25 September 1924"
     ],
     [
      "Married",
-     "John J. Kozak, November 1955"
+     "John J. Kozak, November 1955 — 'his Golden Street neighbor' (S152)"
     ],
     [
-     "Lived",
-     "Golden Street, Greeneville, Norwich CT — she was John's neighbour there (S152)"
+     "DEATH DATE STILL UNKNOWN",
+     "Batch D narrowed it but did not settle it. She died before September 2020 (John's death) and, on the evidence of Jennie Kozak's February 2009 obituary, before February 2009 — that obituary names every other spouse and lists John alone (S180)."
+    ],
+    [
+     "The one live candidate",
+     "HELEN KOZAK, NEW LONDON, 4 JANUARY 1999 in the CT death index (S178). New London County, fourteen miles from Norwich, and she would have been 74. It is NOT adopted: the index carries no age, no parents and no spouse, and this is precisely the shape of the S34 error. Of the other two candidates, Southington 1996 is ruled out (S179) and Waterbury 1984 is neither supported nor excluded."
+    ],
+    [
+     "Not on Find a Grave",
+     "All 49 Helen Kozaks born within five years of 1924 were checked worldwide; only one is in Connecticut and she is the Southington woman (S181). Helen is almost certainly in the Kozak plot at Divine Providence, which is untranscribed."
+    ],
+    [
+     "THE FASTEST WAY TO SETTLE THIS IS NOT RESEARCH",
+     "This is Grant's own grandmother. His father Mark Kozak is living and will know his mother's death date, and a photograph of the Divine Providence headstone would settle it outright. Every free documentary route has now been tried and has failed."
     ],
     [
      "Parents",
-     "Unknown. Candidates Frank Ustaseski (d.1956 Norwich) and Mary Ustaszewski (d.1937 Norwich) — see S146."
+     "Frank Ustaseski and M. G. (Mary) Ustaszewska remain PROBABLE and unproven (S183). Frank's 1956 obituary is the document that would settle it."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
    "partRefs": [
-    53
+    53,
+    59
    ],
    "parents": [],
    "sameAs": null
@@ -773,7 +778,16 @@
    "relation": null,
    "note": "b.May 8 1925 · d.Feb 18 2009 · Organist",
    "prob": false,
-   "facts": [],
+   "facts": [
+    [
+     "Lived and died at 103 Golden Street",
+     "Her 2009 obituary opens 'Jennie A. Kozak of 103 Golden St., Norwich, was born at home on May 8, 1925, to Anna (Byczkowska) and Nicholas Kozak and died at home surrounded by her family on Feb. 18, 2009.' Born in that house and died in it, eighty-three years apart (S180)."
+    ],
+    [
+     "She fixes the family address",
+     "103 Golden Street, in the Greeneville section of Norwich, is the Kozak house. John married a neighbour on the same street."
+    ]
+   ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": {
@@ -782,7 +796,9 @@
     "groupIndex": 1,
     "childIndex": 3
    },
-   "partRefs": [],
+   "partRefs": [
+    59
+   ],
    "parents": [
     "grant-6",
     "grant-7"
@@ -5581,6 +5597,10 @@
     [
      "NOT in Divine Providence",
      "A full Ustas* sweep of Divine Providence Cemetery returns only M. G. Ustaszewska. Frank is not buried there — a small point against them being a couple in that parish, or simply an untranscribed grave."
+    ],
+    [
+     "Batch D re-checked and found nothing new",
+     "Frank has no Find a Grave memorial anywhere in the world; Mary's has no family section at all — no spouse, no children, no parents. No other Ustaszewski or Ustaszewska is buried anywhere in Connecticut. The parentage claim rests exactly where S146 left it (S183)."
     ]
    ],
    "confirm": null,
@@ -5588,7 +5608,8 @@
    "childGroupInfo": null,
    "partRefs": [
     52,
-    54
+    54,
+    59
    ],
    "parents": [],
    "sameAs": null
@@ -5627,6 +5648,10 @@
     [
      "Age check",
      "Born 1883 she would be 41 at Helen's birth in 1924 — possible, at the upper end."
+    ],
+    [
+     "Batch D re-checked and found nothing new",
+     "Frank has no Find a Grave memorial anywhere in the world; Mary's has no family section at all — no spouse, no children, no parents. No other Ustaszewski or Ustaszewska is buried anywhere in Connecticut. The parentage claim rests exactly where S146 left it (S183)."
     ]
    ],
    "confirm": null,
@@ -5634,7 +5659,8 @@
    "childGroupInfo": null,
    "partRefs": [
     52,
-    54
+    54,
+    59
    ],
    "parents": [],
    "sameAs": null
@@ -10448,6 +10474,120 @@
     "adelaide-cook-brittain"
    ],
    "url": "https://www.findagrave.com/cemetery/104054/memorial-search?lastname=Spaulding"
+  },
+  "S178": {
+   "num": 178,
+   "person": "Helen Ustaseski Kozak — the CT death index searched under her MARRIED name",
+   "relatedPerson": "Nicholas Kozak, Anna Byczkowska Kozak",
+   "clue": "Three Helen Kozaks in Connecticut in 104 years — one of them in New London County",
+   "type": "State death index, exhaustive surname pull (Tier 1)",
+   "citation": "Connecticut Vital Records, Index of Deaths 1897-2001 — data.ct.gov resource psf6-3vsu — all 123 KOZAK deaths, queried 2026-08-26",
+   "date": "1897-2001",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Every previous attempt at Helen searched USTAS*. She would have died as a KOZAK, so the index was pulled on that surname instead: 123 Kozak deaths in Connecticut, 1897-2001. It confirms two people already in the tree — NICHOLAS KOZAK, Norwich, 8 March 1950 and ANNA KOZAK, Norwich, 14 November 1981. It contains exactly THREE Helen Kozaks: Waterbury 20 May 1984; Southington 28 November 1996; and NEW LONDON, 4 JANUARY 1999. New London is in New London County, the same county as Norwich, about fourteen miles away, and it is where the county hospital is. THE INDEX CARRIES ONLY firstname, lastname, date and city — verified against the raw JSON, there are no other fields. It cannot confirm an identity; it can only produce candidates. Nine other Norwich Kozak deaths appear (John 1941, Frank 1948, Micha 1955, Maria 1970, Jennie 1984, Fedor 1991, Frank 2001) and none is her.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-7",
+    "grant-12",
+    "grant-13",
+    "grant-6"
+   ],
+   "url": "https://data.ct.gov/resource/psf6-3vsu.json"
+  },
+  "S179": {
+   "num": 179,
+   "person": "The Southington Helen Kozak — ruled out",
+   "relatedPerson": "Helen Ustaseski Kozak",
+   "clue": "She was born in 1920, not 1924",
+   "type": "Cemetery transcription matched against the state index (Tier 2, negative)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — Helen W Kozak, South End Burying Ground, Plantsville, Hartford County CT; with Connecticut Vital Records, Index of Deaths 1897-2001 — data.ct.gov resource psf6-3vsu",
+   "date": "1920-1996",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "One of the three candidates can be closed. The index entry HELEN KOZAK, SOUTHINGTON, 28 November 1996 matches a Find a Grave memorial for HELEN W KOZAK, 1920-1996, buried at South End Burying Ground in Plantsville — which is a village of Southington. Our Helen was born 25 September 1924. Different woman. That leaves Waterbury 1984 and New London 1999.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-7"
+   ],
+   "url": null
+  },
+  "S180": {
+   "num": 180,
+   "person": "Jennie A. Kozak's 2009 obituary — John is listed without a wife",
+   "relatedPerson": "Helen Ustaseski Kozak; the Golden Street household",
+   "clue": "Every other married relative is named with their spouse; John is named alone",
+   "type": "Newspaper obituary (Tier 2)",
+   "citation": "The Day, New London CT, via legacy.com — Jennie A. Kozak, d. 18 February 2009",
+   "date": "2009-02-18",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Read in full. Two things come out of it. FIRST, A CONSTRAINT ON HELEN'S DEATH. The family list reads: 'brother, John J. Kozak of Norwich and his sons, Mark and wife, Nancy, of New Canaan, David and his wife, Elizabeth, of West Hartford, and daughter, Cindy and her husband, Tom Buckley, of Avon.' Every married person in that sentence is given with their spouse — except John, who is listed alone. In an obituary that careful about spouses, a living wife would have been named. So Helen was almost certainly already dead by February 2009. That is a constraint, not a date. SECOND, AN ADDRESS: 'Jennie A. Kozak of 103 GOLDEN ST., Norwich, was born at home on May 8, 1925, to Anna (Byczkowska) and Nicholas Kozak.' 103 Golden Street is the Kozak house, and John's own obituary says he married 'his Golden Street neighbor, Helen Ustaseski' — so the Ustaseski household was on the same short street. Jennie also lived in the family house her whole life and died there.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-7",
+    "grant-6",
+    "grant-cg1-3",
+    "grant-12",
+    "grant-13"
+   ],
+   "url": "https://www.legacy.com/us/obituaries/theday/name/jennie-kozak-obituary?id=23113459"
+  },
+  "S181": {
+   "num": 181,
+   "person": "Helen Ustaseski Kozak is not on Find a Grave — exhaustively checked",
+   "relatedPerson": "Helen Ustaseski Kozak",
+   "clue": "All 49 Helen Kozaks born within five years of 1924, worldwide: exactly one is in Connecticut, and she is the Southington woman",
+   "type": "Cemetery-database survey (Tier 1 negative)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — firstname Helen, surname Kozak, born 1924 ±5, all three result pages; plus Divine Providence Cemetery 2146742",
+   "date": "2026-08-26",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Paged through all 49 matches. Exactly one sits in Connecticut — Helen W Kozak 1920-1996 of Plantsville — and she is ruled out (S179). Divine Providence Cemetery, Norwich was re-checked and STILL returns ZERO Kozak memorials, while an Ustas* sweep there still returns only M. G. Ustaszewska. John J. Kozak's own obituary places his burial at Divine Providence, so the Kozak plot is simply untranscribed, and Helen is in it. Find a Grave cannot answer this question and further searching there is wasted effort. IMPORTANT: this negative was re-run WITHOUT the location filter after that filter was proved unreliable — see S182.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-7",
+    "grant-6"
+   ],
+   "url": null
+  },
+  "S182": {
+   "num": 182,
+   "person": "Find a Grave's location filter silently drops real results",
+   "relatedPerson": "Method — affects every negative this project has drawn from a filtered search",
+   "clue": "A memorial that demonstrably exists in Connecticut is not returned by a Connecticut-filtered search for its own surname",
+   "type": "Tooling control test (Tier 1)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — surname Ustaszewska, with and without location=Connecticut / locationId=state_9",
+   "date": "2026-08-26",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Found by accident and worth recording properly. Searching the surname USTASZEWSKA with location Connecticut returns 'No matches found'. Searching the same surname with NO location filter returns 29 records, and the VERY FIRST is 'M. G. Ustaszewska, 15 Aug 1883 – 6 Sep 1937, Divine Providence Cemetery, Norwich, New London County, CONNECTICUT' — the exact memorial the filtered search denied existed. The state filter therefore produces silent false negatives. Any conclusion of the form 'nobody of this surname is buried in state X', drawn from a location-filtered Find a Grave search, is unsafe. Search unfiltered and read the locations yourself, or scope by cemetery id, which does work. This is the same class of bug as the Nova Scotia Archives checkbox fault found in Batch B: a query that looks like it ran and quietly returned nothing.",
+   "dataQuirk": "Never trust a location-filtered Find a Grave negative. Control-test with a record you know exists.",
+   "personRefs": [
+    "mary-ustaszewski",
+    "grant-7"
+   ],
+   "url": "https://www.findagrave.com/memorial/203286143/m-g-ustaszewska"
+  },
+  "S183": {
+   "num": 183,
+   "person": "Frank Ustaseski and Mary Ustaszewska as Helen's parents — still unproven",
+   "relatedPerson": "Helen Ustaseski Kozak's parentage",
+   "clue": "Nothing new either way; the rare-surname argument is exactly where Batch D found it",
+   "type": "Multi-source negative (Tier 1)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) (surnames Ustaseski, Ustaszewski, Ustaszewska, worldwide and by cemetery); Connecticut Vital Records, Index of Deaths 1897-2001 — data.ct.gov resource psf6-3vsu",
+   "date": "2026-08-26",
+   "confidenceClass": "cp",
+   "confidence": "Probable",
+   "notes": "The claim under test: that Frank Ustaseski (d. 12 Feb 1956, Norwich) and M. G. Ustaszewska (b. 15 Aug 1883, d. 6 Sep 1937, buried Divine Providence) were Helen's parents. WHAT WAS CHECKED. Find a Grave has exactly ONE Ustaseski memorial in the world — Stanley, 1885-1943, St Bernard's, New Haven — so FRANK HAS NO MEMORIAL ANYWHERE. M. G. Ustaszewska's memorial was re-opened with a working family-link extractor and has NO family section at all: no spouse, no children, no parents, no bio. It remains a bare headstone transcription. No Ustaszewski or Ustaszewska is buried anywhere else in Connecticut. WHERE THAT LEAVES IT: exactly where S146 left it. The argument is still only that USTASESKI produces two deaths in Connecticut in a century, that widening to USTAS* gives six of which precisely two are in Norwich, and that those two are the right generation for a daughter born in 1924. That is a good lead and it is not evidence of parentage. Held at Probable, unchanged. THE BEST UNEXPLOITED TARGET: Frank died 12 February 1956, three months after Helen married John in November 1955. A Norwich obituary for him would list a surviving daughter as 'Mrs. John Kozak' and would settle this in one line. Free digitised Norwich Bulletin coverage stops in 1930 (S156), so that obituary needs either Otis Library microfilm in person or The Day's 1956 run.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-7",
+    "frank-ustaseski",
+    "mary-ustaszewski",
+    "stanley-ustaseski"
+   ],
+   "url": null
   }
  },
  "businesses": {
@@ -11566,6 +11706,29 @@
     "marion-anna-cook-skerry"
    ],
    "summary": "The whole plot was walked rather than the names already known, and the sweep itself is a finding: 27 Spauldings at Hillcrest, 6 Cooks, 2 Putnams, 2 Skerrys, 2 Brittains and NOT ONE SHUFELT.\n\nTHE SHUFELTS GO BACK TWO MORE GENERATIONS, AND THEY ARE QUÉBÉCOIS. Pemlia Shufelt Cook's parents are JOHN SHUFELT (1 Nov 1788 – 24 Aug 1858) and JANE SALLS (1 May 1791 – 2 Aug 1876), married 1815, both buried in Union Cemetery at BROME, in the Eastern Townships. That is the same township as Iron Hill and West Brome, where Merrill Alonzo Cook was born in 1855. The Canadian thread in this family is Québec on the Cook side and Québec on the Shufelt side, and Nova Scotia has nothing to do with any of it. SALLS is a new surname, and John's memorial bio adds one more line — 'Son of William Shufelt & Catherine Church' — which brings in CHURCH, and is carried at Possible because it is an unsourced bio note.\n\nPEMLIA DIED IN IOWA. Born in Québec in 1815, she died at Green Brier, Greene County, Iowa in 1899, aged 83. Her parents and siblings stayed in Brome; her son Merrill went to Vermont; she went west. This family came apart across a continent in one generation.\n\nMERRILL'S FATHER IS MISSING, AND THAT IS NOW A FINDING RATHER THAN A GAP. Four separate memorials — Merrill's, his brother Harris's, his brother Silas Jackson's and Pemlia's own — each record a mother and NO FATHER. Pemlia's memorial has Parents, Siblings and Children groups and no Spouse group at all. She is the only Cook buried in Greenbrier Cemetery. This is consistent across every record, so Find a Grave is not going to answer it; Québec parish registers or the 1851/1861 census for Brome County are the next move.\n\nThere is one lead, and it is being filed as a lead. Silas Cook (1771-1839) and Polly Allen lie in the same Brome churchyard as the Shufelts, and their daughter Polly Cook married DAVID SHUFELT — Pemlia's brother. So two Shufelt siblings married two Cooks in one small township, and Pemlia named a son SILAS JACKSON COOK. That is suggestive of Merrill's father being a son of this Silas. It is not evidence, and Silas's memorial lists only three children, all daughters. Given this project has twice had to retract a same-name match, it goes in as a direction to search and is NOT attached to the tree.\n\nSIDEWAYS, THE TREE GOT MUCH WIDER. Five new siblings for Addie Spaulding Cook (Ida, who died at three; Alice Jenny; Frank Charles; Lillian; Gertrude Ina). Six for Merrill Cook (Harris; Silas Jackson; Polly Jane and Fannie Maria, almost certainly twins; Candace Lucy, born the same year as Merrill and very likely HIS twin; and David S.). Five for Pemlia.\n\nAnd Batch A's loose end is tied off: ADELAIDE SPAULDING COOK BRITTAIN was born 31 May 1893 and died 1 July 1996 — AGED 103 — married to Clifford Samuel Brittain, both at Hillcrest. She outlived her sister Marion by eighteen years.\n\nTwo things were looked for and not found, which is worth saying plainly. Amantha Putnam's parents are absent from Find a Grave as well as from both DAR applications — two independent sources silent on the same question — and the only Putnams at Hillcrest are a couple born in 1844, far too late. And Charles Elliot Spaulding's memorial carries no parents either, so the link up to Nathaniel Spaulding and Anna Swift still rests on the DAR record alone."
+  },
+  "59": {
+   "number": 59,
+   "date": "2026-08-26",
+   "title": "Helen: one candidate, one elimination, a firm 'before 2009' — and still no death date",
+   "sourceRefs": [
+    "S178",
+    "S179",
+    "S180",
+    "S181",
+    "S182",
+    "S183"
+   ],
+   "personRefs": [
+    "grant-7",
+    "grant-6",
+    "grant-cg1-3",
+    "frank-ustaseski",
+    "mary-ustaszewski",
+    "grant-12",
+    "grant-13"
+   ],
+   "summary": "Helen Ustaseski Kozak's death date is still unknown. That is the honest headline. But the search moved, and it moved because of one change of approach: every previous attempt looked for her under USTASESKI. She died a KOZAK, so the Connecticut death index was pulled on that surname instead.\n\nThat returns 123 Kozak deaths in Connecticut between 1897 and 2001 — including confirmations of Nicholas (Norwich, 8 March 1950) and Anna (Norwich, 14 November 1981) — and exactly THREE Helen Kozaks. Southington 1996 is now ruled out: she was Helen W Kozak, born 1920, buried at Plantsville. Waterbury 1984 is neither supported nor excluded. That leaves HELEN KOZAK, NEW LONDON, 4 JANUARY 1999 — New London County, fourteen miles from Norwich, at an age of 74.\n\nIt is NOT being adopted. The index carries only a name, a date and a town; it has no age, no spouse and no parents. A plausible name in a plausible place with nothing to confirm it is exactly the shape of the S34 error, where a Norwich funeral home turned out to be in Norwood, Pennsylvania. It is recorded as the one live candidate and nothing more.\n\nWhat did firm up is the window. Jennie A. Kozak's February 2009 obituary lists the family with unusual care about spouses — 'Mark and wife, Nancy', 'David and his wife, Elizabeth', 'Cindy and her husband, Tom Buckley' — and names 'brother, John J. Kozak of Norwich' ALONE. In a notice that consistent, a living wife would have been there. Helen was almost certainly dead by February 2009, which is eleven years earlier than the previous bound of John's own death in 2020.\n\nThat obituary also pins the family address: 103 GOLDEN STREET, Norwich, where Jennie was born at home in 1925 and died at home in 2009. John married 'his Golden Street neighbor' — so the Ustaseski household stood on the same short street in Greeneville.\n\nOn the parentage question there is nothing new, and that is itself worth stating. Frank Ustaseski has no Find a Grave memorial anywhere in the world. Mary Ustaszewska's memorial was re-opened with a working family-link extractor and has no family section at all. No other Ustaszewski or Ustaszewska is buried anywhere in Connecticut. The case is still the rare-surname argument of S146 and nothing has been added to it. The best unexploited document is FRANK'S OWN OBITUARY: he died 12 February 1956, three months after Helen's November 1955 marriage, so a Norwich notice would list a surviving daughter as 'Mrs. John Kozak' and settle it in a line. Free digitised Norwich Bulletin coverage stops in 1930.\n\nTwo methodological findings came out of this batch and both matter beyond it. legacy.com returns 403 to a plain fetch but renders perfectly under Playwright, which opens The Day and the Norwich Bulletin obituary archives that earlier batches had written off — Jennie's obituary was read that way. And Find a Grave's location filter produces SILENT FALSE NEGATIVES: a Connecticut-filtered search for USTASZEWSKA returns nothing, while the same search unfiltered returns M. G. Ustaszewska of Norwich, Connecticut as its first result. Every Find a Grave negative in this batch was therefore re-run unfiltered.\n\nLast, the practical point, because this is Grant's own grandmother and not a stranger four generations back. Every free documentary route has now been tried and closed. His father Mark Kozak knows his own mother's death date, and a photograph of the Divine Providence headstone would settle both questions at once."
   }
  }
 }
