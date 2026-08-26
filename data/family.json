@@ -1,6 +1,6 @@
 {
  "meta": {
-  "schemaVersion": 11,
+  "schemaVersion": 12,
   "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined Overview-tab Parts 43-22. Night 3 finished prose-mining Parts 21 down through 1 (including two un-numbered pre-numbering sessions and a duplicate 'Part 2' pedigree-tables box, recorded under disambiguating keys '1-addendum-jul1', '2-pinned-pedigree', '2-addendum-jul2' rather than silently merged or dropped), added 10 new persons named only in prose (Malone NY McGivney generations: Bridget Lynch, Nicholas McGivney b.~1820, Catherine McCabe, Patrick Gibny of Kilnaleck; Dooley-branch Relihan siblings: Sen. John J. Relihan Jr., Edward A. Relihan, Ann Relihan Lang, Margaret Relihan Mellott; plus Rose McBride and Sean Relihan as open-identity/probable-descendant records), and folded the Missing Links tab's 17 cards and the Search Queue tab's ~24 groups into person-linked openQuestions[] arrays (id/title/status/priority/origin/summary/exactSearches/sourceRefs) instead of leaving them as separate unstructured HTML-only content. All 43 Parts (1-43) now have a parts{} entry with sourceRefs/personRefs/summary. All 123 sources (S01-S123) are referenced somewhere in the file (as a sources{} entry plus at least one cross-reference in parts{}, a person's facts, or an openQuestions[] entry). index.html's live rendering is untouched. || 2026-08-25: added the Appel/Skerry/Cook/Spalding in-law line — Parts 44-51, sources S124-S143, and 15 person records (Elizabeth Anna Appel and her ancestry back to Clarence Edmund Skerry of Lakeville, Kings County, Nova Scotia). This research had previously been written ONLY into index.html as hand-authored session blocks, so it never reached this file — which is the source the Sources tab, the person records and the part index all render from. Derived is not source. || 2026-08-25 (b): relationships made EXPLICIT. Every person now carries `parents` (ids) and `sameAs` (the same human in another tree). They were previously implied by ahnentafel position, which had James Relihan -- annotated 'Maurice Relihan's father' -- rendering as Ann Duley's father. Also upserted the branch persons that existed only in index.html's inline BRANCHES copy and had never reached this file (grant-4, 8, 9 among them).",
   "personRecordCount": 68,
   "crossRefCount": 4,
@@ -5781,6 +5781,14 @@
     [
      "Birthplace corroborated",
      "Adelaide's application records his birth at 'West Broone Canada', which is West Brome, Québec — the next village to Iron Hill, the birthplace already on file. Two independent records placing him in the same corner of Brome County in the Eastern Townships. The Canadian thread in the family story is Québec, and it is his."
+    ],
+    [
+     "Six siblings",
+     "Harris, Silas Jackson, Polly Jane, Fannie Maria, Candace Lucy and David S. Cook (S173). Candace Lucy was born the same year, 1855 — very likely his twin."
+    ],
+    [
+     "HIS FATHER IS STILL UNKNOWN",
+     "Batch C could not find him. Not on Merrill's memorial, not on his brothers Harris's or Silas Jackson's, and his mother Pemlia has no spouse recorded at all. See S174 for what was searched and S175 for the one live lead."
     ]
    ],
    "confirm": null,
@@ -5788,7 +5796,8 @@
    "childGroupInfo": null,
    "partRefs": [
     53,
-    56
+    56,
+    58
    ],
    "parents": [
     "pemlia-shufelt-cook"
@@ -5882,6 +5891,10 @@
     [
      "Note",
      "The Spauldings are a founding Cavendish family, present in the town from the 1780s (S135). We now know why: his great-grandfather William settled there after the Revolution."
+    ],
+    [
+     "Find a Grave has no parents for him",
+     "His memorial lists a spouse and six children but no parents (S170). It does not contradict the DAR finding that his parents were Nathaniel Spaulding and Anna Swift (S159, S160) — it is simply silent, and DAR remains the only source for that link."
     ]
    ],
    "confirm": null,
@@ -5889,7 +5902,8 @@
    "childGroupInfo": null,
    "partRefs": [
     53,
-    56
+    56,
+    58
    ],
    "parents": [
     "nathaniel-spaulding",
@@ -5927,6 +5941,14 @@
     [
      "Open",
      "PUTNAM parentage is not carried on either DAR application."
+    ],
+    [
+     "Six children",
+     "Addie (1858), Ida J (1860-1863, died at three), Alice Jenny (1866), Frank Charles (1869), Lillian M (1875) and Gertrude Ina (1878) — S170"
+    ],
+    [
+     "Her Putnam parents remain unknown",
+     "Neither DAR application carries them (S159, S160) and Find a Grave has no parents on her memorial either (S170). Two independent sources are silent, so this needs a different kind of record — Springfield VT town vital records."
     ]
    ],
    "confirm": null,
@@ -5934,7 +5956,8 @@
    "childGroupInfo": null,
    "partRefs": [
     53,
-    56
+    56,
+    58
    ],
    "parents": [],
    "sameAs": null
@@ -5947,29 +5970,41 @@
    "name": "Pemlia (Shufelt) Cook",
    "branch": "other",
    "relation": "Merrill Alonzo Cook's mother",
-   "note": "1815-1899",
+   "note": "b.Dec 3 1815 Québec · d.Oct 22 1899 Greene County, IOWA",
    "prob": true,
    "facts": [
     [
-     "Dates",
-     "1815-1899 (S151)"
+     "Born",
+     "3 December 1815 — Brome County, Québec (S172)"
     ],
     [
-     "Surname",
-     "SHUFELT — a further line, not yet worked."
+     "DIED IN IOWA",
+     "22 October 1899 at Green Brier, Greene County, IOWA, aged 83, and buried in Greenbrier Cemetery there (S172). She left Québec. Her son Merrill went the other way, to Vermont — this family scattered in at least two directions."
     ],
     [
-     "Note",
-     "Listed as Merrill's only recorded parent; his father is not on the memorial."
+     "Parents",
+     "John Shufelt (1788-1858) and Jane Salls (1791-1876) of Brome, Québec (S171)"
+    ],
+    [
+     "Children",
+     "Harris (1838), Silas Jackson (1840), Polly Jane (1849), Fannie Maria (1849), Merrill Alonzo (1855), Candace Lucy (1855) and David S. (d.1930) — S173"
+    ],
+    [
+     "HER HUSBAND IS MISSING",
+     "No spouse is recorded for her anywhere on Find a Grave, and she is the ONLY Cook buried at Greenbrier. See S174 — this is a real gap, not an oversight."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
    "partRefs": [
-    53
+    53,
+    58
    ],
-   "parents": [],
+   "parents": [
+    "john-shufelt",
+    "jane-salls-shufelt"
+   ],
    "sameAs": null
   },
   "stanley-ustaseski": {
@@ -6265,35 +6300,36 @@
    "name": "Adelaide (Spaulding) Cook Brittain",
    "branch": "other",
    "relation": "Marion Cook Skerry's SISTER — a new sibling, found through her own DAR membership",
-   "note": "DAR member #360312 · daughter of Merrill Alonzo Cook and Addie Spaulding",
-   "prob": true,
+   "note": "b.May 31 1893 VT · d.Jul 1 1996 · aged 103 · DAR #360312",
+   "prob": false,
    "facts": [
     [
-     "Who she is",
-     "DAR National #360312, admitted on ancestor A107735 — the same patriot as Marion. Her lineage papers open with Merrill Alonzo Cook and Addie Spaulding as her parents, which makes her Marion's sister (S160)."
+     "Born",
+     "31 May 1893, Vermont (S169) — Batch A could not date her; this closes that."
     ],
     [
-     "Named for her mother",
-     "Addie Spaulding Cook was christened Adelaide. The daughter carries both her mother's given name and her mother's maiden name."
+     "Died",
+     "1 July 1996, aged 103 (S169). She outlived her sister Marion by eighteen years and was born in the year Grover Cleveland began his second term."
     ],
     [
      "Married",
-     "a Brittain — first name not recorded in the database."
+     "Clifford Samuel Brittain (1884-1969); both buried at Hillcrest, Proctorsville."
     ],
     [
-     "Why her application is the better document",
-     "Marion's 1911 application left every birth and death PLACE blank. Adelaide's, filed around 1946, fills nearly all of them in. Everything we now know about where these people lived comes from the sister's paperwork."
+     "Her sister",
+     "Marion was born 6 August 1890, so the two were not quite three years apart."
     ],
     [
-     "Open",
-     "Her birth date, her husband's name, and whether there were further siblings. Hillcrest Cemetery in Proctorsville is the place to look."
+     "Why she matters to the research",
+     "Her c.1946 DAR application is the document that carries the PLACES for five generations of Spauldings; Marion's c.1911 one left them all blank (S159, S160)."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
    "partRefs": [
-    56
+    56,
+    58
    ],
    "parents": [
     "merrill-alonzo-cook",
@@ -6374,6 +6410,862 @@
    "parents": [
     "david-skerry",
     "pauline-skerry"
+   ],
+   "sameAs": null
+  },
+  "john-shufelt": {
+   "id": "john-shufelt",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "John Shufelt",
+   "branch": "other",
+   "relation": "Pemlia Shufelt Cook's father — Elizabeth Appel's 4th-great-grandfather",
+   "note": "b.Nov 1 1788 Québec · d.Aug 24 1858 Brome, Estrie, Québec",
+   "prob": false,
+   "facts": [
+    [
+     "Born",
+     "1 November 1788, Québec, Canada (S171)"
+    ],
+    [
+     "Died",
+     "24 August 1858, Brome, Estrie Region, Québec — Union Cemetery, Brome (S171)"
+    ],
+    [
+     "Married",
+     "Jane Salls, 1815 (S171)"
+    ],
+    [
+     "His own parents",
+     "His memorial bio reads 'Son of William Shufelt & Catherine Church' (S176). That is a bio line, not a linked record, so it is carried at Possible."
+    ],
+    [
+     "Why Brome matters",
+     "The Shufelts are a BROME COUNTY, QUÉBEC family, and Brome is exactly where Merrill Alonzo Cook was born in 1855 — Iron Hill and West Brome are the same corner of the Eastern Townships. The Canadian thread in this family is Québec, and it is now attested on both the Cook and the Shufelt sides."
+    ],
+    [
+     "Surname note",
+     "Shufelt is a Palatine German name (Schönfeld / Schoefelt) that reached the Eastern Townships by way of the Hudson Valley, which is the ordinary Loyalist route into Brome. Not yet evidenced here — recorded as the direction to look."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "william-shufelt",
+    "catherine-church"
+   ],
+   "sameAs": null
+  },
+  "jane-salls-shufelt": {
+   "id": "jane-salls-shufelt",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Jane (Salls) Shufelt",
+   "branch": "other",
+   "relation": "Pemlia's mother — SALLS is a new surname",
+   "note": "b.May 1 1791 Québec · d.Aug 2 1876 Brome, Estrie, Québec",
+   "prob": false,
+   "facts": [
+    [
+     "Born",
+     "1 May 1791, Québec, Canada (S171)"
+    ],
+    [
+     "Died",
+     "2 August 1876, Brome, Estrie Region, Québec — Union Cemetery, with John (S171)"
+    ],
+    [
+     "Married",
+     "John Shufelt, 1815; she outlived him by eighteen years."
+    ],
+    [
+     "New surname",
+     "SALLS joins Shufelt, Church and Allen as Eastern Townships names entering through Merrill Cook's mother. Her parents are not recorded on Find a Grave."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "william-shufelt": {
+   "id": "william-shufelt",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "William Shufelt",
+   "branch": "other",
+   "relation": "John Shufelt's father — from a bio line only",
+   "note": "Brome, Québec · dates unknown",
+   "prob": true,
+   "facts": [
+    [
+     "Known from",
+     "One line on John Shufelt's memorial: 'Son of William Shufelt & Catherine Church' (S176). No dates, no linked memorial, no record cited."
+    ],
+    [
+     "Confidence",
+     "Possible. A contributor's bio note is Tier 3. It is recorded because it names a generation nothing else reaches, not because it is established."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "catherine-church": {
+   "id": "catherine-church",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Catherine (Church) Shufelt",
+   "branch": "other",
+   "relation": "John Shufelt's mother — from a bio line only",
+   "note": "Brome, Québec · dates unknown",
+   "prob": true,
+   "facts": [
+    [
+     "Known from",
+     "The same bio line on John Shufelt's memorial (S176)."
+    ],
+    [
+     "New surname",
+     "CHURCH. Unverified."
+    ],
+    [
+     "Confidence",
+     "Possible — Tier 3, an unsourced contributor note."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "candace-shufelt-boright": {
+   "id": "candace-shufelt-boright",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Candace (Shufelt) Boright",
+   "branch": "other",
+   "relation": "Pemlia Shufelt Cook's sibling — Merrill Cook's aunt or uncle",
+   "note": "1817–1914 · Brome, Québec",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1817–1914 (S171)"
+    ],
+    [
+     "Place",
+     "Brome County, Québec — the Shufelt home ground"
+    ],
+    [
+     "Note",
+     "m. a Boright"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "john-shufelt",
+    "jane-salls-shufelt"
+   ],
+   "sameAs": null
+  },
+  "david-shufelt": {
+   "id": "david-shufelt",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "David Shufelt",
+   "branch": "other",
+   "relation": "Pemlia Shufelt Cook's sibling — Merrill Cook's aunt or uncle",
+   "note": "1819–1911 · Brome, Québec",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1819–1911 (S171)"
+    ],
+    [
+     "Place",
+     "Brome County, Québec — the Shufelt home ground"
+    ],
+    [
+     "Note",
+     "m. Polly Cook — see the Cook lead, S175"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "john-shufelt",
+    "jane-salls-shufelt"
+   ],
+   "sameAs": null
+  },
+  "john-daniel-shufelt": {
+   "id": "john-daniel-shufelt",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "John Daniel Shufelt",
+   "branch": "other",
+   "relation": "Pemlia Shufelt Cook's sibling — Merrill Cook's aunt or uncle",
+   "note": "1829–1875 · Brome, Québec",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1829–1875 (S171)"
+    ],
+    [
+     "Place",
+     "Brome County, Québec — the Shufelt home ground"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "john-shufelt",
+    "jane-salls-shufelt"
+   ],
+   "sameAs": null
+  },
+  "lana-ann-shufelt-bull": {
+   "id": "lana-ann-shufelt-bull",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Lana Ann (Shufelt) Bull",
+   "branch": "other",
+   "relation": "Pemlia Shufelt Cook's sibling — Merrill Cook's aunt or uncle",
+   "note": "1834–1913 · Brome, Québec",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1834–1913 (S171)"
+    ],
+    [
+     "Place",
+     "Brome County, Québec — the Shufelt home ground"
+    ],
+    [
+     "Note",
+     "m. a Bull"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "john-shufelt",
+    "jane-salls-shufelt"
+   ],
+   "sameAs": null
+  },
+  "harriet-shufelt-mccoy": {
+   "id": "harriet-shufelt-mccoy",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Harriet O. (Shufelt) Willis McCoy",
+   "branch": "other",
+   "relation": "Pemlia Shufelt Cook's sibling — Merrill Cook's aunt or uncle",
+   "note": "1836–1922 · Brome, Québec",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1836–1922 (S171)"
+    ],
+    [
+     "Place",
+     "Brome County, Québec — the Shufelt home ground"
+    ],
+    [
+     "Note",
+     "m. Willis, then McCoy"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "john-shufelt",
+    "jane-salls-shufelt"
+   ],
+   "sameAs": null
+  },
+  "harris-cook": {
+   "id": "harris-cook",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Harris Cook",
+   "branch": "other",
+   "relation": "Merrill Alonzo Cook's sibling — Marion Cook Skerry's aunt or uncle",
+   "note": "1838–1928 · b. Brome County, Québec",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1838–1928 (S173)"
+    ],
+    [
+     "Born",
+     "Brome County, Québec — the family's home before they scattered"
+    ],
+    [
+     "Note",
+     "The eldest; m. Alice Angeline Hurlbut."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "pemlia-shufelt-cook"
+   ],
+   "sameAs": null
+  },
+  "silas-jackson-cook": {
+   "id": "silas-jackson-cook",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Silas Jackson Cook",
+   "branch": "other",
+   "relation": "Merrill Alonzo Cook's sibling — Marion Cook Skerry's aunt or uncle",
+   "note": "1840–1919 · b. Brome County, Québec",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1840–1919 (S173)"
+    ],
+    [
+     "Born",
+     "Brome County, Québec — the family's home before they scattered"
+    ],
+    [
+     "Note",
+     "Married three times — Elizabeth Mary George (1871), Ada Marie Hedinger (1888), Emma Thillman (1908). HIS GIVEN NAME IS THE CLUE: see S175."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "pemlia-shufelt-cook"
+   ],
+   "sameAs": null
+  },
+  "polly-jane-cook-newton": {
+   "id": "polly-jane-cook-newton",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Polly Jane (Cook) Newton",
+   "branch": "other",
+   "relation": "Merrill Alonzo Cook's sibling — Marion Cook Skerry's aunt or uncle",
+   "note": "1849–1947 · b. Brome County, Québec",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1849–1947 (S173)"
+    ],
+    [
+     "Born",
+     "Brome County, Québec — the family's home before they scattered"
+    ],
+    [
+     "Note",
+     "m. a Newton; lived to 98."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "pemlia-shufelt-cook"
+   ],
+   "sameAs": null
+  },
+  "fannie-maria-cook-newton": {
+   "id": "fannie-maria-cook-newton",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Fannie Maria (Cook) Newton",
+   "branch": "other",
+   "relation": "Merrill Alonzo Cook's sibling — Marion Cook Skerry's aunt or uncle",
+   "note": "1849–1922 · b. Brome County, Québec",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1849–1922 (S173)"
+    ],
+    [
+     "Born",
+     "Brome County, Québec — the family's home before they scattered"
+    ],
+    [
+     "Note",
+     "Also married a Newton, and born the same year as Polly Jane — the two are very likely twins."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "pemlia-shufelt-cook"
+   ],
+   "sameAs": null
+  },
+  "candace-lucy-cook": {
+   "id": "candace-lucy-cook",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Candace Lucy (Cook) Cook",
+   "branch": "other",
+   "relation": "Merrill Alonzo Cook's sibling — Marion Cook Skerry's aunt or uncle",
+   "note": "1855–1950 · b. Brome County, Québec",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1855–1950 (S173)"
+    ],
+    [
+     "Born",
+     "Brome County, Québec — the family's home before they scattered"
+    ],
+    [
+     "Note",
+     "Born the same year as Merrill — likely his twin. Named for Pemlia's sister Candace, and she married another Cook."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "pemlia-shufelt-cook"
+   ],
+   "sameAs": null
+  },
+  "david-s-cook": {
+   "id": "david-s-cook",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "David S. Cook",
+   "branch": "other",
+   "relation": "Merrill Alonzo Cook's sibling — Marion Cook Skerry's aunt or uncle",
+   "note": "?–1930 · b. Brome County, Québec",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "?–1930 (S173)"
+    ],
+    [
+     "Born",
+     "Brome County, Québec — the family's home before they scattered"
+    ],
+    [
+     "Note",
+     "No birth date transcribed."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "pemlia-shufelt-cook"
+   ],
+   "sameAs": null
+  },
+  "ida-j-spaulding": {
+   "id": "ida-j-spaulding",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Ida J. Spaulding",
+   "branch": "other",
+   "relation": "Addie Spaulding Cook's sibling — Marion Cook Skerry's aunt or uncle",
+   "note": "1860–1863 · Cavendish, Windsor County VT",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1860–1863 (S170)"
+    ],
+    [
+     "Place",
+     "Cavendish, Windsor County, Vermont"
+    ],
+    [
+     "Note",
+     "Died aged three."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "charles-elliot-spaulding",
+    "amantha-putnam-spaulding"
+   ],
+   "sameAs": null
+  },
+  "alice-spaulding-magwire": {
+   "id": "alice-spaulding-magwire",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Alice Jenny (Spaulding) Magwire",
+   "branch": "other",
+   "relation": "Addie Spaulding Cook's sibling — Marion Cook Skerry's aunt or uncle",
+   "note": "1866–1951 · Cavendish, Windsor County VT",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1866–1951 (S170)"
+    ],
+    [
+     "Place",
+     "Cavendish, Windsor County, Vermont"
+    ],
+    [
+     "Note",
+     "m. a Magwire."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "charles-elliot-spaulding",
+    "amantha-putnam-spaulding"
+   ],
+   "sameAs": null
+  },
+  "frank-charles-spaulding": {
+   "id": "frank-charles-spaulding",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Frank Charles Spaulding",
+   "branch": "other",
+   "relation": "Addie Spaulding Cook's sibling — Marion Cook Skerry's aunt or uncle",
+   "note": "1869–1925 · Cavendish, Windsor County VT",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1869–1925 (S170)"
+    ],
+    [
+     "Place",
+     "Cavendish, Windsor County, Vermont"
+    ],
+    [
+     "Note",
+     "Carries his father's name, Charles."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "charles-elliot-spaulding",
+    "amantha-putnam-spaulding"
+   ],
+   "sameAs": null
+  },
+  "lillian-m-spaulding": {
+   "id": "lillian-m-spaulding",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Lillian M. Spaulding",
+   "branch": "other",
+   "relation": "Addie Spaulding Cook's sibling — Marion Cook Skerry's aunt or uncle",
+   "note": "1875–1947 · Cavendish, Windsor County VT",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1875–1947 (S170)"
+    ],
+    [
+     "Place",
+     "Cavendish, Windsor County, Vermont"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "charles-elliot-spaulding",
+    "amantha-putnam-spaulding"
+   ],
+   "sameAs": null
+  },
+  "gertrude-spaulding-jewell": {
+   "id": "gertrude-spaulding-jewell",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Gertrude Ina (Spaulding) Jewell",
+   "branch": "other",
+   "relation": "Addie Spaulding Cook's sibling — Marion Cook Skerry's aunt or uncle",
+   "note": "1878–1967 · Cavendish, Windsor County VT",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1878–1967 (S170)"
+    ],
+    [
+     "Place",
+     "Cavendish, Windsor County, Vermont"
+    ],
+    [
+     "Note",
+     "m. a Jewell."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "charles-elliot-spaulding",
+    "amantha-putnam-spaulding"
+   ],
+   "sameAs": null
+  },
+  "clifford-brittain": {
+   "id": "clifford-brittain",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Clifford Samuel Brittain",
+   "branch": "other",
+   "relation": "Adelaide Cook Brittain's husband — Marion Cook Skerry's brother-in-law",
+   "note": "b.Dec 2 1884 · d.Mar 1969 · Hillcrest Cemetery, Proctorsville VT",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "2 December 1884 – March 1969 (S169)"
+    ],
+    [
+     "Buried",
+     "Hillcrest Cemetery, Proctorsville (Cavendish), Windsor County, Vermont"
+    ],
+    [
+     "Married",
+     "Adelaide Spaulding Cook — the surname on her DAR membership (S160)"
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "silas-cook": {
+   "id": "silas-cook",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Silas Cook",
+   "branch": "other",
+   "relation": "Brome County Cook patriarch — a LEAD, not established kin",
+   "note": "b.May 15 1771 · d.Dec 5 1839 · Union Cemetery, Brome, Québec",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "15 May 1771 – 5 December 1839 (S175)"
+    ],
+    [
+     "Buried",
+     "Union Cemetery, Brome, Estrie Region, Québec — the same yard as the Shufelts"
+    ],
+    [
+     "Married",
+     "Polly Allen, 1799"
+    ],
+    [
+     "WHY HE IS HERE",
+     "He may be Merrill Alonzo Cook's grandfather. He is NOT established as kin — read S175 before using this."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "polly-allen-cook": {
+   "id": "polly-allen-cook",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Polly (Allen) Cook",
+   "branch": "other",
+   "relation": "Silas Cook's wife — part of the same lead",
+   "note": "b.1781 · d.1852 · Union Cemetery, Brome, Québec",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "1781 – 1852 (S175)"
+    ],
+    [
+     "Married",
+     "Silas Cook, 1799"
+    ],
+    [
+     "ALLEN",
+     "A new surname, and it recurs — their daughter was christened Achsah ALLEN Cook."
+    ],
+    [
+     "Status",
+     "Possible only. See S175."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [],
+   "sameAs": null
+  },
+  "polly-cook-shufelt": {
+   "id": "polly-cook-shufelt",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Polly (Cook) Shufelt",
+   "branch": "other",
+   "relation": "Married Pemlia's brother — the Cook/Shufelt link in Brome",
+   "note": "b.Aug 4 1820 Québec · d.Nov 15 1899 Brome, Québec",
+   "prob": true,
+   "facts": [
+    [
+     "Dates",
+     "4 August 1820 – 15 November 1899, Brome (S175)"
+    ],
+    [
+     "Parents",
+     "Silas Cook (1771-1839) and Polly Allen (1781-1852)"
+    ],
+    [
+     "Married",
+     "David Shufelt (1819-1911), Pemlia Shufelt's brother"
+    ],
+    [
+     "THE PATTERN",
+     "Pemlia Shufelt married a Cook; her brother David married a Cook. Two Shufelt siblings marrying two Cooks in one small township is the ordinary shape of rural marriage, and it is the reason Silas Cook is worth chasing (S175)."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    58
+   ],
+   "parents": [
+    "silas-cook",
+    "polly-allen-cook"
    ],
    "sameAs": null
   }
@@ -9364,6 +10256,198 @@
     "clarence-edmund-skerry"
    ],
    "url": null
+  },
+  "S169": {
+   "num": 169,
+   "person": "Adelaide Spaulding Cook Brittain and Clifford Samuel Brittain",
+   "relatedPerson": "Marion Cook Skerry's sister and brother-in-law",
+   "clue": "Born 31 May 1893, died 1 July 1996 — aged 103",
+   "type": "Cemetery transcription (Tier 2)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — Hillcrest Cemetery, Proctorsville VT (cemetery 104054), memorials 181061223 and 181061262",
+   "date": "1884-1996",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Closes the handoff Batch A left. Adelaide Spaulding 'Addie' Cook Brittain, b. 31 May 1893 Vermont, d. 1 July 1996 aged 103; her husband Clifford Samuel Brittain, 2 Dec 1884 – March 1969. Both at Hillcrest. Her memorial links only her husband — no parents — so the proof that she is Merrill and Addie's daughter remains her DAR papers (S160), not this. Marion was born 6 Aug 1890; the sisters were under three years apart.",
+   "dataQuirk": null,
+   "personRefs": [
+    "adelaide-cook-brittain",
+    "clifford-brittain",
+    "marion-anna-cook-skerry"
+   ],
+   "url": "https://www.findagrave.com/memorial/181061223/adelaide-spaulding-brittain"
+  },
+  "S170": {
+   "num": 170,
+   "person": "Charles Elliot Spaulding and Amantha Putnam — their six children",
+   "relatedPerson": "Addie Spaulding Cook's brothers and sisters",
+   "clue": "Five new siblings for Addie — and NO parents on either memorial",
+   "type": "Cemetery transcription with linked family members (Tier 2)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — memorials 85115712 (Charles Elliot) and 85115767 (Amantha)",
+   "date": "1856-1967",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Both memorials carry a Spouse group (married 1856, matching the DAR applications) and an identical Children group of six: Addie C (1858-1934), Ida J (1860-1863), Alice Jenny Magwire (1866-1951), Frank Charles (1869-1925), Lillian M (1875-1947) and Gertrude Ina Jewell (1878-1967). NEITHER memorial has a Parents group. So Find a Grave adds five siblings but nothing above this couple: Charles Elliot's parents rest solely on the DAR record, and Amantha's Putnam parentage is unrecorded on both sources.",
+   "dataQuirk": null,
+   "personRefs": [
+    "charles-elliot-spaulding",
+    "amantha-putnam-spaulding",
+    "addie-spaulding-cook",
+    "ida-j-spaulding",
+    "alice-spaulding-magwire",
+    "frank-charles-spaulding",
+    "lillian-m-spaulding",
+    "gertrude-spaulding-jewell"
+   ],
+   "url": "https://www.findagrave.com/memorial/85115712/charles_elliot-spaulding"
+  },
+  "S171": {
+   "num": 171,
+   "person": "John Shufelt and Jane Salls — a new generation, in Québec",
+   "relatedPerson": "Pemlia Shufelt Cook's parents",
+   "clue": "Brome County, Québec — the same corner of the Eastern Townships Merrill Cook was born in",
+   "type": "Cemetery transcription with linked family members (Tier 2)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — Union Cemetery, Brome, Estrie Region, Québec (cemetery 2422116), memorials 114094903 and 114095218",
+   "date": "1788-1876",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "John Shufelt, b. 1 Nov 1788 Québec, d. 24 Aug 1858 Brome; Jane Salls Shufelt, b. 1 May 1791 Québec, d. 2 Aug 1876 Brome; married 1815; both in Union Cemetery, Brome. Their children, linked from both memorials: Pemlia (1815), Candace Boright (1817), David (1819), John Daniel (1829), Lana Ann Bull (1834) and Harriet O Willis McCoy (1836). SALLS is a new surname. The significance is geographic: this puts Merrill Cook's mother's family firmly in BROME COUNTY, the same township as Iron Hill and West Brome where Merrill himself was born in 1855 (S160). The Canadian thread in this family is Québec on both sides, and Nova Scotia has nothing to do with it.",
+   "dataQuirk": null,
+   "personRefs": [
+    "john-shufelt",
+    "jane-salls-shufelt",
+    "pemlia-shufelt-cook",
+    "candace-shufelt-boright",
+    "david-shufelt",
+    "john-daniel-shufelt",
+    "lana-ann-shufelt-bull",
+    "harriet-shufelt-mccoy"
+   ],
+   "url": "https://www.findagrave.com/memorial/114094903/john-shufelt"
+  },
+  "S172": {
+   "num": 172,
+   "person": "Pemlia Shufelt Cook — she died in Iowa",
+   "relatedPerson": "Merrill Alonzo Cook's mother",
+   "clue": "Born in Québec 1815, died in Greene County, IOWA in 1899",
+   "type": "Cemetery transcription (Tier 2)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — Greenbrier Cemetery, Green Brier, Greene County, Iowa (cemetery 94939), memorial 82330670",
+   "date": "1815-1899",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "b. 3 December 1815; d. 22 October 1899 at Green Brier, Greene County, IOWA, aged 83, buried Greenbrier Cemetery. This was not expected. Her parents and siblings are in Brome, Québec; her son Merrill went south-east to Vermont; she went west to Iowa. A sweep of Greenbrier Cemetery for the surname Cook returns HER AND NOBODY ELSE — so whoever her husband was, he is not buried beside her.",
+   "dataQuirk": null,
+   "personRefs": [
+    "pemlia-shufelt-cook",
+    "merrill-alonzo-cook"
+   ],
+   "url": "https://www.findagrave.com/memorial/82330670/pemlia-cook"
+  },
+  "S173": {
+   "num": 173,
+   "person": "Merrill Alonzo Cook's six siblings",
+   "relatedPerson": "Marion Cook Skerry's aunts and uncles",
+   "clue": "Pemlia's children, all linked from her memorial",
+   "type": "Cemetery transcription with linked family members (Tier 2)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — memorial 82330670, Children group",
+   "date": "1838-1950",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Harris Cook (1838-1928), Silas Jackson Cook (1840-1919), Polly Jane Cook Newton (1849-1947), Fannie Maria Cook Newton (1849-1922), Merrill Alonzo Cook (1855-1945), Candace Lucy Cook Cook (1855-1950) and David S Cook (d.1930, no birth date transcribed). Two pairs share a birth year — Polly Jane and Fannie Maria in 1849, Candace Lucy and MERRILL in 1855 — so Merrill very likely had a twin sister. Both 1849 daughters married Newtons. Candace Lucy was named for Pemlia's own sister and married another Cook.",
+   "dataQuirk": null,
+   "personRefs": [
+    "pemlia-shufelt-cook",
+    "merrill-alonzo-cook",
+    "harris-cook",
+    "silas-jackson-cook",
+    "polly-jane-cook-newton",
+    "fannie-maria-cook-newton",
+    "candace-lucy-cook",
+    "david-s-cook"
+   ],
+   "url": "https://www.findagrave.com/memorial/82330670/pemlia-cook"
+  },
+  "S174": {
+   "num": 174,
+   "person": "Merrill Alonzo Cook's father — searched for and NOT found",
+   "relatedPerson": "The oldest open question on the Cook line",
+   "clue": "Absent from every memorial in the family, structurally and not by oversight",
+   "type": "Cemetery-database survey (Tier 1 negative)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — memorials 94874689, 98570811, 6678371, 82330670; cemeteries 104054 and 94939",
+   "date": "2026-08-26",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "What was checked and what it showed. (1) Merrill's own memorial: a Parents group naming ONLY Pemlia, and a Spouse group. (2) His brother Harris Cook: Parents group, only Pemlia. (3) His brother Silas Jackson Cook: Parents group, only Pemlia, plus three spouses. (4) Pemlia's own memorial: it has Parents, Siblings and Children groups and NO SPOUSE GROUP AT ALL. (5) Greenbrier Cemetery, Iowa, where she is buried: one Cook, and it is her. (6) Hillcrest, Proctorsville: six Cooks, all of Merrill's own household or descent. This is consistent and structural — four separate memorials each record a mother and no father. Either he died early and far away, or the contributor who built this cluster never identified him. Find a Grave will not answer it; the next move is Québec parish registers for Brome County, or the 1851/1861 Canadian census for Brome.",
+   "dataQuirk": null,
+   "personRefs": [
+    "merrill-alonzo-cook",
+    "pemlia-shufelt-cook",
+    "harris-cook",
+    "silas-jackson-cook"
+   ],
+   "url": null
+  },
+  "S175": {
+   "num": 175,
+   "person": "Silas Cook of Brome — a LEAD on Merrill's father, not a finding",
+   "relatedPerson": "Merrill Alonzo Cook's possible grandfather",
+   "clue": "Two Shufelt siblings married two Cooks in one small township",
+   "type": "Naming-pattern and marriage-pattern inference (TIER 3 — suggestive only)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — memorials 120040567 (Silas Cook), 120040590 (Polly Allen), 114095579 (Polly Cook Shufelt)",
+   "date": "1771-1899",
+   "confidenceClass": "cp",
+   "confidence": "Possible",
+   "notes": "Silas Cook, 15 May 1771 – 5 Dec 1839, and his wife Polly Allen, 1781-1852, married 1799, are buried in Union Cemetery, Brome — the SAME yard as John and Jane Shufelt. Their daughter Polly Cook (1820-1899) married DAVID SHUFELT (1819-1911), who is Pemlia Shufelt's brother. So one Shufelt sibling married a Cook and another Shufelt sibling, Pemlia, also married a Cook. On top of that, Pemlia named a son SILAS JACKSON COOK. Two Shufelts marrying two Cooks in one township, plus the given name Silas carried into the next generation, is a reasonable basis for suspecting Merrill's father was a son of this Silas Cook. IT IS NOT EVIDENCE. Against it: Silas Cook's memorial lists only THREE children, all daughters — Achsah Allen Cutting (1810), Lucy Townsend (1817) and Polly Shufelt (1820) — and no son at all. This project has twice had to retract a same-name identification, so this is filed as a direction to search, not a link to draw. Test it in the Brome County census and parish registers before anyone attaches it to the tree.",
+   "dataQuirk": "A naming coincidence in a small community. Explicitly NOT attached to the tree.",
+   "personRefs": [
+    "silas-cook",
+    "polly-allen-cook",
+    "polly-cook-shufelt",
+    "david-shufelt",
+    "merrill-alonzo-cook",
+    "silas-jackson-cook"
+   ],
+   "url": "https://www.findagrave.com/memorial/120040567/silas-cook"
+  },
+  "S176": {
+   "num": 176,
+   "person": "William Shufelt and Catherine Church",
+   "relatedPerson": "John Shufelt's parents — one generation further back",
+   "clue": "A single unsourced line in a memorial bio",
+   "type": "Contributor bio note (TIER 3)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — memorial 114094903, biography field",
+   "date": "c.1760s",
+   "confidenceClass": "cp",
+   "confidence": "Possible",
+   "notes": "John Shufelt's memorial bio reads, in full: 'Son of William Shufelt & Catherine Church.' No dates, no linked memorials, no record cited, and no separate memorial for either of them was found. CHURCH is a new surname. Recorded because it names a generation nothing else reaches, and held at Possible because an unsourced bio line is exactly the kind of evidence this project has been burned by before.",
+   "dataQuirk": null,
+   "personRefs": [
+    "william-shufelt",
+    "catherine-church",
+    "john-shufelt"
+   ],
+   "url": "https://www.findagrave.com/memorial/114094903/john-shufelt"
+  },
+  "S177": {
+   "num": 177,
+   "person": "Hillcrest Cemetery, Proctorsville — the full sweep",
+   "relatedPerson": "The whole Cavendish branch",
+   "clue": "27 Spauldings, 6 Cooks, 2 Putnams, 2 Skerrys, 2 Brittains — and NOT ONE Shufelt",
+   "type": "Cemetery-database survey (Tier 1/2)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — Hillcrest Cemetery, Proctorsville (Cavendish), Windsor County VT, cemetery 104054",
+   "date": "2026-08-26",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Every relevant surname was swept, not only the names already known. SPAULDING: 27 memorials, the earliest being John Spaulding II (18 Feb 1784 – 2 May 1858) and Dolly Spear Spaulding (1785-1872), then Jesse Center Spaulding (1814-1879, veteran) and Sarah A Shedd Spaulding (1821-1900) — a Cavendish Spaulding presence running from the 1780s settlement right through, consistent with the patriot William Spalding dying there in 1805 (S158). NOTE John Spaulding II is b.1784 and is NOT our John Spaulding (1760-1859); the relationship is untested. COOK: 6, all Merrill's household and descent, including a duplicate pair of memorials for Daisy Howard Cook. PUTNAM: only 2, Asa Wentworth Putnam (1844-1891) and Mary F Tripp Putnam (1844-1895) — neither is close enough in date to be Amantha's parents, so the cemetery does not solve her. SKERRY: exactly 2, Clarence and Marian. BRITTAIN: 2, Adelaide and Clifford. SHUFELT: ZERO — that family stayed in Québec and Iowa.",
+   "dataQuirk": null,
+   "personRefs": [
+    "marion-anna-cook-skerry",
+    "clarence-edmund-skerry",
+    "merrill-alonzo-cook",
+    "addie-spaulding-cook",
+    "amantha-putnam-spaulding",
+    "adelaide-cook-brittain"
+   ],
+   "url": "https://www.findagrave.com/cemetery/104054/memorial-search?lastname=Spaulding"
   }
  },
  "businesses": {
@@ -10452,6 +11536,36 @@
     "marion-anna-cook-skerry"
    ],
    "summary": "The task was to find where the Skerrys were before Chicago in 1877. The answer appears to be Nova Scotia — which is awkward, because this project retracted a Nova Scotia identification only yesterday. So this is set out carefully.\n\nPAULINE'S MAIDEN NAME IS ROCKWELL. That was the standing open question on her and it is answered: both of Clarence's Nova Scotia birth registrations name her, and her gravestone reads Pauline L Rockwell Skerry.\n\nDAVID AND PAULINE ARE FOUND, ON ONE STONE. David T. Skerry, born about 1837 and died 30 September 1909 at Billtown, Kings County; Pauline L. Rockwell, born 1837 in Kings County, died earlier in 1909. Lakeview Cemetery, Billtown, Section 1 Stone 40. His death register entry was read from the scan: farmer, widowed, Baptist, born at Liverpool — and the return was made by his son AUBRY E. SKERRY.\n\nTHE FAMILY. Aubrey Eaton (b.1867 Billtown, d.1936 Lakeville), Frederick Leander (b.1869, died 1870 as an infant), and Clarence Edmund (b.1872 Lakeville). Two new siblings for a man who had none. David was born on the south shore — Liverpool per the death record, Chester per the stone — where the older Skerry cluster sits at Liverpool, New Ross and Chester. They were BAPTIST, which quietly retires the Irish-Catholic framing the old lore carried.\n\nAND THEY WERE ALREADY CROSSING TO THE STATES. David's own 1872 registration of Clarence's birth records that he and Paulina were married at BOSTON, MASSACHUSETTS on 22 September 1866. He gave his trade as CARPENTER. A Nova Scotian carpenter with a Boston marriage, in the decade when Chicago was rebuilding after the 1871 fire and hiring every tradesman who could get there — that removes the main objection to this family having been in Chicago in 1877.\n\nNOW THE HARD PART. The child was registered TWICE, once by each parent, and the two entries disagree. The father's says 27 September 1872 and calls him a carpenter married at Boston in 1866. The mother's, which she signed herself, says 21 SEPTEMBER 1872 and calls him a farmer married in 1867. Our Clarence Edmond Skerry's birthday, on his grave and in the Vermont records behind it, is 21 SEPTEMBER.\n\nSo: same rare surname, same given names, same parents' names, same birth day and month. The 1877 Chicago birth that was used to rule this man out comes, by the memorial's own admission, from 'VT death record, VT marriage record, wife's obit' — three Vermont documents of 1919 or later, none of them a birth record, all reporting a birth at second hand across forty years. A man understating his age by five years on marrying a woman eighteen years younger is not exotic.\n\nS127 has therefore been moved from Disproven back to PROBABLE, and S148 from Confirmed to Probable on the birth details only — its burial, death and marriage facts are untouched. Neither has been promoted to Confirmed and the identification is NOT being declared. The year and the country of birth genuinely conflict and nothing here explains that away.\n\nWhat would settle it, cheaply: the 1881 Canadian census for Lakeville — a Clarence aged 8 in that household kills the Chicago birth outright. Failing that, the 1880 US census for Chicago, or the Vermont death record read rather than summarised.\n\nIllinois itself was searched and is empty: nine Skerry graves in the entire state, none of them David or Pauline. Worldwide there are five David Skerrys and three Paulines, and the only married pair among them is the couple at Billtown."
+  },
+  "58": {
+   "number": 58,
+   "date": "2026-08-26",
+   "title": "Hillcrest walked end to end: the Shufelts go back two more generations into Québec, and Merrill's father is properly missing",
+   "sourceRefs": [
+    "S169",
+    "S170",
+    "S171",
+    "S172",
+    "S173",
+    "S174",
+    "S175",
+    "S176",
+    "S177"
+   ],
+   "personRefs": [
+    "merrill-alonzo-cook",
+    "pemlia-shufelt-cook",
+    "john-shufelt",
+    "jane-salls-shufelt",
+    "adelaide-cook-brittain",
+    "clifford-brittain",
+    "charles-elliot-spaulding",
+    "amantha-putnam-spaulding",
+    "silas-cook",
+    "polly-cook-shufelt",
+    "marion-anna-cook-skerry"
+   ],
+   "summary": "The whole plot was walked rather than the names already known, and the sweep itself is a finding: 27 Spauldings at Hillcrest, 6 Cooks, 2 Putnams, 2 Skerrys, 2 Brittains and NOT ONE SHUFELT.\n\nTHE SHUFELTS GO BACK TWO MORE GENERATIONS, AND THEY ARE QUÉBÉCOIS. Pemlia Shufelt Cook's parents are JOHN SHUFELT (1 Nov 1788 – 24 Aug 1858) and JANE SALLS (1 May 1791 – 2 Aug 1876), married 1815, both buried in Union Cemetery at BROME, in the Eastern Townships. That is the same township as Iron Hill and West Brome, where Merrill Alonzo Cook was born in 1855. The Canadian thread in this family is Québec on the Cook side and Québec on the Shufelt side, and Nova Scotia has nothing to do with any of it. SALLS is a new surname, and John's memorial bio adds one more line — 'Son of William Shufelt & Catherine Church' — which brings in CHURCH, and is carried at Possible because it is an unsourced bio note.\n\nPEMLIA DIED IN IOWA. Born in Québec in 1815, she died at Green Brier, Greene County, Iowa in 1899, aged 83. Her parents and siblings stayed in Brome; her son Merrill went to Vermont; she went west. This family came apart across a continent in one generation.\n\nMERRILL'S FATHER IS MISSING, AND THAT IS NOW A FINDING RATHER THAN A GAP. Four separate memorials — Merrill's, his brother Harris's, his brother Silas Jackson's and Pemlia's own — each record a mother and NO FATHER. Pemlia's memorial has Parents, Siblings and Children groups and no Spouse group at all. She is the only Cook buried in Greenbrier Cemetery. This is consistent across every record, so Find a Grave is not going to answer it; Québec parish registers or the 1851/1861 census for Brome County are the next move.\n\nThere is one lead, and it is being filed as a lead. Silas Cook (1771-1839) and Polly Allen lie in the same Brome churchyard as the Shufelts, and their daughter Polly Cook married DAVID SHUFELT — Pemlia's brother. So two Shufelt siblings married two Cooks in one small township, and Pemlia named a son SILAS JACKSON COOK. That is suggestive of Merrill's father being a son of this Silas. It is not evidence, and Silas's memorial lists only three children, all daughters. Given this project has twice had to retract a same-name match, it goes in as a direction to search and is NOT attached to the tree.\n\nSIDEWAYS, THE TREE GOT MUCH WIDER. Five new siblings for Addie Spaulding Cook (Ida, who died at three; Alice Jenny; Frank Charles; Lillian; Gertrude Ina). Six for Merrill Cook (Harris; Silas Jackson; Polly Jane and Fannie Maria, almost certainly twins; Candace Lucy, born the same year as Merrill and very likely HIS twin; and David S.). Five for Pemlia.\n\nAnd Batch A's loose end is tied off: ADELAIDE SPAULDING COOK BRITTAIN was born 31 May 1893 and died 1 July 1996 — AGED 103 — married to Clifford Samuel Brittain, both at Hillcrest. She outlived her sister Marion by eighteen years.\n\nTwo things were looked for and not found, which is worth saying plainly. Amantha Putnam's parents are absent from Find a Grave as well as from both DAR applications — two independent sources silent on the same question — and the only Putnams at Hillcrest are a couple born in 1844, far too late. And Charles Elliot Spaulding's memorial carries no parents either, so the link up to Nathaniel Spaulding and Anna Swift still rests on the DAR record alone."
   }
  }
 }
