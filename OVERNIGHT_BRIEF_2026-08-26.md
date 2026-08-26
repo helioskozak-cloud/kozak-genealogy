@@ -325,3 +325,93 @@ Cheap and free, and would show a David Skerry in Chicago or not. Good next move.
   parents, occupation, marriage date and place, and the informant's name.
 - `ilsos.gov` (Illinois SOS — statewide death and marriage indexes) **times out
   at the network level**, like `1950census.archives.gov`. Add to blocked.
+
+### Batch C — 2026-08-26 — IN PROGRESS — checkpoint 1
+Starting S169 / Part 58. Hillcrest 104054 swept: Cook 6, Spaulding 27, Putnam 2,
+Skerry 2, Brittain 2, **Shufelt 0**.
+
+Found so far (all Find a Grave, Tier 2):
+- **Batch A handoff closed:** Adelaide Spaulding "Addie" Cook Brittain
+  **b. 31 May 1893, d. 1 Jul 1996 — aged 103**; husband **Clifford Samuel
+  Brittain (1884-1969)**. Both at Hillcrest.
+- **NEW GENERATION, Shufelt:** Pemlia's parents are **John Shufelt (1788-1858)**
+  and **Jane Salls Shufelt (1791-1876)**, m. 1815. **SALLS** is a new surname.
+  Pemlia's siblings: Candace Boright (1817-1914), David (1819-1911), John Daniel
+  (1829-1875), Lana Ann Bull (1834-1913), Harriet O Willis McCoy (1836-1922).
+- **Addie's five siblings** (Charles Elliot + Amantha's other children): Ida J
+  (1860-1863, died at 3), Alice Jenny Magwire (1866-1951), Frank Charles
+  (1869-1925), Lillian M (1875-1947), Gertrude Ina Jewell (1878-1967).
+- **Merrill's siblings** (Pemlia's children): Harris Cook (1838-1928), Silas
+  Jackson Cook (1840-1919), Polly Jane Newton (1849-1947), Fannie Maria Newton
+  (1849-1922), Candace Lucy Cook Cook (1855-1950), David S Cook (d.1930).
+
+**Still missing: MERRILL'S FATHER.** Confirmed structurally, not just by
+omission — Pemlia's memorial has Parents, Siblings and Children groups and **no
+Spouse group at all**. Trying his siblings' memorials next.
+
+Also note: **Charles Elliot Spaulding and Amantha Putnam have NO parents on Find
+a Grave.** Batch A got his from DAR (Nathaniel + Anna Swift); Find a Grave does
+not contradict it, it is simply silent. **Amantha's Putnam parentage is open on
+both sources.**
+
+#### Tooling — Find a Grave family links
+`fgq.py`'s `#family-members` selector returns nothing; the section is found by
+matching a heading against /family|parent|sibling|spouse|child/ and taking
+`h.closest('section,div')`. **Names and dates are on SEPARATE lines** of the
+section's innerText, and the group labels (Parents/Spouse/Siblings/Children) are
+inline — so you must pair each name line with the following date line and track
+the last label seen, or you will merge parents, siblings and children into one
+undifferentiated list. Working script: `scratchpad/fgfam3.py`. Scroll the page
+(4 x mouse.wheel) before reading — the section lazy-loads.
+
+### Batch C — 2026-08-26 — **DONE** — pushed `4e60ce7`
+**177 sources · 61 parts · 163 people · zero dangling refs.** S169–S177, Part 58.
+
+**Established.** Pemlia Shufelt Cook's parents are **John Shufelt (1788-1858)**
+and **Jane Salls (1791-1876)**, m.1815, Union Cemetery, **Brome, Québec** — the
+same township Merrill was born in. New surnames **SALLS**, and **CHURCH** via
+John's bio line ("Son of William Shufelt & Catherine Church", Possible only).
+**Pemlia died in Greene County, IOWA**, 1899. Batch A's handoff closed:
+**Adelaide Cook Brittain b. 31 May 1893, d. 1 Jul 1996, aged 103**, m. Clifford
+Samuel Brittain. Sixteen new collateral relatives: 5 siblings for Addie, 6 for
+Merrill (Candace Lucy b.1855 likely his twin), 5 for Pemlia.
+
+**Merrill's father: NOT FOUND, and now a documented negative (S174).** Four
+memorials each name a mother and no father; Pemlia's has no Spouse group at all;
+she is the only Cook at Greenbrier. Find a Grave cannot answer it.
+
+**Amantha Putnam's parents: NOT FOUND**, and now silent on *two* independent
+sources — both DAR applications and Find a Grave. The only Hillcrest Putnams
+were born 1844, far too late to be hers.
+
+#### Handoffs
+**C → whoever takes Québec.** Both remaining Cook questions now point at the
+same place: **Brome County, Québec — parish registers and the 1851/1861
+censuses.** That would settle Merrill's father, test the Silas Cook lead (S175),
+and probably reach the Shufelt generation above John. No free route to Québec
+records has been tried yet in this project; `bac-lac.gc.ca` is 403 but the
+**Drouin/BAnQ** collections and `bibliotheque.banq.qc.ca` have not been tested.
+**Do NOT attach Silas Cook to the tree without a record** — S175 is a naming
+coincidence in a small township, deliberately left unlinked.
+
+**C → Amantha Putnam.** Needs a different *kind* of source, not another cemetery
+sweep: Springfield VT town vital records, or the published *Putnam Leaflets* /
+Putnam family genealogies, which are old enough to be free on the Internet
+Archive. Worth one look given how well vol.14 of MA Soldiers and Sailors paid
+off in Batch A.
+
+**C → site.** `John Spaulding II (1784-1858)` and `Dolly Spear Spaulding` are at
+Hillcrest and are NOT in the tree. Our John Spaulding is b.1760; the 1784 man is
+probably his son, i.e. Nathaniel's brother — **untested, not recorded as kin.**
+
+#### Tooling — Find a Grave family links (this cost 20 minutes, do not repeat it)
+- `#family-members` does not exist. Find the section by matching a heading
+  against `/family|parent|sibling|spouse|child/` and taking `h.closest('section,div')`.
+- **Names and dates are on SEPARATE lines** of that section's `innerText`, and
+  the group labels are inline. Pair each name line with the FOLLOWING date line
+  and track the last label seen — otherwise Parents, Siblings and Children merge
+  into one undifferentiated list and you will attach the wrong relationship.
+  That failure mode already happened once in this project.
+- Scroll before reading (4 × `mouse.wheel`); the section lazy-loads.
+- Working script: **`scratchpad/fgfam3.py`** (groups) alongside `fgq.py`
+  (details/lists) and `cemid.py` (cemetery ids from a memorial).
