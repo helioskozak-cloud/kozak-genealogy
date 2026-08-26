@@ -1,6 +1,6 @@
 {
  "meta": {
-  "schemaVersion": 10,
+  "schemaVersion": 11,
   "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined Overview-tab Parts 43-22. Night 3 finished prose-mining Parts 21 down through 1 (including two un-numbered pre-numbering sessions and a duplicate 'Part 2' pedigree-tables box, recorded under disambiguating keys '1-addendum-jul1', '2-pinned-pedigree', '2-addendum-jul2' rather than silently merged or dropped), added 10 new persons named only in prose (Malone NY McGivney generations: Bridget Lynch, Nicholas McGivney b.~1820, Catherine McCabe, Patrick Gibny of Kilnaleck; Dooley-branch Relihan siblings: Sen. John J. Relihan Jr., Edward A. Relihan, Ann Relihan Lang, Margaret Relihan Mellott; plus Rose McBride and Sean Relihan as open-identity/probable-descendant records), and folded the Missing Links tab's 17 cards and the Search Queue tab's ~24 groups into person-linked openQuestions[] arrays (id/title/status/priority/origin/summary/exactSearches/sourceRefs) instead of leaving them as separate unstructured HTML-only content. All 43 Parts (1-43) now have a parts{} entry with sourceRefs/personRefs/summary. All 123 sources (S01-S123) are referenced somewhere in the file (as a sources{} entry plus at least one cross-reference in parts{}, a person's facts, or an openQuestions[] entry). index.html's live rendering is untouched. || 2026-08-25: added the Appel/Skerry/Cook/Spalding in-law line — Parts 44-51, sources S124-S143, and 15 person records (Elizabeth Anna Appel and her ancestry back to Clarence Edmund Skerry of Lakeville, Kings County, Nova Scotia). This research had previously been written ONLY into index.html as hand-authored session blocks, so it never reached this file — which is the source the Sources tab, the person records and the part index all render from. Derived is not source. || 2026-08-25 (b): relationships made EXPLICIT. Every person now carries `parents` (ids) and `sameAs` (the same human in another tree). They were previously implied by ahnentafel position, which had James Relihan -- annotated 'Maurice Relihan's father' -- rendering as Ann Duley's father. Also upserted the branch persons that existed only in index.html's inline BRANCHES copy and had never reached this file (grant-4, 8, 9 among them).",
   "personRecordCount": 68,
   "crossRefCount": 4,
@@ -5013,12 +5013,20 @@
      "Hillcrest Cemetery, Proctorsville (Cavendish), Vermont"
     ],
     [
-     "CORRECTION",
-     "He is NOT the Clarence Edmund Skerry born 1872 at Lakeville, Kings County, Nova Scotia (S127). Different man, five years apart, different continent of birth. Born in September 1877 he falls inside the 1877-1908 gap in Nova Scotia birth registration -- which is exactly the reason S127 was never upgraded past Probable."
-    ],
-    [
      "Ages now ordinary",
      "Born 1877 he was 44 at Jane's birth and 49 at Susan's, not 49 and 54."
+    ],
+    [
+     "THE 1872 QUESTION IS REOPENED",
+     "Batch B found two contemporaneous Nova Scotia birth registrations for a Clarence Edmund Skerry of Lakeville, son of David Skerry and Paulina Rockwell (S163, S164), and the mother's version gives the birthday as 21 SEPTEMBER — the same day and month as ours. This project previously ruled that man out (S127, marked Disproven). On the evidence now in hand that ruling looks wrong. See S164 and Part 57; the identification is held at PROBABLE, not Confirmed."
+    ],
+    [
+     "Where '1877, Chicago' actually comes from",
+     "His memorial's own source note reads 'VT death record, VT marriage record, wife's obit' (S148). All three are Vermont documents from 1919 or later, reporting a birth from decades earlier at second hand. None is a birth record."
+    ],
+    [
+     "What would settle it",
+     "The 1881 Canadian census for Lakeville, Kings County — if a Clarence aged 8 is in that household the Chicago birth fails. Or the 1880 US census for Chicago. Or the Vermont death record itself, read rather than summarised."
     ]
    ],
    "confirm": null,
@@ -5029,7 +5037,8 @@
     47,
     50,
     51,
-    53
+    53,
+    57
    ],
    "parents": [
     "david-skerry",
@@ -5635,26 +5644,47 @@
    "sourceTree": "appel",
    "sourceKey": null,
    "kind": "prose",
-   "name": "David Skerry",
+   "name": "David T. Skerry",
    "branch": "other",
    "relation": "Clarence Edmond Skerry's father",
-   "note": "named on his son's memorial; no dates yet",
+   "note": "b.1837 Liverpool or Chester NS · d.Sep 30 1909 Billtown NS · carpenter, then farmer",
    "prob": true,
    "facts": [
     [
-     "Known from",
-     "Clarence Edmond Skerry's Find a Grave memorial: 'the son of David and Pauline Skerry' (S148)"
+     "Died",
+     "30 September 1909 at Billtown, Kings County, Nova Scotia, aged 72 — from the death register itself (S165). Buried Lakeview Cemetery, Billtown, Sec 1 Stone 40, with Pauline."
     ],
     [
-     "Open",
-     "Where the Skerrys were before Chicago in 1877 is now the whole question. Nothing yet places them in Nova Scotia, Ireland or anywhere else."
+     "Born",
+     "about 1837. The death register says LIVERPOOL, Queens County; the gravestone record says Chester, Lunenburg County, 19 December 1837 (S165, S166). Both are the Nova Scotia south shore and both have Skerrys; the conflict is unresolved."
+    ],
+    [
+     "Trade",
+     "Recorded as a CARPENTER in 1872 and a FARMER in 1873 and at his death (S163, S164, S165). Carpentry is a trade that travels."
+    ],
+    [
+     "MARRIED IN BOSTON",
+     "He and Paulina Rockwell married 22 September 1866 at BOSTON, MASSACHUSETTS according to his own 1872 registration of Clarence's birth (S163). Her registration gives 26 September 1867 and no place (S164). Either way this couple was crossing to the United States in the 1860s."
+    ],
+    [
+     "Religion",
+     "Baptist (S165) — not Catholic, which quietly closes the Irish framing the old family lore assumed."
+    ],
+    [
+     "Children",
+     "Aubrey Eaton (1867), Frederick Leander (1869-1870), Clarence Edmund (1872). Whether more were born after 1877 is unknown: Nova Scotia birth registration has a hole from 1878 to 1907 (S167)."
+    ],
+    [
+     "Widowed",
+     "Pauline died before 30 September 1909; he was recorded widowed at his own death."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
    "partRefs": [
-    53
+    53,
+    57
    ],
    "parents": [],
    "sameAs": null
@@ -5664,26 +5694,39 @@
    "sourceTree": "appel",
    "sourceKey": null,
    "kind": "prose",
-   "name": "Pauline Skerry",
+   "name": "Pauline L. (Rockwell) Skerry",
    "branch": "other",
    "relation": "Clarence Edmond Skerry's mother",
-   "note": "named on her son's memorial; maiden name unknown",
+   "note": "b.1837 Kings County NS · d.1909 · MAIDEN NAME FOUND: Rockwell",
    "prob": true,
    "facts": [
     [
-     "Known from",
-     "Clarence Edmond Skerry's memorial (S148)"
+     "MAIDEN NAME: ROCKWELL",
+     "The open question on her is answered. Both of Clarence's birth registrations name her ROCKWELL — 'Paulina Rockwell' in her husband's, 'Pelina Rockwell' in her own (S163, S164) — and her stone reads Pauline L Rockwell Skerry (S166)."
+    ],
+    [
+     "Born",
+     "1837, Kings County, Nova Scotia (S166). Rockwell is a Kings County name; she was local and David moved to her county."
+    ],
+    [
+     "Died",
+     "1909, before 30 September, since David was recorded as widowed at his death (S165, S166). Buried with him at Lakeview, Billtown, Sec 1 Stone 40."
+    ],
+    [
+     "She registered Clarence herself",
+     "The second registration was made by 'Pelina Skerry, Lakeville' — her own signature on the record that gives the 21 September birthday (S164)."
     ],
     [
      "Open",
-     "Maiden name unknown. She is the next thing worth finding on this line."
+     "No Nova Scotia death registration for her has been found, although 1908-1974 is covered. Her Rockwell parents are not established."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
    "partRefs": [
-    53
+    53,
+    57
    ],
    "parents": [],
    "sameAs": null
@@ -6255,6 +6298,82 @@
    "parents": [
     "merrill-alonzo-cook",
     "addie-spaulding-cook"
+   ],
+   "sameAs": null
+  },
+  "aubrey-eaton-skerry": {
+   "id": "aubrey-eaton-skerry",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Aubrey Eaton Skerry",
+   "branch": "other",
+   "relation": "Clarence's ELDER BROTHER — the sibling who stayed in Nova Scotia",
+   "note": "b.1867 Billtown NS · d.Oct 3 1936 Lakeville NS",
+   "prob": true,
+   "facts": [
+    [
+     "Born",
+     "1867, Billtown, Kings County, Nova Scotia — registered as 'Aubray E Skerry' (S167)"
+    ],
+    [
+     "Died",
+     "3 October 1936, Lakeville, Kings County, Nova Scotia (S167)"
+    ],
+    [
+     "He stayed",
+     "He made the return on his father's death in September 1909 (S165) and died at Lakeville himself in 1936. Where his brother went, he did not."
+    ],
+    [
+     "A coincidence worth noting, not reading into",
+     "He died in October 1936, eight months after Clarence Edmond Skerry died in Vermont in February 1936."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    57
+   ],
+   "parents": [
+    "david-skerry",
+    "pauline-skerry"
+   ],
+   "sameAs": null
+  },
+  "frederick-leander-skerry": {
+   "id": "frederick-leander-skerry",
+   "sourceTree": "appel",
+   "sourceKey": null,
+   "kind": "prose",
+   "name": "Frederick Leander Skerry",
+   "branch": "other",
+   "relation": "Clarence's brother, died in infancy",
+   "note": "b.1869 Lakeville NS · d.1870 Billtown NS",
+   "prob": true,
+   "facts": [
+    [
+     "Born",
+     "1869, Lakeville, Kings County, Nova Scotia (S167)"
+    ],
+    [
+     "Died",
+     "1870, Billtown, Kings County — registered as 'Fred Leander Skerry' (S167)"
+    ],
+    [
+     "About a year old",
+     "Born 1869, died 1870. The family lost him between Aubrey and Clarence."
+    ]
+   ],
+   "confirm": null,
+   "crossRef": null,
+   "childGroupInfo": null,
+   "partRefs": [
+    57
+   ],
+   "parents": [
+    "david-skerry",
+    "pauline-skerry"
    ],
    "sameAs": null
   }
@@ -8487,10 +8606,10 @@
    "type": "Birth registration",
    "citation": "Nova Scotia Archives, Historical Vital Statistics — reg. book 1816 p.170 no.449",
    "date": "1872",
-   "confidenceClass": "ci",
-   "confidence": "Disproven",
-   "notes": "SUPERSEDED by S148. The Clarence Edmond Skerry who married Marion Cook was born 21 Sep 1877 in CHICAGO, Illinois, to David and Pauline Skerry. The 1872 Lakeville, Kings County NS birth is a different man. Held at Probable throughout precisely because of the 1877-1908 gap in Nova Scotia registration — the gap turned out to be irrelevant: he was never Nova Scotian.",
-   "dataQuirk": null,
+   "confidenceClass": "cp",
+   "confidence": "Probable",
+   "notes": "REOPENED 2026-08-25 by Batch B. This source was marked Disproven when S148 produced a birth of 21 Sep 1877 at Chicago for the man who married Marion Cook. That retraction now looks like an over-correction. The register page behind this source has since been read directly (S163), and a SECOND registration of the same child was found (S164) in which the mother gives the birthday as 21 SEPTEMBER — the same day and month as our Clarence. Against a rare surname, matching parents' names David and Pauline, and matching given names, a coincidence of birthday as well is hard to credit. The 1877/Chicago data rests entirely on Vermont records made 40+ years after the fact (S148). Held at PROBABLE. Not restored to Confirmed, and the year and birthplace conflict is real and unexplained.",
+   "dataQuirk": "Marked Disproven 2026-08-24, reopened 2026-08-25. Read S164 and Part 57 before relying on either state.",
    "personRefs": [
     "clarence-edmund-skerry"
    ],
@@ -8840,10 +8959,10 @@
    "type": "Cemetery memorial (cites VT death record, VT marriage record and wife's obituary)",
    "citation": "Find a Grave (reachable only through a real browser; every plain fetch returns HTTP 403) memorial 237043089, Hillcrest Cemetery, Proctorsville VT",
    "date": "1877-1936",
-   "confidenceClass": "cc",
-   "confidence": "Confirmed",
-   "notes": "b.21 Sep 1877 Chicago, Cook Co. Illinois; d.2 Feb 1936 Canaan, Essex Co. Vermont, aged 58; son of David and Pauline Skerry; m. Marion C. Cook 15 Dec 1919 Cavendish VT; survived by his wife and daughters Susan Appel, Prudence Mitchell and Jane Shumway of Brattleboro. DECISIVE: this rules out the 1872 Lakeville, Nova Scotia birth (S127) as the same man.",
-   "dataQuirk": null,
+   "confidenceClass": "cp",
+   "confidence": "Probable",
+   "notes": "b.21 Sep 1877 Chicago, Cook Co. Illinois; d.2 Feb 1936 Canaan, Essex Co. Vermont, aged 58; son of David and Pauline Skerry; m. Marion C. Cook 15 Dec 1919 Cavendish VT; survived by his wife and daughters Susan Appel, Prudence Mitchell and Jane Shumway of Brattleboro. The memorial's own source note reads 'VT death record, VT marriage record, wife's obit' — so the 1877/Chicago birth is reported at second hand, decades later, and is NOT from a birth record. This was once treated as decisive against the 1872 Lakeville NS birth (S127); Batch B reopened that (S163, S164) and the question is now genuinely open.",
+   "dataQuirk": "The burial, death and marriage details are solid; the BIRTH date and place are second-hand and now disputed.",
    "personRefs": [
     "clarence-edmund-skerry",
     "david-skerry",
@@ -9130,6 +9249,121 @@
     "marion-anna-cook-skerry"
    ],
    "url": "https://archive.org/details/massachusettssol14mass"
+  },
+  "S163": {
+   "num": 163,
+   "person": "Clarence Edmund Skerry — birth registration, FATHER's version",
+   "relatedPerson": "David T. Skerry and Paulina Rockwell",
+   "clue": "The parents married in BOSTON in 1866 — this family was already crossing to the US",
+   "type": "Civil birth registration, read from the original register scan (TIER 1)",
+   "citation": "Nova Scotia Archives, Historical Vital Statistics — free; register scan read directly — births book 1816, p.170, no.449 (image 1816-00170.jpg)",
+   "date": "1872",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Read directly from the scanned page, entry no. 449: 'Clarence Edmund Skerry, M, 27 Sept 1872, Lakeville. Father: David T. Skerry, CARPENTER, Lakeville. Mother: Paulina Rockwell. When and where married: 22 Sept 1866, BOSTON, MASS. Informant: D. T. Skerry, Lakeville. Registered Cold Brook, Henry Porter.' Two things matter beyond the names. (1) The parents were married in BOSTON — this Nova Scotian family was already moving to and from the United States a decade before Chicago. (2) David was a CARPENTER, a trade that followed work, and Chicago in the mid-1870s was rebuilding after the 1871 fire and pulling in Maritime tradesmen. Neither fact proves anything on its own; together they remove the main objection to this family having been in Chicago in 1877.",
+   "dataQuirk": null,
+   "personRefs": [
+    "david-skerry",
+    "pauline-skerry",
+    "clarence-edmund-skerry"
+   ],
+   "url": "https://archives.novascotia.ca/vital-statistics/birth/?ID=70638"
+  },
+  "S164": {
+   "num": 164,
+   "person": "Clarence E Skerry — the SECOND registration, MOTHER's version",
+   "relatedPerson": "The identity question: is this our Clarence?",
+   "clue": "The mother registered him as born 21 SEPTEMBER — the exact day and month on our Clarence's grave",
+   "type": "Duplicate civil birth registration, read from the original register scan (TIER 1)",
+   "citation": "Nova Scotia Archives, Historical Vital Statistics — free; register scan read directly — births book 1816, p.181, no.139, registered 1873 (image 1816-00181.jpg)",
+   "date": "1872-1873",
+   "confidenceClass": "cp",
+   "confidence": "Probable",
+   "notes": "The same child was registered TWICE, once by each parent, and the two entries disagree. Entry no.139, in the 1873 Kings County register: 'Clarence E Skerry, M, 21 Sept 1872, Lakeville. Father: David Skerry, FARMER, Lakeville. Mother: Pelina Rockwell. Married 26 Sept 1867. Informant: Pelina Skerry, Lakeville. Registered Buckley's, Thomas Buckley.' Against the father's entry (S163) it differs on the day (21st vs 27th), his occupation (farmer vs carpenter) and the marriage (26 Sep 1867 vs 22 Sep 1866 Boston). Duplicate registration by separate informants was ordinary and the disagreements are ordinary too. WHY IT MATTERS: our Clarence Edmond Skerry's birthday, as carried on his grave and in the Vermont records behind it, is 21 SEPTEMBER. The mother's registration gives 21 September. The day and month match exactly.",
+   "dataQuirk": "Two registrations of one birth, disagreeing on the day, the father's trade and the marriage date.",
+   "personRefs": [
+    "david-skerry",
+    "pauline-skerry",
+    "clarence-edmund-skerry"
+   ],
+   "url": "https://archives.novascotia.ca/vital-statistics/birth/?ID=70872"
+  },
+  "S165": {
+   "num": 165,
+   "person": "David T. Skerry — death registration 1909",
+   "relatedPerson": "Clarence's father",
+   "clue": "Born at LIVERPOOL, Nova Scotia; a farmer of Billtown; WIDOWED; the return made by his son Aubry",
+   "type": "Civil death registration, read from the original register scan (TIER 1)",
+   "citation": "Nova Scotia Archives, Historical Vital Statistics — free; register scan read directly — deaths book 12, p.54, no.352, Kings County (image 12-00054.jpg)",
+   "date": "1909",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Entry no.352: 'Skerry, David T. Male. Died Sept 30/09, age 72. Residence Billtown. Occupation Farmer. WIDOWED. Where born: LIVERPOOL. Cause: arterio-sclerosis, chronic bronchitis, 4 or 5 months. Baptist. White. Physician H. E. Kellam. Undertaker Coke Foote. Buried Lakeview, Billtown. Return made by AUBRY E. SKERRY, Sept 30, 1909.' Age 72 in September 1909 gives a birth around 1837, matching the stone. He was BAPTIST, not Catholic — which fits the Liverpool and New Ross Skerrys and rules out the Irish-Catholic framing the old lore assumed. His son Aubrey made the return, so Aubrey was in Kings County in 1909. NOTE A CONFLICT: this record says he was born at Liverpool (Queens County); Find a Grave says Chester (Lunenburg County). Both are the south shore, both have Skerrys in the index, and the question is not settled here.",
+   "dataQuirk": "Birthplace conflict: Liverpool on the death record vs Chester on the gravestone record.",
+   "personRefs": [
+    "david-skerry",
+    "pauline-skerry",
+    "aubrey-eaton-skerry"
+   ],
+   "url": "https://archives.novascotia.ca/vital-statistics/death/?ID=96795"
+  },
+  "S166": {
+   "num": 166,
+   "person": "David T. Skerry and Pauline L. Rockwell Skerry — one stone",
+   "relatedPerson": "Clarence's parents",
+   "clue": "Buried together, Lakeview Cemetery, Billtown, Kings County, Nova Scotia — Sec 1 Stone 40",
+   "type": "Cemetery transcription (Tier 2)",
+   "citation": "Find a Grave (browser-rendered; plain fetches return HTTP 403) — memorials 234233121 and 234233153",
+   "date": "1837-1909",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "David T Skerry, b. 19 Dec 1837 Chester, Lunenburg County, d. 30 Sep 1909 Billtown, Kings County. Pauline L Rockwell Skerry, b. 1837 Kings County, d. 1909. SAME PLOT, Sec 1 Stone 40, Lakeview Cemetery, Billtown. Neither memorial carries family links, a bio or a photograph of the inscription. Pauline died in 1909 too and before 30 September, since David was recorded as widowed at his own death — but there is NO Nova Scotia death registration for her in Kings County, which is odd given the 1908-1974 coverage and is worth someone's attention.",
+   "dataQuirk": null,
+   "personRefs": [
+    "david-skerry",
+    "pauline-skerry"
+   ],
+   "url": "https://www.findagrave.com/memorial/234233121/david-t-skerry"
+  },
+  "S167": {
+   "num": 167,
+   "person": "The Nova Scotia Skerry family, reconstructed",
+   "relatedPerson": "Clarence's siblings and the family's Nova Scotia base",
+   "clue": "Three children at Lakeville and Billtown, and a wider Skerry cluster at Liverpool, New Ross and Chester",
+   "type": "Civil registration index, exact-surname search (Tier 1)",
+   "citation": "Nova Scotia Archives, Historical Vital Statistics — free; register scan read directly — surname Skerry, exact, all counties and all record types",
+   "date": "1864-1974",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Children of David and Paulina at Lakeville/Billtown, Kings County: AUBRAY E, b. 1867 Billtown — who is the Aubrey Eaton Skerry who died at Lakeville 3 Oct 1936; FREDERICK LEANDER, b. 1869 Lakeville, DIED 1870 Billtown as an infant; and CLARENCE EDMUND, b. 1872 Lakeville (S163, S164). The wider Nova Scotia Skerrys sit in Queens and Lunenburg counties — Liverpool (Arthur H b.1865, James F d.1866, Arthur Higgins d.1867), New Ross (Henry Herbert and Esther Adelia 1864, Mary Ellen 1867, Frederick Leslie 1868, Ellen Mary 1870, William W 1872, Elizabeth Ann 1873, Charles Victor 1874) and Chester. David was born at Liverpool or Chester and moved north to Kings County. IMPORTANT COVERAGE LIMIT: births online cover 1864-1877 and 1908-1924; deaths 1864-1877, Halifax 1890-1908, and 1908-1974. There is a real hole from 1878 to 1907 for deaths outside Halifax, so 'no death record' for anyone in that window means nothing.",
+   "dataQuirk": "Births 1864-1877 + 1908-1924 only; deaths 1864-1877, Halifax 1890-1908, 1908-1974. The 1878-1907 gap is wide.",
+   "personRefs": [
+    "david-skerry",
+    "pauline-skerry",
+    "clarence-edmund-skerry",
+    "aubrey-eaton-skerry",
+    "frederick-leander-skerry"
+   ],
+   "url": "https://archives.novascotia.ca/vital-statistics/"
+  },
+  "S168": {
+   "num": 168,
+   "person": "Illinois searched for the Skerrys — nothing",
+   "relatedPerson": "David and Pauline Skerry in Chicago",
+   "clue": "Nine Skerry graves in the whole state and not one of them is David or Pauline",
+   "type": "Cemetery-database survey, statewide (Tier 1 negative)",
+   "citation": "Find a Grave (browser-rendered) — surname Skerry, Illinois; and worldwide for the given names",
+   "date": "2026-08-25",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "Every Skerry memorial in Illinois: William J. (1845-1895, Rosehill, Chicago); Emma (1859-1902, Mount Greenwood, Chicago); Patrick (1880-1909, St Vincent, La Salle); Arthur W (1890-1976) and Claire M (1893-1949), both Ottawa Avenue, LaSalle County; Rev James Daniel (1928-1988) and Fr Donald Paul (1935-2021), St Mary's, Northbrook; Carl F (1937-1998, Danville); Roland J (1963-1986, Hillside). NO David Skerry and NO Pauline Skerry anywhere in Illinois. Worldwide, only FIVE David Skerrys (Nova Scotia, England, PEI, and two in Australia) and THREE Pauline Skerrys (two Nova Scotia, one PEI) — and the only David and Pauline who are a married couple are the pair on one stone at Billtown. Worldwide there are only TWO Clarence Skerrys: ours at Proctorsville, and an unrelated C. Scott Skerry of Massachusetts. The 1872 Lakeville boy has NO Nova Scotia grave of his own. Absence of a grave is weak evidence — Find a Grave is a transcription project, not a register — but the family plainly did not stay in Illinois.",
+   "dataQuirk": null,
+   "personRefs": [
+    "david-skerry",
+    "pauline-skerry",
+    "clarence-edmund-skerry"
+   ],
+   "url": null
   }
  },
  "businesses": {
@@ -10196,6 +10430,28 @@
     "clarence-edmund-skerry"
    ],
    "summary": "The brief called the DAR the best value-per-effort item in the queue and it was. Marion C. (Cook) Skerry is in the database as MARION A COOK SKERRY, National #84679, admitted on ancestor A107735 — the Cavendish-chapter membership in the family story is real and documented.\n\nA107735 is WILLIAM SPALDING: born 11 September 1737 in Westford, Middlesex County, Massachusetts, a CORPORAL in the Massachusetts line under Capt. Asa Lawrance and Col. Jonathan Reed, died 28 June 1805 in CAVENDISH, VERMONT. Part 48 had already found a William Spaulding among the original 1780s settlers of Cavendish in the 1891 History of Windsor County and could not tell whether he was kin. He is the same man, and he is direct ancestry. That is two independent sources, found a week apart, closing on each other.\n\nHis service was then read in the published source itself, free on the Internet Archive (S162) — which upgrades him from a compiled DAR record to Tier 1 and says more than DAR carried over. He entered service 26 September 1777 and was discharged 9 November: 45 days, 'at the Northward', in a company raised in Littleton and Westford that 'marched to assist army under Gen. Gates'. Burgoyne surrendered at Saratoga on 17 October, inside that window. He was a 40-year-old militiaman who marched north with his neighbours during the Saratoga campaign and was home by November. The record says he marched to assist Gates; it does not say he fought, and much of the late-arriving militia did not.\n\nThe application record carries the full chain and it adds FOUR generations above Charles Elliot Spaulding, where the line previously stopped: Nathaniel Spaulding (1801-1879) and Anna Swift (1802-1880); John Spaulding (1760 Westford MA - 1859 Cavendish VT, aged 98) and his second wife Eunice Jones (d. 1813); and William with Esther Dutton (1738-1813), married 29 November 1759. SWIFT, JONES and DUTTON are three new surnames.\n\nAnd a person: the search turned up a SECOND member on the same patriot, ADELAIDE (SPAULDING) COOK BRITTAIN, National #360312, whose papers name Merrill Alonzo Cook and Addie Spaulding as her parents. She is Marion's sister, named for her mother, and she was not in this tree at all.\n\nHer application is also the better document. Marion's, filed around 1911, left every birth and death PLACE blank. Adelaide's, filed around 1946, fills them in — which is where the exact dates now attached to Charles Elliot Spaulding (b. 24 Jul 1833), Amantha Putnam (b. 9 Sep 1837 Springfield VT, d. 30 May 1926 Proctorsville), Addie's death place and Merrill's death (16 Jun 1945 Proctorsville) all come from. Two applications filed 35 years apart, each verified separately by DAR staff, agreeing date for date on five generations. They disagree on exactly one thing: whether Esther Dutton was William's first wife or his second.\n\nMerrill's birthplace is corroborated too — Adelaide's papers say 'West Broone Canada', which is West Brome, Québec, the next village to Iron Hill. The Canada in the family story is Québec, through Cook, and it is now attested twice.\n\nOne lead handed on rather than followed: every documented Skerry line in the DAR database is a SALEM, MASSACHUSETTS family — Felt, Ward, Chever, Thompson intermarriages, going back to the 1740s. Nothing connects it to David and Pauline Skerry of Chicago and nothing here claims it does. But with Nova Scotia disproven, an old Essex County family is a better hypothesis than anything else on the table, and Batch B should test it."
+  },
+  "57": {
+   "number": 57,
+   "date": "2026-08-25",
+   "title": "Nova Scotia comes back — with primary records this time, and a retraction that has to be reopened",
+   "sourceRefs": [
+    "S163",
+    "S164",
+    "S165",
+    "S166",
+    "S167",
+    "S168"
+   ],
+   "personRefs": [
+    "david-skerry",
+    "pauline-skerry",
+    "clarence-edmund-skerry",
+    "aubrey-eaton-skerry",
+    "frederick-leander-skerry",
+    "marion-anna-cook-skerry"
+   ],
+   "summary": "The task was to find where the Skerrys were before Chicago in 1877. The answer appears to be Nova Scotia — which is awkward, because this project retracted a Nova Scotia identification only yesterday. So this is set out carefully.\n\nPAULINE'S MAIDEN NAME IS ROCKWELL. That was the standing open question on her and it is answered: both of Clarence's Nova Scotia birth registrations name her, and her gravestone reads Pauline L Rockwell Skerry.\n\nDAVID AND PAULINE ARE FOUND, ON ONE STONE. David T. Skerry, born about 1837 and died 30 September 1909 at Billtown, Kings County; Pauline L. Rockwell, born 1837 in Kings County, died earlier in 1909. Lakeview Cemetery, Billtown, Section 1 Stone 40. His death register entry was read from the scan: farmer, widowed, Baptist, born at Liverpool — and the return was made by his son AUBRY E. SKERRY.\n\nTHE FAMILY. Aubrey Eaton (b.1867 Billtown, d.1936 Lakeville), Frederick Leander (b.1869, died 1870 as an infant), and Clarence Edmund (b.1872 Lakeville). Two new siblings for a man who had none. David was born on the south shore — Liverpool per the death record, Chester per the stone — where the older Skerry cluster sits at Liverpool, New Ross and Chester. They were BAPTIST, which quietly retires the Irish-Catholic framing the old lore carried.\n\nAND THEY WERE ALREADY CROSSING TO THE STATES. David's own 1872 registration of Clarence's birth records that he and Paulina were married at BOSTON, MASSACHUSETTS on 22 September 1866. He gave his trade as CARPENTER. A Nova Scotian carpenter with a Boston marriage, in the decade when Chicago was rebuilding after the 1871 fire and hiring every tradesman who could get there — that removes the main objection to this family having been in Chicago in 1877.\n\nNOW THE HARD PART. The child was registered TWICE, once by each parent, and the two entries disagree. The father's says 27 September 1872 and calls him a carpenter married at Boston in 1866. The mother's, which she signed herself, says 21 SEPTEMBER 1872 and calls him a farmer married in 1867. Our Clarence Edmond Skerry's birthday, on his grave and in the Vermont records behind it, is 21 SEPTEMBER.\n\nSo: same rare surname, same given names, same parents' names, same birth day and month. The 1877 Chicago birth that was used to rule this man out comes, by the memorial's own admission, from 'VT death record, VT marriage record, wife's obit' — three Vermont documents of 1919 or later, none of them a birth record, all reporting a birth at second hand across forty years. A man understating his age by five years on marrying a woman eighteen years younger is not exotic.\n\nS127 has therefore been moved from Disproven back to PROBABLE, and S148 from Confirmed to Probable on the birth details only — its burial, death and marriage facts are untouched. Neither has been promoted to Confirmed and the identification is NOT being declared. The year and the country of birth genuinely conflict and nothing here explains that away.\n\nWhat would settle it, cheaply: the 1881 Canadian census for Lakeville — a Clarence aged 8 in that household kills the Chicago birth outright. Failing that, the 1880 US census for Chicago, or the Vermont death record read rather than summarised.\n\nIllinois itself was searched and is empty: nine Skerry graves in the entire state, none of them David or Pauline. Worldwide there are five David Skerrys and three Paulines, and the only married pair among them is the couple at Billtown."
   }
  }
 }
