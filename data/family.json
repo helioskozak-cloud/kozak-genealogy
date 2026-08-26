@@ -5970,16 +5970,24 @@
    "name": "William Spalding",
    "branch": "other",
    "relation": "Revolutionary War patriot — Elizabeth Anna Appel's 5th-great-grandfather, and Collin Appel Kozak's 6th",
-   "note": "b.Sep 11 1737 Westford MA · d.Jun 28 1805 Cavendish VT · Corporal, Massachusetts",
+   "note": "b.Sep 11 1737 Westford MA · d.Jun 28 1805 Cavendish VT · Corporal — marched to Saratoga 1777",
    "prob": false,
    "facts": [
     [
-     "THE PATRIOT",
-     "DAR Ancestor #A107735. Corporal, MASSACHUSETTS line, under Capt. Asa Lawrance, Col. Jonathan Reed. Service proved from Massachusetts Soldiers and Sailors of the Revolutionary War, vol. 14, pp. 677-678 (S158)."
-    ],
-    [
      "Where he sits",
      "Elizabeth Anna Appel ← Susan Skerry Appel ← Marion Cook Skerry ← Addie Spaulding Cook ← Charles Elliot Spaulding ← Nathaniel ← John ← William. He is not Grant's own blood ancestor — he comes in through David Kozak's wife — but he is direct ancestry for their son."
+    ],
+    [
+     "THE PATRIOT",
+     "DAR Ancestor #A107735, Corporal, Massachusetts line (S158) — and the published service record has now been read directly (S162), which makes this Tier 1, not a compiled secondary."
+    ],
+    [
+     "HIS WAR, in the source's own words",
+     "Corporal in Capt. Asa Laurance's company of volunteers, Col. Jonathan Reed's regiment. Entered service 26 September 1777, discharged 9 November 1777 — 1 month 15 days, 'at the Northward, including travel home'. The company was raised in Littleton and Westford and 'marched to assist army under Gen. Gates'."
+    ],
+    [
+     "Which campaign that was",
+     "Saratoga. Burgoyne surrendered to Gates on 17 October 1777, inside his 45-day turnout. A 40-year-old Westford man who left home in late September to march north with his neighbours and was back by November. The record says he marched to assist Gates; it does not say he fought, and militia arriving late in that campaign often did not."
     ],
     [
      "Born",
@@ -9104,6 +9112,24 @@
     "clarence-edmund-skerry"
    ],
    "url": null
+  },
+  "S162": {
+   "num": 162,
+   "person": "William Spalding — his actual service record, in the published source",
+   "relatedPerson": "Marion Cook Skerry's DAR patriot (S158)",
+   "clue": "He marched north to reinforce Gates — the Saratoga campaign, autumn 1777",
+   "type": "Published primary compilation from the original muster and pay rolls (TIER 1)",
+   "citation": "Massachusetts Soldiers and Sailors of the Revolutionary War: A Compilation from the Archives (Boston: Wright & Potter, 1896-1908), vol. 14, pp. 677-678. Internet Archive identifier massachusettssol14mass — free full text.",
+   "date": "1777",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "The DAR record (S158) cites this page; here is the page itself, read for free, and it says more than DAR carried over. VERBATIM: 'Spalding, William. Corporal, Capt. Asa Laurance's co. of volunteers, Col. Jonathan Reed's regt.; entered service Sept. 26, 1777; discharged Nov. 9, 1777; service, 1 mo. 15 days, at the Northward, including travel home; company raised in Littleton and Westford and marched to assist army under Gen. Gates.' The entry straddles the page break — the running head '678 MASSACHUSETTS SOLDIERS AND SAILORS' and the catchline 'Spalding, William, continued.' fall in the middle of it — which independently confirms DAR's 'pp. 677-678'. WHAT THIS ADDS: a 45-day militia turnout from 26 September to 9 November 1777, 'at the Northward', to reinforce Horatio Gates. Burgoyne surrendered at Saratoga on 17 October 1777, inside that window. He was one of the New England militia who marched north as Gates's army swelled during the campaign. CAUTION: this says he marched to assist Gates, NOT that he fought in the battles — much of the militia arriving late in the campaign never engaged, and the record does not say. IDENTIFICATION: volume 14 carries several William Spaldings, including a Private of Raby (Brookline NH) and another under Capt. John Porter in 1779. Ours is the Corporal in Asa Laurance's company, and the company being 'raised in Littleton and Westford' matches the Westford residence on the DAR record — the two documents agree on the detail that separates him from his namesakes.",
+   "dataQuirk": "Several men named William Spalding appear in this volume; the Corporal entry is the one, on the Westford match.",
+   "personRefs": [
+    "william-spalding",
+    "marion-anna-cook-skerry"
+   ],
+   "url": "https://archive.org/details/massachusettssol14mass"
   }
  },
  "businesses": {
@@ -10144,12 +10170,13 @@
   "56": {
    "number": 56,
    "date": "2026-08-25",
-   "title": "The DAR pays out: a Revolutionary War patriot, four new generations, and a sister nobody knew about",
+   "title": "The DAR pays out: a Revolutionary War patriot at Saratoga, four new generations, and a sister nobody knew about",
    "sourceRefs": [
     "S158",
     "S159",
     "S160",
-    "S161"
+    "S161",
+    "S162"
    ],
    "personRefs": [
     "william-spalding",
@@ -10168,7 +10195,7 @@
     "pauline-skerry",
     "clarence-edmund-skerry"
    ],
-   "summary": "The brief called the DAR the best value-per-effort item in the queue and it was. Marion C. (Cook) Skerry is in the database as MARION A COOK SKERRY, National #84679, admitted on ancestor A107735 — the Cavendish-chapter membership in the family story is real and documented.\n\nA107735 is WILLIAM SPALDING: born 11 September 1737 in Westford, Middlesex County, Massachusetts, a CORPORAL in the Massachusetts line under Capt. Asa Lawrance and Col. Jonathan Reed, died 28 June 1805 in CAVENDISH, VERMONT. Part 48 had already found a William Spaulding among the original 1780s settlers of Cavendish in the 1891 History of Windsor County and could not tell whether he was kin. He is the same man, and he is direct ancestry. That is two independent sources, found a week apart, closing on each other.\n\nThe application record carries the full chain and it adds FOUR generations above Charles Elliot Spaulding, where the line previously stopped: Nathaniel Spaulding (1801-1879) and Anna Swift (1802-1880); John Spaulding (1760 Westford MA - 1859 Cavendish VT, aged 98) and his second wife Eunice Jones (d. 1813); and William with Esther Dutton (1738-1813), married 29 November 1759. SWIFT, JONES and DUTTON are three new surnames.\n\nAnd a person: the search turned up a SECOND member on the same patriot, ADELAIDE (SPAULDING) COOK BRITTAIN, National #360312, whose papers name Merrill Alonzo Cook and Addie Spaulding as her parents. She is Marion's sister, named for her mother, and she was not in this tree at all.\n\nHer application is also the better document. Marion's, filed around 1911, left every birth and death PLACE blank. Adelaide's, filed around 1946, fills them in — which is where the exact dates now attached to Charles Elliot Spaulding (b. 24 Jul 1833), Amantha Putnam (b. 9 Sep 1837 Springfield VT, d. 30 May 1926 Proctorsville), Addie's death place and Merrill's death (16 Jun 1945 Proctorsville) all come from. Two applications filed 35 years apart, each verified separately by DAR staff, agreeing date for date on five generations. They disagree on exactly one thing: whether Esther Dutton was William's first wife or his second.\n\nMerrill's birthplace is corroborated too — Adelaide's papers say 'West Broone Canada', which is West Brome, Québec, the next village to Iron Hill. The Canada in the family story is Québec, through Cook, and it is now attested twice.\n\nOne lead handed on rather than followed: every documented Skerry line in the DAR database is a SALEM, MASSACHUSETTS family — Felt, Ward, Chever, Thompson intermarriages, going back to the 1740s. Nothing connects it to David and Pauline Skerry of Chicago and nothing here claims it does. But with Nova Scotia disproven, an old Essex County family is a better hypothesis than anything else on the table, and Batch B should test it."
+   "summary": "The brief called the DAR the best value-per-effort item in the queue and it was. Marion C. (Cook) Skerry is in the database as MARION A COOK SKERRY, National #84679, admitted on ancestor A107735 — the Cavendish-chapter membership in the family story is real and documented.\n\nA107735 is WILLIAM SPALDING: born 11 September 1737 in Westford, Middlesex County, Massachusetts, a CORPORAL in the Massachusetts line under Capt. Asa Lawrance and Col. Jonathan Reed, died 28 June 1805 in CAVENDISH, VERMONT. Part 48 had already found a William Spaulding among the original 1780s settlers of Cavendish in the 1891 History of Windsor County and could not tell whether he was kin. He is the same man, and he is direct ancestry. That is two independent sources, found a week apart, closing on each other.\n\nHis service was then read in the published source itself, free on the Internet Archive (S162) — which upgrades him from a compiled DAR record to Tier 1 and says more than DAR carried over. He entered service 26 September 1777 and was discharged 9 November: 45 days, 'at the Northward', in a company raised in Littleton and Westford that 'marched to assist army under Gen. Gates'. Burgoyne surrendered at Saratoga on 17 October, inside that window. He was a 40-year-old militiaman who marched north with his neighbours during the Saratoga campaign and was home by November. The record says he marched to assist Gates; it does not say he fought, and much of the late-arriving militia did not.\n\nThe application record carries the full chain and it adds FOUR generations above Charles Elliot Spaulding, where the line previously stopped: Nathaniel Spaulding (1801-1879) and Anna Swift (1802-1880); John Spaulding (1760 Westford MA - 1859 Cavendish VT, aged 98) and his second wife Eunice Jones (d. 1813); and William with Esther Dutton (1738-1813), married 29 November 1759. SWIFT, JONES and DUTTON are three new surnames.\n\nAnd a person: the search turned up a SECOND member on the same patriot, ADELAIDE (SPAULDING) COOK BRITTAIN, National #360312, whose papers name Merrill Alonzo Cook and Addie Spaulding as her parents. She is Marion's sister, named for her mother, and she was not in this tree at all.\n\nHer application is also the better document. Marion's, filed around 1911, left every birth and death PLACE blank. Adelaide's, filed around 1946, fills them in — which is where the exact dates now attached to Charles Elliot Spaulding (b. 24 Jul 1833), Amantha Putnam (b. 9 Sep 1837 Springfield VT, d. 30 May 1926 Proctorsville), Addie's death place and Merrill's death (16 Jun 1945 Proctorsville) all come from. Two applications filed 35 years apart, each verified separately by DAR staff, agreeing date for date on five generations. They disagree on exactly one thing: whether Esther Dutton was William's first wife or his second.\n\nMerrill's birthplace is corroborated too — Adelaide's papers say 'West Broone Canada', which is West Brome, Québec, the next village to Iron Hill. The Canada in the family story is Québec, through Cook, and it is now attested twice.\n\nOne lead handed on rather than followed: every documented Skerry line in the DAR database is a SALEM, MASSACHUSETTS family — Felt, Ward, Chever, Thompson intermarriages, going back to the 1740s. Nothing connects it to David and Pauline Skerry of Chicago and nothing here claims it does. But with Nova Scotia disproven, an old Essex County family is a better hypothesis than anything else on the table, and Batch B should test it."
   }
  }
 }
