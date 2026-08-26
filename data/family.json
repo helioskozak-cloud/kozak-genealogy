@@ -1,6 +1,6 @@
 {
  "meta": {
-  "schemaVersion": 13,
+  "schemaVersion": 14,
   "description": "Night 1 mechanically extracted BRANCHES + Sources. Night 2 mined Overview-tab Parts 43-22. Night 3 finished prose-mining Parts 21 down through 1 (including two un-numbered pre-numbering sessions and a duplicate 'Part 2' pedigree-tables box, recorded under disambiguating keys '1-addendum-jul1', '2-pinned-pedigree', '2-addendum-jul2' rather than silently merged or dropped), added 10 new persons named only in prose (Malone NY McGivney generations: Bridget Lynch, Nicholas McGivney b.~1820, Catherine McCabe, Patrick Gibny of Kilnaleck; Dooley-branch Relihan siblings: Sen. John J. Relihan Jr., Edward A. Relihan, Ann Relihan Lang, Margaret Relihan Mellott; plus Rose McBride and Sean Relihan as open-identity/probable-descendant records), and folded the Missing Links tab's 17 cards and the Search Queue tab's ~24 groups into person-linked openQuestions[] arrays (id/title/status/priority/origin/summary/exactSearches/sourceRefs) instead of leaving them as separate unstructured HTML-only content. All 43 Parts (1-43) now have a parts{} entry with sourceRefs/personRefs/summary. All 123 sources (S01-S123) are referenced somewhere in the file (as a sources{} entry plus at least one cross-reference in parts{}, a person's facts, or an openQuestions[] entry). index.html's live rendering is untouched. || 2026-08-25: added the Appel/Skerry/Cook/Spalding in-law line — Parts 44-51, sources S124-S143, and 15 person records (Elizabeth Anna Appel and her ancestry back to Clarence Edmund Skerry of Lakeville, Kings County, Nova Scotia). This research had previously been written ONLY into index.html as hand-authored session blocks, so it never reached this file — which is the source the Sources tab, the person records and the part index all render from. Derived is not source. || 2026-08-25 (b): relationships made EXPLICIT. Every person now carries `parents` (ids) and `sameAs` (the same human in another tree). They were previously implied by ahnentafel position, which had James Relihan -- annotated 'Maurice Relihan's father' -- rendering as Ann Duley's father. Also upserted the branch persons that existed only in index.html's inline BRANCHES copy and had never reached this file (grant-4, 8, 9 among them).",
   "personRecordCount": 68,
   "crossRefCount": 4,
@@ -503,13 +503,22 @@
     [
      "Death confirmed",
      "NICHOLAS KOZAK, 8 March 1950, NORWICH CT — exact date match to the death already recorded for him, and it fixes the PLACE as Norwich (S144)."
+    ],
+    [
+     "Immigration: NOT FOUND",
+     "Batch E worked the free passenger indexes properly for the first time. Fifteen candidate arrivals for Mikolaj or Nikolaj Kozak, and every one that states an origin is from GALICIA or Austria — none from Wilno (S185)."
+    ],
+    [
+     "A tension worth knowing about",
+     "Kozak is overwhelmingly a southern-Polish and Ukrainian surname; Wilno is far to the north. A Kozak family from Vilnius is unusual. One untested alternative is WILNO, ONTARIO, the oldest Polish settlement in Canada — see S186, which is a hypothesis written down to be tested and is NOT attached to this tree."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
    "partRefs": [
-    52
+    52,
+    60
    ],
    "openQuestions": [
     {
@@ -540,7 +549,7 @@
    "sourceTree": "grant",
    "sourceKey": 13,
    "kind": "persons",
-   "name": "Anna Byczkowska",
+   "name": "Anna (Byczkowska) Kozak",
    "branch": "kozak",
    "relation": "John J. Kozak's mother",
    "note": "Polish immigrant · Norwich CT",
@@ -557,13 +566,26 @@
     [
      "Death — PROBABLE",
      "ANNA KOZAK, 14 November 1981, NORWICH CT (S145). Her dates were previously unknown. She would appear in a death index under her MARRIED name, which is why a Byczkowska search returns nothing."
+    ],
+    [
+     "Arrival: NOT FOUND",
+     "No Anna Byczkowska in the free passenger indexes. Eleven Byczkowskas and thirty-seven Byczkowskis, none of them her (S187)."
+    ],
+    [
+     "HER FAMILY WAS NOT IN NORWICH",
+     "The most useful thing Batch E established. There are ZERO Byczkowski or Byczkowska deaths in Connecticut in 104 years, and none of the near-spellings that do exist is in Norwich or anywhere in New London County (S188). So she came to Norwich from elsewhere, and Norwich records are the wrong place to look for her origins."
+    ],
+    [
+     "A cluster recorded with no claim attached",
+     "Four Byczkowskas — Kazimir, Jozef, Helena and Rozalia — arrived together on 21 August 1900 from Sereje, now Seirijai in southern Lithuania. That is the right region for a family connected to Wilno. Nothing links them to Anna (S187)."
     ]
    ],
    "confirm": null,
    "crossRef": null,
    "childGroupInfo": null,
    "partRefs": [
-    52
+    52,
+    60
    ],
    "parents": [],
    "sameAs": null
@@ -10588,6 +10610,112 @@
     "stanley-ustaseski"
    ],
    "url": null
+  },
+  "S184": {
+   "num": 184,
+   "person": "The Ellis Island arrival search is free and it works",
+   "relatedPerson": "Nicholas Kozak and Anna Byczkowska — and every future immigration question",
+   "clue": "A working free passenger-list search, after this project had written the route off",
+   "type": "Tooling (Tier 1)",
+   "citation": "Statue of Liberty / Ellis Island Foundation arrival search, www.statueofliberty.org/arrival-search/ — free, driven with Playwright",
+   "date": "2026-08-26",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "The searchable form is NOT at libertyellisfoundation.org, which is why earlier attempts failed. It is a WordPress plugin at www.statueofliberty.org/arrival-search/, posting by AJAX, with fields first_name, last_name, exact_match_first, exact_match_last, sex, birth_year_from, birth_year_to, residence_place, arrival_year_from, arrival_year_to, arrival_location_us, ship_name, passenger_id and a nonce. A reCAPTCHA sits on the page but does not block the search. It reaches MORE than Ellis Island: New York passenger lists 1820-1920, Philadelphia, Baltimore, Detroit/Port Huron, and the St Albans, Vermont CANADIAN BORDER CROSSINGS 1895-1954. castlegarden.org is down entirely, but only covers 1820-1892. THREE BEHAVIOURS THAT WILL MISLEAD YOU. (1) Matching is FUZZY/soundex: a search for Anna Byczkowska returns Goczkowski, Beczkowski, Baczkowska, Buczkowska and Buschkowska, so every returned name must be read. (2) residence_place DOES NOT FILTER properly — Kozak plus residence 'Wilno' cut 23,312 records to 9, and not one of the 9 had Wilno as its last residence. (3) The birth-year range EXCLUDES every record that has no birth year, which is most of them: adding it to a Mikolaj Kozak search made the real Mikolaj Kozaks disappear. Filters here remove real records silently.",
+   "dataQuirk": "Fuzzy matching; residence_place is broken; birth-year filter drops records lacking that field.",
+   "personRefs": [
+    "grant-12",
+    "grant-13"
+   ],
+   "url": "https://www.statueofliberty.org/arrival-search/"
+  },
+  "S185": {
+   "num": 185,
+   "person": "Nicholas Kozak's arrival — searched for and NOT found",
+   "relatedPerson": "Grant's great-great-grandfather",
+   "clue": "Fifteen candidate arrivals, and every one with a stated origin is from GALICIA, not Wilno",
+   "type": "Passenger-list survey (Tier 1 negative)",
+   "citation": "Statue of Liberty / Ellis Island Foundation arrival search, www.statueofliberty.org/arrival-search/ — free, driven with Playwright — surname Kozak with given names Mikolaj, Nikolaj, Nicholas",
+   "date": "2026-08-26",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "MIKOLAJ KOZAK returns 11 records, NIKOLAJ KOZAK 4. Every one of them that states a last residence gives Galicia or Austria — Torki, Zabnice, Korostowick, Starzawa, Pcim, Kuleszy, Krzigowice — and the rest state nothing at all. NONE is from Wilno or anywhere near it. The arrivals cluster in 1902-1914, and several are border crossings at St Albans, Vermont rather than sea arrivals. Attempts to narrow by birth year 1891-1895 made things worse rather than better, because that filter silently drops every record with no birth year recorded (S184). There is no identifiable arrival record for a Nicholas Kozak born 22 September 1893. This is a normal outcome for a common surname with no port, no ship and no exact arrival year, and it is recorded as a negative rather than forced onto one of the fifteen.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-12"
+   ],
+   "url": "https://www.statueofliberty.org/arrival-search/"
+  },
+  "S186": {
+   "num": 186,
+   "person": "Is 'Wilno' actually WILNO, ONTARIO? — a hypothesis, not a finding",
+   "relatedPerson": "Nicholas Kozak's birthplace",
+   "clue": "Kozak is a southern-Polish surname, Vilnius is far north — and the Canadian border keeps appearing in the results",
+   "type": "Hypothesis from a pattern in the evidence (TIER 3 — untested)",
+   "citation": "Reasoning over Statue of Liberty / Ellis Island Foundation arrival search, www.statueofliberty.org/arrival-search/ — free, driven with Playwright results; not yet tested against any record",
+   "date": "2026-08-26",
+   "confidenceClass": "cp",
+   "confidence": "Possible",
+   "notes": "Recorded because it is cheap to write down and might unlock the line. The tension: KOZAK is overwhelmingly a Galician and Ukrainian surname, and essentially every Kozak in the passenger indexes with a stated origin comes from Galicia or southern Poland. Wilno/Vilnius is several hundred miles north, in a quite different Polish diaspora. A Kozak family from Vilnius is genuinely unusual. THE ALTERNATIVE READING: **Wilno, Ontario**, in Renfrew County, is the oldest Polish settlement in Canada, founded in 1858 by Kashubian settlers and named for the city. A man born there in 1893 would be a Canadian-born Pole, and would enter the United States over a land border — and the St Albans, Vermont Canadian border crossing collection appears repeatedly in these very search results. That would also explain why no sea arrival can be found. THIS IS NOT EVIDENCE. No record has been tested and nothing supports it beyond the shape of the problem. It is written down so that a later batch can test it, because it predicts something checkable: a Kozak family in Renfrew County, Ontario in the 1891 or 1901 Canadian census, and a border crossing rather than a ship. If it is wrong, the 1893 Vilnius birth stands exactly as it does now.",
+   "dataQuirk": "A hypothesis written down to be tested, not a conclusion. Do not attach it to the tree.",
+   "personRefs": [
+    "grant-12"
+   ],
+   "url": null
+  },
+  "S187": {
+   "num": 187,
+   "person": "Anna Byczkowska's arrival — searched for and NOT found",
+   "relatedPerson": "Grant's great-great-grandmother",
+   "clue": "Eleven Byczkowskas and thirty-seven Byczkowskis in the passenger indexes, and no Anna among them",
+   "type": "Passenger-list survey (Tier 1 negative)",
+   "citation": "Statue of Liberty / Ellis Island Foundation arrival search, www.statueofliberty.org/arrival-search/ — free, driven with Playwright — surnames Byczkowska and Byczkowski, exact match",
+   "date": "2026-08-26",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "BYCZKOWSKA exact returns 11 records; BYCZKOWSKI exact returns 37. No Anna in either. A first-name search for Anna Byczkowska returns 68 records but the matching is fuzzy and they are Goczkowski, Beczkowski, Baczkowska, Buczkowska, Buschkowska and similar — not one is an exact Anna Byczkowska. ONE CLUSTER IS WORTH RECORDING WITHOUT ANY CLAIM ATTACHED: four Byczkowskas arrived together on 21 August 1900 from SEREJE — Seirijai, in what is now southern Lithuania, which is the right corner of the world for a family connected to Wilno. They are Kazimir, Jozef, Helena and Rozalia. Anna is not among them and nothing links them to her. Since Anna's birth year is unknown, the birth-year filter could not be used to narrow anything.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-13"
+   ],
+   "url": "https://www.statueofliberty.org/arrival-search/"
+  },
+  "S188": {
+   "num": 188,
+   "person": "There are NO Byczkowskis in Connecticut — at all",
+   "relatedPerson": "Anna Byczkowska's family",
+   "clue": "Zero deaths under that surname in the whole state across 104 years, and none of the near-spellings is in Norwich",
+   "type": "State death index, exhaustive variant sweep (Tier 1 negative)",
+   "citation": "Connecticut Vital Records, Index of Deaths 1897-2001 — data.ct.gov resource psf6-3vsu — surname patterns BYCZKOW%, BICZKOW%, BYCKOW%, BUCZKOW%",
+   "date": "1897-2001",
+   "confidenceClass": "cc",
+   "confidence": "Confirmed",
+   "notes": "BYCZKOW% returns ZERO. BICZKOW% returns ZERO. The near-spellings that do exist are BYCKOWSKI — Nelli, Stratford 1970 and Aleck, Bridgeport 1970 — and BUCZKOWSKI, nine deaths across Waterbury, New Britain, Hartford, Stafford, New Haven and Branford. NOT ONE of the eleven is in NORWICH, and not one is in New London County. Find a Grave agrees: 224 Byczkowska memorials worldwide, overwhelmingly in Poland, with none in Connecticut, and only three Anna Byczkowskis anywhere, none of them in Connecticut. WHAT THIS ACTUALLY TELLS US, and it is something rather than nothing: Anna's birth family were not settled in Norwich. She did not marry the boy from her own street the way her son John later did. She came to Norwich from somewhere else — another Connecticut city, another state, or directly from Europe — and the place to look for her is therefore not Norwich records at all.",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-13",
+    "grant-12"
+   ],
+   "url": "https://data.ct.gov/resource/psf6-3vsu.json"
+  },
+  "S189": {
+   "num": 189,
+   "person": "Anna Kozak, Norwich, 14 November 1981 — still the only candidate, still unconfirmed",
+   "relatedPerson": "Anna Byczkowska Kozak's death",
+   "clue": "Re-checked from the full 123-record Kozak pull; nothing new supports or weakens it",
+   "type": "State death index (Tier 1)",
+   "citation": "Connecticut Vital Records, Index of Deaths 1897-2001 — data.ct.gov resource psf6-3vsu — all Kozak deaths, cross-checked against Find a Grave (browser-rendered; plain fetches return HTTP 403)",
+   "date": "1981-11-14",
+   "confidenceClass": "cp",
+   "confidence": "Probable",
+   "notes": "The full pull of 123 Connecticut Kozak deaths made for Batch D was re-read for this. ANNA KOZAK, NORWICH, 14 November 1981 remains the only plausible entry, and its standing is exactly what S145 said: a widow of the right surname dying in the right small city, with the index carrying no age, no spouse and no parents to confirm it. Norwich has other Kozaks (John 1941, Frank 1948, Micha 1955, Maria 1970, Jennie 1984, Fedor 1991, Frank 2001) so the surname alone does not isolate her. Find a Grave cannot help: Divine Providence Cemetery still holds zero transcribed Kozak memorials. Held at Probable, unchanged. The Divine Providence headstone would settle Nicholas and Anna together — the same photograph that would settle Helen (S181).",
+   "dataQuirk": null,
+   "personRefs": [
+    "grant-13",
+    "grant-12",
+    "grant-7"
+   ],
+   "url": "https://data.ct.gov/resource/psf6-3vsu.json"
   }
  },
  "businesses": {
@@ -11729,6 +11857,25 @@
     "grant-13"
    ],
    "summary": "Helen Ustaseski Kozak's death date is still unknown. That is the honest headline. But the search moved, and it moved because of one change of approach: every previous attempt looked for her under USTASESKI. She died a KOZAK, so the Connecticut death index was pulled on that surname instead.\n\nThat returns 123 Kozak deaths in Connecticut between 1897 and 2001 — including confirmations of Nicholas (Norwich, 8 March 1950) and Anna (Norwich, 14 November 1981) — and exactly THREE Helen Kozaks. Southington 1996 is now ruled out: she was Helen W Kozak, born 1920, buried at Plantsville. Waterbury 1984 is neither supported nor excluded. That leaves HELEN KOZAK, NEW LONDON, 4 JANUARY 1999 — New London County, fourteen miles from Norwich, at an age of 74.\n\nIt is NOT being adopted. The index carries only a name, a date and a town; it has no age, no spouse and no parents. A plausible name in a plausible place with nothing to confirm it is exactly the shape of the S34 error, where a Norwich funeral home turned out to be in Norwood, Pennsylvania. It is recorded as the one live candidate and nothing more.\n\nWhat did firm up is the window. Jennie A. Kozak's February 2009 obituary lists the family with unusual care about spouses — 'Mark and wife, Nancy', 'David and his wife, Elizabeth', 'Cindy and her husband, Tom Buckley' — and names 'brother, John J. Kozak of Norwich' ALONE. In a notice that consistent, a living wife would have been there. Helen was almost certainly dead by February 2009, which is eleven years earlier than the previous bound of John's own death in 2020.\n\nThat obituary also pins the family address: 103 GOLDEN STREET, Norwich, where Jennie was born at home in 1925 and died at home in 2009. John married 'his Golden Street neighbor' — so the Ustaseski household stood on the same short street in Greeneville.\n\nOn the parentage question there is nothing new, and that is itself worth stating. Frank Ustaseski has no Find a Grave memorial anywhere in the world. Mary Ustaszewska's memorial was re-opened with a working family-link extractor and has no family section at all. No other Ustaszewski or Ustaszewska is buried anywhere in Connecticut. The case is still the rare-surname argument of S146 and nothing has been added to it. The best unexploited document is FRANK'S OWN OBITUARY: he died 12 February 1956, three months after Helen's November 1955 marriage, so a Norwich notice would list a surviving daughter as 'Mrs. John Kozak' and settle it in a line. Free digitised Norwich Bulletin coverage stops in 1930.\n\nTwo methodological findings came out of this batch and both matter beyond it. legacy.com returns 403 to a plain fetch but renders perfectly under Playwright, which opens The Day and the Norwich Bulletin obituary archives that earlier batches had written off — Jennie's obituary was read that way. And Find a Grave's location filter produces SILENT FALSE NEGATIVES: a Connecticut-filtered search for USTASZEWSKA returns nothing, while the same search unfiltered returns M. G. Ustaszewska of Norwich, Connecticut as its first result. Every Find a Grave negative in this batch was therefore re-run unfiltered.\n\nLast, the practical point, because this is Grant's own grandmother and not a stranger four generations back. Every free documentary route has now been tried and closed. His father Mark Kozak knows his own mother's death date, and a photograph of the Divine Providence headstone would settle both questions at once."
+  },
+  "60": {
+   "number": 60,
+   "date": "2026-08-26",
+   "title": "The passenger indexes finally worked — and neither Nicholas nor Anna is in them",
+   "sourceRefs": [
+    "S184",
+    "S185",
+    "S186",
+    "S187",
+    "S188",
+    "S189"
+   ],
+   "personRefs": [
+    "grant-12",
+    "grant-13",
+    "grant-6"
+   ],
+   "summary": "Two negatives and one genuinely useful piece of ground cleared. Neither Nicholas Kozak's arrival nor Anna Byczkowska's can be found, and that is a normal outcome for immigration research on a common surname without a ship or a year.\n\nBut the route itself is now open, which it was not before. This project had written off the Ellis Island search; the reason is that the working form is not at libertyellisfoundation.org at all but at www.statueofliberty.org/arrival-search/, and it is free. It reaches well beyond Ellis Island — New York lists back to 1820, Philadelphia, Baltimore, Detroit, and the St Albans, Vermont CANADIAN BORDER CROSSINGS. Three of its behaviours are traps and are documented in S184: the matching is fuzzy, the residence field does not really filter, and the birth-year range silently deletes every record that has no birth year.\n\nNICHOLAS. Mikolaj Kozak returns eleven arrivals and Nikolaj Kozak four. Every single one that states an origin comes from GALICIA or Austria — Torki, Zabnice, Korostowick, Starzawa, Pcim, Kuleszy. Not one from Wilno. No arrival can be matched to a man born 22 September 1893, and none of the fifteen is being adopted.\n\nThat points at something worth writing down. Kozak is overwhelmingly a southern-Polish and Ukrainian surname and Wilno is several hundred miles north, which makes a Kozak family from Vilnius genuinely unusual. There is an alternative reading of 'Wilno': WILNO, ONTARIO, in Renfrew County, the oldest Polish settlement in Canada, founded by Kashubians in 1858 and named after the city. A man born there in 1893 would be a Canadian-born Pole crossing a land border — and the St Albans Vermont crossings keep turning up in these very results, which would explain the absence of any ship. This is a HYPOTHESIS AND NOTHING MORE. It is recorded at Possible, deliberately not attached to the tree, and it is written down because it predicts something a later batch can check: a Kozak household in Renfrew County in the 1891 or 1901 Canadian census.\n\nANNA. No Anna Byczkowska in the passenger indexes: eleven Byczkowskas, thirty-seven Byczkowskis, no Anna. One cluster is noted with no claim attached — four Byczkowskas arriving together on 21 August 1900 from Sereje, now Seirijai in southern Lithuania, which is at least the right corner of Europe.\n\nThe most useful result of the batch is a negative that actually says something. There are ZERO Byczkowski or Byczkowska deaths in Connecticut across the entire 1897-2001 index. The near-spellings that exist — two Byckowskis and nine Buczkowskis — are in Stratford, Bridgeport, Waterbury, New Britain, Hartford, Stafford, New Haven and Branford, and NOT ONE is in Norwich or anywhere in New London County. Find a Grave agrees: 224 Byczkowska memorials worldwide, none in Connecticut. So Anna's birth family were not Norwich people. Her son John married the girl from his own street; Anna did not. She arrived in Norwich from somewhere else, and the search for her origins should stop looking at Norwich.\n\nAnna's own death remains the 14 November 1981 Norwich entry, still Probable, still unconfirmed for exactly the reasons S145 gave. As with Helen in Batch D, the Divine Providence headstone would settle Nicholas and Anna in a single photograph."
   }
  }
 }
