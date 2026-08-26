@@ -502,3 +502,97 @@ and Anna, whose plot is equally untranscribed.
    of bug as the NS Archives checkbox fault in Batch B.
 3. CT death index fields are **only** firstname/lastname/date/city — confirmed
    against raw JSON. It generates candidates; it can never confirm one.
+
+### Batch E — 2026-08-26 — IN PROGRESS — checkpoint 1
+Starting S184 / Part 60.
+
+**THE ELLIS ISLAND SEARCH WORKS AND IS FREE.** Not `libertyellisfoundation.org`
+— the live form is a WordPress plugin at
+**`https://www.statueofliberty.org/arrival-search/`**, AJAX, fields
+`first_name / last_name / exact_match_first / exact_match_last / sex /
+birth_year_from / birth_year_to / residence_place / arrival_year_from /
+arrival_year_to / arrival_location_us / ship_name / passenger_id / nonce`.
+Drive it with Playwright (`scratchpad/ellis.py`). reCAPTCHA is on the page but
+does not block the search. It covers MORE than Ellis Island — NY passenger
+lists, Philadelphia, Detroit, and **St Albans VT Canadian border crossings**.
+`castlegarden.org` is DOWN (000) but only covers 1820-1892 anyway.
+
+**CAUTION — two search behaviours that will mislead you:**
+- The name match is **FUZZY/soundex**. "Anna Byczkowska" returned Goczkowski,
+  Beczkowski, Baczkowska, Buczkowska, Buschkowska. Exact-match checkboxes help
+  but the result set is still loose. Read every returned name.
+- **`residence_place` does not filter as advertised.** `last=Kozak` +
+  `residence=Wilno` cut 23,312 down to 9 — but not one of the 9 has Wilno as its
+  last residence (Rozany, Berehy Dolna, Lipniez Wielkie, Kamionka...). Do not
+  report "no Kozaks from Wilno" on the strength of that field.
+
+Results so far, nothing adopted:
+- **BYCZKOWSKA exact: 11 records.** No Anna. Notable cluster: four Byczkowskas
+  arriving together 21 Aug 1900 from **Sereje** (Seirijai, Lithuania — the right
+  region) — Kazimir, Jozef, Helena, Rozalia. No connection established.
+- **BYCZKOWSKI exact: 37.** No Anna.
+- **MIKOLAJ KOZAK: 11. NIKOLAJ KOZAK: 4.** Every one with a stated residence is
+  **Galicia/Austria** (Torki, Zabnice, Korostowick, Starzawa, Pcim, Kuleszy) —
+  none from Wilno. Worth noting as background: Kozak is overwhelmingly a
+  Galician/Ukrainian surname, and Wilno is far to the north, so a Kozak family
+  from Vilnius is genuinely unusual.
+
+### Batch E — 2026-08-26 — **DONE** — pushed `20adf3d`
+**189 sources · 63 parts · 163 people · zero dangling refs.** S184–S189, Part 60.
+
+**Both immigration questions: NOT FOUND.** Normal outcome, recorded as negatives.
+- **Nicholas:** 11 Mikolaj + 4 Nikolaj Kozak arrivals; every one with a stated
+  origin is **Galicia/Austria**, none from Wilno. None adopted.
+- **Anna:** 11 Byczkowskas, 37 Byczkowskis, no Anna.
+
+**The one result that genuinely narrows things: ZERO Byczkowski/Byczkowska
+deaths in Connecticut, 1897-2001.** Near-spellings (2 Byckowski, 9 Buczkowski)
+are all in other cities — **not one in Norwich or New London County**. Find a
+Grave agrees (224 worldwide, none in CT). **Anna's birth family were not Norwich
+people. Stop looking for her origins in Norwich.**
+
+#### Handoffs
+**E → a future batch: TEST THE WILNO, ONTARIO HYPOTHESIS (S186).** Kozak is a
+southern-Polish/Ukrainian surname and Vilnius is far north; **Wilno, Ontario**
+(Renfrew County — oldest Polish settlement in Canada, founded 1858 by Kashubians,
+named for the city) is an alternative reading of Nicholas's birthplace. It would
+explain why no ship arrival exists, since such a man crosses a land border — and
+**St Albans VT border crossings keep appearing in these results.** Checkable
+prediction: **a Kozak household in Renfrew County, Ontario in the 1891 or 1901
+Canadian census.** Recorded at Possible and **deliberately NOT attached to the
+tree.** If it fails, the Vilnius birth stands unchanged.
+
+**E → still open from D:** Frank Ustaseski's Feb 1956 Norwich obituary remains
+the single best Kozak-line document. And the **Divine Providence headstone
+photograph would settle Nicholas, Anna AND Helen at once** — that plot is
+untranscribed and is now blocking three separate questions.
+
+#### Tooling — a real unlock plus three traps
+**The Ellis Island search is FREE and WORKS.** Earlier sessions wrote it off
+because they used `libertyellisfoundation.org`. The live form is
+**`https://www.statueofliberty.org/arrival-search/`** — WordPress plugin, AJAX,
+fields `first_name/last_name/exact_match_first/exact_match_last/sex/
+birth_year_from/birth_year_to/residence_place/arrival_year_from/arrival_year_to/
+arrival_location_us/ship_name/passenger_id/nonce`. Drive with Playwright:
+`scratchpad/ellis.py`, `scratchpad/ellis2.py` (the latter sets the range
+sliders via a native value-setter + input/change events). reCAPTCHA is present
+but does not block searching. Covers **more than Ellis Island** — NY 1820-1920,
+Philadelphia, Baltimore, Detroit/Port Huron, **St Albans VT Canadian border
+crossings 1895-1954**.
+
+**Three ways it will lie to you:**
+1. **Matching is FUZZY/soundex.** "Anna Byczkowska" returns Goczkowski,
+   Beczkowski, Baczkowska, Buczkowska, Buschkowska. Read every returned name;
+   never trust the count alone.
+2. **`residence_place` does not filter.** `Kozak` + `Wilno` cut 23,312 → 9, and
+   none of the 9 had Wilno as last residence. Never draw a place-based negative
+   from it.
+3. **The birth-year range DELETES records that have no birth year** — which is
+   most of them. Adding birth 1891-1895 to a Mikolaj Kozak search made the real
+   Mikolaj Kozaks vanish and left only soundex noise. Filters here remove real
+   records silently — the same failure family as the NS Archives checkboxes
+   (Batch B) and the Find a Grave location filter (Batch D). **This project has
+   now hit that bug three times in three different tools: assume a filter is
+   broken until a control test says otherwise.**
+
+`castlegarden.org` is DOWN (000) — but it only covers 1820-1892, so no loss.
