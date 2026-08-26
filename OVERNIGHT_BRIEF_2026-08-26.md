@@ -152,6 +152,30 @@ batch found nothing.
 ### Handoffs
 _(things found by one batch that belong to another)_
 
+**A → B (Skerry).** Every documented Skerry line in the DAR database is a
+**SALEM, ESSEX COUNTY, MASSACHUSETTS** family, going back to the 1740s and
+intermarrying with Felt, Ward, Chever and Thompson — Samuel Skerry bp.1747,
+Samuel b.1772, Samuel Henry b.1806, Samuel Russell b.1833, Ebenezer Ward
+b.1840, Amory Thompson b.1863, Deborah Skerry m. John Felt. **Nothing connects
+this to David and Pauline Skerry of Chicago** and S161 makes no such claim. But
+with Nova Scotia disproven, an old Essex County family that sent people west is
+the best available hypothesis for where Clarence's father came from. Test it;
+do not assume it.
+
+**A → C (Cavendish/Hillcrest).** New target at Hillcrest, Proctorsville:
+**Adelaide (Spaulding) Cook Brittain**, Marion's sister, DAR #360312 — no birth
+date, husband's first name unknown. Also confirmed to have died in
+Proctorsville and therefore likely buried nearby: **Amantha Putnam Spaulding**
+(d. 30 May 1926) and **Merrill Alonzo Cook** (d. 16 Jun 1945). Walk the plot for
+further Cook siblings.
+
+**A → any batch (paywall note).** DAR record copies went to **$15 each on
+16 March 2026**. Both applications say "Additional, but unverified lineage is
+listed on the application" — meaning the paper copy carries generations the free
+database does not show. That is a **deferred lead, not an action item**, and it
+is the one paid source in this project worth naming to Grant, because it is a
+one-off $15 rather than a subscription.
+
 ---
 
 ### Batch 0 — 2026-08-25 — brief opened
@@ -159,3 +183,56 @@ State at handoff: **157 sources, 58 parts, 130 people.** Site rebuilt and
 data-driven. Two sources retracted this session (S34 false Helen, S127 wrong
 Clarence). The Appel line runs five generations; the Kozak line three with
 candidates beyond. Next action: Batch A, the DAR research system.
+
+---
+
+### Batch A — 2026-08-25 — DAR — **DONE, and it paid out**
+Pushed `de0f1f0`. **161 sources · 59 parts · 137 people · zero dangling refs.**
+
+- **Marion C. (Cook) Skerry = DAR National #84679**, ancestor **A107735**. The
+  Cavendish-chapter membership in the family story is documented.
+- **A107735 = WILLIAM SPALDING**, b. 11 Sep 1737 Westford MA, **Corporal**,
+  Massachusetts line (Capt. Asa Lawrance, Col. Jonathan Reed), **d. 28 Jun 1805
+  CAVENDISH VT**. Service proved from *MA Soldiers and Sailors* vol.14
+  pp.677-678 — a free, independently checkable Tier 1 compilation.
+- **This closes Part 48.** Part 48 found a William Spaulding among Cavendish's
+  original 1780s settlers in the 1891 county history and could not tell whether
+  he was kin. Same man. Two sources found a week apart closing on each other.
+- **Four new generations** above Charles Elliot Spaulding: Nathaniel + Anna
+  Swift, John + Eunice Jones, William + Esther Dutton. Three new surnames.
+- **A new sibling: Adelaide (Spaulding) Cook Brittain**, DAR #360312 on the same
+  patriot, daughter of Merrill and Addie — Marion's sister, not previously in
+  the tree.
+- **Two applications, 35 years apart, verified separately, agreeing date for
+  date** across five generations. Adelaide's (c.1946) fills in every place
+  Marion's (c.1911) left blank; all the new exact dates come from it.
+
+Method note for later batches: the GRS **Descendants** tab (`Tab_ID=5`) is the
+valuable one — it posts to `search_descendants/default.cfm` with
+`MyLast_Name`/`First_Name`/`BirthState`/`Action=Search`/`SearchSource=Form`,
+and each result row carries a `MyPrimary_Seqn` link that renders the **full
+lineage chain**. The Member detail pages (`search_member/`) render empty and are
+not worth fetching. Searching the WIFE's surname plus `BirthState` is what found
+this; the husband's surname alone returned nothing.
+
+**Then the patriot was verified in the published source, free** (`2a995c0`,
+S162, **162 sources**). DAR cites *Massachusetts Soldiers and Sailors* vol.14
+pp.677-678; that book is on the Internet Archive in full text
+(`massachusettssol14mass`), so the page was read directly instead of trusted
+second-hand. It matches DAR exactly — the page break even falls mid-entry,
+confirming the citation — and adds what DAR did not carry: *"Corporal, Capt.
+Asa Laurance's co. of volunteers, Col. Jonathan Reed's regt.; entered service
+Sept. 26, 1777; discharged Nov. 9, 1777; service, 1 mo. 15 days, at the
+Northward … company raised in Littleton and Westford and marched to assist army
+under Gen. Gates."* **Burgoyne surrendered at Saratoga on 17 Oct 1777, inside
+that 45-day turnout.** Recorded as marching to assist Gates, **not** as having
+fought — the source does not say so and late-arriving militia often did not
+engage. Volume 14 holds several William Spaldings; ours is the Corporal, matched
+on Westford.
+
+**General lesson worth reusing: when a compiled record cites a printed source,
+check whether that source is on the Internet Archive.** It cost one download and
+turned a Tier 2 record into Tier 1 with a campaign attached.
+
+Not done in Batch A, left open: Putnam, Swift, Jones and Dutton parentages are
+not carried on either application.
