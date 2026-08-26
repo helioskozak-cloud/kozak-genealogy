@@ -677,3 +677,46 @@ searches work** where location-filtered ones lie (Batch D), and that `fgfam3.py`
 group extraction is what makes these memorials usable — **Beatrice Shomsky sits
 perfectly in the sibling age series and is actually a WIFE**; a flat scrape would
 have made her a sibling and put a whole false generation into the tree.
+
+### Batch G — 2026-08-26 — **DONE** — pushed `99def19`
+**All six research batches A–F ran and completed. None died early.**
+
+**Final state: 197 sources · 64 parts · 171 people.**
+Start of night was 157 / 58 / 130 — so **+40 sources, +6 parts, +41 people**.
+
+**INTEGRATION FIX (`99def19`).** Batch F appended corrected dates without
+retiring the approximations they replaced, leaving three records carrying
+contradictory facts side by side — `grant-4` ("Born: ~1930 CT" next to
+"b. 16 Sep 1930"), `grant-5` ("Born: ~1925" next to "b. 26 Nov 1931"), and
+`tpr-1`, which is merged with grant-4 by `sameAs` and so renders alongside it.
+All corrected. **Recovered in the merge: an exact marriage date, 6 June 1953
+Bridgeport, which `tpr-1` held and the newer record had flattened to "1953".**
+*Lesson for future batches: when you supersede a fact, EDIT it — appending a
+correction leaves the old value on the page next to the new one.*
+
+**VERIFIED, not assumed:**
+- JSON parses (635KB). **Zero dangling** personRefs, sourceRefs, parents, sameAs.
+- All of S158–S197 present; all parts 56–61 present; **every overnight source is
+  cited by a part** (so none is invisible in the research log).
+- Site served locally and loaded in Playwright: all five panes render
+  (267,387 chars total across ancestry/people/sources/research/questions).
+  **ZERO page errors, ZERO console errors or warnings, ZERO failed requests.**
+- Spot-checked 15 overnight people and 10 overnight sources as actually rendered
+  in the People and Sources panes — all present.
+- *Test-method note:* `document.body.innerText` only returns the VISIBLE pane, so
+  a naive content check reports everything missing. Query each `[id^=pane-]`
+  element's own innerText instead. Script: `scratchpad/sitetest2.py`.
+
+**Pre-existing data-quality note, not created overnight and not fixed:** five
+duplicate person names exist (`tpr-1`/`grant-4`, `tpr-3`/`grant-9`,
+`grant-cg1-4`/`-5`, `grant-cg0-3`/`-4`, two unnamed McGivney sisters). These are
+**deliberate** — linked by `sameAs` and merged by the site's union-find. Left
+alone. 54 sources are cited by no part; all pre-existing, none from overnight.
+
+**MORNING REPORT WRITTEN:** `C:\kozak-genealogy\MORNING_2026-08-26.md`. Covers
+what was established, what was ruled out, a dedicated section listing everything
+resting on a same-name match (the Clarence reopening, Silas Cook, Basilius
+Somszky, Wilno Ontario, the New London Helen, "Mrs. Mary Werner", and the two
+bio-line generations), five decisions needed from Grant, and three next actions.
+**Flagged for his decision, not acted on: `index-legacy.html` and `tree.html`
+are still orphaned in the repo.**
