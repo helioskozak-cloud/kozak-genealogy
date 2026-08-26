@@ -236,3 +236,92 @@ turned a Tier 2 record into Tier 1 with a campaign attached.
 
 Not done in Batch A, left open: Putnam, Swift, Jones and Dutton parentages are
 not carried on either application.
+
+---
+
+### Batch B — 2026-08-25 — IN PROGRESS — checkpoint 1
+**MAJOR, and it cuts against the S127 retraction. Handle carefully.**
+
+NS Archives birth register, book 1816 p.170 no.449, read from the free scan:
+> **Clarence Edmund Skerry, M, b. 27 Sept 1872 Lakeville. Father: David T.
+> Skerry, CARPENTER, Lakeville. Mother: Paulina Rockwell. Married 22 Sept 1866,
+> BOSTON, MASS. Informant: D. T. Skerry, Lakeville.**
+
+So the Kings County couple IS David T. Skerry + Pauline L. Rockwell (Find a
+Grave, one stone, Lakeview Cemetery Billtown: David b. 19 Dec 1837 CHESTER,
+Lunenburg Co, d. 30 Sep 1909; Pauline b. 1837 Kings Co, d. 1909).
+
+**They married in BOSTON in 1866** — this family was already moving between Nova
+Scotia and the US, and David was a carpenter, a trade that followed work.
+
+Our Clarence: b. **21 Sep 1877 CHICAGO**, son of **David and Pauline** Skerry.
+Theirs: b. **27 Sep 1872 Lakeville**, son of **David T.** and **Paulina**. Same
+rare surname, same parents' names, same given names, birthdays six days apart in
+late September. Two unrelated David+Pauline Skerry couples both naming a
+Clarence Edmund born in late September is not a credible coincidence.
+
+**But which reading is right is NOT yet settled**, and this project has already
+been burned once here:
+ (a) the 1872 boy died and the name was reused on a Chicago-born son in 1877; or
+ (b) they are one man and the 1877/Chicago data on his memorial — which comes
+     from late, self-reported Vermont records — is wrong, meaning S127 was right
+     and the retraction over-corrected.
+Against (a): there is **no Kings County death record for him**, and NS death
+coverage does include 1864-1877. Against (b): "Chicago" is a specific claim.
+
+**NS Archives tooling correction — the brief was incomplete.** Checkboxes need
+`B=birth&M=marriage&D=death`, NOT `B=on`. With `on` the site returns "No records
+found" for *everything*, including Smith — a silent false negative. `LastS=<>`
+for exact was right. Record pages give only book/page/number; the **scanned
+register image is free** at
+`/images/vital-statistics/births/<book>/<book>-<page5>.jpg` and is readable.
+**Always control-test this search with a common surname before reporting a
+negative.**
+
+### Batch B — 2026-08-25 — **DONE** — pushed `27343ae`
+**168 sources · 60 parts · 139 people · zero dangling refs.** S163–S168, Part 57.
+
+**Answered:** where the Skerrys were before Chicago — **Nova Scotia**, south
+shore into Kings County. **Pauline's maiden name is ROCKWELL** (the standing
+open question on her). David T. Skerry + Pauline L. Rockwell share one stone at
+Lakeview Cemetery, Billtown, Sec 1 Stone 40. Two new siblings: **Aubrey Eaton
+Skerry** (1867–1936, stayed) and **Frederick Leander** (1869–1870, infant).
+David was **Baptist**, a carpenter then farmer, **married Paulina at BOSTON on
+22 Sep 1866**.
+
+**Reopened, deliberately and on the record:** the child was registered twice,
+and the mother's own registration gives **21 September** — our Clarence's exact
+birthday. **S127 moved Disproven → Probable; S148 Confirmed → Probable on the
+birth details only.** Neither promoted to Confirmed; the five-year and
+country-of-birth conflicts are real and unexplained. **Do not let a later batch
+quietly resolve this in either direction without a new primary document.**
+
+**THE decisive test, for whoever picks it up — 1881 Canadian census, Lakeville,
+Kings County.** A Clarence aged 8 in David Skerry's household kills the Chicago
+birth outright; his absence supports it. `bac-lac.gc.ca` (403) and
+`automatedgenealogy.com` (bot wall) are both on the blocked list, so this needs
+a *new* free route — try `familysearch.org` **ancestors** pages via WebSearch
+with `allowed_domains` (per §1 that route works), or a Kings County GenWeb
+transcription. Second choice: 1880 US census, Chicago. Third: the Vermont 1936
+death record read rather than summarised.
+
+**Not attempted:** Chicago city directories 1875–1880 on the Internet Archive.
+Cheap and free, and would show a David Skerry in Chicago or not. Good next move.
+
+#### Tooling learned in Batch B — IMPORTANT, §1 is incomplete
+- **NS Archives checkboxes need `B=birth&M=marriage&D=death`, NOT `B=on`.** With
+  `on` the site returns **"No records found" for everything, including Smith** —
+  a completely silent false negative. `LastS=<>` (exact) was right. Full working
+  query: `/vital-statistics/results/?First=&FirstS=<>&Last=X&LastS=<>&Place=&County=&sYear=&eYear=&B=birth&M=marriage&D=death`
+  (URL-encode `<>` as `%3C%3E`). Results cap at ~26 rows with no pagination —
+  narrow by `County=` to see more.
+- **ALWAYS control-test a search with a common surname before reporting a
+  negative.** That is the only reason this batch caught the bug.
+- **The register scans are free and readable.** Record pages give only
+  book/page/number; the image is at
+  `/images/vital-statistics/{births,deaths}/<book>/<book>-<page-5-digit>.jpg`
+  and can be downloaded with curl and read directly. **This is a much bigger
+  unlock than the index** — the index has no parents on it; the scan has
+  parents, occupation, marriage date and place, and the informant's name.
+- `ilsos.gov` (Illinois SOS — statewide death and marriage indexes) **times out
+  at the network level**, like `1950census.archives.gov`. Add to blocked.
