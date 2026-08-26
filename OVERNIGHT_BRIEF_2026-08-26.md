@@ -415,3 +415,90 @@ probably his son, i.e. Nathaniel's brother — **untested, not recorded as kin.*
 - Scroll before reading (4 × `mouse.wheel`); the section lazy-loads.
 - Working script: **`scratchpad/fgfam3.py`** (groups) alongside `fgq.py`
   (details/lists) and `cemid.py` (cemetery ids from a memorial).
+
+### Batch D — 2026-08-26 — IN PROGRESS — checkpoint 1
+Starting S178 / Part 59. **Owner's own line.**
+
+**Method note that mattered:** searched the CT death index under her MARRIED
+name, KOZAK, not Ustaseski. Prior work had only swept USTAS*.
+
+- **123 Kozak deaths in CT 1897-2001.** Confirms two known: NICHOLAS KOZAK
+  Norwich 1950-03-08 and ANNA KOZAK Norwich 1981-11-14.
+- **Exactly three HELEN KOZAKs**: Waterbury 1984-05-20, Southington 1996-11-28,
+  **NEW LONDON 1999-01-04** — New London County, same county as Norwich.
+- The Southington one is **eliminated**: Find a Grave has Helen W Kozak
+  **1920**-1996 at South End Burying Ground, Plantsville (in Southington). Ours
+  was born 1924.
+- The index carries **only firstname/lastname/date/city** — verified against the
+  raw JSON. No ages, no parents. It can generate a candidate, never confirm one.
+- Find a Grave: **no** Helen Kozak in Norwich or New London County; only ONE
+  Ustaseski worldwide (Stanley, 1885-1943, New Haven). Divine Providence is
+  untranscribed for Kozaks (S154), so absence proves nothing there.
+
+**Jennie A. Kozak's Feb 2009 obituary (The Day) — a real constraint.** Her
+family list names every spouse: "Mark and wife, Nancy", "David and his wife,
+Elizabeth", "Cindy and her husband, Tom Buckley" — but **"brother, John J. Kozak
+of Norwich" is listed ALONE, with no wife.** So Helen was almost certainly
+already dead by February 2009. Consistent with the 1999 candidate; NOT proof of
+it.
+Also from that obituary: **the Kozak house was 103 GOLDEN ST., Norwich**, where
+Jennie was born at home in 1925 to Anna (Byczkowska) and Nicholas — which
+corroborates John marrying "his Golden Street neighbour".
+
+**NOT adopting the New London 1999 entry.** Same shape as the S34 error:
+plausible name, plausible place, no confirming detail.
+
+#### Tooling
+**legacy.com 403s WebFetch but renders fine under Playwright.** Generic fetcher
+written at `scratchpad/pget.py`. This opens the whole Legacy/The Day/Norwich
+Bulletin obituary archive, which earlier batches had written off. dignitymemorial
+fetches normally; **echovita returns 410**.
+
+### Batch D — 2026-08-26 — **DONE** — pushed `167d743`
+**183 sources · 62 parts · 163 people · zero dangling refs.** S178–S183, Part 59.
+
+**Q1 Helen's death date: STILL UNKNOWN.** Narrowed, not solved.
+- Ruled out: Southington 1996 (Helen W Kozak b.**1920**, Plantsville).
+- Open, unsupported: Waterbury 1984.
+- **One live candidate: HELEN KOZAK, NEW LONDON, 4 JAN 1999.** NOT adopted —
+  index has no age/spouse/parents. Same shape as the S34 error. **Do not
+  promote this without a second document.**
+- **Window closed from 2020 to Feb 2009** via Jennie's obituary, which names
+  every other spouse and lists John alone.
+- Not on Find a Grave: all 49 worldwide Helen Kozaks b.1924±5 checked; the one
+  CT hit is the Southington woman. Divine Providence still has ZERO Kozaks.
+- **New fact:** the Kozak house is **103 Golden St., Norwich**.
+
+**Q2 parentage: UNCHANGED, still Probable.** Frank Ustaseski has no memorial
+anywhere on Find a Grave; Mary Ustaszewska's has no family section at all; no
+other Ustaszewski/a anywhere in CT. Nothing was added to the S146 argument.
+
+#### Handoffs
+**D → E/F/G, and it is the single best remaining Kozak-line target.**
+**FRANK USTASESKI'S OBITUARY, Norwich, ~13-14 February 1956.** He died three
+months after Helen married John, so a notice would list a surviving daughter as
+**"Mrs. John Kozak"** and prove the parentage in one line. Free Norwich Bulletin
+digitisation stops in 1930 (S156) — but **legacy.com now works under Playwright**,
+so The Day's archive is worth testing for 1956, and **Google News Archive carries
+The Day (New London) as free page images** and has never been tried by this
+project. Same trick would reach Mary Ustaszewska's 1937 notice.
+
+**D → whoever writes the morning report.** Say plainly that Helen's date is a
+**phone call, not a research problem**: Mark Kozak is living and knows it, and a
+photograph of the Divine Providence headstone settles Helen AND likely Nicholas
+and Anna, whose plot is equally untranscribed.
+
+#### Tooling — two findings that change earlier conclusions
+1. **legacy.com renders under Playwright** (403s WebFetch). Opens The Day /
+   Norwich Bulletin obituary archives that earlier batches wrote off. Generic
+   fetcher: `scratchpad/pget.py`. **dignitymemorial** fetches normally;
+   **echovita returns 410**.
+2. **Find a Grave's location filter gives SILENT FALSE NEGATIVES.** Proved by
+   control test: surname USTASZEWSKA + `location=Connecticut&locationId=state_9`
+   → "No matches found"; the same surname unfiltered → **M. G. Ustaszewska,
+   Divine Providence Cemetery, Norwich, CONNECTICUT** as the first result.
+   **Never trust a location-filtered Find a Grave negative** — search unfiltered
+   and read the locations, or scope by cemetery id, which does work. Same class
+   of bug as the NS Archives checkbox fault in Batch B.
+3. CT death index fields are **only** firstname/lastname/date/city — confirmed
+   against raw JSON. It generates candidates; it can never confirm one.
