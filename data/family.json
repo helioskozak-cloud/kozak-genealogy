@@ -229,11 +229,11 @@
    "facts": [
     [
      "Born",
-     "~1925 Bridgeport CT"
+     "26 November 1931, Connecticut (S195) — was '~1925'"
     ],
     [
      "Died",
-     "Before Jul 2003 (predeceased her mother)"
+     "16 June 1988, Woodbridge, New Haven County CT, aged 56 (S195, S79) — was 'before Jul 2003'. She predeceased her mother by fifteen years."
     ],
     [
      "Parents",
@@ -1765,16 +1765,16 @@
    "name": "Thomas P. Relihan",
    "branch": "rel",
    "relation": "Grant's maternal grandfather",
-   "note": "b.~1930 CT · d.Dec 16 1990 Woodbridge CT",
+   "note": "b.Sep 16 1930 Bridgeport CT · d.Dec 16 1990 Woodbridge CT",
    "prob": true,
    "facts": [
     [
      "Born",
-     "~1930, Connecticut"
+     "16 September 1930, Bridgeport CT (S195)"
     ],
     [
      "Died",
-     "Dec 16 1990, Woodbridge CT (CT vital records · S79 upgrades S35)"
+     "16 December 1990, Woodbridge CT, aged 60 (S195, S79)"
     ],
     [
      "Parents",
@@ -1782,7 +1782,7 @@
     ],
     [
      "Spouse",
-     "Dorothy Shomsky Relihan (b.~1925 Bridgeport CT · m. Jun 6 1953 Bridgeport CT · d.Jun 16 1988 Woodbridge CT · S78;S79)"
+     "Dorothy Shomsky Relihan (b. 26 Nov 1931 · m. 6 Jun 1953 Bridgeport CT · d. 16 Jun 1988 Woodbridge CT — S78, S79, S195)"
     ],
     [
      "Children",
@@ -1806,7 +1806,8 @@
    "partRefs": [
     3,
     6,
-    38
+    38,
+    61
    ],
    "parents": [
     "tpr-2",
@@ -5454,11 +5455,11 @@
    "facts": [
     [
      "Born",
-     "~1930 CT"
+     "16 September 1930, Bridgeport CT (S195) — was '~1930'"
     ],
     [
      "Died",
-     "~1990 CT (US death index S35)"
+     "16 December 1990, Woodbridge CT, aged 60 (S195, S79)"
     ],
     [
      "Spouse",
@@ -5477,16 +5478,16 @@
      "Sen. John J. Relihan Jr. (CT State Sen. Dist.21, d.Dec 15 1966 Bridgeport CT · S79); Edward A. Relihan (b.Jun 24 1929, d.May 21 1989 Waterbury CT · S79); Ann Relihan Lang (d.Dec 22 2008); Margaret Relihan Mellott (d.Dec 4 2022)"
     ],
     [
-     "Needed",
-     "Exact dates — New Haven Register / CT Post obit ~1990"
-    ],
-    [
      "DATES CONFIRMED AND SHARPENED",
      "b. 16 September 1930, Bridgeport; d. 16 December 1990, Woodbridge, aged 60 — was '~1930 / ~1990'. Buried Northwest Cemetery, Woodbridge, inscription 'Husband-Father'. Married Dorothy Shomsky 1953 (S195)."
     ],
     [
      "His father",
      "His memorial states 'Father: John J. Relihan (1889-1955)', which matches the JOHN RELIHAN d. 23 May 1955 Bridgeport already identified in S79 as the Dooley-branch patriarch. A useful cross-confirmation into the Relihan side, which is not this batch's scope."
+    ],
+    [
+     "Married",
+     "Dorothy Shomsky, 6 June 1953 at Bridgeport CT (S78/S79; the day is from the earlier Relihan-side work, the year is corroborated by her memorial, S195)"
     ]
    ],
    "confirm": null,
